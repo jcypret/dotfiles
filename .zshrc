@@ -4,12 +4,8 @@ antigen use oh-my-zsh
 alias emberclean="npm cache clean && bower cache clean && rm -rf node_modules bower_components dist tmp && npm install && bower install"
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder;"
 
-heroku=/usr/local/heroku/bin
-rbenv=$HOME/.rbenv/bin
-homebrew=/usr/local/bin:/usr/local/sbin
 postgres=/Applications/Postgres.app/Contents/Versions/latest/bin
-
-export PATH=./bin:/usr/local/sbin:$heroku:$rbenv:$homebrew:$postgres:$PATH
+export PATH=./bin:/usr/local/bin:/usr/local/sbin:$postgres:$PATH
 
 # Plugins
 antigen bundle chrissicool/zsh-256color
