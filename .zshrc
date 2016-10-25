@@ -11,13 +11,12 @@ postgres=/Applications/Postgres.app/Contents/Versions/latest/bin
 
 export PATH=./bin:/usr/local/sbin:$heroku:$rbenv:$homebrew:$postgres:$PATH
 
-eval "$(nodenv init -)"
-
 # Plugins
 antigen bundle chrissicool/zsh-256color
 antigen bundle ember-cli
 antigen bundle git
 antigen bundle heroku
+antigen bundle jsahlen/nodenv.plugin.zsh
 antigen bundle rails
 antigen bundle rbenv
 antigen bundle zsh-users/zsh-autosuggestions
