@@ -1,11 +1,10 @@
 source $(brew --prefix)/share/antigen/antigen.zsh
-antigen use oh-my-zsh
-
-alias emberclean="npm cache clean && bower cache clean && rm -rf node_modules bower_components dist tmp && npm install && bower install"
-alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder;"
+source ~/.dotfiles/aliases.zsh
 
 postgres=/Applications/Postgres.app/Contents/Versions/latest/bin
 export PATH=./bin:/usr/local/bin:/usr/local/sbin:$postgres:$PATH
+
+antigen use oh-my-zsh
 
 # Plugins
 antigen bundle chrissicool/zsh-256color
