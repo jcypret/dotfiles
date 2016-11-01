@@ -1,9 +1,6 @@
 source $(brew --prefix)/share/antigen/antigen.zsh
 source ~/.dotfiles/aliases.zsh
 
-postgres=/Applications/Postgres.app/Contents/Versions/latest/bin
-export PATH=./bin:/usr/local/bin:/usr/local/sbin:$postgres:$PATH
-
 antigen use oh-my-zsh
 
 # Plugins
@@ -23,3 +20,6 @@ antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
 
 antigen apply
+
+postgres=/Applications/Postgres.app/Contents/Versions/latest/bin
+export PATH=./bin:/usr/local/bin:/usr/local/sbin:$postgres:$PATH
