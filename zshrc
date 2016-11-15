@@ -6,6 +6,7 @@ antigen use oh-my-zsh
 # Plugins
 antigen bundle chrissicool/zsh-256color
 antigen bundle ember-cli
+antigen bundle thefuck
 antigen bundle git
 antigen bundle heroku
 antigen bundle jsahlen/nodenv.plugin.zsh
