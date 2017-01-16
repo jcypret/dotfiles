@@ -22,8 +22,8 @@ antigen bundle sindresorhus/pure
 
 antigen apply
 
-postgres=/Applications/Postgres.app/Contents/Versions/latest/bin
-export PATH=/usr/local/bin:/usr/local/sbin:$postgres:$PATH
+POSTGRES=/Applications/Postgres.app/Contents/Versions/latest/bin
+export PATH=/usr/local/bin:/usr/local/sbin:$POSTGRES:$PATH
 export EDITOR="vim"
 
 eval "$(rbenv init -)" # Load in RBenv shims
