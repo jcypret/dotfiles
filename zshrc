@@ -1,9 +1,10 @@
 source $(brew --prefix)/share/antigen/antigen.zsh
-source ~/.dotfiles/aliases.zsh
+source ~/.aliases
 
 antigen use oh-my-zsh
 
 # Plugins
+antigen bundle bundler
 antigen bundle chrissicool/zsh-256color
 antigen bundle ember-cli
 antigen bundle thefuck
@@ -11,7 +12,6 @@ antigen bundle git
 antigen bundle heroku
 antigen bundle jsahlen/nodenv.plugin.zsh
 antigen bundle rails
-antigen bundle rbenv
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -23,4 +23,10 @@ antigen bundle sindresorhus/pure
 antigen apply
 
 postgres=/Applications/Postgres.app/Contents/Versions/latest/bin
-export PATH=./bin:/usr/local/bin:/usr/local/sbin:$postgres:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$postgres:$PATH
+export EDITOR="vim"
+
+eval "$(rbenv init -)" # Load in RBenv shims
+ssh-add -A 2>/dev/null; # Load in SSH keys
+
+export PATH=./bin:$PATH # always check ./bin first

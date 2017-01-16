@@ -10,14 +10,11 @@ alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print \$2}'"
 
 # Useful when Rails doesn't give the port back.
 # => killport 3000
-killport() { lsof -ti:$1 | xargs kill }
+killport() { lsof -ti:$1 | xargs kill -9 }
 
 # Project directories
-p() { cd ~/Projects/$1; }
-compctl -W ~/Projects/ -/ p
-
-s() { cd ~/Sites/$1; }
-compctl -W ~/Sites/ -/ s
+c() { cd ~/Code/$1; }
+compctl -W ~/Code/ -/ c
 
 desk() { cd ~/Desktop/$1; }
 compctl -W ~/Desktop/ -/ desk
