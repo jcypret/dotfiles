@@ -20,6 +20,7 @@ Plug 'tpope/vim-surround'
 Plug 'thoughtbot/vim-rspec'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
 Plug 'vim-ruby/vim-ruby'
 
 call plug#end()
