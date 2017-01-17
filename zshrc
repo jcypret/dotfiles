@@ -24,7 +24,8 @@ antigen apply
 
 POSTGRES=/Applications/Postgres.app/Contents/Versions/latest/bin
 export PATH=/usr/local/bin:/usr/local/sbin:$POSTGRES:$PATH
-export EDITOR="vim"
+export EDITOR=vim
+export TERM=xterm-256color
 
 eval "$(rbenv init -)" # Load in RBenv shims
 ssh-add -A 2>/dev/null; # Load in SSH keys
