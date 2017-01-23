@@ -1,11 +1,21 @@
 " Leader
 let mapleader=" "
 
-set noswapfile
+" Automatically :write before running commands
+" Useful for automatically savings before running specs.
 set autowrite
-set gdefault " assume the /g flag for search and replace
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+" Load plugins
+source ~/.vimrc.bundles
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
+" Use one space, not two, after punctuation.
+set nojoinspaces
+
+" Use The Silver Searcher for grep
+" https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -31,7 +41,12 @@ highlight ColorColumn ctermbg=235
 set relativenumber
 set number
 set numberwidth=5
-highlight LineNr ctermfg=238
+highlight LineNr ctermfg=237
+
+" Use italics for code comments
+set t_ZH=[3m
+set t_ZR=[23m
+highlight Comment cterm=italic ctermfg=241
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -39,13 +54,8 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
-
-" Load plugins
-source ~/.vimrc.bundles
-
 " Switch to normal mode
+imap jj <esc>
 imap jk <esc>
 imap kj <esc>
 
@@ -59,7 +69,7 @@ nmap 0 ^
 " Reload vim config and install plugins
 nmap <Leader>bi :source ~/.vimrc<cr>
 
-" Get off my lawn
+" Prevent use of arrow keys in normal mode
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
@@ -70,31 +80,20 @@ set splitbelow
 set splitright
 
 " Quicker window movement
+nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" vim-move config
-" for terms that send Alt as Escape sequence
-" see http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
-" for why the <F20> hack. Keeps Esc from waiting for other keys to exit visual
-set <F20>=j
-set <F21>=k
-vmap <F20> <Plug>MoveBlockDown
-vmap <F21> <Plug>MoveBlockUp
-nmap <F20> <Plug>MoveLineDown
-nmap <F21> <Plug>MoveLineUp
-
 " Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<space>
+nnoremap <Leader>c :RunInInteractiveShell<space>
 
 " Bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>r :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
@@ -126,10 +125,22 @@ map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
-" vim-airline configuration
-let g:airline#extensions#tabline#enabled = 1
+" Disable tab choosing for UltiSnips compatibility.
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
 
-" configure syntastic syntax checking to check on open as well as save
+" Use tabs for auto completion
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
+
+" Configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_eruby_ruby_quiet_messages =
