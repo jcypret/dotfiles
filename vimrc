@@ -11,8 +11,12 @@ source ~/.vimrc.bundles
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
-" Use one space, not two, after punctuation.
+" Use one space, not two, after punctuation
 set nojoinspaces
+
+" Preserve indention on line breaks
+set breakindent
+set breakindentopt shift=2
 
 " Use The Silver Searcher for grep
 " https://github.com/ggreer/the_silver_searcher
