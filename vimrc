@@ -11,7 +11,7 @@ source ~/.vimrc.bundles
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
-" Use one space, not two, after punctuation
+" When joining lines, collaps to a single space
 set nojoinspaces
 
 " Preserve indention on line breaks
@@ -58,6 +58,10 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
 " Switch to normal mode
 imap jj <esc>
 imap jk <esc>
@@ -73,15 +77,23 @@ nmap 0 ^
 " Reload vim config and install plugins
 nmap <Leader>bi :source ~/.vimrc<cr>
 
+" Run commands that require an interactive shell
+nnoremap <Leader>c :RunInInteractiveShell<space>
+
+" Bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Pastes text from system clipboard without auto indentation.
+map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
 " Prevent use of arrow keys in normal mode
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
-
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
 
 " Quicker window movement
 nnoremap <C-h> <C-w>h
@@ -89,17 +101,53 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Run commands that require an interactive shell
-nnoremap <Leader>c :RunInInteractiveShell<space>
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
 
-" Bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" Edit another file in the same directory as the current file
+" uses expression to extract path from current file's path
+map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>r :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" Disable tab choosing for UltiSnips compatibility.
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+
+" Use tabs for auto completion
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+set wildmode=list:longest,list:full
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
+
+" Configure Syntastic with recommended settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Remove trailing whitespace when a file is saved
 " Source: <http://vim.wikia.com/wiki/Remove_unwanted_spaces>
@@ -119,48 +167,3 @@ autocmd! FileWritePre * :call TrimWhiteSpace()
 autocmd! FileAppendPre * :call TrimWhiteSpace()
 autocmd! FilterWritePre * :call TrimWhiteSpace()
 autocmd! BufWritePre * :call TrimWhiteSpace()
-
-" Pastes text from system clipboard without auto indentation.
-map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
-
-" Edit another file in the same directory as the current file
-" uses expression to extract path from current file's path
-map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
-map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
-map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
-
-" Disable tab choosing for UltiSnips compatibility.
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-
-" Use tabs for auto completion
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" Switch between the last two files
-nnoremap <leader><leader> <c-^>
-
-" Treat <li> and <p> tags like the block tags they are
-let g:html_indent_tags = 'li\|p'
-
-" Configure syntastic syntax checking to check on open as well as save
-let g:syntastic_check_on_open=1
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {"regex": "possibly useless use of a variable in void context"}
-
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
