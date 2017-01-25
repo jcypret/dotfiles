@@ -16,7 +16,7 @@ set nojoinspaces
 
 " Preserve indention on line breaks
 set breakindent
-set breakindentopt shift=2
+set breakindentopt=shift:2
 
 " Use The Silver Searcher for grep
 " https://github.com/ggreer/the_silver_searcher
