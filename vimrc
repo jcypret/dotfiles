@@ -141,10 +141,16 @@ endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
-" Configure Syntastic with recommended settings
+" start of default statusline
+set statusline=%f\ %h%w%m%r
+" Syntastic statusline
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+" end of default statusline (with ruler)
+set statusline+=%=%(%l,%c%V\ %=\ %P%)
+
+" Configure Syntastic with recommended settings
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
