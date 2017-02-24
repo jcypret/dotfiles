@@ -119,6 +119,7 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
+let test#strategy = "dispatch"
 
 " Disable tab choosing for UltiSnips compatibility.
 let g:ycm_key_list_select_completion=[]
