@@ -5,8 +5,16 @@ let mapleader=" "
 " Useful for automatically savings before running specs.
 set autowrite
 
+" Show partial command in bottom right corner.
+" e.g. the motion change-in-word would show 'ci' while still typing.
+set showcmd
+
 " Load plugins
 source ~/.vimrc.bundles
+
+" Highlight search results
+set hlsearch
+nnoremap <silent> <Leader>/ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -14,38 +22,46 @@ set list listchars=tab:»·,trail:·,nbsp:·
 " When joining lines, collaps to a single space
 set nojoinspaces
 
+" Don't redraw during macros
+set lazyredraw
+
+" Highlight the current line
+set cursorline
+
 " Preserve indention on line breaks
 set breakindent
 set breakindentopt=shift:2
 
-" Use The Silver Searcher for grep
-" https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
-endif
-
 " Set column width
 set textwidth=80
 set colorcolumn=+1
-highlight ColorColumn ctermbg=235
 
 " Line numbers
 set relativenumber
 set number
 set numberwidth=5
-highlight LineNr ctermfg=237
+
+" Enable true colors
+set termguicolors
+
+" Enable powerline font for Airline
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
+
+" Enable Airline tabline
+let g:airline#extensions#tabline#enabled = 1
+
+" Set Dracula colorscheme
+colorscheme dracula
+
+" Set Gotham colorscheme
+" colorscheme gotham
+
+" Set Quantum colorscheme
+" let g:airline_theme='quantum'
+" let g:quantum_black = 1
+" let g:quantum_italics = 1
+" colorscheme quantum
 
 " Use italics for code comments
 set t_ZH=[3m
@@ -64,8 +80,6 @@ set splitright
 
 " Switch to normal mode
 imap jj <esc>
-imap jk <esc>
-imap kj <esc>
 
 " Move vertically through wrapped text
 nmap j gj
@@ -78,7 +92,8 @@ nmap 0 ^
 nmap <Leader>bi :source ~/.vimrc<cr>
 
 " Run commands that require an interactive shell
-nnoremap <Leader>c :RunInInteractiveShell<space>
+nnoremap <Leader>r :RunInInteractiveShell<space>
+nnoremap <Leader>d :Dispatch<space>
 
 " Bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -86,14 +101,11 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " Pastes text from system clipboard without auto indentation.
 map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
 
+" Redraw screen, specifically for when there are glitchy charactes.
+map <Leader>R :redraw!<CR>
+
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
-
-" Prevent use of arrow keys in normal mode
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
 
 " Quicker window movement
 nnoremap <C-h> <C-w>h
@@ -121,10 +133,6 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 let test#strategy = "dispatch"
 
-" Disable tab choosing for UltiSnips compatibility.
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-
 " Use tabs for auto completion
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -145,36 +153,52 @@ endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
-" start of default statusline
-set statusline=%f\ %h%w%m%r
-" Syntastic statusline
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-" end of default statusline (with ruler)
-set statusline+=%=%(%l,%c%V\ %=\ %P%)
-
 " Configure Syntastic with recommended settings
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_eruby_ruby_quiet_messages =
+  \ {"regex": "possibly useless use of a variable in void context"}
 
-" Remove trailing whitespace when a file is saved
-" Source: <http://vim.wikia.com/wiki/Remove_unwanted_spaces>
-function! TrimWhiteSpace()
-  " Do not record the whitespace removal in the undo history
-  " Source: <http://vim.1045645.n5.nabble.com/there-s-undojoin-how-about-dotjoin-td1203135.html>
-  try
-    undojoin
-  catch
-    " Probably an undo was just issued, and so there's no way to join the undo.
-    " Which sucks.
-  endtry
-  %s/\s*$//
-  ''
-endfunction
-autocmd! FileWritePre * :call TrimWhiteSpace()
-autocmd! FileAppendPre * :call TrimWhiteSpace()
-autocmd! FilterWritePre * :call TrimWhiteSpace()
-autocmd! BufWritePre * :call TrimWhiteSpace()
+" Use The Silver Searcher for grep
+" https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+
+  if !exists(":Ag")
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+  endif
+endif
+
+augroup vimrcEx
+  autocmd!
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+augroup END
+
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_override_foldtext = 0
+
+" Spell check markdown files
+autocmd BufRead,BufNewFile *.md setlocal spell
