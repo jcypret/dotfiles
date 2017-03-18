@@ -18,6 +18,9 @@ alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print \$2}'"
 # => killport 3000
 killport() { lsof -ti:$1 | xargs kill -9 }
 
+# Switch to the "Danger Zone" profile
+dz() { echo -e "\033]50;SetProfile=DangerZone\a" }
+
 # Project directories
 c() { cd ~/Code/$1; }
 compctl -W ~/Code/ -/ c

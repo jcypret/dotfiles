@@ -6,12 +6,13 @@ antigen use oh-my-zsh
 # Plugins
 antigen bundle bundler
 antigen bundle chrissicool/zsh-256color
+antigen bundle djui/alias-tips
 antigen bundle ember-cli
-antigen bundle thefuck
 antigen bundle git
 antigen bundle heroku
 antigen bundle jsahlen/nodenv.plugin.zsh
 antigen bundle rails
+antigen bundle thefuck
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
