@@ -7,6 +7,7 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
+Plug 'sirver/ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-run-interactive'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -21,11 +22,11 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/syntastic'
-Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
