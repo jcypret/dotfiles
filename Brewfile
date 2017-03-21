@@ -11,6 +11,7 @@ brew "the_silver_searcher"
 brew "tmux"
 brew "vim"
 brew "zsh"
+brew "tree"
 
 # Heroku
 brew "heroku-toolbelt"

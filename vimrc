@@ -12,6 +12,9 @@ set showcmd
 " Load plugins
 source ~/.vimrc.bundles
 
+" Case-insensitive search unless capitals
+set smartcase
+
 " Highlight search results
 set hlsearch
 nnoremap <silent> <Leader>/ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
@@ -47,9 +50,6 @@ set termguicolors
 " Enable powerline font for Airline
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
-
-" Enable Airline tabline
-let g:airline#extensions#tabline#enabled = 1
 
 " Set Dracula colorscheme
 colorscheme dracula
@@ -202,3 +202,18 @@ let g:vim_markdown_override_foldtext = 0
 
 " Spell check markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Vim EasyMotion
+" Search for word by two letters
+nmap s <Plug>(easymotion-overwin-f2)
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" Move!
+vmap <c-k> <Plug>MoveBlockUp
+vmap <c-j> <Plug>MoveBlockDown
