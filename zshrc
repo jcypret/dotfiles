@@ -24,7 +24,7 @@ antigen bundle sindresorhus/pure
 antigen apply
 
 POSTGRES=/Applications/Postgres.app/Contents/Versions/latest/bin
-export PATH=/usr/local/bin:/usr/local/sbin:$POSTGRES:$PATH
+export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$POSTGRES:$PATH
 export EDITOR=vim
 export TERM=xterm-256color
 
