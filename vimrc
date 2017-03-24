@@ -91,6 +91,9 @@ nmap 0 ^
 " Reload vim config and install plugins
 nmap <Leader>bi :source ~/.vimrc<cr>
 
+" Open the file explorer
+nmap ff :Explore<CR>
+
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
 nnoremap <Leader>d :Dispatch<space>
@@ -160,6 +163,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_eruby_ruby_quiet_messages =
   \ {"regex": "possibly useless use of a variable in void context"}
+let g:syntastic_ruby_checkers = ['rubocop', 'mri', 'reek']
 
 " Use The Silver Searcher for grep
 " https://github.com/ggreer/the_silver_searcher

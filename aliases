@@ -3,6 +3,7 @@ alias ll="ls -al" # display files vertically
 alias mkdir="mkdir -p" # create nested directories that don't already exist
 alias ln="ln -v" # use verbose when linking files
 alias e="$EDITOR" # shortcut for vim
+alias dzc="dz; production console" # Opens production console in the DangerZone
 
 # Flash the local DNS cache
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder;"
@@ -20,6 +21,8 @@ killport() { lsof -ti:$1 | xargs kill -9 }
 
 # Switch to the "Danger Zone" profile
 dz() { echo -e "\033]50;SetProfile=DangerZone\a" }
+# Switch to the "Default" (normal) profile
+nz() { echo -e "\033]50;SetProfile=Default\a" }
 
 # Project directories
 c() { cd ~/Code/$1; }
