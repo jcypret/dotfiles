@@ -12,6 +12,7 @@ antigen bundle heroku
 antigen bundle jsahlen/nodenv.plugin.zsh
 antigen bundle rails
 antigen bundle thefuck
+antigen bundle vi-mode
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
