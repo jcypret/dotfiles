@@ -164,6 +164,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_eruby_ruby_quiet_messages =
   \ {"regex": "possibly useless use of a variable in void context"}
 let g:syntastic_ruby_checkers = ['rubocop', 'mri', 'reek']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Use The Silver Searcher for grep
 " https://github.com/ggreer/the_silver_searcher
