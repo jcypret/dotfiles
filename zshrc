@@ -19,10 +19,10 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Pure Theme
 antigen bundle mafredri/zsh-async
-# antigen bundle sindresorhus/pure
-antigen bundle DFurnes/purer
-autoload -U promptinit; promptinit
-prompt purer
+antigen bundle sindresorhus/pure
+# antigen bundle DFurnes/purer
+# autoload -U promptinit; promptinit
+# prompt purer
 
 # Spaceship Theme
 # antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
@@ -38,14 +38,15 @@ antigen apply
 
 source ~/.aliases
 
-POSTGRES=/Applications/Postgres.app/Contents/Versions/latest/bin
-export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$POSTGRES:$PATH
-export EDITOR=vim
+export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
+export EDITOR=nvim
+export PGDATA=/usr/local/var/postgres
 export TERM=xterm-256color
 export RPROMPT="" # Hide right prompt
 
 eval "$(rbenv init -)"  # Load in RBenv shims
 eval "$(nodenv init -)" # Load Nodenv shims
+eval "$(hub alias -s)"  # Load Hub
 ssh-add -A 2>/dev/null; # Load in SSH keys
 
 export PATH=./bin:$PATH # always check ./bin first

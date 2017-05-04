@@ -50,9 +50,28 @@ set termguicolors
 " Enable powerline font for Airline
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " Set Dracula colorscheme
 colorscheme dracula
+
+" Dracula colorscheme for NeoVim terminal
+let g:terminal_color_0  = '#000000'
+let g:terminal_color_1  = '#ff6c6a'
+let g:terminal_color_2  = '#1ef795'
+let g:terminal_color_3  = '#f2f8a5'
+let g:terminal_color_4  = '#cea9f7'
+let g:terminal_color_5  = '#ff92ce'
+let g:terminal_color_6  = '#8eedfc'
+let g:terminal_color_7  = '#c7c7c7'
+let g:terminal_color_8  = '#686868'
+let g:terminal_color_9  = '#ff6c6a'
+let g:terminal_color_10 = '#1ef795'
+let g:terminal_color_11 = '#f2f8a5'
+let g:terminal_color_12 = '#cea9f7'
+let g:terminal_color_13 = '#fe91cd'
+let g:terminal_color_14 = '#8eedfc'
+let g:terminal_color_15 = '#ffffff'
 
 " Set Gotham colorscheme
 " colorscheme gotham
@@ -96,10 +115,9 @@ nmap ff :Explore<CR>
 
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
-nnoremap <Leader>d :Dispatch<space>
 
 " Bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap K :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Pastes text from system clipboard without auto indentation.
 map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
@@ -115,6 +133,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nmap <BS> <C-W>h
 
 " Search ctags with Ctrlp
 nnoremap <leader>. :CtrlPTag<cr>
@@ -134,7 +153,10 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
-let test#strategy = "dispatch"
+let test#strategy = "neovim"
+
+" Startify
+let g:startify_change_to_vcs_root = 1
 
 " Use tabs for auto completion
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -156,32 +178,24 @@ endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
-" Configure Syntastic with recommended settings
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_eruby_ruby_quiet_messages =
-  \ {"regex": "possibly useless use of a variable in void context"}
-let g:syntastic_ruby_checkers = ['rubocop', 'mri', 'reek']
-let g:syntastic_javascript_checkers = ['eslint']
+" Configure Neomake
+let g:neomake_ruby_checkers = ['mri', 'rubocop']
+let g:neomake_javascript_checkers = ['eslint']
+autocmd! BufWritePost * Neomake
 
-" Use The Silver Searcher for grep
-" https://github.com/ggreer/the_silver_searcher
+" The Silver Searcher
 if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  " Use for global searches
+  let g:ackprg = 'ag --vimgrep'
+
+  cnoreabbrev Ack Ack!
+  nnoremap \ :Ack!<Space>
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
-
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
 endif
 
 augroup vimrcEx

@@ -5,6 +5,10 @@ alias ln="ln -v" # use verbose when linking files
 alias e="$EDITOR" # shortcut for vim
 alias dzc="dz; production console" # Opens production console in the DangerZone
 
+# Vim aliases
+alias v="nvim"
+alias vim="nvim"
+
 # Flash the local DNS cache
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder;"
 

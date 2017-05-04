@@ -433,6 +433,10 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>13EDB67C-DF66-4428-A8F5-7ABB9A7E6811</string>
+	<key>DimInactiveSplitPanes</key>
+	<true/>
+	<key>DimOnlyText</key>
+	<false/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
@@ -478,9 +482,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>2246 161 979 554 0 0 3440 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>563 60 796 473 0 0 3440 1417 </string>
+	<string>1162 697 770 381 0 0 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1032 239 1370 942 0 0 3440 1417 </string>
+	<string>1032 10 2402 1407 0 0 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1032 149 1978 1032 0 0 3440 1417 </string>
 	<key>New Bookmarks</key>
@@ -1805,10 +1809,20 @@
 	<date>2017-03-28T22:30:02Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>ShowPaneTitles</key>
+	<false/>
+	<key>SplitPaneDimmingAmount</key>
+	<real>0.10000000000000001</real>
 	<key>TabStyle</key>
 	<integer>1</integer>
+	<key>TabViewType</key>
+	<integer>0</integer>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findIgnoreCase_iTerm</key>
+	<true/>
+	<key>findRegex_iTerm</key>
+	<false/>
 	<key>iTerm Version</key>
 	<string>3.0.15</string>
 </dict>
