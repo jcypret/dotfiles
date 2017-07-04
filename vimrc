@@ -13,7 +13,11 @@ set showcmd
 source ~/.vimrc.bundles
 
 " Case-insensitive search unless capitals
+set ignorecase
 set smartcase
+
+" Live preview of substitions
+set inccommand=split
 
 " Highlight search results
 set hlsearch
@@ -52,6 +56,11 @@ let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tabline#enabled = 1
 
+" Indention guides
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = ""
+let g:indentLine_fileTypeExclude = ["startify", "help"]
+
 " Set Dracula colorscheme
 colorscheme dracula
 
@@ -73,19 +82,8 @@ let g:terminal_color_13 = '#fe91cd'
 let g:terminal_color_14 = '#8eedfc'
 let g:terminal_color_15 = '#ffffff'
 
-" Set Gotham colorscheme
-" colorscheme gotham
-
-" Set Quantum colorscheme
-" let g:airline_theme='quantum'
-" let g:quantum_black = 1
-" let g:quantum_italics = 1
-" colorscheme quantum
-
 " Use italics for code comments
-set t_ZH=[3m
-set t_ZR=[23m
-highlight Comment cterm=italic ctermfg=241
+highlight Comment gui=italic
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -141,6 +139,10 @@ nnoremap <leader>. :CtrlPTag<cr>
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
+" Use preferred ruby indention style
+let g:ruby_indent_block_style = 'do'
+let g:ruby_indent_assignment_style = 'variable'
+
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
 map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
@@ -153,35 +155,22 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
-let test#strategy = "neovim"
+nmap <silent> <leader>bb :TestNearest -strategy=neovim<CR>
+let test#strategy = "dispatch"
 
 " Startify
 let g:startify_change_to_vcs_root = 1
 
-" Use tabs for auto completion
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
+" Use deoplete
+let g:deoplete#enable_at_startup = 1
+let g:UltiSnipsExpandTrigger="<C-j>"
 
 " Configure Neomake
 let g:neomake_ruby_checkers = ['mri', 'rubocop']
 let g:neomake_javascript_checkers = ['eslint']
 autocmd! BufWritePost * Neomake
+
+runtime! macros/matchit.vim
 
 " The Silver Searcher
 if executable('ag')
@@ -226,6 +215,7 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " Vim EasyMotion
 " Search for word by two letters
+nmap <Leader>f <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
