@@ -41,7 +41,6 @@ source ~/.aliases
 export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=nvim
 export PGDATA=/usr/local/var/postgres
-export TERM=xterm-256color
 export RPROMPT="" # Hide right prompt
 
 eval "$(rbenv init -)"  # Load in RBenv shims
