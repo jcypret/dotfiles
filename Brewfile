@@ -12,6 +12,7 @@ brew "tmux"
 brew "vim"
 brew "zsh"
 brew "tree"
+brew "p7zip"
 
 # Heroku
 brew "heroku-toolbelt"
