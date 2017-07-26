@@ -40,3 +40,5 @@ alias jsnuke="npm cache clean && bower cache clean && rm -rf node_modules bower_
 alias pgapp="'/Applications/Postgres.app/Contents/Versions/9.5/bin'/psql"
 alias path='echo $PATH | tr -s ":" "\n"'
 alias nethack="telnet nethack.alt.org"
+
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
