@@ -139,6 +139,7 @@ nmap <BS> <C-W>h
 
 " Search ctags with Ctrlp
 nnoremap <leader>. :CtrlPTag<cr>
+let g:ctrlp_cmd = 'CtrlPMixed'
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
