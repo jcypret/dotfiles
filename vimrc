@@ -60,6 +60,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = ""
 let g:indentLine_fileTypeExclude = ["startify", "help"]
+let g:indentLine_faster = 1
+let g:indentLine_newVersion = 0
 
 " Auto completion similar to Bash
 set wildmenu
