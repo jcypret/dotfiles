@@ -4,9 +4,13 @@ tap "homebrew/services"
 tap "caskroom/cask"
 tap "thoughtbot/formulae"
 
+# Git
+brew "git"
+brew "diff-so-fancy"
+brew "hub"
+
 # Unix
 brew "ctags"
-brew "git"
 brew "openssl"
 brew "rcm"
 brew "reattach-to-user-namespace"
@@ -26,9 +30,6 @@ brew "thefuck"
 # Heroku
 brew "heroku-toolbelt"
 brew "parity"
-
-# GitHub
-brew "hub"
 
 # Image manipulation
 brew "imagemagick"
