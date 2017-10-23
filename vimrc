@@ -132,16 +132,16 @@ map <Leader>R :redraw!<CR>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
+" fzf
+nnoremap <C-p> :Files<CR>
+nmap <Leader>; :Buffers<CR>
+
 " Quicker window movement
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nmap <BS> <C-W>h
-
-" Search ctags with Ctrlp
-nnoremap <leader>. :CtrlPTag<cr>
-let g:ctrlp_cmd = 'CtrlPMixed'
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -186,12 +186,6 @@ if executable('ag')
 
   cnoreabbrev Ack Ack!
   nnoremap \ :Ack!<Space>
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
 endif
 
 augroup vimrcEx
