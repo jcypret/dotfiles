@@ -23,6 +23,9 @@ ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 pip3 install neovim
 
+# enable italics
+tic -o $HOME/.terminfo $HOME/Code/dotfiles/xterm-256color.terminfo
+
 # setup SSH key
 https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 ```
