@@ -117,7 +117,7 @@ nmap <Leader>bi :source ~/.vimrc<cr>
 " Open the file explorer
 nmap ff :Explore<CR>
 map <C-n> :NERDTreeToggle<CR>
-map <C-N> :NERDTreeFind<CR>
+map <Leader>n :NERDTreeFind<CR>
 
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
