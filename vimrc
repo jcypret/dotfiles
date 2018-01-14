@@ -164,8 +164,7 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
-nmap <silent> <leader>bb :TestNearest -strategy=neovim<CR>
-let test#strategy = "dispatch"
+let test#strategy = "neovim"
 
 " Startify
 let g:startify_change_to_vcs_root = 1
