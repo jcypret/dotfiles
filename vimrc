@@ -5,10 +5,6 @@ let mapleader=" "
 " Useful for automatically savings before running specs.
 set autowrite
 
-" Show partial command in bottom right corner.
-" e.g. the motion change-in-word would show 'ci' while still typing.
-set showcmd
-
 " Load plugins
 source ~/.vimrc.bundles
 
@@ -19,18 +15,14 @@ set smartcase
 " Live preview of substitions
 set inccommand=split
 
-" Highlight search results
-set hlsearch
+" Clear highlight search results
 nnoremap <silent> <Leader>/ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
-" Display extra whitespace
+" Display whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
 " When joining lines, collaps to a single space
 set nojoinspaces
-
-" Don't redraw during macros
-set lazyredraw
 
 " Highlight the current line
 set cursorline
@@ -128,9 +120,6 @@ nnoremap K :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " Pastes text from system clipboard without auto indentation.
 map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
 
-" Redraw screen, specifically for when there are glitchy charactes.
-map <Leader>R :redraw!<CR>
-
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
@@ -143,7 +132,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nmap <BS> <C-W>h
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -164,8 +152,7 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
-nmap <silent> <leader>bb :TestNearest -strategy=neovim<CR>
-let test#strategy = "dispatch"
+let test#strategy = "neovim"
 
 " Startify
 let g:startify_change_to_vcs_root = 1
