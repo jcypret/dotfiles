@@ -8,46 +8,33 @@ endif
 call plug#begin('~/.vim/bundle')
 
 Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-run-interactive'
 Plug 'easymotion/vim-easymotion'
-Plug 'elixir-lang/vim-elixir'
 Plug 'gioele/vim-autoswap'
 Plug 'godlygeek/tabular'
 Plug 'janko-m/vim-test'
 Plug 'kana/vim-textobj-user'
+Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/emmet-vim'
 Plug 'matze/vim-move'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'neomake/neomake'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'plasticboy/vim-markdown'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'rhysd/vim-crystal'
 Plug 'scrooloose/nerdtree'
-Plug 'slashmili/alchemist.vim'
-Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-ruby/vim-ruby'
 Plug 'wakatime/vim-wakatime'
-
-" Searching
-Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'wesQ3/vim-windowswap'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -55,6 +42,33 @@ Plug 'ervandew/supertab'
 Plug 'juanibiapina/vim-snippets'
 Plug 'sirver/ultisnips'
 Plug 'fishbullet/deoplete-ruby'
+
+" CSS
+Plug 'ap/vim-css-color'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'hail2u/vim-css3-syntax'
+
+" Elixir
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
+" Ruby
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'ngmy/vim-rubocop'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-rbenv'
+Plug 'vim-ruby/vim-ruby'
+
+" Searching
+Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Themes and UI
 Plug 'dracula/vim'
