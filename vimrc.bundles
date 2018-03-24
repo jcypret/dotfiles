@@ -43,6 +43,10 @@ Plug 'juanibiapina/vim-snippets'
 Plug 'sirver/ultisnips'
 Plug 'fishbullet/deoplete-ruby'
 
+" C++
+Plug 'rhysd/vim-clang-format'
+Plug 'octol/vim-cpp-enhanced-highlight'
+
 " CSS
 Plug 'ap/vim-css-color'
 Plug 'cakebaker/scss-syntax.vim'
