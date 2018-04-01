@@ -17,8 +17,13 @@ brew bundle
 sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 env RCRC=$HOME/Code/dotfiles/rcrc rcup
 
+# load iterm config
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2"
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
 # configure neovim
 mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+mkdir ~/.vim
 ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 pip3 install neovim
