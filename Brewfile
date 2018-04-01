@@ -51,7 +51,6 @@ brew "redis", restart_service: true
 
 # Applications
 cask "google-chrome"
-cask "spark"
 cask "iterm2"
 cask "alfred"
 cask "spectacle"
