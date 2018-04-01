@@ -36,6 +36,7 @@ antigen bundle sindresorhus/pure
 antigen apply
 
 source ~/.aliases
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=nvim
