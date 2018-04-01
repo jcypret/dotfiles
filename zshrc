@@ -53,3 +53,6 @@ export PATH=./bin:$PATH # always check ./bin first
 # fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# GPG
+export GPG_TTY=$(tty)
