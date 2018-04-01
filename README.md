@@ -17,7 +17,7 @@ brew bundle
 sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 env RCRC=$HOME/Code/dotfiles/rcrc rcup
 
-# load iterm config
+# configure iTerm2
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2"
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
