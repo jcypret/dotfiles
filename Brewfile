@@ -22,6 +22,9 @@ brew "p7zip"
 brew "cmake"
 brew "phantomjs"
 
+# Security
+brew "gnupg"
+
 # Shell
 brew "zsh"
 brew "antigen"
