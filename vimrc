@@ -43,6 +43,12 @@ set numberwidth=5
 " Enable true colors
 set termguicolors
 
+" Set Dracula colorscheme
+colorscheme dracula
+
+" Use italics for code comments
+highlight Comment gui=italic
+
 " Enable powerline font for Airline
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
@@ -58,30 +64,6 @@ let g:indentLine_newVersion = 0
 " Auto completion similar to Bash
 set wildmenu
 set wildmode=list:longest,list:full
-
-" Set Dracula colorscheme
-colorscheme dracula
-
-" Dracula colorscheme for NeoVim terminal
-let g:terminal_color_0  = '#000000'
-let g:terminal_color_1  = '#ff6c6a'
-let g:terminal_color_2  = '#1ef795'
-let g:terminal_color_3  = '#f2f8a5'
-let g:terminal_color_4  = '#cea9f7'
-let g:terminal_color_5  = '#ff92ce'
-let g:terminal_color_6  = '#8eedfc'
-let g:terminal_color_7  = '#c7c7c7'
-let g:terminal_color_8  = '#686868'
-let g:terminal_color_9  = '#ff6c6a'
-let g:terminal_color_10 = '#1ef795'
-let g:terminal_color_11 = '#f2f8a5'
-let g:terminal_color_12 = '#cea9f7'
-let g:terminal_color_13 = '#fe91cd'
-let g:terminal_color_14 = '#8eedfc'
-let g:terminal_color_15 = '#ffffff'
-
-" Use italics for code comments
-highlight Comment gui=italic
 
 " Softtabs, 2 spaces
 set tabstop=2
