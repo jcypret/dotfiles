@@ -82,6 +82,12 @@ imap jj <esc>
 nmap j gj
 nmap k gk
 
+" Quicker window movement
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 " Jump to beginning of line after whitespace
 nmap 0 ^
 
@@ -100,21 +106,12 @@ nnoremap <Leader>r :RunInInteractiveShell<space>
 " Bind K to grep word under cursor
 nnoremap K :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" Pastes text from system clipboard without auto indentation.
-map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
-
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
 " fzf
 nnoremap <C-p> :Files<CR>
 nmap <Leader>; :Buffers<CR>
-
-" Quicker window movement
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
