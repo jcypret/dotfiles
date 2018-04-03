@@ -47,6 +47,7 @@ set termguicolors
 colorscheme dracula
 
 " Use italics for code comments
+" color s:comment from Dracula theme
 highlight Comment gui=italic guifg=#6272A4
 
 " Enable powerline font for Airline
@@ -58,8 +59,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = ""
 let g:indentLine_fileTypeExclude = ["startify", "help"]
-let g:indentLine_faster = 1
-let g:indentLine_newVersion = 0
+" color s:selection from Dracula theme
+let g:indentLine_color_gui = '#44475A'
 
 " Auto completion similar to Bash
 set wildmenu
