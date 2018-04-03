@@ -47,7 +47,7 @@ set termguicolors
 colorscheme dracula
 
 " Use italics for code comments
-highlight Comment gui=italic
+highlight Comment gui=italic guifg=#6272A4
 
 " Enable powerline font for Airline
 let g:airline_powerline_fonts = 1
