@@ -227,6 +227,8 @@
 	<string>Default</string>
 	<key>Default Bookmark Guid</key>
 	<string>E308286A-AD87-46AD-B952-3306950B1AF5</string>
+	<key>DimOnlyText</key>
+	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>JobName</key>
@@ -269,9 +271,13 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>441 354 796 473 0 0 1440 878 </string>
+	<string>441 359 770 429 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1440 878 0 0 1440 878 </string>
+	<key>NeverWarnAboutShortLivedSessions_E308286A-AD87-46AD-B952-3306950B1AF5</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_E308286A-AD87-46AD-B952-3306950B1AF5_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -972,6 +978,8 @@
 	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
+	<key>SplitPaneDimmingAmount</key>
+	<real>0.10000000000000001</real>
 	<key>TabStyle</key>
 	<integer>0</integer>
 	<key>Window Arrangements</key>
