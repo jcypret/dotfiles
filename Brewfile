@@ -64,6 +64,7 @@ cask "dash"
 cask "spotify"
 cask "bartender"
 cask "qbserve"
+cask "fantastical"
 
 mas "Spark", id: 1176895641
 mas "Gestimer", id: 990588172
