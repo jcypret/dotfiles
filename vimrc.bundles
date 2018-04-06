@@ -60,6 +60,9 @@ Plug 'slashmili/alchemist.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
+" Javascript
+Plug 'pangloss/vim-javascript'
+
 " Ruby
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'ngmy/vim-rubocop'
