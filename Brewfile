@@ -3,6 +3,7 @@ cask_args appdir: "/Applications"
 tap "homebrew/services"
 tap "caskroom/cask"
 tap "thoughtbot/formulae"
+brew "mas"
 
 # Git
 brew "git"
@@ -49,8 +50,8 @@ brew "python3"
 brew "elixir"
 
 # Databases
-brew "postgres", restart_service: true
-brew "redis", restart_service: true
+brew "postgres", restart_service: :changed
+brew "redis", restart_service: :changed
 
 # Applications
 cask "google-chrome"
@@ -61,3 +62,11 @@ cask "postico"
 cask "keepingyouawake"
 cask "dash"
 cask "spotify"
+cask "bartender"
+cask "qbserve"
+cask "fantastical"
+
+mas "Spark", id: 1176895641
+mas "Gestimer", id: 990588172
+mas "Bear", id: 1091189122
+mas "Todoist", id: 585829637
