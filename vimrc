@@ -134,6 +134,8 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 let test#strategy = "neovim"
+" Use ctr-o to leave test output on screen
+tmap <C-o> <C-\><C-n>
 
 " Startify
 let g:startify_change_to_vcs_root = 1
