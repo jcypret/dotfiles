@@ -101,7 +101,63 @@
 	<key>feeds</key>
 	<dict>
 		<key>installed</key>
-		<dict/>
+		<dict>
+			<key>http://kapeli.com/feeds/Bootstrap_4.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-04-04T05:45:53Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/C++.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-04-04T05:47:39Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/HTML.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-04-04T05:46:54Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/JavaScript.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-04-04T05:47:55Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/PostgreSQL.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-04-04T05:46:58Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/React.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-04-04T05:47:18Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Ruby_2.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-04-04T05:45:44Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Ruby_on_Rails_5.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-04-04T05:45:23Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Sass.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-04-04T05:46:56Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Vim.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-04-04T05:47:02Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/VueJS.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-04-04T05:47:05Z</date>
+			</dict>
+		</dict>
 		<key>uninstalled</key>
 		<dict/>
 	</dict>
