@@ -9,6 +9,7 @@ brew "mas"
 brew "git"
 brew "diff-so-fancy"
 brew "hub"
+brew "git-standup"
 
 # Unix
 brew "ctags"
@@ -62,6 +63,7 @@ cask "spotify"
 cask "bartender"
 cask "qbserve"
 cask "fantastical"
+cask "appcleaner"
 
 mas "Spark", id: 1176895641
 mas "Gestimer", id: 990588172
