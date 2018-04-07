@@ -34,5 +34,3 @@ tic -o $HOME/.terminfo $HOME/Code/dotfiles/xterm-256color.terminfo
 # setup SSH key
 https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 ```
-# setup PGP
-https://help.github.com/articles/generating-a-new-gpg-key/
