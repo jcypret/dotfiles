@@ -7,6 +7,7 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-run-interactive'
 Plug 'easymotion/vim-easymotion'
