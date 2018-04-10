@@ -35,6 +35,7 @@ brew "parity"
 
 # Image manipulation
 brew "imagemagick"
+brew "guetzli"
 
 # Testing
 brew "qt"
@@ -46,6 +47,10 @@ brew "ruby-build"
 brew "nodenv"
 brew "python3"
 brew "elixir"
+
+# C++
+brew "clang-format"
+brew "cppcheck"
 
 # Databases
 brew "postgres", restart_service: :changed
@@ -64,8 +69,13 @@ cask "bartender"
 cask "qbserve"
 cask "fantastical"
 cask "appcleaner"
+cask "sketch"
+cask "imageoptim"
+cask "imagealpha"
 
 mas "Spark", id: 1176895641
 mas "Gestimer", id: 990588172
 mas "Bear", id: 1091189122
 mas "Todoist", id: 585829637
+mas "Affinity Photo", id: 824183456
+mas "Frank DeLoupe", id: 530458789
