@@ -3,6 +3,7 @@ source $(brew --prefix)/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 # Plugins
+antigen bundle autojump
 antigen bundle bundler
 antigen bundle chrissicool/zsh-256color
 antigen bundle djui/alias-tips

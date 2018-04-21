@@ -28,6 +28,7 @@ brew "phantomjs"
 brew "zsh"
 brew "antigen"
 brew "thefuck"
+brew "autojump"
 
 # Heroku
 brew "heroku-toolbelt"
