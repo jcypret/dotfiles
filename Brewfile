@@ -81,9 +81,9 @@ cask "sketch"
 cask "spectacle"
 cask "spotify"
 
-mas "Spark", id: 1176895641
-mas "Gestimer", id: 990588172
-mas "Bear", id: 1091189122
-mas "Todoist", id: 585829637
 mas "Affinity Photo", id: 824183456
+mas "Bear", id: 1091189122
 mas "Frank DeLoupe", id: 530458789
+mas "Gestimer", id: 990588172
+mas "Spark", id: 1176895641
+mas "Todoist", id: 585829637
