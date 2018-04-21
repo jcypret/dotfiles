@@ -14,6 +14,7 @@ brew "git-standup"
 # Unix
 brew "ctags"
 brew "openssl"
+brew "libyaml" # should come after openssl
 brew "rcm"
 brew "reattach-to-user-namespace"
 brew "the_silver_searcher"
@@ -41,11 +42,7 @@ brew "guetzli"
 # Testing
 brew "qt"
 
-# Programming languages
-brew "libyaml" # should come after openssl
-brew "rbenv"
-brew "ruby-build"
-brew "nodenv"
+# Programming
 brew "python3"
 brew "elixir"
 
@@ -57,22 +54,32 @@ brew "cppcheck"
 brew "postgres", restart_service: :changed
 brew "redis", restart_service: :changed
 
+# Javascript
+brew "nodenv"
+brew "node-build"
+brew "yarn"
+
+# Ruby
+brew "rbenv"
+brew "ruby-build"
+
 # Applications
-cask "google-chrome"
-cask "iterm2"
 cask "alfred"
-cask "spectacle"
-cask "postico"
-cask "keepingyouawake"
-cask "dash"
-cask "spotify"
-cask "bartender"
-cask "qbserve"
-cask "fantastical"
 cask "appcleaner"
-cask "sketch"
-cask "imageoptim"
+cask "bartender"
+cask "dash"
+cask "fantastical"
+cask "google-chrome"
 cask "imagealpha"
+cask "imageoptim"
+cask "iterm2"
+cask "keepingyouawake"
+cask "ngrok"
+cask "postico"
+cask "qbserve"
+cask "sketch"
+cask "spectacle"
+cask "spotify"
 
 mas "Spark", id: 1176895641
 mas "Gestimer", id: 990588172
