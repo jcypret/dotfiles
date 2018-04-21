@@ -1,3 +1,5 @@
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
 Metrics/BlockLength:
   ExcludedMethods: ["describe", "context"]
 Metrics/LineLength:
