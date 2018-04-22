@@ -152,6 +152,11 @@ let g:deoplete#enable_at_startup = 1
 let g:UltiSnipsExpandTrigger="<C-j>"
 
 " Configure linters
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_error = '🚩'
+let g:ale_sign_warning = '⚠️'
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'ruby': ['ruby', 'rubocop']
