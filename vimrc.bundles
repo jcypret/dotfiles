@@ -9,7 +9,6 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'christoomey/vim-run-interactive'
 Plug 'christoomey/vim-titlecase'
 Plug 'easymotion/vim-easymotion'
 Plug 'gioele/vim-autoswap'
@@ -82,6 +81,7 @@ Plug 'jremmen/vim-ripgrep'
 " Themes and UI
 Plug 'dracula/vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'vim-airline/vim-airline'
 
 call plug#end()

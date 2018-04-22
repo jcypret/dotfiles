@@ -106,8 +106,8 @@ map <C-n> :NERDTreeToggle<CR>
 map <Leader>n :NERDTreeFind<CR>
 autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
 
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<space>
+" Toggle rainbow highlighting
+nnoremap <Leader>r :RainbowLevelsToggle<cr>
 
 " Ripgrep
 nnoremap K :Rg<CR>
