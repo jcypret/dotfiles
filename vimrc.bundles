@@ -76,7 +76,7 @@ Plug 'vim-ruby/vim-ruby'
 
 " Searching
 Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Themes and UI

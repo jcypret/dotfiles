@@ -24,7 +24,6 @@ antigen bundle sindresorhus/pure
 antigen apply
 
 source ~/.aliases
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=nvim
@@ -39,6 +38,7 @@ ssh-add -A 2>/dev/null; # Load in SSH keys
 export PATH=./bin:$PATH
 
 # fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 

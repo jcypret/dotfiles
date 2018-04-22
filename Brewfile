@@ -26,10 +26,11 @@ brew "cmake"
 brew "phantomjs"
 
 # Shell
-brew "zsh"
 brew "antigen"
-brew "thefuck"
 brew "autojump"
+brew "fzf"
+brew "thefuck"
+brew "zsh"
 
 # Heroku
 brew "heroku-toolbelt"
