@@ -95,6 +95,11 @@ nmap 0 ^
 " Reload vim config and install plugins
 nmap <Leader>bi :source ~/.vimrc<cr>
 
+
+nmap <Leader>dd :term git diff<cr>i
+nmap <Leader>dh :term git diff HEAD<cr>i
+nmap <Leader>ds :term git diff --staged<cr>i
+
 " Open the file explorer
 nmap ff :Explore<CR>
 map <C-n> :NERDTreeToggle<CR>
