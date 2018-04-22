@@ -109,9 +109,10 @@ autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree pan
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
 
-" Bind K to grep word under cursor
-nnoremap K :Rg "\b<C-R><C-W>\b"<CR>:cw<CR>
+" Ripgrep
+nnoremap K :Rg<CR>
 nnoremap \ :Rg<Space>
+let g:rg_highlight = 1
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
