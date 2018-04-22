@@ -63,6 +63,7 @@ brew "yarn"
 # Ruby
 brew "rbenv"
 brew "ruby-build"
+brew "rbenv-default-gems"
 
 # Applications
 cask "alfred"

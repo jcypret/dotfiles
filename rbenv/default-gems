@@ -1,5 +1,4 @@
 bundler
-rubocop
-reek
 neovim
-lunchy
+reek
+rubocop
