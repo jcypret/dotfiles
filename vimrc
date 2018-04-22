@@ -95,7 +95,7 @@ nmap 0 ^
 " Reload vim config and install plugins
 nmap <Leader>bi :source ~/.vimrc<cr>
 
-
+" Git diffs
 nmap <Leader>dd :term git diff<cr>i
 nmap <Leader>dh :term git diff HEAD<cr>i
 nmap <Leader>ds :term git diff --staged<cr>i

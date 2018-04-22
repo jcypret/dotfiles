@@ -10,6 +10,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-run-interactive'
+Plug 'christoomey/vim-titlecase'
 Plug 'easymotion/vim-easymotion'
 Plug 'gioele/vim-autoswap'
 Plug 'godlygeek/tabular'
