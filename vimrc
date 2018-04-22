@@ -151,10 +151,11 @@ let g:startify_change_to_vcs_root = 1
 let g:deoplete#enable_at_startup = 1
 let g:UltiSnipsExpandTrigger="<C-j>"
 
-" Configure Neomake
-let g:neomake_ruby_checkers = ['mri', 'rubocop']
-let g:neomake_javascript_checkers = ['eslint']
-autocmd! BufWritePost * Neomake
+" Configure linters
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'ruby': ['ruby', 'rubocop']
+\}
 
 runtime! macros/matchit.vim
 
