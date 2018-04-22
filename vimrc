@@ -158,6 +158,7 @@ let g:ale_sign_warning = '⚠️'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 let g:ale_linters = {
+\   'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
 \   'javascript': ['eslint'],
 \   'ruby': ['ruby', 'rubocop']
 \}
