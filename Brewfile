@@ -17,7 +17,7 @@ brew "openssl"
 brew "libyaml" # should come after openssl
 brew "rcm"
 brew "reattach-to-user-namespace"
-brew "the_silver_searcher"
+brew "ripgrep"
 brew "tmux"
 brew "neovim"
 brew "tree"

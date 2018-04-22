@@ -110,7 +110,8 @@ autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree pan
 nnoremap <Leader>r :RunInInteractiveShell<space>
 
 " Bind K to grep word under cursor
-nnoremap K :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap K :Rg "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap \ :Rg<Space>
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
@@ -155,15 +156,6 @@ let g:neomake_javascript_checkers = ['eslint']
 autocmd! BufWritePost * Neomake
 
 runtime! macros/matchit.vim
-
-" The Silver Searcher
-if executable('ag')
-  " Use for global searches
-  let g:ackprg = 'ag --vimgrep'
-
-  cnoreabbrev Ack Ack!
-  nnoremap \ :Ack!<Space>
-endif
 
 augroup vimrcEx
   autocmd!

@@ -75,9 +75,9 @@ Plug 'tpope/vim-rbenv'
 Plug 'vim-ruby/vim-ruby'
 
 " Searching
-Plug 'mileszs/ack.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'jremmen/vim-ripgrep'
 
 " Themes and UI
 Plug 'dracula/vim'
