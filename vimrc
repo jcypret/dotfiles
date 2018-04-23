@@ -99,17 +99,24 @@ nmap 0 ^
 " Reload vim config and install plugins
 nmap <Leader>bi :source ~/.vimrc<cr>
 
+" Git diffs
+nmap <Leader>dd :term git diff<cr>i
+nmap <Leader>dh :term git diff HEAD<cr>i
+nmap <Leader>ds :term git diff --staged<cr>i
+
 " Open the file explorer
 nmap ff :Explore<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>n :NERDTreeFind<CR>
 autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
 
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<space>
+" Toggle rainbow highlighting
+nnoremap <Leader>r :RainbowLevelsToggle<cr>
 
-" Bind K to grep word under cursor
-nnoremap K :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" Ripgrep
+nnoremap K :Rg<CR>
+nnoremap \ :Rg<Space>
+let g:rg_highlight = 1
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
@@ -148,21 +155,21 @@ let g:startify_change_to_vcs_root = 1
 let g:deoplete#enable_at_startup = 1
 let g:UltiSnipsExpandTrigger="<C-j>"
 
-" Configure Neomake
-let g:neomake_ruby_checkers = ['mri', 'rubocop']
-let g:neomake_javascript_checkers = ['eslint']
-autocmd! BufWritePost * Neomake
+" Configure linters
+let g:airline#extensions#ale#enabled = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_sign_error = '🚩'
+let g:ale_sign_warning = '⚠️'
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_linters = {
+\   'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
+\   'javascript': ['eslint'],
+\   'ruby': ['ruby', 'rubocop']
+\}
 
 runtime! macros/matchit.vim
-
-" The Silver Searcher
-if executable('ag')
-  " Use for global searches
-  let g:ackprg = 'ag --vimgrep'
-
-  cnoreabbrev Ack Ack!
-  nnoremap \ :Ack!<Space>
-endif
 
 augroup vimrcEx
   autocmd!
@@ -176,7 +183,7 @@ augroup vimrcEx
     \ endif
 
   " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
+  autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
 augroup END

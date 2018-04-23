@@ -14,9 +14,10 @@ brew "git-standup"
 # Unix
 brew "ctags"
 brew "openssl"
+brew "libyaml" # should come after openssl
 brew "rcm"
 brew "reattach-to-user-namespace"
-brew "the_silver_searcher"
+brew "ripgrep"
 brew "tmux"
 brew "neovim"
 brew "tree"
@@ -25,9 +26,11 @@ brew "cmake"
 brew "phantomjs"
 
 # Shell
-brew "zsh"
 brew "antigen"
+brew "autojump"
+brew "fzf"
 brew "thefuck"
+brew "zsh"
 
 # Heroku
 brew "heroku-toolbelt"
@@ -40,11 +43,7 @@ brew "guetzli"
 # Testing
 brew "qt"
 
-# Programming languages
-brew "libyaml" # should come after openssl
-brew "rbenv"
-brew "ruby-build"
-brew "nodenv"
+# Programming
 brew "python3"
 brew "elixir"
 
@@ -56,26 +55,38 @@ brew "cppcheck"
 brew "postgres", restart_service: :changed
 brew "redis", restart_service: :changed
 
-# Applications
-cask "google-chrome"
-cask "iterm2"
-cask "alfred"
-cask "spectacle"
-cask "postico"
-cask "keepingyouawake"
-cask "dash"
-cask "spotify"
-cask "bartender"
-cask "qbserve"
-cask "fantastical"
-cask "appcleaner"
-cask "sketch"
-cask "imageoptim"
-cask "imagealpha"
+# Javascript
+brew "nodenv"
+brew "node-build"
+brew "yarn"
 
-mas "Spark", id: 1176895641
-mas "Gestimer", id: 990588172
-mas "Bear", id: 1091189122
-mas "Todoist", id: 585829637
+# Ruby
+brew "rbenv"
+brew "ruby-build"
+brew "rbenv-default-gems"
+
+# Applications
+cask "alfred"
+cask "appcleaner"
+cask "bartender"
+cask "dash"
+cask "dropbox"
+cask "fantastical"
+cask "google-chrome"
+cask "imagealpha"
+cask "imageoptim"
+cask "iterm2"
+cask "keepingyouawake"
+cask "ngrok"
+cask "postico"
+cask "qbserve"
+cask "sketch"
+cask "spectacle"
+cask "spotify"
+
 mas "Affinity Photo", id: 824183456
+mas "Bear", id: 1091189122
 mas "Frank DeLoupe", id: 530458789
+mas "Gestimer", id: 990588172
+mas "Spark", id: 1176895641
+mas "Todoist", id: 585829637

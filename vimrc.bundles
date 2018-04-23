@@ -9,7 +9,7 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'christoomey/vim-run-interactive'
+Plug 'christoomey/vim-titlecase'
 Plug 'easymotion/vim-easymotion'
 Plug 'gioele/vim-autoswap'
 Plug 'godlygeek/tabular'
@@ -21,7 +21,7 @@ Plug 'matze/vim-move'
 Plug 'mhinz/vim-startify'
 Plug 'mileszs/ack.vim'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'plasticboy/vim-markdown'
 Plug 'radenling/vim-dispatch-neovim'
@@ -74,13 +74,14 @@ Plug 'tpope/vim-rbenv'
 Plug 'vim-ruby/vim-ruby'
 
 " Searching
-Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'jremmen/vim-ripgrep'
 
 " Themes and UI
 Plug 'dracula/vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'vim-airline/vim-airline'
 
 call plug#end()
