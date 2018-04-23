@@ -43,6 +43,10 @@ set numberwidth=5
 " Enable true colors
 set termguicolors
 
+" Access system clipboard
+vnoremap <C-c> "+y
+inoremap <C-v> <ESC>"+pa
+
 " Set Dracula colorscheme
 colorscheme dracula
 
