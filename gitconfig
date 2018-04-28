@@ -3,7 +3,6 @@
 [user]
   name = Justin Cypret
   email = jcypret@gmail.com
-  signingkey = C83055DA1542654C
 [push]
   default = current
 [color]
