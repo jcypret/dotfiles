@@ -163,11 +163,13 @@ let g:ale_sign_error = '🚩'
 let g:ale_sign_warning = '⚠️'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
+highlight clear SignColumn
 let g:ale_linters = {
 \   'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
 \   'javascript': ['eslint'],
 \   'ruby': ['ruby', 'rubocop']
 \}
+let g:ale_cpp_cpplint_options = '--linelength=120'
 
 runtime! macros/matchit.vim
 
