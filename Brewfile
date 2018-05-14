@@ -80,6 +80,7 @@ cask "keepingyouawake"
 cask "ngrok"
 cask "postico"
 cask "qbserve"
+cask "screenflow"
 cask "sketch"
 cask "spectacle"
 cask "spotify"
@@ -88,5 +89,6 @@ mas "Affinity Photo", id: 824183456
 mas "Bear", id: 1091189122
 mas "Frank DeLoupe", id: 530458789
 mas "Gestimer", id: 990588172
+mas "HeliumLift", id: 1018899653
 mas "Spark", id: 1176895641
 mas "Todoist", id: 585829637
