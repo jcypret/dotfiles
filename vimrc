@@ -5,20 +5,27 @@ scriptencoding utf-8
 source ~/.vimrc.bundles
 runtime! macros/matchit.vim
 
-" Config
-let g:mapleader = ' ' " leader
-set autowrite " save before running commands (useful for TDD)
-set list listchars=tab:»·,trail:·,nbsp:· " display whitespace
+" Leader
+let g:mapleader = ' '
+
+set autowrite    " save before running commands (useful for TDD)
+set cursorline   " highlight the current line
 set nojoinspaces " when joining lines, collaps to a single space
-set cursorline " highlight the current line
-" Switch to normal mode
-imap jj <esc>
-" Reload vim config
+set wildmenu     " enable tab-completions for vim commands
+
+" Display whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
+" Match longest frist, then next full match
+set wildmode=list:longest,full
+
+" Reload vimrc
 nmap <Leader>r :source ~/.vimrc<cr>
 
-" Auto complete
-set wildmenu
-set wildmode=list:longest,list:full
+" Switch to normal mode
+imap jj <esc>
+
+" VIM SETTINGS ============================================
 
 " Clipboard
 vnoremap <C-c> "+y
@@ -124,7 +131,7 @@ let g:ale_cpp_cpplint_options = '--linelength=120'
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
-let g:UltiSnipsExpandTrigger='<C-j>'
+let g:UltiSnipsExpandTrigger = '<C-j>'
 
 " fzf
 nnoremap <C-p> :Files<CR>
@@ -144,6 +151,10 @@ let g:rg_highlight = 1
 
 " Startify
 let g:startify_change_to_vcs_root = 1
+
+" Vim EasyAlign
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " Vim EasyMotion
 let g:EasyMotion_do_mapping = 0 " disable default mappings
@@ -169,6 +180,12 @@ nmap <silent> <leader>g :TestVisit<CR>
 let g:test#strategy = 'neovim'
 " Use ctr-o to leave test output on screen
 tmap <C-o> <C-\><C-n>
+
+" Vim Titlecase
+let g:titlecase_map_keys = 0
+nmap <leader>gt <Plug>Titlecase
+vmap <leader>gt <Plug>Titlecase
+nmap <leader>gT <Plug>TitlecaseLine
 
 augroup vimrcEx
   autocmd!
