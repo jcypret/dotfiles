@@ -126,10 +126,10 @@ let g:airline#extensions#ale#enabled = 1
 " Ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
-let g:ale_sign_error = '🚩'
-let g:ale_sign_warning = '⚠️'
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+highlight ALEErrorSign ctermbg=Red
+highlight ALEWarningSign ctermbg=Yellow
 highlight clear SignColumn
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
