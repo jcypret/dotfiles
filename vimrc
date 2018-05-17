@@ -122,12 +122,18 @@ let g:ale_sign_warning = '⚠️'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 highlight clear SignColumn
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
+\   'vue': ['eslint']
+\}
 let g:ale_linters = {
 \   'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
 \   'javascript': ['eslint'],
 \   'ruby': ['ruby', 'rubocop']
 \}
 let g:ale_cpp_cpplint_options = '--linelength=120'
+nmap <Leader>f :ALEFix<CR>
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -160,7 +166,6 @@ nmap ga <Plug>(EasyAlign)
 let g:EasyMotion_do_mapping = 0 " disable default mappings
 let g:EasyMotion_smartcase = 1 " case insensitive
 " Search by one or two letters
-nmap <Leader>f <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
