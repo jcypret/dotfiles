@@ -25,7 +25,7 @@ nmap <Leader>r :source ~/.vimrc<cr>
 " Switch to normal mode
 imap jj <esc>
 
-" VIM SETTINGS ============================================
+" VIM SETTINGS =================================================================
 
 " Clipboard
 vnoremap <C-c> "+y
@@ -91,13 +91,22 @@ nnoremap <silent> <Leader>/ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR
 set splitbelow
 set splitright
 
-" Theme
+" THEME ========================================================================
 set termguicolors
-colorscheme dracula
-" Use italics for code comments
-highlight Comment gui=italic guifg=#6272A4
 
-" LANGUAGE SETTINGS =======================================
+" Dracula Theme
+" highlight Comment gui=italic guifg=#6272A4
+" let g:indentLine_color_gui = '#44475A'
+" colorscheme dracula
+
+" Nord Theme
+let g:nord_comment_brightness = 10
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_uniform_status_lines = 1
+colorscheme nord
+
+" LANGUAGE SETTINGS ============================================================
 
 " HTML
 let g:html_indent_tags = 'li\|p'
@@ -106,7 +115,7 @@ let g:html_indent_tags = 'li\|p'
 let g:ruby_indent_block_style = 'do'
 let g:ruby_indent_assignment_style = 'variable'
 
-" PLUGIN SETTINGS =========================================
+" PLUGIN SETTINGS ==============================================================
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -147,8 +156,6 @@ nmap <Leader>; :Buffers<CR>
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = ''
 let g:indentLine_fileTypeExclude = ['startify', 'help']
-" color s:selection from Dracula theme
-let g:indentLine_color_gui = '#44475A'
 
 " Ripgrep
 nnoremap K :Rg<CR>
