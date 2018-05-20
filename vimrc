@@ -104,6 +104,10 @@ let g:nord_comment_brightness = 10
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_uniform_status_lines = 1
+let g:fzf_colors = {
+  \ 'hl': ['fg', 'Comment'],
+  \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
+  \ }
 colorscheme nord
 
 " LANGUAGE SETTINGS ============================================================
@@ -132,15 +136,15 @@ highlight ALEErrorSign ctermbg=Red
 highlight ALEWarningSign ctermbg=Yellow
 highlight clear SignColumn
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\   'ruby': ['rubocop'],
-\   'vue': ['eslint']
-\}
+  \ 'javascript': ['eslint'],
+  \ 'ruby': ['rubocop'],
+  \ 'vue': ['eslint']
+  \ }
 let g:ale_linters = {
-\   'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
-\   'javascript': ['eslint'],
-\   'ruby': ['ruby', 'rubocop']
-\}
+  \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
+  \ 'javascript': ['eslint'],
+  \ 'ruby': ['ruby', 'rubocop']
+  \ }
 let g:ale_cpp_cpplint_options = '--linelength=120'
 nmap <Leader>f :ALEFix<CR>
 
