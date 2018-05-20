@@ -105,8 +105,9 @@ let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_uniform_status_lines = 1
 let g:fzf_colors = {
-  \ 'hl': ['fg', 'Comment'],
-  \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl':   ['fg', 'Comment'],
+  \ 'hl+':  ['fg', 'healthSuccess'],
+  \ 'bg+':  ['bg', 'CursorLine', 'CursorColumn'],
   \ }
 colorscheme nord
 
@@ -224,4 +225,8 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+
+  " HACK: remove status line background for fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+        \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup END
