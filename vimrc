@@ -25,7 +25,7 @@ nmap <Leader>r :source ~/.vimrc<cr>
 " Switch to normal mode
 imap jj <esc>
 
-" VIM SETTINGS ============================================
+" VIM SETTINGS =================================================================
 
 " Clipboard
 vnoremap <C-c> "+y
@@ -91,13 +91,22 @@ nnoremap <silent> <Leader>/ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR
 set splitbelow
 set splitright
 
-" Theme
+" THEME ========================================================================
 set termguicolors
-colorscheme dracula
-" Use italics for code comments
-highlight Comment gui=italic guifg=#6272A4
 
-" LANGUAGE SETTINGS =======================================
+" Dracula Theme
+" highlight Comment gui=italic guifg=#6272A4
+" let g:indentLine_color_gui = '#44475A'
+" colorscheme dracula
+
+" Nord Theme
+let g:nord_comment_brightness = 10
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_uniform_status_lines = 1
+colorscheme nord
+
+" LANGUAGE SETTINGS ============================================================
 
 " HTML
 let g:html_indent_tags = 'li\|p'
@@ -106,7 +115,7 @@ let g:html_indent_tags = 'li\|p'
 let g:ruby_indent_block_style = 'do'
 let g:ruby_indent_assignment_style = 'variable'
 
-" PLUGIN SETTINGS =========================================
+" PLUGIN SETTINGS ==============================================================
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -117,17 +126,23 @@ let g:airline#extensions#ale#enabled = 1
 " Ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
-let g:ale_sign_error = '🚩'
-let g:ale_sign_warning = '⚠️'
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+highlight ALEErrorSign ctermbg=Red
+highlight ALEWarningSign ctermbg=Yellow
 highlight clear SignColumn
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
+\   'vue': ['eslint']
+\}
 let g:ale_linters = {
 \   'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
 \   'javascript': ['eslint'],
 \   'ruby': ['ruby', 'rubocop']
 \}
 let g:ale_cpp_cpplint_options = '--linelength=120'
+nmap <Leader>f :ALEFix<CR>
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -141,8 +156,6 @@ nmap <Leader>; :Buffers<CR>
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = ''
 let g:indentLine_fileTypeExclude = ['startify', 'help']
-" color s:selection from Dracula theme
-let g:indentLine_color_gui = '#44475A'
 
 " Ripgrep
 nnoremap K :Rg<CR>
@@ -160,7 +173,6 @@ nmap ga <Plug>(EasyAlign)
 let g:EasyMotion_do_mapping = 0 " disable default mappings
 let g:EasyMotion_smartcase = 1 " case insensitive
 " Search by one or two letters
-nmap <Leader>f <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)

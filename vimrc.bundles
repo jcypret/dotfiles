@@ -41,7 +41,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
 Plug 'juanibiapina/vim-snippets'
 Plug 'sirver/ultisnips'
-Plug 'fishbullet/deoplete-ruby'
 
 " C++
 Plug 'rhysd/vim-clang-format'
@@ -62,8 +61,12 @@ Plug 'tpope/vim-fugitive'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
+Plug 'isRuslan/vim-es6' " load after vim-javascript
+Plug 'posva/vim-vue'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Ruby
+Plug 'fishbullet/deoplete-ruby'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'ngmy/vim-rubocop'
 Plug 'tpope/vim-bundler'
@@ -79,6 +82,7 @@ Plug 'jremmen/vim-ripgrep'
 
 " Themes and UI
 Plug 'dracula/vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 
