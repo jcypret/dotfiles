@@ -34,6 +34,7 @@ inoremap <C-v> <ESC>"+pa
 " Code folding
 set foldmethod=syntax
 set nofoldenable
+set foldlevelstart=99
 
 " File navigation
 nmap ff :Explore<CR>
