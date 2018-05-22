@@ -218,6 +218,7 @@ augroup vimrcEx
 
   " hide invisible chars in nerdtree panel
   autocmd FileType nerdtree setlocal nolist
+  autocmd FileType vue syntax sync fromstart
 
   " Spell check markdown files
   autocmd BufRead,BufNewFile *.md setlocal spell
