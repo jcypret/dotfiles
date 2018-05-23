@@ -4,6 +4,8 @@ Metrics/BlockLength:
   ExcludedMethods: ["describe", "context"]
 Metrics/LineLength:
   Max: 120
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
 Style/Documentation:
   Enabled: false
 Style/StringLiterals:
