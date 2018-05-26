@@ -19,8 +19,11 @@ set list listchars=tab:»·,trail:·,nbsp:·
 " Match longest frist, then next full match
 set wildmode=list:longest,full
 
+" Redraw window
+nnoremap <leader>re :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
+
 " Reload vimrc
-nmap <Leader>r :source ~/.vimrc<cr>
+nmap <Leader>rr :source ~/.vimrc<cr>
 
 " Switch to normal mode
 imap jj <esc>
@@ -227,6 +230,10 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+
+  " Show cursor line only in current panel
+  autocmd InsertLeave,WinEnter * set cursorline
+  autocmd InsertEnter,WinLeave * set nocursorline
 
   " HACK: remove status line background for fzf
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
