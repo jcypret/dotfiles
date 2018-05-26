@@ -95,6 +95,11 @@ nnoremap <silent> <Leader>/ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR
 set splitbelow
 set splitright
 
+" Tab navigation
+nnoremap <C-t> :tabnew<CR>
+nnoremap H gT
+nnoremap L gt
+
 " THEME ========================================================================
 set termguicolors
 
