@@ -62,7 +62,7 @@ brew "node-build"
 brew "yarn"
 
 # PHP
-brew "homebrew/core/php"
+brew "php@7.1"
 brew "composer"
 
 # Ruby
@@ -86,6 +86,7 @@ cask "ngrok"
 cask "postico"
 cask "qbserve"
 cask "screenflow"
+cask "sequel-pro"
 cask "sketch"
 cask "spectacle"
 cask "spotify"
