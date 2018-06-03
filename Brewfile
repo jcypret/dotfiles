@@ -52,6 +52,7 @@ brew "clang-format"
 brew "cppcheck"
 
 # Databases
+brew "mysql"
 brew "postgres", restart_service: :changed
 brew "redis", restart_service: :changed
 
@@ -59,6 +60,10 @@ brew "redis", restart_service: :changed
 brew "nodenv"
 brew "node-build"
 brew "yarn"
+
+# PHP
+brew "homebrew/core/php"
+brew "composer"
 
 # Ruby
 brew "rbenv"
@@ -89,6 +94,5 @@ mas "Affinity Photo", id: 824183456
 mas "Bear", id: 1091189122
 mas "Frank DeLoupe", id: 530458789
 mas "Gestimer", id: 990588172
-mas "HeliumLift", id: 1018899653
 mas "Spark", id: 1176895641
 mas "Todoist", id: 585829637

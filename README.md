@@ -30,6 +30,10 @@ ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 # install pip packages
 pip3 install cpplint neovim Pygments
 
+# install php packages
+composer global require laravel/valet
+valet install
+
 # enable italics
 tic -o $HOME/.terminfo $HOME/Code/dotfiles/xterm-256color.terminfo
 

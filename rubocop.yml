@@ -8,6 +8,8 @@ Naming/MemoizedInstanceVariableName:
   Enabled: false
 Style/Documentation:
   Enabled: false
+Style/NumericLiterals:
+  Excludes: ["Brewfile"]
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 Style/VariableNumber:

@@ -6,6 +6,7 @@ antigen use oh-my-zsh
 antigen bundle autojump
 antigen bundle bundler
 antigen bundle chrissicool/zsh-256color
+antigen bundle composer
 antigen bundle djui/alias-tips
 antigen bundle ember-cli
 antigen bundle git
@@ -23,6 +24,9 @@ antigen bundle sindresorhus/pure
 
 antigen apply
 
+# Aliases
+unalias c
+unalias rg
 source ~/.aliases
 
 export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
@@ -41,9 +45,6 @@ export PATH=./bin:$PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# ripgrep
-unalias rg
 
 # GPG
 export GPG_TTY=$(tty)
