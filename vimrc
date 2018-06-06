@@ -192,6 +192,9 @@ nmap s <Plug>(easymotion-overwin-f2)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
+" Vim Highlighted Yank
+let g:highlightedyank_highlight_duration = 250
+
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
@@ -227,6 +230,7 @@ augroup vimrcEx
   " hide invisible chars in nerdtree panel
   autocmd FileType nerdtree setlocal nolist
   autocmd FileType vue syntax sync fromstart
+  autocmd FileType eruby setlocal foldmethod=indent
 
   " Spell check markdown files
   autocmd BufRead,BufNewFile *.md setlocal spell
