@@ -192,6 +192,9 @@ nmap s <Plug>(easymotion-overwin-f2)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
+" Vim Gitgutter
+set updatetime=100
+
 " Vim Highlighted Yank
 let g:highlightedyank_highlight_duration = 250
 
