@@ -72,6 +72,7 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Ruby
 Plug 'fishbullet/deoplete-ruby'
+Plug 'joker1007/vim-ruby-heredoc-syntax'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'ngmy/vim-rubocop'
 Plug 'tpope/vim-bundler'
@@ -84,6 +85,9 @@ Plug 'vim-ruby/vim-ruby'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
+
+" SQL
+Plug 'exu/pgsql.vim'
 
 " Themes and UI
 Plug 'dracula/vim'

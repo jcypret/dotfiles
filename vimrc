@@ -128,6 +128,10 @@ let g:html_indent_tags = 'li\|p'
 " Ruby
 let g:ruby_indent_block_style = 'do'
 let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_heredoc_syntax_filetypes = {
+  \ "pgsql" : { "start" : "SQL" },
+  \ "xml" : { "start" : "XML" },
+  \ }
 
 " PLUGIN SETTINGS ==============================================================
 
