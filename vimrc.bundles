@@ -43,6 +43,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
 Plug 'juanibiapina/vim-snippets'
 Plug 'sirver/ultisnips'
+Plug 'jiangmiao/auto-pairs'
 
 " C++
 Plug 'rhysd/vim-clang-format'
