@@ -16,7 +16,7 @@ set wildmenu     " enable tab-completions for vim commands
 " Display whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
-" Match longest frist, then next full match
+" Match longest first, then next full match
 set wildmode=list:longest,full
 
 " Redraw window
@@ -129,8 +129,8 @@ let g:html_indent_tags = 'li\|p'
 let g:ruby_indent_block_style = 'do'
 let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_heredoc_syntax_filetypes = {
-  \ "pgsql" : { "start" : "SQL" },
-  \ "xml" : { "start" : "XML" },
+  \ 'pgsql' : { 'start' : 'SQL' },
+  \ 'xml' : { 'start' : 'XML' },
   \ }
 
 " PLUGIN SETTINGS ==============================================================

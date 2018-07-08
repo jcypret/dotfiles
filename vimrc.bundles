@@ -71,7 +71,6 @@ Plug 'posva/vim-vue'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Ruby
-Plug 'fishbullet/deoplete-ruby'
 Plug 'joker1007/vim-ruby-heredoc-syntax'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'ngmy/vim-rubocop'
