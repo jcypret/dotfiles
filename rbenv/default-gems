@@ -1,4 +1,3 @@
 bundler
 neovim
-reek
-rubocop
+tmuxinator
