@@ -8,30 +8,19 @@ endif
 call plug#begin('~/.vim/bundle')
 
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-titlecase'
-Plug 'easymotion/vim-easymotion'
 Plug 'gioele/vim-autoswap'
 Plug 'janko-m/vim-test'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'junegunn/vim-easy-align'
-Plug 'kana/vim-textobj-user'
-Plug 'kchmck/vim-coffee-script'
-Plug 'machakann/vim-highlightedyank'
-Plug 'mattn/emmet-vim'
-Plug 'mhinz/vim-startify'
-Plug 'mileszs/ack.vim'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'plasticboy/vim-markdown'
 Plug 'radenling/vim-dispatch-neovim'
-Plug 'rhysd/vim-crystal'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -42,18 +31,17 @@ Plug 'wesQ3/vim-windowswap'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
-Plug 'juanibiapina/vim-snippets'
-Plug 'sirver/ultisnips'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-endwise'
 
 " C++
 Plug 'rhysd/vim-clang-format'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 " CSS
-Plug 'ap/vim-css-color'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'mattn/emmet-vim'
 
 " Elixir
 Plug 'elixir-lang/vim-elixir'
@@ -68,14 +56,18 @@ Plug 'othree/html5.vim'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
-Plug 'isRuslan/vim-es6' " load after vim-javascript
-Plug 'posva/vim-vue'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'isRuslan/vim-es6' " load after vim-javascript
+Plug 'kchmck/vim-coffee-script'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'posva/vim-vue'
 
 " Ruby
 Plug 'joker1007/vim-ruby-heredoc-syntax'
+Plug 'kana/vim-textobj-user' " required for vim-textobj-rubyblock
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'ngmy/vim-rubocop'
+Plug 'rhysd/vim-crystal'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
@@ -91,8 +83,10 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'exu/pgsql.vim'
 
 " Themes and UI
-Plug 'dracula/vim'
+Plug 'Yggdroot/indentLine'
 Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim'
+Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 
