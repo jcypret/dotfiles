@@ -6,6 +6,8 @@ Metrics/LineLength:
   Max: 120
 Naming/MemoizedInstanceVariableName:
   Enabled: false
+Style/AlignHash:
+  EnforcedLastArgumentHashStyle: always_ignore
 Style/Documentation:
   Enabled: false
 Style/NumericLiterals:
