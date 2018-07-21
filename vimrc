@@ -150,6 +150,7 @@ highlight ALEErrorSign ctermbg=Red
 highlight ALEWarningSign ctermbg=Yellow
 highlight clear SignColumn
 let g:ale_fixers = {
+  \ 'cpp': ['clang-format'],
   \ 'javascript': ['eslint'],
   \ 'ruby': ['rubocop'],
   \ 'vue': ['eslint']
