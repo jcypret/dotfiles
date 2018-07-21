@@ -27,6 +27,9 @@ mkdir ~/.vim
 ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
+# install tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # install pip packages
 pip3 install cpplint neovim Pygments
 
