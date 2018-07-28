@@ -167,7 +167,6 @@ nmap <Leader>f :ALEFix<CR>
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
-let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:deoplete#sources#ternjs#filetypes = [
   \ 'jsx',
   \ 'vue',
