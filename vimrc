@@ -172,6 +172,8 @@ let g:deoplete#sources#ternjs#filetypes = [
   \ 'jsx',
   \ 'vue',
   \ ]
+let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang'
 
 " fzf
 nnoremap <C-p> :Files<CR>

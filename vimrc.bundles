@@ -35,8 +35,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
 
 " C++
-Plug 'rhysd/vim-clang-format'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'rhysd/vim-clang-format'
+Plug 'zchee/deoplete-clang'
 
 " CSS
 Plug 'cakebaker/scss-syntax.vim'

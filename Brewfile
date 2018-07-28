@@ -49,6 +49,7 @@ brew "elixir"
 # C++
 brew "clang-format"
 brew "cppcheck"
+brew "llvm", args: ["with-toolchain"]
 
 # Databases
 brew "mysql"
