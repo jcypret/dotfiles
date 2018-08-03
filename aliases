@@ -10,6 +10,7 @@ alias pip="pip3"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
+alias :q="exit"
 
 # Tmux
 alias tml="tmux list-sessions"
