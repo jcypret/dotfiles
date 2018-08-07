@@ -23,11 +23,13 @@ brew "neovim"
 brew "tree"
 brew "p7zip"
 brew "cmake"
+brew "cloc"
 
 # Shell
 brew "antigen"
 brew "autojump"
 brew "fzf"
+brew "pv"
 brew "thefuck"
 brew "zsh"
 
