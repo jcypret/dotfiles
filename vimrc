@@ -239,13 +239,14 @@ augroup vimrcEx
   autocmd FileType vue syntax sync fromstart
   autocmd FileType eruby setlocal foldmethod=indent
 
-  " Spell check markdown files
-  autocmd BufRead,BufNewFile *.md setlocal spell
-
   " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+  autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
+
+  " Markdown formatting
+  autocmd BufRead,BufNewFile *.md setlocal spell
+  autocmd FileType markdown setlocal ts=4 sw=4
 
   " VueJS comment style
   autocmd FileType vue setlocal commentstring=//\ %s
