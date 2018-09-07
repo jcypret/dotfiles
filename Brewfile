@@ -24,6 +24,7 @@ brew "tree"
 brew "p7zip"
 brew "cmake"
 brew "cloc"
+brew "bat" # better cat
 
 # Shell
 brew "antigen"
