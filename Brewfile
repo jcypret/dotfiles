@@ -25,6 +25,7 @@ brew "p7zip"
 brew "cmake"
 brew "cloc"
 brew "bat" # better cat
+brew "htop" # better top
 
 # Shell
 brew "antigen"

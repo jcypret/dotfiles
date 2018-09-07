@@ -6,6 +6,7 @@ alias e="$EDITOR" # shortcut for vim
 alias dzc="dz; production console" # Opens production console in the DangerZone
 alias pip="pip3"
 alias cat="bat"
+alias top="htop"
 
 # Vim aliases
 alias v="nvim"
