@@ -15,7 +15,6 @@ Plug 'janko-m/vim-test'
 Plug 'junegunn/vim-easy-align'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'pedrohdz/vim-yaml-folds'
-Plug 'plasticboy/vim-markdown'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
@@ -28,6 +27,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'w0rp/ale'
 Plug 'wakatime/vim-wakatime'
 Plug 'wesQ3/vim-windowswap'
+
+" Languages
+Plug 'sheerun/vim-polyglot'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -45,31 +47,25 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'mattn/emmet-vim'
 
-" Elixir
-Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
-
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-
-" HTML
-Plug 'othree/html5.vim'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'isRuslan/vim-es6' " load after vim-javascript
-Plug 'kchmck/vim-coffee-script'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'posva/vim-vue'
+
+" Markup
+Plug 'othree/html5.vim'
+Plug 'plasticboy/vim-markdown'
 
 " Ruby
 Plug 'joker1007/vim-ruby-heredoc-syntax'
 Plug 'kana/vim-textobj-user' " required for vim-textobj-rubyblock
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'ngmy/vim-rubocop'
-Plug 'rhysd/vim-crystal'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
