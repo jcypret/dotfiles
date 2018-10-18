@@ -28,9 +28,6 @@ Plug 'w0rp/ale'
 Plug 'wakatime/vim-wakatime'
 Plug 'wesQ3/vim-windowswap'
 
-" Languages
-Plug 'sheerun/vim-polyglot'
-
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
@@ -51,10 +48,16 @@ Plug 'mattn/emmet-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
+" Elixir
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'isRuslan/vim-es6' " load after vim-javascript
+Plug 'kchmck/vim-coffee-script'
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'posva/vim-vue'
 
 " Markup
