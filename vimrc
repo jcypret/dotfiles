@@ -249,6 +249,7 @@ augroup vimrcEx
   autocmd FileType markdown setlocal ts=4 sw=4
 
   " VueJS comment style
+  autocmd FileType cpp setlocal commentstring=//\ %s
   autocmd FileType vue setlocal commentstring=//\ %s
 
   " HACK: remove status line background for fzf
