@@ -8,6 +8,7 @@ endif
 call plug#begin('~/.vim/bundle')
 
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'Konfekt/FastFold'
 Plug 'christoomey/vim-titlecase'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'gioele/vim-autoswap'

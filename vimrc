@@ -8,11 +8,12 @@ runtime! macros/matchit.vim
 " Leader
 let g:mapleader = ' '
 
-set autowrite    " save before running commands (useful for TDD)
-set cursorline   " highlight the current line
-set nojoinspaces " when joining lines, collaps to a single space
-set noshowcmd    " don't show partial commands in status bar
-set wildmenu     " enable tab-completions for vim commands
+set autowrite      " save before running commands (useful for TDD)
+set cursorline     " highlight the current line
+set nojoinspaces   " when joining lines, collaps to a single space
+set noshowcmd      " don't show partial commands in status bar
+set regexpengine=1 " use legacy syntax parsing for ruby
+set wildmenu       " enable tab-completions for vim commands
 
 " Display whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -144,8 +145,8 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline_highlighting_cache = 1
 
 " Ale
-let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 0
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 highlight ALEErrorSign ctermbg=Red
@@ -160,10 +161,12 @@ let g:ale_fixers = {
 let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
   \ 'javascript': ['eslint'],
-  \ 'ruby': ['ruby', 'rubocop']
+  \ 'ruby': ['ruby', 'rubocop', 'solargraph']
   \ }
 let g:ale_cpp_cpplint_options = '--linelength=120 --filter=-runtime/references,-legal/copyright,-build/namespaces'
+nmap <Leader>d :ALEGoToDefinition<CR>
 nmap <Leader>f :ALEFix<CR>
+nmap <Leader>h :ALEHover<CR>
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -190,10 +193,6 @@ let g:rg_highlight = 1
 
 " Startify
 let g:startify_change_to_vcs_root = 1
-
-" Vim Dispatch
-nmap <silent> <leader>j :Focus JS_SPECS=true rspec %
-nmap <silent> <leader>J :Dispatch<CR>
 
 " Vim EasyAlign
 xmap ga <Plug>(EasyAlign)
@@ -244,6 +243,9 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
   autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
 
+  " turn off line numbers for terminal
+  autocmd TermOpen * setlocal nonumber norelativenumber
+
   " Markdown formatting
   autocmd BufRead,BufNewFile *.md setlocal spell
   autocmd FileType markdown setlocal ts=4 sw=4
@@ -256,3 +258,8 @@ augroup vimrcEx
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
         \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup END
+
+" Local config
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
