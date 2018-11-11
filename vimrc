@@ -188,7 +188,10 @@ let g:indentLine_char = ''
 let g:indentLine_fileTypeExclude = ['startify', 'help']
 
 " Language Client
+"   yarn global add javascript-typescript-langserver
+"   gem install solargraph
 let g:LanguageClient_serverCommands = {
+  \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
   \ 'ruby': ['solargraph', 'stdio'],
   \ }
 nnoremap <silent> <leader>h :call LanguageClient#textDocument_hover()<CR>

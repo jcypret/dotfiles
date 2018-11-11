@@ -59,7 +59,6 @@ Plug 'slashmili/alchemist.vim'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'isRuslan/vim-es6' " load after vim-javascript
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
