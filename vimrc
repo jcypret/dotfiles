@@ -169,15 +169,6 @@ nmap <Leader>f :ALEFix<CR>
 " Auto Pairs
 let g:AutoPairsMultilineClose = 0
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#ternjs#filetypes = [
-  \ 'jsx',
-  \ 'vue',
-  \ ]
-let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang'
-
 " fzf
 nnoremap <C-p> :Files<CR>
 nmap <Leader>; :Buffers<CR>
@@ -196,6 +187,11 @@ let g:LanguageClient_serverCommands = {
   \ }
 nnoremap <silent> <leader>h :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <leader>d :call LanguageClient#textDocument_definition()<CR>
+
+" ncm2
+set completeopt=noinsert,menuone,noselect
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Ripgrep
 nnoremap K :Rg<CR>
@@ -235,6 +231,8 @@ nmap <leader>gT <Plug>TitlecaseLine
 
 augroup vimrcEx
   autocmd!
+
+  autocmd BufEnter * call ncm2#enable_for_buffer()
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
