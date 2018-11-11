@@ -146,6 +146,7 @@ let g:airline_highlighting_cache = 1
 " Ale
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 0
+let g:ale_linters_explicit = 1
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 highlight ALEErrorSign ctermbg=Red
@@ -154,18 +155,19 @@ highlight clear SignColumn
 let g:ale_fixers = {
   \ 'cpp': ['clang-format'],
   \ 'javascript': ['eslint'],
-  \ 'ruby': ['rubocop'],
-  \ 'vue': ['eslint']
+  \ 'ruby': ['rubocop']
   \ }
 let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
   \ 'javascript': ['eslint'],
-  \ 'ruby': ['ruby', 'rubocop', 'solargraph']
+  \ 'ruby': ['ruby', 'rubocop']
   \ }
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_cpp_cpplint_options = '--linelength=120 --filter=-runtime/references,-legal/copyright,-build/namespaces'
-nmap <Leader>d :ALEGoToDefinition<CR>
 nmap <Leader>f :ALEFix<CR>
-nmap <Leader>h :ALEHover<CR>
+
+" Auto Pairs
+let g:AutoPairsMultilineClose = 0
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -184,6 +186,13 @@ nmap <Leader>; :Buffers<CR>
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = ''
 let g:indentLine_fileTypeExclude = ['startify', 'help']
+
+" Language Client
+let g:LanguageClient_serverCommands = {
+  \ 'ruby': ['solargraph', 'stdio'],
+  \ }
+nnoremap <silent> <leader>h :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <leader>d :call LanguageClient#textDocument_definition()<CR>
 
 " Ripgrep
 nnoremap K :Rg<CR>
