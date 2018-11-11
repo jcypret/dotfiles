@@ -37,9 +37,8 @@ vnoremap <C-c> "+y
 inoremap <C-v> <ESC>"+pa
 
 " Code folding
-set foldmethod=syntax
-set nofoldenable
-set foldlevelstart=99
+set foldlevelstart=99 " prevent collapse on initial fold
+let g:ruby_fold = 1
 
 " File navigation
 nmap ff :Explore<CR>
@@ -236,7 +235,6 @@ augroup vimrcEx
   " hide invisible chars in nerdtree panel
   autocmd FileType nerdtree setlocal nolist
   autocmd FileType vue syntax sync fromstart
-  autocmd FileType eruby setlocal foldmethod=indent
 
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -245,6 +243,7 @@ augroup vimrcEx
 
   " turn off line numbers for terminal
   autocmd TermOpen * setlocal nonumber norelativenumber
+  autocmd FileType gitcommit setlocal nonumber norelativenumber
 
   " Markdown formatting
   autocmd BufRead,BufNewFile *.md setlocal spell
