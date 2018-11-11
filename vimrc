@@ -163,6 +163,7 @@ let g:ale_linters = {
   \ 'ruby': ['ruby', 'rubocop']
   \ }
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_c_clangformat_options = '-style=google'
 let g:ale_cpp_cpplint_options = '--linelength=120 --filter=-runtime/references,-legal/copyright,-build/namespaces'
 nmap <Leader>f :ALEFix<CR>
 
