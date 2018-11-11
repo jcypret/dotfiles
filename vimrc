@@ -182,6 +182,9 @@ let g:indentLine_fileTypeExclude = ['startify', 'help']
 "   yarn global add javascript-typescript-langserver
 "   gem install solargraph
 let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['/usr/local/bin/cquery',
+  \ '--log-file=/tmp/cq.log',
+  \ '--init={"cacheDirectory":"/var/cquery/"}'],
   \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
   \ 'ruby': ['solargraph', 'stdio'],
   \ }
