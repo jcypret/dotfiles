@@ -104,11 +104,6 @@ nnoremap L gt
 " THEME ========================================================================
 set termguicolors
 
-" Dracula Theme
-" let g:indentLine_color_gui = '#44475A'
-" colorscheme dracula
-" highlight Comment gui=italic guifg=#6272A4
-
 " Nord Theme
 let g:nord_comment_brightness = 10
 let g:nord_italic = 1
