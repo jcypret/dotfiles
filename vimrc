@@ -142,6 +142,7 @@ let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline_highlighting_cache = 1
+let g:NERDTreeUpdateOnCursorHold = 0
 
 " Ale
 let g:ale_lint_on_enter = 0
