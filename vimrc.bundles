@@ -93,7 +93,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim'
 Plug 'mhinz/vim-startify'
-Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()

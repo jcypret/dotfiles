@@ -142,7 +142,6 @@ let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline_highlighting_cache = 1
-let g:NERDTreeUpdateOnCursorHold = 0
 
 " Ale
 let g:ale_lint_on_enter = 0
@@ -197,6 +196,9 @@ nnoremap <silent> <leader>d :call LanguageClient#textDocument_definition()<CR>
 set completeopt=noinsert,menuone,noselect
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" NERDTree
+let g:NERDTreeUpdateOnCursorHold = 0
 
 " Ripgrep
 nnoremap K :Rg<CR>
