@@ -150,14 +150,15 @@ highlight clear SignColumn
 let g:ale_fixers = {
   \ 'cpp': ['clang-format'],
   \ 'javascript': ['eslint'],
-  \ 'ruby': ['rubocop']
+  \ 'ruby': ['rubocop'],
+  \ 'vue': ['eslint'],
   \ }
 let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
   \ 'javascript': ['eslint'],
-  \ 'ruby': ['ruby', 'rubocop']
+  \ 'ruby': ['ruby', 'rubocop'],
+  \ 'vue': ['eslint'],
   \ }
-let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_c_clangformat_options = '-style=google'
 let g:ale_cpp_cpplint_options = '--linelength=120 --filter=-runtime/references,-legal/copyright,-build/namespaces'
 nmap <Leader>f :ALEFix<CR>
@@ -175,14 +176,16 @@ let g:indentLine_char = ''
 let g:indentLine_fileTypeExclude = ['startify', 'help']
 
 " Language Client
-"   yarn global add javascript-typescript-langserver
 "   gem install solargraph
+"   npm install vue-language-server -g
+"   yarn global add javascript-typescript-langserver
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['/usr/local/bin/cquery',
   \ '--log-file=/tmp/cq.log',
   \ '--init={"cacheDirectory":"/var/cquery/"}'],
   \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
   \ 'ruby': ['solargraph', 'stdio'],
+  \ 'vue': ['vls'],
   \ }
 nnoremap <silent> <leader>h :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <leader>d :call LanguageClient#textDocument_definition()<CR>
