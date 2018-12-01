@@ -1,7 +1,6 @@
 cask_args appdir: "/Applications"
 
 tap "homebrew/services"
-tap "caskroom/cask"
 tap "thoughtbot/formulae"
 brew "mas"
 
@@ -10,6 +9,7 @@ brew "git"
 brew "diff-so-fancy"
 brew "hub"
 brew "git-standup"
+brew "lazygit"
 
 # Unix
 brew "ctags"
@@ -27,6 +27,7 @@ brew "cloc"
 brew "bat" # better cat
 brew "htop" # better top
 brew "prettyping" # better ping
+brew "tldr" # better man pages
 
 # Shell
 brew "antigen"
@@ -37,7 +38,7 @@ brew "thefuck"
 brew "zsh"
 
 # Heroku
-brew "heroku-toolbelt"
+brew "heroku/brew/heroku"
 brew "parity"
 
 # Image manipulation
@@ -83,7 +84,9 @@ cask "chromedriver"
 cask "dash"
 cask "dropbox"
 cask "fantastical"
+cask "firefox"
 cask "google-chrome"
+cask "hammerspoon"
 cask "imagealpha"
 cask "imageoptim"
 cask "iterm2"
@@ -96,10 +99,7 @@ cask "sequel-pro"
 cask "sketch"
 cask "spectacle"
 cask "spotify"
+cask "vlc"
 
-mas "Affinity Photo", id: 824183456
-mas "Bear", id: 1091189122
-mas "Frank DeLoupe", id: 530458789
 mas "Gestimer", id: 990588172
-mas "Spark", id: 1176895641
 mas "Todoist", id: 585829637
