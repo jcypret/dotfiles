@@ -8,6 +8,7 @@ alias pip="pip3"
 alias cat="bat"
 alias top="htop"
 alias lg="lazygit"
+alias ping="prettyping"
 
 # Vim aliases
 alias v="nvim"

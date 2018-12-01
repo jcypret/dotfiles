@@ -26,6 +26,7 @@ brew "cmake"
 brew "cloc"
 brew "bat" # better cat
 brew "htop" # better top
+brew "prettyping" # better ping
 
 # Shell
 brew "antigen"
