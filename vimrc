@@ -171,7 +171,6 @@ let g:indentLine_char = ''
 let g:indentLine_fileTypeExclude = ['startify', 'help']
 
 " Language Client
-"   gem install solargraph
 "   npm install vue-language-server -g
 "   yarn global add javascript-typescript-langserver
 let g:LanguageClient_serverCommands = {
@@ -179,7 +178,6 @@ let g:LanguageClient_serverCommands = {
   \ '--log-file=/tmp/cq.log',
   \ '--init={"cacheDirectory":"/var/cquery/"}'],
   \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-  \ 'ruby': ['solargraph', 'stdio'],
   \ 'vue': ['vls'],
   \ }
 nnoremap <silent> <leader>h :call LanguageClient#textDocument_hover()<CR>
