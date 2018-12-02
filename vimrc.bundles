@@ -55,7 +55,6 @@ Plug 'tpope/vim-fugitive'
 
 " Elixir
 Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
 
 " Javascript
 Plug 'pangloss/vim-javascript'

@@ -205,6 +205,7 @@ nmap ga <Plug>(EasyAlign)
 
 " Vim Gitgutter
 set updatetime=100
+let g:gitgutter_grep = 'rg color --color=never'
 
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1
@@ -224,7 +225,6 @@ tmap <C-o> <C-\><C-n>
 " Vim Titlecase
 let g:titlecase_map_keys = 0
 nmap <leader>gt <Plug>Titlecase
-vmap <leader>gt <Plug>Titlecase
 nmap <leader>gT <Plug>TitlecaseLine
 
 augroup vimrcEx
@@ -257,9 +257,8 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile *.md setlocal spell
   autocmd FileType markdown setlocal ts=4 sw=4
 
-  " VueJS comment style
-  autocmd FileType cpp setlocal commentstring=//\ %s
-  autocmd FileType vue setlocal commentstring=//\ %s
+  " Set comment style to // for cpp and vue
+  autocmd FileType cpp,vue setlocal commentstring=//\ %s
 
   " HACK: remove status line background for fzf
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
