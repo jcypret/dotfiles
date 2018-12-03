@@ -4,7 +4,6 @@ alias mkdir="mkdir -p" # create nested directories that don't already exist
 alias ln="ln -v" # use verbose when linking files
 alias e="$EDITOR" # shortcut for vim
 alias dzc="dz; production console" # Opens production console in the DangerZone
-alias pip="pip3"
 alias cat="bat"
 alias top="htop"
 alias lg="lazygit"

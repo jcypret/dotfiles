@@ -11,9 +11,7 @@ antigen bundle djui/alias-tips
 antigen bundle ember-cli
 antigen bundle git
 antigen bundle heroku
-antigen bundle jsahlen/nodenv.plugin.zsh
 antigen bundle rails
-antigen bundle thefuck
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -25,16 +23,13 @@ antigen bundle sindresorhus/pure
 antigen apply
 
 # Aliases
-unalias c
-unalias rg
 source ~/.aliases
 
 export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=nvim
 export PGDATA=/usr/local/var/postgres
 
-eval "$(rbenv init -)"  # Load in RBenv shims
-eval "$(nodenv init -)" # Load Nodenv shims
+source /usr/local/opt/asdf/asdf.sh
 eval "$(hub alias -s)"  # Load Hub
 ssh-add -A 2>/dev/null; # Load in SSH keys
 

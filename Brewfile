@@ -2,6 +2,7 @@ cask_args appdir: "/Applications"
 
 tap "homebrew/services"
 tap "thoughtbot/formulae"
+tap "heroku/brew"
 brew "mas"
 
 # Git
@@ -29,16 +30,18 @@ brew "htop" # better top
 brew "prettyping" # better ping
 brew "tldr" # better man pages
 
+# Version Manager
+brew "asdf"
+
 # Shell
 brew "antigen"
 brew "autojump"
 brew "fzf"
 brew "pv"
-brew "thefuck"
 brew "zsh"
 
 # Heroku
-brew "heroku/brew/heroku"
+brew "heroku"
 brew "parity"
 
 # Image manipulation
@@ -47,10 +50,6 @@ brew "guetzli"
 
 # Testing
 brew "qt"
-
-# Programming
-brew "python3"
-brew "elixir"
 
 # C++
 brew "clang-format"
@@ -63,18 +62,11 @@ brew "postgres", restart_service: :changed
 brew "redis", restart_service: :changed
 
 # Javascript
-brew "nodenv"
-brew "node-build"
 brew "yarn"
 
 # PHP
 brew "php@7.1"
 brew "composer"
-
-# Ruby
-brew "rbenv"
-brew "ruby-build"
-brew "rbenv-default-gems"
 
 # Applications
 cask "alfred"
