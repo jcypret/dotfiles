@@ -22,6 +22,10 @@ antigen bundle sindresorhus/pure
 
 antigen apply
 
+# load completions
+autoload -Uz compinit
+compinit
+
 # Aliases
 unalias c
 unalias rg
@@ -31,12 +35,15 @@ export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=nvim
 export PGDATA=/usr/local/var/postgres
 
-source /usr/local/opt/asdf/asdf.sh
 eval "$(hub alias -s)"  # Load Hub
 ssh-add -A 2>/dev/null; # Load in SSH keys
 
 # always check ./bin first
 export PATH=./bin:$PATH
+
+# asdf
+source /usr/local/opt/asdf/asdf.sh
+source /usr/local/etc/bash_completion.d/asdf.bash
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
