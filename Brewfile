@@ -62,7 +62,7 @@ brew "postgres", restart_service: :changed
 brew "redis", restart_service: :changed
 
 # Javascript
-brew "yarn"
+brew "yarn", args: ["without-node"]
 
 # PHP
 brew "php@7.1"
