@@ -54,6 +54,7 @@ brew "qt"
 # C++
 brew "clang-format"
 brew "cppcheck"
+brew "cquery"
 brew "llvm", args: ["with-toolchain"]
 
 # Databases
