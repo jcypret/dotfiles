@@ -146,12 +146,14 @@ let g:ale_fixers = {
   \ 'cpp': ['clang-format'],
   \ 'javascript': ['eslint'],
   \ 'ruby': ['rubocop'],
+  \ 'scss': ['stylelint'],
   \ 'vue': ['eslint'],
   \ }
 let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
   \ 'javascript': ['eslint'],
   \ 'ruby': ['ruby', 'rubocop'],
+  \ 'scss': ['stylelint'],
   \ 'vue': ['eslint'],
   \ }
 let g:ale_c_clangformat_options = '-style=google'
@@ -171,8 +173,8 @@ let g:indentLine_char = ''
 let g:indentLine_fileTypeExclude = ['startify', 'help']
 
 " Language Client
-"   npm install vue-language-server -g
 "   yarn global add javascript-typescript-langserver
+"   yarn global add vue-language-server
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['/usr/local/bin/cquery',
   \ '--log-file=/tmp/cq.log',
