@@ -144,6 +144,7 @@ highlight ALEWarningSign ctermbg=Yellow
 highlight clear SignColumn
 let g:ale_fixers = {
   \ 'cpp': ['clang-format'],
+  \ 'elixir': ['mix_format'],
   \ 'javascript': ['eslint'],
   \ 'ruby': ['rubocop'],
   \ 'scss': ['stylelint'],
@@ -179,6 +180,7 @@ let g:LanguageClient_serverCommands = {
   \ 'cpp': ['/usr/local/bin/cquery',
   \ '--log-file=/tmp/cq.log',
   \ '--init={"cacheDirectory":"/var/cquery/"}'],
+  \ 'elixir': ['elixir-ls'],
   \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
   \ 'vue': ['vls'],
   \ }
