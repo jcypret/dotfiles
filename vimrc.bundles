@@ -48,6 +48,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'mattn/emmet-vim'
+Plug 'alexlafroscia/postcss-syntax.vim'
 
 " Git
 Plug 'airblade/vim-gitgutter'
