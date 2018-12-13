@@ -209,7 +209,7 @@ nmap ga <Plug>(EasyAlign)
 
 " Vim Gitgutter
 set updatetime=100
-let g:gitgutter_grep = 'rg color --color=never'
+let g:gitgutter_grep = 'rg --color=never'
 
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1
