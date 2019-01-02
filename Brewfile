@@ -29,6 +29,8 @@ brew "bat" # better cat
 brew "htop" # better top
 brew "prettyping" # better ping
 brew "tldr" # better man pages
+brew "ncdu" # better du
+brew "fd" # better find
 
 # Version Manager
 brew "asdf"
