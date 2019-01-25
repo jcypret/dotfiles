@@ -54,7 +54,7 @@ map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 " Git diff
 nmap <Leader>dd :term git diff<cr>i
 nmap <Leader>dh :term git diff HEAD<cr>i
-nmap <Leader>ds :term git diff --staged<cr>i
+nmap <Leader>ds :term git diff --staged --ignore-all-space<cr>i
 
 " Indention
 set tabstop=2 " indent 2 spaces
