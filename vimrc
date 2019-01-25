@@ -159,6 +159,7 @@ let g:ale_linters = {
   \ }
 let g:ale_c_clangformat_options = '-style=google'
 let g:ale_cpp_cpplint_options = '--linelength=120 --filter=-runtime/references,-legal/copyright,-build/namespaces'
+let g:ale_ruby_rubocop_executable = 'bundle' " use `bundle exec rubocop`
 nmap <Leader>f :ALEFix<CR>
 
 " Auto Pairs
