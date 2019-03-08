@@ -134,6 +134,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline_highlighting_cache = 1
 
 " Ale
+let g:ale_fix_on_save = 1
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 0
 let g:ale_linters_explicit = 1
@@ -144,6 +145,7 @@ highlight ALEWarningSign ctermbg=Yellow
 highlight clear SignColumn
 let g:ale_fixers = {
   \ 'cpp': ['clang-format'],
+  \ 'css': ['stylelint'],
   \ 'elixir': ['mix_format'],
   \ 'javascript': ['eslint'],
   \ 'ruby': ['rufo', 'rubocop'],
@@ -152,6 +154,7 @@ let g:ale_fixers = {
   \ }
 let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
+  \ 'css': ['stylelint'],
   \ 'javascript': ['eslint'],
   \ 'ruby': ['ruby', 'rubocop'],
   \ 'scss': ['stylelint'],
@@ -160,6 +163,7 @@ let g:ale_linters = {
 let g:ale_c_clangformat_options = '-style=google'
 let g:ale_cpp_cpplint_options = '--linelength=120 --filter=-runtime/references,-legal/copyright,-build/namespaces'
 let g:ale_ruby_rubocop_executable = 'bundle' " use `bundle exec rubocop`
+let g:ale_ruby_rubocop_options = '--force-exclusions'
 nmap <Leader>f :ALEFix<CR>
 
 " Auto Pairs
