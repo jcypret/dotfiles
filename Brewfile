@@ -26,7 +26,7 @@ brew "p7zip"
 brew "cmake"
 brew "cloc"
 brew "bat" # better cat
-brew "htop" # better top
+brew "gotop" # better top
 brew "prettyping" # better ping
 brew "tldr" # better man pages
 brew "ncdu" # better du
