@@ -26,7 +26,7 @@ brew "p7zip"
 brew "cmake"
 brew "cloc"
 brew "bat" # better cat
-brew "htop" # better top
+brew "gotop" # better top
 brew "prettyping" # better ping
 brew "tldr" # better man pages
 brew "ncdu" # better du
@@ -72,6 +72,7 @@ brew "php@7.1"
 brew "composer"
 
 # Applications
+cask "alacritty"
 cask "alfred"
 cask "appcleaner"
 cask "bartender"
@@ -84,7 +85,6 @@ cask "google-chrome"
 cask "hammerspoon"
 cask "imagealpha"
 cask "imageoptim"
-cask "iterm2"
 cask "keepingyouawake"
 cask "ngrok"
 cask "postico"
