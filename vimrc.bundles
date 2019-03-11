@@ -30,13 +30,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'wesQ3/vim-windowswap'
 
 " Autocomplete
-Plug 'autozimu/LanguageClient-neovim', {
-   \ 'branch': 'next',
-   \ 'do': 'bash install.sh',
-   \ }
-Plug 'roxma/nvim-yarp' " dependency of ncm2
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-bufword'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
 

@@ -169,6 +169,21 @@ nmap <Leader>f :ALEFix<CR>
 " Auto Pairs
 let g:AutoPairsMultilineClose = 0
 
+" Conquer of Completion (coc)
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 " fzf
 nnoremap <C-p> :Files<CR>
 nmap <Leader>; :Buffers<CR>
@@ -177,25 +192,6 @@ nmap <Leader>; :Buffers<CR>
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = ''
 let g:indentLine_fileTypeExclude = ['startify', 'help']
-
-" Language Client
-"   yarn global add javascript-typescript-langserver
-"   yarn global add vue-language-server
-let g:LanguageClient_serverCommands = {
-  \ 'cpp': ['/usr/local/bin/cquery',
-  \ '--log-file=/tmp/cq.log',
-  \ '--init={"cacheDirectory":"/var/cquery/"}'],
-  \ 'elixir': ['elixir-ls'],
-  \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-  \ 'vue': ['vls'],
-  \ }
-nnoremap <silent> <leader>h :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <leader>d :call LanguageClient#textDocument_definition()<CR>
-
-" ncm2
-set completeopt=noinsert,menuone,noselect
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " NERDTree
 let g:NERDTreeUpdateOnCursorHold = 0
@@ -238,8 +234,6 @@ nmap <leader>gT <Plug>TitlecaseLine
 
 augroup vimrcEx
   autocmd!
-
-  autocmd BufEnter * call ncm2#enable_for_buffer()
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
