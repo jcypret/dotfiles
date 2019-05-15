@@ -10,9 +10,11 @@ let g:mapleader = ' '
 
 set autowrite      " save before running commands (useful for TDD)
 set cursorline     " highlight the current line
+set hidden         " allow hiding unsaved buffers
 set nojoinspaces   " when joining lines, collaps to a single space
 set noshowcmd      " don't show partial commands in status bar
 set regexpengine=1 " use legacy syntax parsing for ruby
+set signcolumn=yes " always show signcolumns
 set wildmenu       " enable tab-completions for vim commands
 
 " Display whitespace
@@ -157,6 +159,7 @@ let g:ale_linters = {
   \ 'javascript': ['eslint'],
   \ 'ruby': ['ruby', 'rubocop'],
   \ 'scss': ['stylelint'],
+  \ 'vim': ['vint'],
   \ 'vue': ['eslint'],
   \ }
 let g:ale_c_clangformat_options = '-style=google'
@@ -169,6 +172,20 @@ nmap <Leader>f :ALEFix<CR>
 let g:AutoPairsMultilineClose = 0
 
 " Conquer of Completion (coc)
+let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-solargraph',
+  \ 'coc-tsserver',
+  \ 'coc-vetur',
+  \ 'coc-yaml',
+  \ ]
+
+nmap <silent> gd <Plug>(coc-definition)
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -268,6 +285,6 @@ augroup vimrcEx
 augroup END
 
 " Local config
-if filereadable($HOME . "/.vimrc.local")
+if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
