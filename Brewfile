@@ -1,57 +1,60 @@
 cask_args appdir: "/Applications"
 
+tap "heroku/brew"
+tap "homebrew/cask"
 tap "homebrew/services"
 tap "thoughtbot/formulae"
-tap "heroku/brew"
-brew "mas"
-
-# Git
-brew "git"
-brew "diff-so-fancy"
-brew "hub"
-brew "git-standup"
-brew "lazygit"
+tap "universal-ctags/universal-ctags"
 
 # Unix
-brew "ctags"
+brew "cmake"
 brew "openssl"
-brew "libyaml" # should come after openssl
+brew "p7zip"
 brew "rcm"
 brew "reattach-to-user-namespace"
-brew "ripgrep"
-brew "tmux"
-brew "neovim"
 brew "tree"
-brew "p7zip"
-brew "cmake"
-brew "cloc"
-brew "bat" # better cat
-brew "gotop" # better top
-brew "prettyping" # better ping
-brew "tldr" # better man pages
-brew "ncdu" # better du
-brew "fd" # better find
 
-# Version Manager
-brew "asdf"
-
-# Shell
+# ZSH
 brew "antigen"
 brew "autojump"
 brew "fzf"
 brew "pv"
 brew "zsh"
 
+# Better Unix
+brew "bat" # cat
+brew "fd" # find
+brew "gotop" # top
+brew "ncdu" # du
+brew "prettyping" # ping
+brew "ripgrep" # grep
+brew "tldr" # man pages
+
+# Git
+brew "git"
+
+brew "diff-so-fancy"
+brew "git-standup"
+brew "hub"
+brew "lazygit"
+
+# Programming
+brew "asdf"
+brew "clisp"
+brew "cloc"
+brew "neovim"
+brew "tmux"
+brew "universal-ctags", args: ["HEAD"]
+
 # Heroku
+brew "heroku-node" # heroku and parity dependency
+
 brew "heroku"
 brew "parity"
 
 # Image manipulation
 brew "imagemagick"
 brew "guetzli"
-
-# Testing
-brew "qt"
 
 # C++
 brew "clang-format"
@@ -60,7 +63,7 @@ brew "cquery"
 brew "llvm", args: ["with-toolchain"]
 
 # Databases
-brew "mysql"
+brew "mysql@5.7", restart_service: true, link: true, conflicts_with: ["mysql"]
 brew "postgres", restart_service: :changed
 brew "redis", restart_service: :changed
 
@@ -68,10 +71,15 @@ brew "redis", restart_service: :changed
 brew "yarn", args: ["without-node"]
 
 # PHP
-brew "php@7.1"
 brew "composer"
+brew "dnsmasq"
+brew "nginx"
+brew "php@7.1"
+brew "php@7.2"
 
 # Applications
+brew "mas"
+
 cask "alacritty"
 cask "alfred"
 cask "appcleaner"
@@ -83,6 +91,7 @@ cask "fantastical"
 cask "firefox"
 cask "google-chrome"
 cask "hammerspoon"
+cask "handbrake"
 cask "imagealpha"
 cask "imageoptim"
 cask "keepingyouawake"
@@ -90,7 +99,7 @@ cask "ngrok"
 cask "postico"
 cask "qbserve"
 cask "screenflow"
-cask "sequel-pro"
+cask "sequal-pro"
 cask "sketch"
 cask "spectacle"
 cask "spotify"
