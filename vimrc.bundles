@@ -90,7 +90,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'arcticicestudio/nord-vim'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
-" Plug 'roman/golden-ratio'
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
