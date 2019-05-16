@@ -227,6 +227,9 @@ let g:rg_highlight = 1
 " Startify
 let g:startify_change_to_vcs_root = 1
 
+" Tagbar
+nmap T :TagbarToggle<CR>
+
 " Vim EasyAlign
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)

@@ -81,6 +81,9 @@ Plug 'jremmen/vim-ripgrep'
 " SQL
 Plug 'exu/pgsql.vim'
 
+" CTags
+Plug 'majutsushi/tagbar'
+
 " Themes and UI
 Plug 'Yggdroot/indentLine'
 Plug 'arcticicestudio/nord-vim'
