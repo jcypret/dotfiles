@@ -54,6 +54,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'isRuslan/vim-es6' " load after vim-javascript
 Plug 'kchmck/vim-coffee-script'
+Plug 'leafgarland/typescript-vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'posva/vim-vue'
 

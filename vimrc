@@ -141,9 +141,6 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_linters_explicit = 1
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
-highlight ALEErrorSign ctermbg=Red
-highlight ALEWarningSign ctermbg=Yellow
-highlight clear SignColumn
 let g:ale_fixers = {
   \ 'cpp': ['clang-format'],
   \ 'css': ['stylelint'],
@@ -172,6 +169,9 @@ nmap <Leader>f :ALEFix<CR>
 let g:AutoPairsMultilineClose = 0
 
 " Conquer of Completion (coc)
+highlight link CocErrorSign ALEErrorSign
+highlight link CocWarningSign ALEWarningSign
+
 let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-html',
@@ -198,6 +198,17 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use L to show documentation in preview window
+nnoremap <silent> L :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
 endfunction
 
 " fzf
