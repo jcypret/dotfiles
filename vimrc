@@ -92,7 +92,8 @@ set ignorecase " case-insensitive when lowercase
 set smartcase " case-sensitive when uppercase
 set inccommand=split " live preview for find/replace
 " Clear highlight from search results
-nnoremap <silent> <Leader>/ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+nnoremap <silent> <Leader>/
+      \ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " Split screen
 set splitbelow
@@ -160,7 +161,8 @@ let g:ale_linters = {
   \ 'vue': ['eslint'],
   \ }
 let g:ale_c_clangformat_options = '-style=google'
-let g:ale_cpp_cpplint_options = '--linelength=120 --filter=-runtime/references,-legal/copyright,-build/namespaces'
+let g:ale_cpp_cpplint_options = '--linelength=120' .
+      \ '--filter=-runtime/references,-legal/copyright,-build/namespaces'
 let g:ale_ruby_rubocop_executable = 'bundle' " use `bundle exec rubocop`
 let g:ale_ruby_rubocop_options = '--force-exclusions'
 nmap <Leader>f :ALEFix<CR>
