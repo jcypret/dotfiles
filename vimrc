@@ -23,14 +23,8 @@ set list listchars=tab:»·,trail:·,nbsp:·
 " Match longest first, then next full match
 set wildmode=list:longest,full
 
-" Redraw window
-nnoremap <leader>re :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
-
 " Reload vimrc
 nmap <Leader>rr :source ~/.vimrc<cr>
-
-" Switch to normal mode
-imap jj <esc>
 
 " VIM SETTINGS =================================================================
 
@@ -43,7 +37,6 @@ set foldlevelstart=99 " prevent collapse on initial fold
 let g:ruby_fold = 1
 
 " File navigation
-nmap ff :Explore<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>n :NERDTreeFind<CR>
 " Switch between the last two files
@@ -110,6 +103,7 @@ set termguicolors
 " Nord Theme
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
+let g:nord_underline = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
 
