@@ -15,6 +15,8 @@ set nojoinspaces   " when joining lines, collaps to a single space
 set noshowcmd      " don't show partial commands in status bar
 set regexpengine=1 " use legacy syntax parsing for ruby
 set signcolumn=yes " always show signcolumns
+set splitbelow     " open new horizontal splits below
+set splitright     " open new vertical splits to the right
 set wildmenu       " enable tab-completions for vim commands
 
 " Display whitespace
@@ -32,11 +34,16 @@ nmap <Leader>rr :source ~/.vimrc<cr>
 vnoremap <C-c> "+y
 inoremap <C-v> <ESC>"+pa
 
-" Code folding
+" Code Folding
 set foldlevelstart=99 " prevent collapse on initial fold
 let g:ruby_fold = 1
 
-" File navigation
+" Diffing
+nmap <Leader>dd :term git diff<cr>i
+nmap <Leader>dh :term git diff HEAD<cr>i
+nmap <Leader>ds :term git diff --staged --ignore-all-space<cr>i
+
+" File Navigation
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>n :NERDTreeFind<CR>
 " Switch between the last two files
@@ -46,32 +53,25 @@ map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
-" Git diff
-nmap <Leader>dd :term git diff<cr>i
-nmap <Leader>dh :term git diff HEAD<cr>i
-nmap <Leader>ds :term git diff --staged --ignore-all-space<cr>i
-
 " Indention
-set tabstop=2 " indent 2 spaces
+set tabstop=2    " indent 2 spaces
 set shiftwidth=2 " indent 2 spaces when using >>
-set shiftround " snap to increments of 2
-set expandtab " use soft tabs
+set shiftround   " snap to increments of 2
+set expandtab    " use soft tabs
 
-" Line numbers
+" Line Numbers
 set relativenumber
 set number
 set numberwidth=5
 
-" Line width
-set textwidth=80 " Set column width
-set colorcolumn=+1 " highlight 81st column
-set breakindent " wrap lines in editor if too wide for screen
+" Line Width
+set textwidth=80           " Set column width
+set colorcolumn=+1         " highlight 81st column
+set breakindent            " wrap lines in editor if too wide for screen
 set breakindentopt=shift:2 " indent wrapped line
 
 " Movements
-" Move vertically through wrapped text
-nmap j gj
-nmap k gk
+"
 " Jump to beginning of line after whitespace
 nmap 0 ^
 " Move between panels
@@ -79,20 +79,20 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+" Move vertically through wrapped text
+nmap j gj
+nmap k gk
 
 " Search /
-set ignorecase " case-insensitive when lowercase
-set smartcase " case-sensitive when uppercase
+set ignorecase       " case-insensitive when lowercase
+set smartcase        " case-sensitive when uppercase
 set inccommand=split " live preview for find/replace
+
 " Clear highlight from search results
 nnoremap <silent> <Leader>/
       \ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
-" Split screen
-set splitbelow
-set splitright
-
-" Tab navigation
+" Tab Navigation
 nnoremap <C-t> :tabnew<CR>
 nnoremap H gT
 nnoremap L gt
@@ -165,9 +165,6 @@ nmap <Leader>f :ALEFix<CR>
 let g:AutoPairsMultilineClose = 0
 
 " Conquer of Completion (coc)
-highlight link CocErrorSign ALEErrorSign
-highlight link CocWarningSign ALEWarningSign
-
 let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-html',
@@ -177,6 +174,9 @@ let g:coc_global_extensions = [
   \ 'coc-vetur',
   \ 'coc-yaml',
   \ ]
+
+highlight link CocErrorSign ALEErrorSign
+highlight link CocWarningSign ALEWarningSign
 
 nmap <silent> gd <Plug>(coc-definition)
 
@@ -190,7 +190,6 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -198,7 +197,6 @@ endfunction
 
 " Use L to show documentation in preview window
 nnoremap <silent> L :call <SID>show_documentation()<CR>
-
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')

@@ -82,6 +82,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'exu/pgsql.vim'
 
 " CTags
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 
 " Themes and UI
@@ -89,7 +90,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'arcticicestudio/nord-vim'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
-Plug 'roman/golden-ratio'
+" Plug 'roman/golden-ratio'
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
