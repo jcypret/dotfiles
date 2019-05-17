@@ -45,6 +45,7 @@ Plug 'alexlafroscia/postcss-syntax.vim'
 
 " Git
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-fugitive'
 
 " Elixir
