@@ -1,5 +1,6 @@
 cask_args appdir: "/Applications"
 
+tap "cjbassi/gotop"
 tap "heroku/brew"
 tap "homebrew/cask"
 tap "homebrew/services"
