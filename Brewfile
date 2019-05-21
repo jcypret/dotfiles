@@ -74,8 +74,7 @@ brew "yarn", args: ["without-node"]
 brew "composer"
 brew "dnsmasq"
 brew "nginx"
-brew "php@7.1"
-brew "php@7.2"
+brew "php@7.1", restart_service: true, link: true, conflicts_with: ["php"]
 
 # Applications
 brew "mas"
@@ -99,7 +98,7 @@ cask "ngrok"
 cask "postico"
 cask "qbserve"
 cask "screenflow"
-cask "sequal-pro"
+cask "sequel-pro"
 cask "sketch"
 cask "spectacle"
 cask "spotify"
