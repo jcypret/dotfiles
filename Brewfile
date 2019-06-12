@@ -24,6 +24,7 @@ brew "zsh"
 
 # Better Unix
 brew "bat" # cat
+brew "exa" # ls
 brew "fd" # find
 brew "gotop" # top
 brew "ncdu" # du

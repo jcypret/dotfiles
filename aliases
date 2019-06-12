@@ -1,5 +1,4 @@
 # Unix stuff
-alias ll="ls -al" # display files vertically
 alias mkdir="mkdir -p" # create nested directories that don't already exist
 alias ln="ln -v" # use verbose when linking files
 alias e="$EDITOR" # shortcut for vim
@@ -9,6 +8,12 @@ alias top="gotop"
 alias lg="lazygit"
 alias ping="prettyping --nolegend"
 alias du="ncdu --color dark -x --exclude .git"
+
+# Better ls
+alias ls="exa --group-directories-first"
+alias l="ls --long"
+alias la="l --all"
+alias lt="ls --tree --level=2"
 
 # Vim aliases
 alias v="nvim"
