@@ -36,6 +36,7 @@ export EDITOR=nvim
 export PGDATA=/usr/local/var/postgres
 
 eval "$(hub alias -s)"  # Load Hub
+eval "$(direnv hook zsh)" # Load direnv
 ssh-add -A 2>/dev/null; # Load in SSH keys
 
 # always check ./bin first

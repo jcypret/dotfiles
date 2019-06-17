@@ -9,11 +9,11 @@ tap "universal-ctags/universal-ctags"
 
 # Unix
 brew "cmake"
+brew "direnv"
 brew "openssl"
 brew "p7zip"
 brew "rcm"
 brew "reattach-to-user-namespace"
-brew "tree"
 
 # ZSH
 brew "antigen"
