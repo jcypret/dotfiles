@@ -34,7 +34,6 @@ brew "tldr" # man pages
 
 # Git
 brew "git"
-
 brew "diff-so-fancy"
 brew "git-standup"
 brew "hub"
@@ -45,6 +44,7 @@ brew "asdf"
 brew "clisp"
 brew "cloc"
 brew "neovim"
+brew "overmind"
 brew "tmux"
 brew "universal-ctags", args: ["HEAD"]
 
