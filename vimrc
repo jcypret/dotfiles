@@ -30,6 +30,21 @@ nmap <Leader>rr :source ~/.vimrc<cr>
 
 " VIM SETTINGS =================================================================
 
+" Buffers
+
+" save current buffer
+nnoremap <leader>w :w<cr>
+"create a new buffer (save it with :w ./path/to/FILENAME)
+nnoremap <leader>B :enew<cr>
+"close current buffer
+nnoremap <leader>bd :bp <bar> bd! #<cr>
+"close all open buffers
+nnoremap <leader>ba :bufdo bd!<cr>
+"Tab to switch to next open buffer
+nnoremap <Tab> :bnext<cr>
+"Shift + Tab to switch to previous open buffer
+nnoremap <S-Tab> :bprevious<cr>
+
 " Clipboard
 vnoremap <C-c> "+y
 inoremap <C-v> <ESC>"+pa
@@ -88,6 +103,9 @@ set ignorecase       " case-insensitive when lowercase
 set smartcase        " case-sensitive when uppercase
 set inccommand=split " live preview for find/replace
 
+" replace the word under cursor
+nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
+
 " Clear highlight from search results
 nnoremap <silent> <Leader>/
       \ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
@@ -130,7 +148,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline_highlighting_cache = 1
 
 " Ale
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 0
 let g:ale_linters_explicit = 1
@@ -158,7 +176,6 @@ let g:ale_c_clangformat_options = '-style=google'
 let g:ale_cpp_cpplint_options = '--linelength=120' .
       \ '--filter=-runtime/references,-legal/copyright,-build/namespaces'
 let g:ale_ruby_rubocop_executable = 'bundle' " use `bundle exec rubocop`
-let g:ale_ruby_rubocop_options = '--force-exclusions'
 nmap <Leader>f :ALEFix<CR>
 
 " Auto Pairs
@@ -195,8 +212,8 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use L to show documentation in preview window
-nnoremap <silent> L :call <SID>show_documentation()<CR>
+" Use space+h to show documentation in preview window
+nnoremap <silent> <leader>h :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -216,6 +233,9 @@ let g:indentLine_fileTypeExclude = ['startify', 'help']
 
 " NERDTree
 let g:NERDTreeUpdateOnCursorHold = 0
+
+" Rainbow Parentheses Improved
+let g:rainbow_active = 0
 
 " Ripgrep
 nnoremap K :Rg<CR>
