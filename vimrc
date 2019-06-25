@@ -148,9 +148,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline_highlighting_cache = 1
 
 " Ale
-let g:ale_fix_on_save = 0
 let g:ale_lint_on_enter = 0
-let g:ale_lint_on_text_changed = 0
 let g:ale_linters_explicit = 1
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
@@ -159,7 +157,7 @@ let g:ale_fixers = {
   \ 'css': ['stylelint'],
   \ 'elixir': ['mix_format'],
   \ 'javascript': ['eslint'],
-  \ 'ruby': ['rufo', 'rubocop'],
+  \ 'ruby': ['rubocop', 'standardrb'],
   \ 'scss': ['stylelint'],
   \ 'vue': ['eslint'],
   \ }
@@ -167,7 +165,7 @@ let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
   \ 'css': ['stylelint'],
   \ 'javascript': ['eslint'],
-  \ 'ruby': ['ruby', 'rubocop'],
+  \ 'ruby': ['ruby', 'rubocop', 'standardrb'],
   \ 'scss': ['stylelint'],
   \ 'vim': ['vint'],
   \ 'vue': ['eslint'],
