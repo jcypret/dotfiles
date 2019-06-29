@@ -64,17 +64,13 @@ brew "cppcheck"
 brew "cquery"
 brew "llvm", args: ["with-toolchain"]
 
-# Databases
-brew "mysql@5.7", restart_service: true, link: true, conflicts_with: ["mysql"]
-brew "postgres", restart_service: :changed
-brew "redis", restart_service: :changed
-
 # Javascript
 brew "yarn", args: ["without-node"]
 
 # PHP
 brew "composer"
 brew "dnsmasq"
+brew "mysql@5.7", restart_service: true, link: true, conflicts_with: ["mysql"]
 brew "nginx"
 brew "php@7.1", restart_service: true, link: true, conflicts_with: ["php"]
 
