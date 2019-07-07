@@ -182,11 +182,13 @@ let g:AutoPairsMultilineClose = 0
 " Conquer of Completion (coc)
 let g:coc_global_extensions = [
   \ 'coc-css',
+  \ 'coc-elixir',
   \ 'coc-html',
   \ 'coc-json',
   \ 'coc-solargraph',
   \ 'coc-tsserver',
   \ 'coc-vetur',
+  \ 'coc-vimlsp',
   \ 'coc-yaml',
   \ ]
 
