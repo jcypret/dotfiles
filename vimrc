@@ -305,6 +305,9 @@ augroup vimrcEx
   " Set comment style to // for cpp and vue
   autocmd FileType cpp,vue setlocal commentstring=//\ %s
 
+  " Use rainbow parens for lisp-based languages
+  autocmd FileType lisp,clojure,scheme RainbowToggleOn
+
   " HACK: remove status line background for fzf
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
         \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
