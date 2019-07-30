@@ -4,7 +4,7 @@ alias ln="ln -v" # use verbose when linking files
 alias e="$EDITOR" # shortcut for vim
 alias dzc="dz; production console" # Opens production console in the DangerZone
 alias cat="bat"
-alias top="gotop"
+alias top="gotop -f"
 alias lg="lazygit"
 alias ping="prettyping --nolegend"
 alias du="ncdu --color dark -x --exclude .git"
@@ -64,10 +64,7 @@ compctl -W ~/Code/ -/ c
 desk() { cd ~/Desktop/$1; }
 compctl -W ~/Desktop/ -/ desk
 
-# Misc
-alias jsnuke="npm cache clean && bower cache clean && rm -rf node_modules bower_components dist tmp && npm install && bower install"
-alias pgapp="'/Applications/Postgres.app/Contents/Versions/9.5/bin'/psql"
+# Print PATH
 alias path='echo $PATH | tr -s ":" "\n"'
-alias nethack="telnet nethack.alt.org"
 
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
