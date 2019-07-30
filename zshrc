@@ -39,8 +39,8 @@ eval "$(hub alias -s)"  # Load Hub
 eval "$(direnv hook zsh)" # Load direnv
 ssh-add -A 2>/dev/null; # Load in SSH keys
 
-# always check ./bin first
-export PATH=./bin:$PATH
+# mkdir .git/safe in the root of repositories you trust
+export PATH=".git/safe/../../bin:$PATH"
 
 # asdf
 source /usr/local/opt/asdf/asdf.sh
