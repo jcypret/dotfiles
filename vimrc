@@ -158,6 +158,7 @@ let g:ale_fixers = {
   \ 'elixir': ['mix_format'],
   \ 'javascript': ['eslint'],
   \ 'ruby': ['rubocop', 'standardrb'],
+  \ 'rust': ['rustfmt'],
   \ 'scss': ['stylelint'],
   \ 'vue': ['eslint'],
   \ }
@@ -185,6 +186,7 @@ let g:coc_global_extensions = [
   \ 'coc-elixir',
   \ 'coc-html',
   \ 'coc-json',
+  \ 'coc-rls',
   \ 'coc-solargraph',
   \ 'coc-tsserver',
   \ 'coc-vetur',

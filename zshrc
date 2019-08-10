@@ -52,5 +52,8 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--color=16,fg+:4,hl:6,hl+:6,info:5'
 
+# rust
+export PATH=$PATH:$HOME/.cargo/bin
+
 # GPG
 export GPG_TTY=$(tty)
