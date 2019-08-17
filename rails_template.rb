@@ -11,21 +11,9 @@ run "rm -r app/assets"
 run "rm -r app/javascript"
 # update layout to use webpack css
 gsub_file "app/views/layouts/application.html.erb", "stylesheet_link_tag", "stylesheet_pack_tag"
-insert_into_file("app/controllers/application_controller.rb", <<-CODE, after: /^class ApplicationController.*\n/)
-  prepend_view_path Rails.root.join("frontend")
-CODE
-insert_into_file("app/helpers/application_helper.rb", <<-'CODE', after: /^module ApplicationHelper.*\n/)
-  def component(component_name, locals = {}, &block)
-    name = component_name.split("_").first
-    render("components/#{name}/#{component_name}", locals, &block)
-  end
-
-  alias c component
-CODE
 
 # set up new frontend (webpack) directory
 inside "frontend" do
-  empty_directory "components"
   empty_directory "images"
 
   # load Rails UJS and init
@@ -70,5 +58,5 @@ after_bundle do
 
   git :init
   git add: "."
-  git commit: %Q{ -m 'Initial commit' }
+  git commit: %( -m 'Initial commit' )
 end
