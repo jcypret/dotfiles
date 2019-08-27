@@ -61,6 +61,7 @@ Plug 'isRuslan/vim-es6' " load after vim-javascript
 Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
 
 " Markup

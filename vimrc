@@ -156,7 +156,7 @@ let g:ale_fixers = {
   \ 'cpp': ['clang-format'],
   \ 'css': ['stylelint'],
   \ 'elixir': ['mix_format'],
-  \ 'javascript': ['eslint'],
+  \ 'javascript': ['eslint', 'prettier'],
   \ 'ruby': ['rubocop', 'standardrb'],
   \ 'rust': ['rustfmt'],
   \ 'scss': ['stylelint'],
