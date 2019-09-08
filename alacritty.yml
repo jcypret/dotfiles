@@ -95,16 +95,16 @@ tabspaces: 8
 # Font configuration (changes require restart)
 font:
   normal:
-    family: OperatorMonoSSm Nerd Font
+    family: OperatorMonoSSmLig Nerd Font
     style: Book
 
-  bold:
-    family: OperatorMonoSSm Nerd Font
-    style: Bold
-
   italic:
-    family: Operator Mono SSm
+    family: OperatorMonoSSmLig Nerd Font
     style: Book Italic
+
+  bold:
+    family: OperatorMonoSSmLig Nerd Font
+    style: Bold
 
   # Point size
   size: 12
@@ -120,7 +120,7 @@ font:
   # increasing `y` moves the glyph upwards.
   glyph_offset:
     x: 0
-    y: 3
+    y: 2
 
   # Thin stroke font rendering (macOS only)
   #
