@@ -1,5 +1,5 @@
 {
-  "diagnostic.errorSign": "",
-  "diagnostic.infoSign": "",
-  "diagnostic.warningSign": ""
+  "diagnostic.errorSign": "=>",
+  "diagnostic.infoSign": "->",
+  "diagnostic.warningSign": "->"
 }

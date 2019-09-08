@@ -9,6 +9,7 @@ runtime! macros/matchit.vim
 let g:mapleader = ' '
 
 set autowrite      " save before running commands (useful for TDD)
+set cmdheight=2    " extra room at bottom for messages
 set cursorline     " highlight the current line
 set hidden         " allow hiding unsaved buffers
 set nojoinspaces   " when joining lines, collaps to a single space
@@ -150,8 +151,8 @@ let g:airline_highlighting_cache = 1
 " Ale
 let g:ale_lint_on_enter = 0
 let g:ale_linters_explicit = 1
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
+let g:ale_sign_error = '=>'
+let g:ale_sign_warning = '->'
 let g:ale_fixers = {
   \ 'cpp': ['clang-format'],
   \ 'css': ['stylelint'],
@@ -193,9 +194,6 @@ let g:coc_global_extensions = [
   \ 'coc-vimlsp',
   \ 'coc-yaml',
   \ ]
-
-highlight link CocErrorSign ALEErrorSign
-highlight link CocWarningSign ALEWarningSign
 
 nmap <silent> gd <Plug>(coc-definition)
 
