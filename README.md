@@ -17,10 +17,6 @@ brew bundle
 sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 env RCRC=$HOME/Code/dotfiles/rcrc rcup
 
-# configure iTerm2
-defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2"
-defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
-
 # configure neovim
 mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 mkdir ~/.vim
@@ -36,9 +32,6 @@ pip install cpplint neovim Pygments
 # install php packages
 composer global require laravel/valet
 valet install
-
-# enable italics
-tic -o $HOME/.terminfo $HOME/Code/dotfiles/xterm-256color.terminfo
 
 # setup SSH key
 https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/

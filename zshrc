@@ -28,7 +28,6 @@ compinit
 
 # Aliases
 unalias c
-unalias rg
 source ~/.aliases
 
 export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
