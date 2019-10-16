@@ -277,6 +277,16 @@ let g:titlecase_map_keys = 0
 nmap <leader>gt <Plug>Titlecase
 nmap <leader>gT <Plug>TitlecaseLine
 
+" Vim Polyglot
+let g:polyglot_disabled = [
+  \ 'css',
+  \ 'html',
+  \ 'javascript',
+  \ 'ruby',
+  \ 'typescript',
+  \ 'vue'
+  \ ]
+
 augroup vimrcEx
   autocmd!
 
