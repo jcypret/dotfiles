@@ -230,6 +230,7 @@ nmap <Leader>; :Buffers<CR>
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = '⎸'
 let g:indentLine_fileTypeExclude = ['startify', 'help']
+let g:indentLine_color_gui = '#3B4252'
 
 " NERDTree
 let g:NERDTreeUpdateOnCursorHold = 0
