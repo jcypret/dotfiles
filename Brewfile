@@ -65,7 +65,7 @@ brew "cquery"
 brew "llvm", args: ["with-toolchain"]
 
 # Javascript
-brew "yarn", args: ["without-node"]
+brew "yarn", args: ["ignore-dependencies"]
 
 # PHP
 brew "composer"
