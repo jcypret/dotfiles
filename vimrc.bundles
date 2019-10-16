@@ -30,7 +30,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'wesQ3/vim-windowswap'
 
 " Autocomplete
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
 
