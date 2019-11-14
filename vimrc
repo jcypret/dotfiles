@@ -161,6 +161,7 @@ let g:ale_fixers = {
   \ 'ruby': ['rubocop', 'standardrb'],
   \ 'rust': ['rustfmt'],
   \ 'scss': ['stylelint'],
+  \ 'typescript': ['eslint'],
   \ 'vue': ['eslint'],
   \ }
 let g:ale_linters = {
@@ -169,6 +170,7 @@ let g:ale_linters = {
   \ 'javascript': ['eslint'],
   \ 'ruby': ['ruby', 'rubocop', 'standardrb'],
   \ 'scss': ['stylelint'],
+  \ 'typescript': ['eslint'],
   \ 'vim': ['vint'],
   \ 'vue': ['eslint'],
   \ }

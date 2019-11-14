@@ -9,6 +9,7 @@ rerun.txt
 tags
 tags.temp
 tags.lock
+tags.temp.tmp
 !tags/
 tmp/**/*
 !tmp/cache/.keep
