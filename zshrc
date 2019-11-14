@@ -38,9 +38,6 @@ eval "$(hub alias -s)"  # Load Hub
 eval "$(direnv hook zsh)" # Load direnv
 ssh-add -A 2>/dev/null; # Load in SSH keys
 
-# mkdir .git/safe in the root of repositories you trust
-export PATH=".git/safe/../../bin:$PATH"
-
 # asdf
 source /usr/local/opt/asdf/asdf.sh
 source /usr/local/etc/bash_completion.d/asdf.bash
@@ -56,3 +53,6 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 # GPG
 export GPG_TTY=$(tty)
+
+# `git trust-bin` to trust repo and prepend binaries to path
+export PATH=".git/safe/../../bin:$PATH"
