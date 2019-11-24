@@ -30,6 +30,8 @@ Plug 'wakatime/vim-wakatime'
 Plug 'wesQ3/vim-windowswap'
 
 " Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ajh17/VimCompletesMe'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
 

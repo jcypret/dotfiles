@@ -149,16 +149,16 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline_highlighting_cache = 1
 
 " Ale
-let g:ale_lint_on_enter = 0
 let g:ale_linters_explicit = 1
 let g:ale_sign_error = '=>'
 let g:ale_sign_warning = '->'
 let g:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
   \ 'cpp': ['clang-format'],
   \ 'css': ['stylelint'],
   \ 'elixir': ['mix_format'],
-  \ 'javascript': ['eslint', 'prettier'],
-  \ 'ruby': ['rubocop', 'standardrb'],
+  \ 'javascript': ['prettier', 'eslint'],
+  \ 'ruby': ['standardrb'],
   \ 'rust': ['rustfmt'],
   \ 'scss': ['stylelint'],
   \ 'typescript': ['eslint'],
@@ -168,20 +168,26 @@ let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
   \ 'css': ['stylelint'],
   \ 'javascript': ['eslint'],
-  \ 'ruby': ['ruby', 'rubocop', 'standardrb'],
+  \ 'ruby': ['ruby', 'standardrb', 'solargraph'],
   \ 'scss': ['stylelint'],
-  \ 'typescript': ['eslint'],
+  \ 'typescript': ['eslint', 'tsserver'],
   \ 'vim': ['vint'],
-  \ 'vue': ['eslint'],
+  \ 'vue': ['eslint', 'vls'],
   \ }
 let g:ale_c_clangformat_options = '-style=google'
 let g:ale_cpp_cpplint_options = '--linelength=120' .
-      \ '--filter=-runtime/references,-legal/copyright,-build/namespaces'
-let g:ale_ruby_rubocop_executable = 'bundle' " use `bundle exec rubocop`
+  \ '--filter=-runtime/references,-legal/copyright,-build/namespaces'
+let g:ale_ruby_rubocop_executable = 'bundle'
+
 nmap <Leader>f :ALEFix<CR>
+nnoremap <silent> K :ALEHover<CR>
+nnoremap <silent> gd :ALEGoToDefinition<CR>
 
 " Auto Pairs
 let g:AutoPairsMultilineClose = 0
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " fzf
 nnoremap <C-p> :Files<CR>
