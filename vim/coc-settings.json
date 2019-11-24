@@ -1,6 +1,0 @@
-{
-  "diagnostic.errorSign": "=>",
-  "diagnostic.infoSign": "->",
-  "diagnostic.warningSign": "->",
-  "vetur.experimental.templateInterpolationService": true
-}
