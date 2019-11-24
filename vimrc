@@ -36,7 +36,7 @@ nmap <Leader>rr :source ~/.vimrc<cr>
 " save current buffer
 nnoremap <leader>w :w<cr>
 "create a new buffer (save it with :w ./path/to/FILENAME)
-nnoremap <leader>B :enew<cr>
+nnoremap <leader>bn :enew<cr>
 "close current buffer
 nnoremap <leader>bd :bp <bar> bd! #<cr>
 "close all open buffers
@@ -112,7 +112,7 @@ nnoremap <silent> <Leader>/
       \ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " Tab Navigation
-nnoremap <C-t> :tabnew<CR>
+nnoremap T :tabnew<CR>
 nnoremap H gT
 nnoremap L gt
 
@@ -183,50 +183,10 @@ nmap <Leader>f :ALEFix<CR>
 " Auto Pairs
 let g:AutoPairsMultilineClose = 0
 
-" Conquer of Completion (coc)
-let g:coc_global_extensions = [
-  \ 'coc-css',
-  \ 'coc-elixir',
-  \ 'coc-html',
-  \ 'coc-json',
-  \ 'coc-rls',
-  \ 'coc-solargraph',
-  \ 'coc-tsserver',
-  \ 'coc-vetur',
-  \ 'coc-vimlsp',
-  \ 'coc-yaml',
-  \ ]
-
-nmap <silent> gd <Plug>(coc-definition)
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use space+h to show documentation in preview window
-nnoremap <silent> <leader>h :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
 " fzf
 nnoremap <C-p> :Files<CR>
 nmap <Leader>; :Buffers<CR>
+nnoremap \ :Rg<CR>
 
 " Indent Line
 let g:indentLine_concealcursor = 0
@@ -236,20 +196,17 @@ let g:indentLine_color_gui = '#3B4252'
 
 " NERDTree
 let g:NERDTreeUpdateOnCursorHold = 0
+let g:NERDTreeWinPos = 'right'
 
 " Rainbow Parentheses Improved
 let g:rainbow_active = 0
-
-" Ripgrep
-nnoremap K :Rg<CR>
-nnoremap \ :Rg<Space>
-let g:rg_highlight = 1
 
 " Startify
 let g:startify_change_to_vcs_root = 1
 
 " Tagbar
-nmap T :TagbarToggle<CR>
+nmap <C-t> :TagbarToggle<CR>
+let g:tagbar_left = 1
 
 " Vim EasyAlign
 xmap ga <Plug>(EasyAlign)
@@ -323,9 +280,10 @@ augroup vimrcEx
   " Use rainbow parens for lisp-based languages
   autocmd FileType lisp,clojure,scheme RainbowToggleOn
 
-  " HACK: remove status line background for fzf
+  " remove status line background for fzf
+  autocmd! FileType fzf
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
-        \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup END
 
 " Local config
