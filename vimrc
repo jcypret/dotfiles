@@ -223,6 +223,10 @@ function! s:goyo_enter()
   set noshowmode
   set nocursorline
   call deoplete#disable()
+  highlight link ALEErrorSign Error
+  highlight link ALEWarningSign Todo
+  highlight link ALEError SpellBad
+  highlight link ALEWarning SpellCap
 endfunction
 
 function! s:goyo_leave()
