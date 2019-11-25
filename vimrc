@@ -214,6 +214,7 @@ function! s:goyo_enter()
     silent !tmux set status off
   endif
   set noshowmode
+  set nobreakindent
 endfunction
 
 function! s:goyo_leave()
@@ -223,6 +224,7 @@ function! s:goyo_leave()
     silent !tmux set status on
   endif
   set showmode
+  set breakindent
 endfunction
 
 " fzf
@@ -260,6 +262,7 @@ let g:gitgutter_grep = 'rg --color=never'
 
 " Vim Markdown
 let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_override_foldtext = 0
