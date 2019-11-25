@@ -170,7 +170,7 @@ let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
   \ 'css': ['stylelint'],
   \ 'javascript': ['eslint'],
-  \ 'ruby': ['ruby', 'standardrb', 'solargraph'],
+  \ 'ruby': ['ruby', 'solargraph', 'standardrb'],
   \ 'scss': ['stylelint'],
   \ 'typescript': ['eslint', 'tsserver'],
   \ 'vim': ['vint'],
@@ -184,6 +184,17 @@ let g:ale_ruby_rubocop_executable = 'bundle'
 nmap <Leader>f :ALEFix<CR>
 nnoremap <silent> K :ALEHover<CR>
 nnoremap <silent> gd :ALEGoToDefinition<CR>
+
+function! SetAleRubyBufferLinters()
+  if filereadable('.rubocop.yml')
+    let ruby_linters = g:ale_linters['ruby']
+    call filter(ruby_linters, {idx, val -> val != 'standardrb'})
+    call add(ruby_linters, 'rubocop')
+
+    let b:ale_linters = { 'ruby': ruby_linters }
+    let b:ale_fixers = { 'ruby': ['rubocop'] }
+  endif
+endfunction
 
 " Auto Pairs
 let g:AutoPairsMultilineClose = 0
@@ -289,9 +300,11 @@ augroup vimrcEx
   autocmd FileType lisp,clojure,scheme RainbowToggleOn
 
   " remove status line background for fzf
-  autocmd! FileType fzf
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+  " set ruby linters based on project config
+  autocmd FileType ruby call SetAleRubyBufferLinters()
 augroup END
 
 " Local config
