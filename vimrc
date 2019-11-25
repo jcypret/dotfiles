@@ -271,6 +271,7 @@ set updatetime=100
 let g:gitgutter_grep = 'rg --color=never'
 
 " Vim Markdown
+set conceallevel=2
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
