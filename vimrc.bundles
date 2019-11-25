@@ -92,7 +92,8 @@ Plug 'majutsushi/tagbar'
 
 " Themes and UI
 Plug 'Yggdroot/indentLine'
-Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim' " dark theme
+Plug 'cormacrelf/vim-colors-github' " light theme
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'

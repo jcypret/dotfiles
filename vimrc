@@ -119,12 +119,16 @@ nnoremap L gt
 " THEME ========================================================================
 set termguicolors
 
-" Nord Theme
+" Nord Theme (dark)
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
+
+" GitHub Theme (light)
+let g:github_colors_soft = 1
+" colorscheme github
 
 " LANGUAGE SETTINGS ============================================================
 
@@ -208,10 +212,10 @@ nmap <Leader>; :Buffers<CR>
 nnoremap \ :Rg<space>
 
 " Indent Line
-let g:indentLine_concealcursor = 0
 let g:indentLine_char = '⎸'
+let g:indentLine_concealcursor = 0
+let g:indentLine_defaultGroup = 'Whitespace'
 let g:indentLine_fileTypeExclude = ['startify', 'help']
-let g:indentLine_color_gui = '#3B4252'
 
 " NERDTree
 let g:NERDTreeUpdateOnCursorHold = 0

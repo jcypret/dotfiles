@@ -2,7 +2,7 @@
 
 ## Installation
 
-```bash
+```zsh
 # clone dotfiles
 mkdir ~/Code
 git clone https://github.com/jcypret/dotfiles.git
