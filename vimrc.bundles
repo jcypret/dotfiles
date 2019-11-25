@@ -99,4 +99,7 @@ Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 
+" Writing
+Plug 'junegunn/goyo.vim'
+
 call plug#end()

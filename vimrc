@@ -33,8 +33,6 @@ nmap <Leader>rr :source ~/.vimrc<cr>
 
 " Buffers
 
-" save current buffer
-nnoremap <leader>w :w<cr>
 "create a new buffer (save it with :w ./path/to/FILENAME)
 nnoremap <leader>bn :enew<cr>
 "close current buffer
@@ -206,6 +204,27 @@ let g:AutoPairsMultilineClose = 0
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
+" goyo (writing mode)
+nnoremap <Leader>W :Goyo<CR>
+
+function! s:goyo_enter()
+  colorscheme github
+  IndentLinesDisable
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+  endif
+  set noshowmode
+endfunction
+
+function! s:goyo_leave()
+  colorscheme nord
+  IndentLinesEnable
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+  endif
+  set showmode
+endfunction
+
 " fzf
 nnoremap <C-p> :Files<CR>
 nmap <Leader>; :Buffers<CR>
@@ -309,6 +328,9 @@ augroup vimrcEx
 
   " set ruby linters based on project config
   autocmd FileType ruby call SetAleRubyBufferLinters()
+
+  autocmd User GoyoEnter nested call <SID>goyo_enter()
+  autocmd User GoyoLeave nested call <SID>goyo_leave()
 augroup END
 
 " Local config
