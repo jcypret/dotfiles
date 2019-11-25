@@ -271,7 +271,7 @@ set updatetime=100
 let g:gitgutter_grep = 'rg --color=never'
 
 " Vim Markdown
-set conceallevel=2
+let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
@@ -313,6 +313,10 @@ augroup vimrcEx
     \   exe "normal g`\"" |
     \ endif
 
+  " writing mode
+  autocmd User GoyoEnter nested call <SID>goyo_enter()
+  autocmd User GoyoLeave nested call <SID>goyo_leave()
+
   " hide invisible chars in nerdtree panel
   autocmd FileType nerdtree setlocal nolist
   autocmd FileType vue syntax sync fromstart
@@ -340,9 +344,6 @@ augroup vimrcEx
 
   " set ruby linters based on project config
   autocmd FileType ruby call SetAleRubyBufferLinters()
-
-  autocmd User GoyoEnter nested call <SID>goyo_enter()
-  autocmd User GoyoLeave nested call <SID>goyo_leave()
 augroup END
 
 " Local config
