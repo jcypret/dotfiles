@@ -12,6 +12,7 @@ set autowrite      " save before running commands (useful for TDD)
 set cmdheight=2    " extra room at bottom for messages
 set cursorline     " highlight the current line
 set hidden         " allow hiding unsaved buffers
+set linebreak      " prevent soft-wrapping inside of word
 set nojoinspaces   " when joining lines, collaps to a single space
 set noshowcmd      " don't show partial commands in status bar
 set regexpengine=1 " use legacy syntax parsing for ruby
@@ -19,6 +20,9 @@ set signcolumn=yes " always show signcolumns
 set splitbelow     " open new horizontal splits below
 set splitright     " open new vertical splits to the right
 set wildmenu       " enable tab-completions for vim commands
+
+" turn off automatic hard-wrapping
+set formatoptions-=t
 
 " Display whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -87,7 +91,8 @@ set breakindentopt=shift:2 " indent wrapped line
 " Movements
 "
 " Jump to beginning of line after whitespace
-nmap 0 ^
+nmap 0 g^
+nmap $ g$
 " Move between panels
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -124,9 +129,9 @@ let g:nord_underline = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
 
-" GitHub Theme (light)
-let g:github_colors_soft = 1
-" colorscheme github
+" Pencil Theme (writing)
+" colorscheme pencil
+" set background=light
 
 " LANGUAGE SETTINGS ============================================================
 
@@ -172,6 +177,7 @@ let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
   \ 'css': ['stylelint'],
   \ 'javascript': ['eslint'],
+  \ 'markdown': ['write-good'],
   \ 'ruby': ['ruby', 'solargraph', 'standardrb'],
   \ 'scss': ['stylelint'],
   \ 'typescript': ['eslint', 'tsserver'],
@@ -208,23 +214,27 @@ let g:deoplete#enable_at_startup = 1
 nnoremap <Leader>W :Goyo<CR>
 
 function! s:goyo_enter()
-  colorscheme github
+  set background=light
+  colorscheme pencil
   IndentLinesDisable
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status off
   endif
   set noshowmode
-  set nobreakindent
+  set nocursorline
+  call deoplete#disable()
 endfunction
 
 function! s:goyo_leave()
+  set background=dark
   colorscheme nord
   IndentLinesEnable
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status on
   endif
   set showmode
-  set breakindent
+  set cursorline
+  call deoplete#enable()
 endfunction
 
 " fzf
@@ -261,7 +271,6 @@ set updatetime=100
 let g:gitgutter_grep = 'rg --color=never'
 
 " Vim Markdown
-let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
@@ -308,7 +317,6 @@ augroup vimrcEx
   autocmd FileType vue syntax sync fromstart
 
   " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
   autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
 
@@ -317,8 +325,7 @@ augroup vimrcEx
   autocmd FileType gitcommit setlocal nonumber norelativenumber
 
   " Markdown formatting
-  autocmd BufRead,BufNewFile *.md setlocal spell
-  autocmd FileType markdown setlocal ts=4 sw=4
+  autocmd FileType markdown setlocal nobreakindent spell ts=4 sw=4 tw=0
 
   " Set comment style to // for cpp and vue
   autocmd FileType cpp,vue setlocal commentstring=//\ %s
