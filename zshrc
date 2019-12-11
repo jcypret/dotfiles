@@ -9,6 +9,7 @@ antigen bundle chrissicool/zsh-256color
 antigen bundle composer
 antigen bundle djui/alias-tips
 antigen bundle ember-cli
+antigen bundle fzf
 antigen bundle git
 antigen bundle heroku
 antigen bundle rails
@@ -43,7 +44,6 @@ source /usr/local/opt/asdf/asdf.sh
 source /usr/local/etc/bash_completion.d/asdf.bash
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--color=16,fg+:4,hl:6,hl+:6,info:5'

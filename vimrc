@@ -246,6 +246,18 @@ nnoremap <C-p> :Files<CR>
 nmap <Leader>; :Buffers<CR>
 nnoremap \ :Rg<space>
 
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
 " Indent Line
 let g:indentLine_char = '⎸'
 let g:indentLine_concealcursor = 0
