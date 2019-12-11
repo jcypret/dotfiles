@@ -254,7 +254,6 @@ let g:indentLine_fileTypeExclude = ['startify', 'help']
 
 " NERDTree
 let g:NERDTreeUpdateOnCursorHold = 0
-let g:NERDTreeWinPos = 'right'
 
 " Rainbow Parentheses Improved
 let g:rainbow_active = 0
@@ -264,7 +263,6 @@ let g:startify_change_to_vcs_root = 1
 
 " Tagbar
 nmap <C-t> :TagbarToggle<CR>
-let g:tagbar_left = 1
 
 " Vim EasyAlign
 xmap ga <Plug>(EasyAlign)
