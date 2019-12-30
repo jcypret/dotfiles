@@ -95,10 +95,11 @@ Plug 'arcticicestudio/nord-vim' " dark theme
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'reedes/vim-colors-pencil' " writing theme
-Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 
 " Writing
 Plug 'junegunn/goyo.vim'
+
+Plug 'ryanoasis/vim-devicons' " load after everything
 
 call plug#end()
