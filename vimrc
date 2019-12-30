@@ -151,10 +151,8 @@ let g:ruby_heredoc_syntax_filetypes = {
 
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
-let g:airline_highlighting_cache = 1
 
 " Ale
 let g:ale_lint_on_enter = 0
@@ -221,8 +219,8 @@ function! s:goyo_enter()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status off
   endif
-  set noshowmode
   set nocursorline
+  set noshowmode
   call deoplete#disable()
   highlight link ALEErrorSign Error
   highlight link ALEWarningSign Todo
@@ -237,8 +235,8 @@ function! s:goyo_leave()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status on
   endif
-  set showmode
   set cursorline
+  set showmode
   call deoplete#enable()
 endfunction
 
