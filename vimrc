@@ -62,6 +62,7 @@ nmap <Leader>dh :term git diff HEAD<cr>i
 nmap <Leader>ds :term git diff --staged --ignore-all-space<cr>i
 
 " File Navigation
+let g:NERDTreeWinSize = 45
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>n :NERDTreeFind<CR>
 " Switch between the last two files
@@ -272,6 +273,10 @@ let g:rainbow_active = 0
 
 " Startify
 let g:startify_change_to_vcs_root = 1
+
+" Splitjoin
+let g:splitjoin_ruby_curly_braces = 0
+let g:splitjoin_ruby_hanging_args = 0
 
 " Tagbar
 nmap <C-t> :TagbarToggle<CR>
