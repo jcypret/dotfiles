@@ -40,9 +40,9 @@ nmap <Leader>rr :source ~/.vimrc<cr>
 "create a new buffer (save it with :w ./path/to/FILENAME)
 nnoremap <leader>bn :enew<cr>
 "close current buffer
-nnoremap <leader>bc :bp <bar> bd! #<cr>
+nnoremap <leader>bd :bp <bar> bd! #<cr>
 "close all open buffers
-nnoremap <leader>bC :bufdo bd!<cr>
+nnoremap <leader>bD :bufdo bd!<cr>
 
 " Clipboard
 vnoremap <C-c> "+y
