@@ -40,13 +40,9 @@ nmap <Leader>rr :source ~/.vimrc<cr>
 "create a new buffer (save it with :w ./path/to/FILENAME)
 nnoremap <leader>bn :enew<cr>
 "close current buffer
-nnoremap <leader>bd :bp <bar> bd! #<cr>
+nnoremap <leader>bc :bp <bar> bd! #<cr>
 "close all open buffers
-nnoremap <leader>ba :bufdo bd!<cr>
-"Tab to switch to next open buffer
-nnoremap <Tab> :bnext<cr>
-"Shift + Tab to switch to previous open buffer
-nnoremap <S-Tab> :bprevious<cr>
+nnoremap <leader>bC :bufdo bd!<cr>
 
 " Clipboard
 vnoremap <C-c> "+y
@@ -117,8 +113,10 @@ nnoremap <silent> <Leader>/
 
 " Tab Navigation
 nnoremap T :tabnew<CR>
-nnoremap H gT
-nnoremap L gt
+nmap <silent> [t :tabprevious<CR>
+nmap <silent> ]t :tabnext<CR>
+nmap <silent> [T :tabrewind<CR>
+nmap <silent> ]T :tablast<CR>
 
 " THEME ========================================================================
 set termguicolors
