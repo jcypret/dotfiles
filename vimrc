@@ -255,7 +255,7 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 " Indent Line
-let g:indentLine_char = '⎸'
+let g:indentLine_char = '▏'
 let g:indentLine_concealcursor = 0
 let g:indentLine_defaultGroup = 'Whitespace'
 let g:indentLine_fileTypeExclude = ['startify', 'help']
