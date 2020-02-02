@@ -170,10 +170,11 @@ let g:ale_fixers = {
   \ 'vue': ['eslint'],
   \ }
 let g:ale_linters = {
-  \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
+  \ 'cpp': ['cquery', 'gcc', 'clang-format', 'cppcheck', 'cpplint'],
+  \ 'crystal': ['crystal'],
   \ 'css': ['stylelint'],
-  \ 'javascript': ['eslint'],
-  \ 'markdown': ['write-good'],
+  \ 'javascript': ['eslint', 'tsserver'],
+  \ 'markdown': ['languagetool', 'write-good'],
   \ 'ruby': ['ruby', 'solargraph', 'standardrb'],
   \ 'scss': ['stylelint'],
   \ 'typescript': ['eslint', 'tsserver'],
@@ -184,6 +185,7 @@ let g:ale_c_clangformat_options = '-style=google'
 let g:ale_cpp_cpplint_options = '--linelength=120' .
   \ '--filter=-runtime/references,-legal/copyright,-build/namespaces'
 let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_languagetool_options = '--language en-US --disable ARROWS,EN_QUOTES'
 
 nmap <Leader>f :ALEFix<CR>
 nnoremap <silent> K :ALEHover<CR>
