@@ -16,6 +16,10 @@
   recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
   st = status
   undo = reset --soft HEAD@{1}
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  sl = log --oneline --decorate -20
+  sla = log --oneline --decorate --graph --all -20
+  slap = log --oneline --decorate --graph --all
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
