@@ -242,7 +242,6 @@ endfunction
 " fzf
 nnoremap <C-p> :Files<CR>
 nmap <Leader>; :Buffers<CR>
-nnoremap \ :Rg<space>
 
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
@@ -317,6 +316,11 @@ let g:polyglot_disabled = [
   \ 'typescript',
   \ 'vue'
   \ ]
+
+" Vim Ripgrep
+nnoremap \ :Rg<space>
+let g:rg_command = 'rg --vimgrep -S'
+let g:rg_highlight = 1
 
 augroup vimrcEx
   autocmd!
