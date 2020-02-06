@@ -104,9 +104,6 @@ set ignorecase       " case-insensitive when lowercase
 set smartcase        " case-sensitive when uppercase
 set inccommand=split " live preview for find/replace
 
-" replace the word under cursor
-nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
-
 " Clear highlight from search results
 nnoremap <silent> <Leader>/
       \ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
@@ -319,6 +316,7 @@ let g:polyglot_disabled = [
 
 " Vim Ripgrep
 nnoremap \ :Rg<space>
+nnoremap <bar> :Rg -F <cword><space>
 let g:rg_command = 'rg --vimgrep -S'
 let g:rg_highlight = 1
 
