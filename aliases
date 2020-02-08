@@ -1,5 +1,4 @@
 # Unix stuff
-alias j="z"
 alias ln="ln -v" # use verbose when linking files
 alias mkdir="mkdir -p" # create nested directories that don't already exist
 
@@ -41,6 +40,11 @@ alias tma="tmux -2 attach -t $1"
 alias tmk="tmux kill-session -t $1"
 alias :vsp="tmux split-window -h"
 alias :sp="tmux split-window -v"
+
+# z
+alias j="z" # match autojump habit
+alias zz="z -c" # restrict matches to subdirs of $PWD
+alias zb="z -b" # quickly cd to the parent directory
 
 # Flash the local DNS cache
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder;"
