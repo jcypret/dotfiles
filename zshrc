@@ -12,6 +12,7 @@ setopt share_history
 bindkey -v
 
 # completions
+setopt autocd
 autoload -Uz compinit
 compinit
 

@@ -1,6 +1,7 @@
 # Unix stuff
-alias mkdir="mkdir -p" # create nested directories that don't already exist
+alias j="z"
 alias ln="ln -v" # use verbose when linking files
+alias mkdir="mkdir -p" # create nested directories that don't already exist
 
 # Better unix
 alias cat="bat"
