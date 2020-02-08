@@ -1,6 +1,7 @@
 # Unix stuff
 alias ln="ln -v" # use verbose when linking files
 alias mkdir="mkdir -p" # create nested directories that don't already exist
+alias path='echo $PATH | tr -s ":" "\n"' # pretty print path
 
 # Better unix
 alias cat="bat"
@@ -82,8 +83,5 @@ compctl -W ~/Code/ -/ c
 
 desk() { cd ~/Desktop/$1; }
 compctl -W ~/Desktop/ -/ desk
-
-# Print PATH
-alias path='echo $PATH | tr -s ":" "\n"'
 
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
