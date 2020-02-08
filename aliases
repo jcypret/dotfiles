@@ -1,8 +1,8 @@
 # Unix stuff
 alias mkdir="mkdir -p" # create nested directories that don't already exist
 alias ln="ln -v" # use verbose when linking files
-alias e="$EDITOR" # shortcut for vim
-alias dzc="dz; production console" # Opens production console in the DangerZone
+
+# Better unix
 alias cat="bat"
 alias top="gotop -f"
 alias lg="lazygit"
@@ -15,7 +15,20 @@ alias l="ls --long"
 alias la="l --all"
 alias lt="ls --tree --level=2"
 
-# Vim aliases
+# Git
+alias g="git"
+alias gss="git status -s"
+alias gst="git status"
+
+# Rails
+alias -g RET="RAILS_ENV=test"
+alias rc="rails console"
+alias rdm="rake db:migrate"
+alias rr="rake routes"
+alias rs="rails server"
+
+# Vim
+alias e="$EDITOR"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
@@ -25,7 +38,6 @@ alias :q="exit"
 alias tml="tmux list-sessions"
 alias tma="tmux -2 attach -t $1"
 alias tmk="tmux kill-session -t $1"
-alias mux="tmuxinator"
 alias :vsp="tmux split-window -h"
 alias :sp="tmux split-window -v"
 
@@ -46,12 +58,8 @@ alias barn="bundle && yarn"
 # => killport 3000
 killport() { lsof -ti:$1 | xargs kill -9 }
 
-# Switch to the "Danger Zone" profile
-dz() { echo -e "\033]50;SetProfile=DangerZone\a" }
-# Switch to the "Default" (normal) profile
-nz() { echo -e "\033]50;SetProfile=Default\a" }
-
-# fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
+# Checkout git branch (including remote branches),
+# sorted by most recent commit, limited to the last 30 branches
 fbr() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
