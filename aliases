@@ -15,6 +15,9 @@ alias l="ls --long"
 alias la="l --all"
 alias lt="ls --tree --level=2"
 
+# Antibody
+alias zbundle="antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh"
+
 # Git
 alias g="git"
 alias gss="git status -s"
