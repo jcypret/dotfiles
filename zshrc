@@ -1,35 +1,19 @@
-source $(brew --prefix)/share/antigen/antigen.zsh
+# zsh history
+HISTSIZE=50000
+SAVEHIST=10000
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt inc_append_history
+setopt share_history
 
-antigen use oh-my-zsh
+# vi mode
+bindkey -v
 
-# Plugins
-antigen bundle autojump
-antigen bundle bundler
-antigen bundle chrissicool/zsh-256color
-antigen bundle composer
-antigen bundle djui/alias-tips
-antigen bundle ember-cli
-antigen bundle fzf
-antigen bundle git
-antigen bundle heroku
-antigen bundle rails
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Pure Theme
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
-
-antigen apply
-
-# load completions
+# completions
 autoload -Uz compinit
 compinit
-
-# Aliases
-unalias c
-source ~/.aliases
 
 export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=nvim
@@ -56,3 +40,6 @@ export GPG_TTY=$(tty)
 
 # `git trust-bin` to trust repo and prepend binaries to path
 export PATH=".git/safe/../../bin:$PATH"
+
+source ~/.zsh_plugins.sh
+source ~/.aliases

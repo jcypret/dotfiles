@@ -1,0 +1,18 @@
+# antibody bundle < zsh_plugins.txt > zsh_plugins.sh
+
+# Oh My Zsh!
+ohmyzsh/ohmyzsh path:plugins/bundler
+ohmyzsh/ohmyzsh path:plugins/fzf
+ohmyzsh/ohmyzsh path:plugins/git
+
+# Plugins
+chrissicool/zsh-256color
+djui/alias-tips
+skywind3000/z.lua
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+
+# Pure Theme
+mafredri/zsh-async
+sindresorhus/pure
