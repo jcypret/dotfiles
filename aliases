@@ -21,6 +21,13 @@ alias zbundle="antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh"
 
 # Git
 alias g="git"
+alias gcd="git checkout develop"
+alias gcm="git checkout master"
+alias gco="git checkout"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gl="git pull"
+alias gm="git merge"
 alias gss="git status -s"
 alias gst="git status"
 
