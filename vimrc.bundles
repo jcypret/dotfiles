@@ -27,6 +27,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'wakatime/vim-wakatime'
+Plug 'wellle/targets.vim'
 Plug 'wesQ3/vim-windowswap'
 
 " Autocomplete
