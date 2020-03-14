@@ -350,6 +350,7 @@ augroup vimrcEx
 
   " Markdown formatting
   autocmd FileType markdown setlocal nobreakindent spell ts=4 sw=4 tw=0
+  autocmd FileType markdown let b:tagbar_ignore = 1
 
   " Set comment style to // for cpp and vue
   autocmd FileType cpp,vue setlocal commentstring=//\ %s
