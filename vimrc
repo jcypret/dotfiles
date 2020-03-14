@@ -160,6 +160,7 @@ let g:ale_fixers = {
   \ 'css': ['stylelint'],
   \ 'elixir': ['mix_format'],
   \ 'javascript': ['prettier', 'eslint'],
+  \ 'json': ['prettier'],
   \ 'ruby': ['standardrb'],
   \ 'rust': ['rustfmt'],
   \ 'scss': ['stylelint'],
