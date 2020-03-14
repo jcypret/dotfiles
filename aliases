@@ -53,7 +53,7 @@ alias :vsp="tmux split-window -h"
 alias :sp="tmux split-window -v"
 
 # z
-alias j="z" # match autojump habit
+alias j="z -I" # match autojump habit
 alias zz="z -c" # restrict matches to subdirs of $PWD
 alias zb="z -b" # quickly cd to the parent directory
 
