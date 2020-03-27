@@ -26,9 +26,6 @@ ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 # install tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# install pip packages
-pip install cpplint neovim Pygments
-
 # install php packages
 composer global require laravel/valet
 valet install
