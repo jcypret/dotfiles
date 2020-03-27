@@ -305,16 +305,6 @@ let g:titlecase_map_keys = 0
 nmap <leader>gt <Plug>Titlecase
 nmap <leader>gT <Plug>TitlecaseLine
 
-" Vim Polyglot
-let g:polyglot_disabled = [
-  \ 'css',
-  \ 'html',
-  \ 'javascript',
-  \ 'ruby',
-  \ 'typescript',
-  \ 'vue'
-  \ ]
-
 " Vim Ripgrep
 nnoremap \ :Rg<space>
 nnoremap <bar> :Rg -F <cword><space>
@@ -338,10 +328,12 @@ augroup vimrcEx
 
   " hide invisible chars in nerdtree panel
   autocmd FileType nerdtree setlocal nolist
-  autocmd FileType vue syntax sync fromstart
+
+  autocmd BufEnter *.{js,jsx,ts,tsx,vue} :syntax sync fromstart
+  autocmd BufLeave *.{js,jsx,ts,tsx,vue} :syntax sync clear
 
   " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+  autocmd BufRead,BufNewFile .{babel,eslint,jscs,jshint}rc set filetype=json
   autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
 
   " turn off line numbers for terminal

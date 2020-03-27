@@ -36,9 +36,6 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
 
-" All the languages!
-Plug 'sheerun/vim-polyglot'
-
 " C++
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rhysd/vim-clang-format'
@@ -59,13 +56,14 @@ Plug 'elixir-lang/vim-elixir'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
-Plug 'isRuslan/vim-es6' " load after vim-javascript
-Plug 'Galooshi/vim-import-js'
-Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'mxw/vim-jsx'
+" vue:
 Plug 'posva/vim-vue'
+Plug 'mustache/vim-mustache-handlebars'
+" react:
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
 
 " Markup
 Plug 'othree/html5.vim'
