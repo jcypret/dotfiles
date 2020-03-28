@@ -17,9 +17,9 @@ brew "reattach-to-user-namespace"
 
 # ZSH
 brew "antigen"
-brew "autojump"
 brew "fzf"
 brew "pv"
+brew "z"
 brew "zsh"
 
 # Better Unix
