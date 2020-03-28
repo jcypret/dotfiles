@@ -25,8 +25,7 @@ eval "$(direnv hook zsh)" # Load direnv
 ssh-add -A 2>/dev/null; # Load in SSH keys
 
 # asdf
-source /usr/local/opt/asdf/asdf.sh
-source /usr/local/etc/bash_completion.d/asdf.bash
+source "$(brew --prefix asdf)/asdf.sh"
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
