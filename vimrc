@@ -165,7 +165,7 @@ let g:ale_fixers = {
   \ 'ruby': ['standardrb'],
   \ 'rust': ['rustfmt'],
   \ 'scss': ['prettier'],
-  \ 'typescript': ['prettier', 'eslint'],
+  \ 'typescript': ['prettier', 'eslint', 'tslint'],
   \ 'vue': ['prettier', 'eslint'],
   \ 'yaml': ['prettier']
   \ }
@@ -175,7 +175,7 @@ let g:ale_linters = {
   \ 'javascript': ['eslint', 'tsserver'],
   \ 'markdown': ['languagetool', 'write-good'],
   \ 'ruby': ['ruby', 'solargraph', 'standardrb'],
-  \ 'typescript': ['eslint', 'tsserver'],
+  \ 'typescript': ['eslint', 'tslint', 'tsserver'],
   \ 'vim': ['vint'],
   \ 'vue': ['eslint', 'vls'],
   \ }
@@ -286,6 +286,9 @@ let g:gitgutter_grep = 'rg --color=never'
 " Vim JSON
 let g:vim_json_syntax_conceal = 0
 
+" Vim JSX Pretty
+let g:vim_jsx_pretty_disable_tsx = 1 " handled by peitalin/vim-jsx-typescript
+
 " Vim Markdown
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
@@ -359,6 +362,9 @@ augroup vimrcEx
 
   " set ruby linters based on project config
   autocmd FileType ruby call SetAleRubyBufferLinters()
+
+  " set filetypes as typescript.tsx
+  autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 augroup END
 
 " Local config

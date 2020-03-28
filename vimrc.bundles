@@ -63,6 +63,7 @@ Plug 'posva/vim-vue'
 Plug 'mustache/vim-mustache-handlebars'
 " react:
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 
