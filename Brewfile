@@ -67,13 +67,6 @@ brew "llvm", args: ["with-toolchain"]
 # Javascript
 brew "yarn", args: ["ignore-dependencies"]
 
-# PHP
-brew "composer"
-brew "dnsmasq"
-brew "mysql@5.7", restart_service: true, link: true, conflicts_with: ["mysql"]
-brew "nginx"
-brew "php@7.1", restart_service: true, link: true, conflicts_with: ["php"]
-
 # Applications
 brew "mas"
 

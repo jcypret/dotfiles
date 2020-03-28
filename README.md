@@ -26,10 +26,6 @@ ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 # install tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# install php packages
-composer global require laravel/valet
-valet install
-
 # setup SSH key
 https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 ```
