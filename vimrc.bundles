@@ -57,6 +57,7 @@ Plug 'elixir-lang/vim-elixir'
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
+Plug 'elzr/vim-json'
 " vue:
 Plug 'posva/vim-vue'
 Plug 'mustache/vim-mustache-handlebars'
