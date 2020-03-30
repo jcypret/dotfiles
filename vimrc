@@ -341,6 +341,7 @@ augroup vimrcEx
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile .{babel,eslint,jscs,jshint}rc set filetype=json
   autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
+  autocmd BufRead,BufNewFile .env.* set filetype=sh
 
   " turn off line numbers for terminal
   autocmd TermOpen * setlocal nonumber norelativenumber
