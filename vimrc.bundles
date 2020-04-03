@@ -7,103 +7,108 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'Konfekt/FastFold'
-Plug 'arp242/jumpy.vim'
-Plug 'christoomey/vim-sort-motion'
-Plug 'christoomey/vim-titlecase'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'dense-analysis/ale'
-Plug 'gioele/vim-autoswap'
-Plug 'janko-m/vim-test'
-Plug 'junegunn/vim-easy-align'
-Plug 'pbrisbin/vim-mkdir'
-Plug 'pedrohdz/vim-yaml-folds'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'wakatime/vim-wakatime'
-Plug 'wellle/targets.vim'
-Plug 'wesQ3/vim-windowswap'
+Plug 'janko-m/vim-test' " polyglot test runner
+Plug 'tpope/vim-dispatch' " async command runner
+Plug 'tpope/vim-repeat' " repeating for supported plugins with `.`
+Plug 'tpope/vim-unimpaired' " pairs of handy bracket mappings
+Plug 'wakatime/vim-wakatime' " automatic time tracking
 
-" Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ajh17/VimCompletesMe'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-endwise'
+" Autocomplete, linting, and fixing
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " completion framework
+Plug 'ajh17/VimCompletesMe' " tab completion
+Plug 'dense-analysis/ale' " async linter and fixer
+Plug 'jiangmiao/auto-pairs' " inserts/deletes brackets, parens, quotes in pair
+Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
 
 " C++
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'rhysd/vim-clang-format'
+Plug 'octol/vim-cpp-enhanced-highlight' " C++ syntax
 
 " CSS
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'mattn/emmet-vim'
-Plug 'alexlafroscia/postcss-syntax.vim'
-
-" Git
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/gv.vim'
-Plug 'tpope/vim-fugitive'
-
-" Elixir
-Plug 'elixir-lang/vim-elixir'
-
-" Javascript
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'elzr/vim-json'
-" vue:
-Plug 'posva/vim-vue'
-Plug 'mustache/vim-mustache-handlebars'
-" react:
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'jparise/vim-graphql'
-
-" Markup
-Plug 'othree/html5.vim'
-Plug 'plasticboy/vim-markdown'
-
-" Ruby
-Plug 'joker1007/vim-ruby-heredoc-syntax'
-Plug 'kana/vim-textobj-user' " required for vim-textobj-rubyblock
-Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'vim-ruby/vim-ruby'
-
-" Search and Replace
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'jremmen/vim-ripgrep'
-Plug 'stefandtw/quickfix-reflector.vim'
-
-" SQL
-Plug 'exu/pgsql.vim'
+Plug 'cakebaker/scss-syntax.vim' " Sassy CSS syntax (sass/scss)
+Plug 'hail2u/vim-css3-syntax' " CSS3 syntax
 
 " CTags
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags' " automatic ctag generation
+Plug 'majutsushi/tagbar' " ctag browser
+
+" Git
+Plug 'airblade/vim-gitgutter' " git diff in the sign column
+Plug 'junegunn/gv.vim' " git commit browser
+Plug 'tpope/vim-fugitive' " Git wrapper
+
+" Elixir
+Plug 'elixir-lang/vim-elixir' " Elixir syntax
+
+" Folds
+Plug 'pedrohdz/vim-yaml-folds' " YAML fold support
+Plug 'Konfekt/FastFold' " only update folds when necessary
+
+" JavaScript
+Plug 'pangloss/vim-javascript' " JavaScript/ES6 syntax
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'elzr/vim-json' " JSON syntax and config
+" Vue
+Plug 'posva/vim-vue' " Vue SFC syntax
+Plug 'mustache/vim-mustache-handlebars' " handlebars syntax
+" React
+Plug 'maxmellon/vim-jsx-pretty' " React JSX syntax
+Plug 'peitalin/vim-jsx-typescript' " TypeScript JSX syntax
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Emotion syntax
+Plug 'jparise/vim-graphql' " GraphQL syntax
+
+" Markup
+Plug 'mattn/emmet-vim' " HTML text expander
+Plug 'othree/html5.vim' " HTML5 syntax
+Plug 'plasticboy/vim-markdown' " Markdown syntax and config
+
+" Motions
+Plug 'AndrewRadev/splitjoin.vim' " go join (gj) and go split (gs)
+Plug 'christoomey/vim-sort-motion' " go sort (gs)
+Plug 'christoomey/vim-titlecase' " go titleize (gt)
+Plug 'junegunn/vim-easy-align' " go align (ga)
+Plug 'tpope/vim-commentary' " go comment (gc)
+Plug 'tpope/vim-surround' " quoting/parenthesizing made simple
+Plug 'wellle/targets.vim' " additional text objects
+
+" Navigation and Files
+Plug 'arp242/jumpy.vim' " filetype-specific mappings for [[ and ]]
+Plug 'christoomey/vim-tmux-navigator' " seamless navigation between tmux panes and vim splits
+Plug 'gioele/vim-autoswap' " stop the swap file messages and just switch to correct window
+Plug 'pbrisbin/vim-mkdir' " auto create any non-existent directories before writing buffer
+Plug 'scrooloose/nerdtree' " file system explorer
+Plug 'tpope/vim-eunuch' " helpers for UNIX (:Delete, :Move, :Rename)
+Plug 'wesQ3/vim-windowswap' " swap the buffer between two windows
+
+" Ruby
+Plug 'joker1007/vim-ruby-heredoc-syntax' " heredoc syntax highlighting (like SQL)
+Plug 'kana/vim-textobj-user' " required for vim-textobj-rubyblock
+Plug 'nelstrom/vim-textobj-rubyblock' " motion for Ruby blocks
+Plug 'tpope/vim-bundler' " Bundler wrapper (:Bundle) and Gemfile syntax
+Plug 'tpope/vim-rails' " Rails wrapper (gf, projectionist def, enhanced syntax)
+Plug 'tpope/vim-rake' " Rake wrapper (:Rake, projectionist def)
+Plug 'vim-ruby/vim-ruby' " Ruby syntax
+
+" Search and Replace
+Plug '/usr/local/opt/fzf' " fzf wrapper
+Plug 'junegunn/fzf.vim' " fuzzy file search (:Files, :Buffers)
+Plug 'jremmen/vim-ripgrep' " RipGrep wrapper
+Plug 'stefandtw/quickfix-reflector.vim' " change code in the quickfix window
+
+" SQL
+Plug 'exu/pgsql.vim' " PostgreSQL syntax
 
 " Themes and UI
-Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine' " show indention levels
 Plug 'arcticicestudio/nord-vim' " dark theme
-Plug 'luochen1990/rainbow'
-Plug 'mhinz/vim-startify'
+Plug 'luochen1990/rainbow' " colored matched parens for Lisp sanity
+Plug 'mhinz/vim-startify' " fancy start screen
 Plug 'reedes/vim-colors-pencil' " writing theme
-Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline' " improved status and tablines
 
 " Writing
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim' " distraction free writing mode
 
-Plug 'ryanoasis/vim-devicons' " load after everything
+" DevIcons must load last...
+Plug 'ryanoasis/vim-devicons' " Nerd Font support (file type icons)
 
 call plug#end()

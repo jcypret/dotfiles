@@ -306,11 +306,6 @@ let g:test#strategy = 'neovim'
 " Use ctr-o to leave test output on screen
 tmap <C-o> <C-\><C-n>
 
-" Vim Titlecase
-let g:titlecase_map_keys = 0
-nmap <leader>gt <Plug>Titlecase
-nmap <leader>gT <Plug>TitlecaseLine
-
 " Vim Ripgrep
 nnoremap \ :Rg<space>
 nnoremap <bar> :Rg -F <cword><space>
@@ -356,6 +351,9 @@ augroup vimrcEx
 
   " Use rainbow parens for lisp-based languages
   autocmd FileType lisp,clojure,scheme RainbowToggleOn
+
+  " Fix CSS highlighting for keywords
+  autocmd FileType css,scss setlocal iskeyword+=-
 
   " remove status line background for fzf
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
