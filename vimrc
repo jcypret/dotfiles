@@ -49,6 +49,7 @@ vnoremap <C-c> "+y
 inoremap <C-v> <ESC>"+pa
 
 " Code Folding
+set foldmethod=syntax
 set foldlevelstart=99 " prevent collapse on initial fold
 let g:ruby_fold = 1
 
