@@ -36,12 +36,12 @@ nmap <Leader>rr :source ~/.vimrc<cr>
 " VIM SETTINGS =================================================================
 
 " Buffers
-
-"create a new buffer (save it with :w ./path/to/FILENAME)
+"
+" create a new buffer (save it with :w ./path/to/FILENAME)
 nnoremap <leader>bn :enew<cr>
-"close current buffer
+" close current buffer
 nnoremap <leader>bd :bp <bar> bd! #<cr>
-"close all open buffers
+" close all open buffers
 nnoremap <leader>bD :bufdo bd!<cr>
 
 " Clipboard
@@ -207,7 +207,15 @@ let g:AutoPairsMultilineClose = 0
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
-" goyo (writing mode)
+" EasyAlign
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" Gitgutter
+set updatetime=100
+let g:gitgutter_grep = 'rg --color=never'
+
+" Goyo (writing mode)
 nnoremap <Leader>W :Goyo<CR>
 
 function! s:goyo_enter()
@@ -260,30 +268,6 @@ let g:indentLine_concealcursor = 0
 let g:indentLine_defaultGroup = 'Whitespace'
 let g:indentLine_fileTypeExclude = ['startify', 'help']
 
-" NERDTree
-let g:NERDTreeUpdateOnCursorHold = 0
-
-" Rainbow Parentheses Improved
-let g:rainbow_active = 0
-
-" Startify
-let g:startify_change_to_vcs_root = 1
-
-" Splitjoin
-let g:splitjoin_ruby_curly_braces = 0
-let g:splitjoin_ruby_hanging_args = 0
-
-" Tagbar
-nmap <C-t> :TagbarToggle<CR>
-
-" Vim EasyAlign
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-" Vim Gitgutter
-set updatetime=100
-let g:gitgutter_grep = 'rg --color=never'
-
 " Vim JSON
 let g:vim_json_syntax_conceal = 0
 
@@ -297,6 +281,28 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_override_foldtext = 0
 
+" NERDTree
+let g:NERDTreeUpdateOnCursorHold = 0
+
+" Rainbow Parentheses Improved
+let g:rainbow_active = 0
+
+" Vim Ripgrep
+nnoremap \ :Rg<space>
+nnoremap <bar> :Rg -F <cword><space>
+let g:rg_command = 'rg --vimgrep -S'
+let g:rg_highlight = 1
+
+" Startify
+let g:startify_change_to_vcs_root = 1
+
+" Splitjoin
+let g:splitjoin_ruby_curly_braces = 0
+let g:splitjoin_ruby_hanging_args = 0
+
+" Tagbar
+nmap <C-t> :TagbarToggle<CR>
+
 " Vim Test
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
@@ -306,12 +312,6 @@ nmap <silent> <leader>g :TestVisit<CR>
 let g:test#strategy = 'neovim'
 " Use ctr-o to leave test output on screen
 tmap <C-o> <C-\><C-n>
-
-" Vim Ripgrep
-nnoremap \ :Rg<space>
-nnoremap <bar> :Rg -F <cword><space>
-let g:rg_command = 'rg --vimgrep -S'
-let g:rg_highlight = 1
 
 augroup vimrcEx
   autocmd!
@@ -324,47 +324,31 @@ augroup vimrcEx
     \   exe "normal g`\"" |
     \ endif
 
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile *.tsx,*.jsx set filetype=typescript.tsx
+  autocmd BufRead,BufNewFile .env.* set filetype=sh
+  autocmd BufRead,BufNewFile .{babel,eslint,jscs,jshint}rc set filetype=json
+  autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
+
+  " Set file-type specific settings
+  autocmd FileType cpp,vue setlocal commentstring=//\ %s " Set comment style to // for cpp and vue
+  autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
+  autocmd FileType fzf set laststatus=0 noshowmode noruler | autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+  autocmd FileType gitcommit setlocal nonumber norelativenumber
+  autocmd FileType lisp,clojure,scheme RainbowToggleOn " Use rainbow parens for lisp-based languages
+  autocmd FileType markdown setlocal nobreakindent spell ts=4 sw=4 tw=0 | let b:tagbar_ignore = 1
+  autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
+  autocmd FileType ruby call SetAleRubyBufferLinters() " set ruby linters based on project config
+  autocmd FileType yaml,eruby.yaml setlocal foldmethod=expr
+  autocmd TermOpen * setlocal nonumber norelativenumber " turn off line numbers for terminal
+
   " writing mode
   autocmd User GoyoEnter nested call <SID>goyo_enter()
   autocmd User GoyoLeave nested call <SID>goyo_leave()
 
-  " hide invisible chars in nerdtree panel
-  autocmd FileType nerdtree setlocal nolist
-
+  " fix weird highlighting for mixed syntax
   autocmd BufEnter *.{js,jsx,ts,tsx,vue} :syntax sync fromstart
   autocmd BufLeave *.{js,jsx,ts,tsx,vue} :syntax sync clear
-
-  " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile .{babel,eslint,jscs,jshint}rc set filetype=json
-  autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
-  autocmd BufRead,BufNewFile .env.* set filetype=sh
-
-  " turn off line numbers for terminal
-  autocmd TermOpen * setlocal nonumber norelativenumber
-  autocmd FileType gitcommit setlocal nonumber norelativenumber
-
-  " Markdown formatting
-  autocmd FileType markdown setlocal nobreakindent spell ts=4 sw=4 tw=0
-  autocmd FileType markdown let b:tagbar_ignore = 1
-
-  " Set comment style to // for cpp and vue
-  autocmd FileType cpp,vue setlocal commentstring=//\ %s
-
-  " Use rainbow parens for lisp-based languages
-  autocmd FileType lisp,clojure,scheme RainbowToggleOn
-
-  " Fix CSS highlighting for keywords
-  autocmd FileType css,scss setlocal iskeyword+=-
-
-  " remove status line background for fzf
-  autocmd  FileType fzf set laststatus=0 noshowmode noruler
-    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-  " set ruby linters based on project config
-  autocmd FileType ruby call SetAleRubyBufferLinters()
-
-  " set filetypes as typescript.tsx
-  autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 augroup END
 
 " Local config
