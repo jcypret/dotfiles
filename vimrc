@@ -266,7 +266,7 @@ let g:fzf_action = {
 let g:indentLine_char = '▏'
 let g:indentLine_concealcursor = 0
 let g:indentLine_defaultGroup = 'Whitespace'
-let g:indentLine_fileTypeExclude = ['startify', 'help']
+let g:indentLine_fileTypeExclude = ['startify', 'help', 'fzf']
 
 " Vim JSON
 let g:vim_json_syntax_conceal = 0
