@@ -27,10 +27,17 @@ ssh-add -A 2>/dev/null; # Load in SSH keys
 # asdf
 source "$(brew --prefix asdf)/asdf.sh"
 
+# bat
+export BAT_THEME='Nord'
+
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS='--color=16,fg+:4,hl:6,hl+:6,info:5'
+# use nord theme (https://github.com/junegunn/fzf/wiki/Color-schemes#nord)
+export FZF_DEFAULT_OPTS='
+  --color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
+  --color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B
+'
 
 # rust
 export PATH=$PATH:$HOME/.cargo/bin
