@@ -26,7 +26,7 @@ brew "zsh"
 brew "bat" # cat
 brew "exa" # ls
 brew "fd" # find
-brew "gotop" # top
+brew "htop" # top
 brew "ncdu" # du
 brew "prettyping" # ping
 brew "ripgrep" # grep

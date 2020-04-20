@@ -5,10 +5,10 @@ alias path='echo $PATH | tr -s ":" "\n"' # pretty print path
 
 # Better unix
 alias cat="bat"
-alias top="gotop -f"
+alias du="ncdu --color dark -x --exclude .git"
 alias lg="lazygit"
 alias ping="prettyping --nolegend"
-alias du="ncdu --color dark -x --exclude .git"
+alias top="htop"
 
 # Better ls
 alias ls="exa --group-directories-first"
