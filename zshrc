@@ -30,6 +30,9 @@ source "$(brew --prefix asdf)/asdf.sh"
 # bat
 export BAT_THEME='Nord'
 
+# crystal
+export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
+
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

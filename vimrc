@@ -174,6 +174,7 @@ let g:ale_fixers = {
   \ }
 let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
+  \ 'crystal': ['ameba'],
   \ 'javascript': ['eslint'],
   \ 'markdown': ['languagetool', 'write-good'],
   \ 'ruby': ['ruby', 'standardrb'],
@@ -280,6 +281,7 @@ let g:LanguageClient_settingsPath = expand('~/.vim/settings.json')
 let g:LanguageClient_useVirtualText = "No"
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['cquery'],
+  \ 'crystal': ['scry'],
   \ 'javascript': ['typescript-language-server', '--stdio'],
   \ 'typescript': ['typescript-language-server', '--stdio'],
   \ 'ruby': ['solargraph', 'stdio'],
@@ -353,6 +355,7 @@ augroup vimrcEx
   " Set file-type specific settings
   autocmd FileType * call s:language_client_config() " set LanguageClient config for enabled filetypes
   autocmd FileType cpp,vue setlocal commentstring=//\ %s " Set comment style to // for cpp and vue
+  autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
   autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
   autocmd FileType fzf set laststatus=0 noshowmode noruler | autocmd BufLeave <buffer> set laststatus=2 showmode ruler
   autocmd FileType gitcommit setlocal nonumber norelativenumber
