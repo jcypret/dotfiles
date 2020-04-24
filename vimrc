@@ -145,9 +145,11 @@ let g:ruby_heredoc_syntax_filetypes = {
 " PLUGIN SETTINGS ==============================================================
 
 " Airline
-let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#displayed_head_limit = 25
+let g:airline#extensions#gutentags#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline_powerline_fonts = 1
 
 " Ale
 let g:ale_lint_on_enter = 0
@@ -171,14 +173,13 @@ let g:ale_fixers = {
   \ 'yaml': ['prettier']
   \ }
 let g:ale_linters = {
-  \ 'cpp': ['cquery', 'gcc', 'clang-format', 'cppcheck', 'cpplint'],
-  \ 'crystal': ['crystal'],
-  \ 'javascript': ['eslint', 'tsserver'],
+  \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
+  \ 'javascript': ['eslint'],
   \ 'markdown': ['languagetool', 'write-good'],
-  \ 'ruby': ['ruby', 'solargraph', 'standardrb'],
-  \ 'typescript': ['eslint', 'tslint', 'tsserver'],
+  \ 'ruby': ['ruby', 'standardrb'],
+  \ 'typescript': ['eslint', 'tslint'],
   \ 'vim': ['vint'],
-  \ 'vue': ['eslint', 'vls'],
+  \ 'vue': ['eslint'],
   \ }
 let g:ale_c_clangformat_options = '-style=google'
 let g:ale_cpp_cpplint_options = '--linelength=120' .
@@ -274,6 +275,25 @@ let g:vim_json_syntax_conceal = 0
 " Vim JSX Pretty
 let g:vim_jsx_pretty_disable_tsx = 1 " handled by peitalin/vim-jsx-typescript
 
+" LanguageClient
+let g:LanguageClient_settingsPath = expand('~/.vim/settings.json')
+let g:LanguageClient_useVirtualText = "No"
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['cquery'],
+  \ 'javascript': ['typescript-language-server', '--stdio'],
+  \ 'typescript': ['typescript-language-server', '--stdio'],
+  \ 'ruby': ['solargraph', 'stdio'],
+  \ 'vue': ['vls'],
+  \ }
+
+function! s:language_client_config()
+  if has_key(g:LanguageClient_serverCommands, &filetype)
+    nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
+    nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
+    nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+  endif
+endfunction
+
 " Vim Markdown
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
@@ -331,6 +351,7 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
 
   " Set file-type specific settings
+  autocmd FileType * call s:language_client_config() " set LanguageClient config for enabled filetypes
   autocmd FileType cpp,vue setlocal commentstring=//\ %s " Set comment style to // for cpp and vue
   autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
   autocmd FileType fzf set laststatus=0 noshowmode noruler | autocmd BufLeave <buffer> set laststatus=2 showmode ruler
