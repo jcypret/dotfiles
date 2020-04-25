@@ -5,6 +5,7 @@
 .env
 db/*.sqlite3
 log/*.log
+node_modules/
 rerun.txt
 tags
 tags.temp
