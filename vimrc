@@ -154,8 +154,8 @@ let g:airline_powerline_fonts = 1
 " Ale
 let g:ale_lint_on_enter = 0
 let g:ale_linters_explicit = 1
-let g:ale_sign_error = '=>'
-let g:ale_sign_warning = '->'
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
 let g:ale_echo_msg_format = '[%linter%] %s'
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -278,7 +278,13 @@ let g:vim_jsx_pretty_disable_tsx = 1 " handled by peitalin/vim-jsx-typescript
 
 " LanguageClient
 let g:LanguageClient_settingsPath = expand('~/.vim/settings.json')
-let g:LanguageClient_useVirtualText = "No"
+let g:LanguageClient_useVirtualText = 'No'
+let g:LanguageClient_diagnosticsDisplay = {
+  \ 1: {'name': 'Error', 'texthl': 'ALEError', 'signText': '', 'signTexthl': 'ALEErrorSign', 'virtualTexthl': 'Error'},
+  \ 2: {'name': 'Warning', 'texthl': 'ALEWarning', 'signText': '', 'signTexthl': 'ALEWarningSign', 'virtualTexthl': 'Todo'},
+  \ 3: {'name': 'Information', 'texthl': 'ALEInfo', 'signText': '', 'signTexthl': 'ALEInfoSign', 'virtualTexthl': 'Todo'},
+  \ 4: {'name': 'Hint', 'texthl': 'ALEInfo', 'signText': '', 'signTexthl': 'ALEInfoSign', 'virtualTexthl': 'Todo'},
+  \ }
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['cquery'],
   \ 'crystal': ['scry'],
