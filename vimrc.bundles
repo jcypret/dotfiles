@@ -80,8 +80,8 @@ Plug 'christoomey/vim-tmux-navigator' " seamless navigation between tmux panes a
 Plug 'gioele/vim-autoswap' " stop the swap file messages and just switch to correct window
 Plug 'pbrisbin/vim-mkdir' " auto create any non-existent directories before writing buffer
 Plug 'scrooloose/nerdtree' " file system explorer
+Plug 'simeji/winresizer' " vim motion moving and resizing of windows
 Plug 'tpope/vim-eunuch' " helpers for UNIX (:Delete, :Move, :Rename)
-Plug 'wesQ3/vim-windowswap' " swap the buffer between two windows
 
 " Ruby
 Plug 'joker1007/vim-ruby-heredoc-syntax' " heredoc syntax highlighting (like SQL)
