@@ -28,6 +28,7 @@ ssh-add -A 2>/dev/null; # Load in SSH keys
 source "$(brew --prefix asdf)/asdf.sh"
 
 # bat
+export COLORTERM='truecolor'
 export BAT_THEME='Nord'
 
 # crystal
