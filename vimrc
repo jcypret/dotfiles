@@ -44,10 +44,6 @@ nnoremap <leader>bd :bp <bar> bd! #<cr>
 " close all open buffers
 nnoremap <leader>bD :bufdo bd!<cr>
 
-" Clipboard
-vnoremap <C-c> "+y
-inoremap <C-v> <ESC>"+pa
-
 " Code Folding
 set foldmethod=syntax
 set foldlevelstart=99 " prevent collapse on initial fold
