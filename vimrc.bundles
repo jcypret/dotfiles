@@ -94,9 +94,9 @@ Plug 'vim-ruby/vim-ruby' " Ruby syntax
 
 " Search and Replace
 Plug '/usr/local/opt/fzf' " fzf wrapper
-Plug 'junegunn/fzf.vim' " fuzzy file search (:Files, :Buffers)
 Plug 'jremmen/vim-ripgrep' " RipGrep wrapper
 Plug 'stefandtw/quickfix-reflector.vim' " change code in the quickfix window
+Plug 'yuki-ycino/fzf-preview.vim' " fuzzy file search (:Files, :Buffers)
 
 " SQL
 Plug 'exu/pgsql.vim' " PostgreSQL syntax

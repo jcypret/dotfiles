@@ -107,7 +107,7 @@ set inccommand=split " live preview for find/replace
 
 " Clear highlight from search results
 nnoremap <silent> <Leader>/
-      \ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+  \ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " Tab Navigation
 nnoremap T :tabnew<CR>
@@ -249,9 +249,9 @@ function! s:goyo_leave()
 endfunction
 
 " fzf
-nnoremap <C-p> :Files<CR>
-nmap <Leader>; :Buffers<CR>
-let g:fzf_preview_window = ''
+nnoremap <C-p> :FzfPreviewDirectoryFiles<CR>
+nmap <Leader>; :FzfPreviewBuffers<CR>
+let g:fzf_preview_command = 'bat --color=always --theme=ansi-dark --style=plain {-1}'
 
 " Indent Line
 let g:indentLine_char = '▏'

@@ -27,10 +27,6 @@ ssh-add -A 2>/dev/null; # Load in SSH keys
 # asdf
 source "$(brew --prefix asdf)/asdf.sh"
 
-# bat
-export COLORTERM='truecolor'
-export BAT_THEME='Nord'
-
 # crystal
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 
