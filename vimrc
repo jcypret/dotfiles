@@ -44,6 +44,10 @@ nnoremap <leader>bd :bp <bar> bd! #<cr>
 " close all open buffers
 nnoremap <leader>bD :bufdo bd!<cr>
 
+" Clipboard
+vnoremap <C-c> "+y
+inoremap <C-v> <ESC>"+pa
+
 " Code Folding
 set foldmethod=syntax
 set foldlevelstart=99 " prevent collapse on initial fold
@@ -61,9 +65,9 @@ map <Leader>n :NERDTreeFind<CR>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 " Edit another file in the same directory as the current file
-map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
-map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
-map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+nmap <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+nmap <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+nmap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 " Indention
 set tabstop=2    " indent 2 spaces

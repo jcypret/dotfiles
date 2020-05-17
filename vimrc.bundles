@@ -68,7 +68,6 @@ Plug 'plasticboy/vim-markdown' " Markdown syntax and config
 " Motions
 Plug 'AndrewRadev/splitjoin.vim' " go join (gj) and go split (gs)
 Plug 'christoomey/vim-sort-motion' " go sort (gs)
-Plug 'christoomey/vim-system-copy' " go copy (cP) and go paste (cV)
 Plug 'christoomey/vim-titlecase' " go titleize (gt)
 Plug 'junegunn/vim-easy-align' " go align (ga)
 Plug 'tpope/vim-commentary' " go comment (gc)
