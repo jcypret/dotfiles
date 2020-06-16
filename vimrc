@@ -178,7 +178,7 @@ let g:ale_linters = {
   \ 'crystal': ['ameba'],
   \ 'javascript': ['eslint'],
   \ 'markdown': ['languagetool', 'write-good'],
-  \ 'ruby': ['ruby', 'standardrb'],
+  \ 'ruby': ['ruby', 'standardrb', 'reek'],
   \ 'typescript': ['eslint', 'tslint'],
   \ 'vim': ['vint'],
   \ 'vue': ['eslint'],
