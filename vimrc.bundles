@@ -39,6 +39,7 @@ Plug 'majutsushi/tagbar' " ctag browser
 Plug 'airblade/vim-gitgutter' " git diff in the sign column
 Plug 'junegunn/gv.vim' " git commit browser
 Plug 'tpope/vim-fugitive' " Git wrapper
+Plug 'tommcdo/vim-fubitive' " :Gbrowse BitBucket support
 
 " Elixir
 Plug 'elixir-lang/vim-elixir' " Elixir syntax
