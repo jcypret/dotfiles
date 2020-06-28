@@ -206,6 +206,16 @@ endfunction
 " Auto Pairs
 let g:AutoPairsMultilineClose = 0
 
+" Clap
+let g:clap_search_box_border_style = 'nil' " disable rounded edges
+let g:clap_selected_sign = { 'text': ' ' }
+let g:clap_current_selection_sign = { 'text': ' ' }
+
+nmap <Leader>; :Clap buffers<CR>
+nnoremap <C-p> :Clap files<CR>
+nnoremap <bar> :Clap grep ++query=<cword><CR>
+nnoremap \ :Clap grep<CR>
+
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
@@ -248,16 +258,11 @@ function! s:goyo_leave()
   call deoplete#enable()
 endfunction
 
-" fzf
-nnoremap <C-p> :FzfPreviewDirectoryFiles<CR>
-nmap <Leader>; :FzfPreviewBuffers<CR>
-let g:fzf_preview_command = 'bat --color=always --theme=ansi-dark --style=plain {-1}'
-
 " Indent Line
 let g:indentLine_char = '▏'
 let g:indentLine_concealcursor = 0
 let g:indentLine_defaultGroup = 'Whitespace'
-let g:indentLine_fileTypeExclude = ['startify', 'help', 'fzf']
+let g:indentLine_fileTypeExclude = ['startify', 'help']
 
 " Vim JSON
 let g:vim_json_syntax_conceal = 0
@@ -304,12 +309,6 @@ let g:NERDTreeUpdateOnCursorHold = 0
 " Rainbow Parentheses Improved
 let g:rainbow_active = 0
 
-" Vim Ripgrep
-nnoremap \ :Rg<space>
-nnoremap <bar> :Rg -F <cword><space>
-let g:rg_command = 'rg --vimgrep -S'
-let g:rg_highlight = 1
-
 " Startify
 let g:startify_change_to_vcs_root = 1
 
@@ -352,7 +351,6 @@ augroup vimrcEx
   autocmd FileType cpp,vue setlocal commentstring=//\ %s " Set comment style to // for cpp and vue
   autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
   autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
-  autocmd FileType fzf set laststatus=0 noshowmode noruler | autocmd BufLeave <buffer> set laststatus=2 showmode ruler
   autocmd FileType gitcommit setlocal nonumber norelativenumber
   autocmd FileType lisp,clojure,scheme RainbowToggleOn " Use rainbow parens for lisp-based languages
   autocmd FileType markdown setlocal nobreakindent spell ts=4 sw=4 tw=0 | let b:tagbar_ignore = 1
