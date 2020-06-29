@@ -209,8 +209,8 @@ let g:AutoPairsMultilineClose = 0
 
 " Clap
 let g:clap_search_box_border_style = 'nil' " disable rounded edges
-let g:clap_selected_sign = { 'text': ' ' }
-let g:clap_current_selection_sign = { 'text': ' ' }
+let g:clap_selected_sign = { 'text': '=>' }
+let g:clap_current_selection_sign = { 'text': '->' }
 
 nmap <Leader>; :Clap buffers<CR>
 nnoremap <C-p> :Clap files<CR>
