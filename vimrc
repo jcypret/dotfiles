@@ -212,10 +212,14 @@ let g:clap_search_box_border_style = 'nil' " disable rounded edges
 let g:clap_selected_sign = { 'text': '=>' }
 let g:clap_current_selection_sign = { 'text': '->' }
 
+" leader variants for filtering by glob
 nmap <Leader>; :Clap buffers<CR>
 nnoremap <C-p> :Clap files<CR>
+nnoremap <Leader>p :Clap files<Space>
 nnoremap <bar> :Clap grep ++query=<cword><CR>
+nnoremap <Leader><bar> :Clap grep ++query=<cword><Space>
 nnoremap \ :Clap grep<CR>
+nnoremap <Leader>\ :Clap grep<Space>
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
