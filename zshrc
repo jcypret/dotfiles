@@ -33,7 +33,10 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# use nord theme (https://github.com/junegunn/fzf/wiki/Color-schemes#nord)
+
+# nord
+eval $(gdircolors ~/.dir_colors)
+# source: https://github.com/junegunn/fzf/wiki/Color-schemes#nord
 export FZF_DEFAULT_OPTS='
   --color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
   --color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B
