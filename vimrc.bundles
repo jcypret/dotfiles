@@ -107,10 +107,8 @@ Plug 'arcticicestudio/nord-vim' " dark theme
 Plug 'luochen1990/rainbow' " colored matched parens for Lisp sanity
 Plug 'mhinz/vim-startify' " fancy start screen
 Plug 'reedes/vim-colors-pencil' " writing theme
+Plug 'reedes/vim-thematic' " theme switcher
 Plug 'vim-airline/vim-airline' " improved status and tablines
-
-" Writing
-Plug 'junegunn/goyo.vim' " distraction free writing mode
 
 " DevIcons must load last...
 Plug 'ryanoasis/vim-devicons' " Nerd Font support (file type icons)

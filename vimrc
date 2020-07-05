@@ -130,6 +130,21 @@ colorscheme nord
 " colorscheme pencil
 " set background=light
 
+let s:currentTheme = 'nord'
+function! ThemeToggle()
+  if (s:currentTheme ==? 'nord')
+    let s:currentTheme = 'pencil'
+    set background=light
+    colorscheme pencil
+  else
+    let s:currentTheme = 'nord'
+    set background=dark
+    colorscheme nord
+  endif
+endfunction
+
+nnoremap <silent> <leader>w :call ThemeToggle()<CR>
+
 " LANGUAGE SETTINGS ============================================================
 
 " HTML
@@ -232,37 +247,6 @@ nmap ga <Plug>(EasyAlign)
 set updatetime=100
 let g:gitgutter_grep = 'rg --color=never'
 
-" Goyo (writing mode)
-nnoremap <Leader>W :Goyo<CR>
-
-function! s:goyo_enter()
-  set background=light
-  colorscheme pencil
-  IndentLinesDisable
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status off
-  endif
-  set nocursorline
-  set noshowmode
-  call deoplete#disable()
-  highlight link ALEErrorSign Error
-  highlight link ALEWarningSign Todo
-  highlight link ALEError SpellBad
-  highlight link ALEWarning SpellCap
-endfunction
-
-function! s:goyo_leave()
-  set background=dark
-  colorscheme nord
-  IndentLinesEnable
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status on
-  endif
-  set cursorline
-  set showmode
-  call deoplete#enable()
-endfunction
-
 " Indent Line
 let g:indentLine_char = '▏'
 let g:indentLine_concealcursor = 0
@@ -363,10 +347,6 @@ augroup vimrcEx
   autocmd FileType ruby call SetAleRubyBufferLinters() " set ruby linters based on project config
   autocmd FileType yaml,eruby.yaml setlocal foldmethod=expr
   autocmd TermOpen * setlocal nonumber norelativenumber " turn off line numbers for terminal
-
-  " writing mode
-  autocmd User GoyoEnter nested call <SID>goyo_enter()
-  autocmd User GoyoLeave nested call <SID>goyo_leave()
 
   " fix weird highlighting for mixed syntax
   autocmd BufEnter *.{js,jsx,ts,tsx,vue} :syntax sync fromstart
