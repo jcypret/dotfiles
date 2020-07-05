@@ -11,7 +11,7 @@ alias ping="prettyping --nolegend"
 alias top="htop"
 
 # Better ls
-alias ls="exa --group-directories-first"
+alias ls="exa --group-directories-first --classify --git-ignore"
 alias l="ls --long"
 alias la="l --all"
 alias lt="ls --tree --level=2"

@@ -19,6 +19,7 @@ compinit
 export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=nvim
 export PGDATA=/usr/local/var/postgres
+export TIME_STYLE="long-iso" # iso timestamps for `ls -l`
 
 eval "$(hub alias -s)"  # Load Hub
 eval "$(direnv hook zsh)" # Load direnv
