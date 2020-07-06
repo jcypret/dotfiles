@@ -155,7 +155,9 @@ let g:ruby_indent_block_style = 'do'
 let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_heredoc_syntax_filetypes = {
   \ 'pgsql' : { 'start' : 'SQL' },
+  \ 'ruby' : { 'start' : 'RUBY' },
   \ 'xml' : { 'start' : 'XML' },
+  \ 'yaml' : { 'start' : 'YAML' },
   \ }
 
 " PLUGIN SETTINGS ==============================================================
@@ -333,6 +335,7 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile *.tsx,*.jsx set filetype=typescript.tsx
   autocmd BufRead,BufNewFile .env.* set filetype=sh
   autocmd BufRead,BufNewFile .{babel,eslint,jscs,jshint}rc set filetype=json
+  autocmd BufRead,BufNewFile Procfile* set filetype=yaml
   autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
 
   " Set file-type specific settings
