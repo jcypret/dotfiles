@@ -31,6 +31,9 @@ alias gm="git merge"
 alias gss="git status -s"
 alias gst="git status"
 
+# Kitty
+alias kd="kitty +kitten diff"
+
 # Rails
 alias -g RET="RAILS_ENV=test"
 alias rc="rails console"
