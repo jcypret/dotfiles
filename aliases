@@ -41,19 +41,19 @@ alias rdm="rake db:migrate"
 alias rr="rake routes"
 alias rs="rails server"
 
-# Vim
-alias e="$EDITOR"
-alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
-alias :q="exit"
-
 # Tmux
 alias tml="tmux list-sessions"
 alias tma="tmux -2 attach -t $1"
 alias tmk="tmux kill-session -t $1"
 alias :vsp="tmux split-window -h"
 alias :sp="tmux split-window -v"
+
+# Vim
+alias e="$EDITOR"
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
+alias :q="exit"
 
 # z
 alias j="z -I" # match autojump habit
