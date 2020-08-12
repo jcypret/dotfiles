@@ -63,6 +63,7 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Emotion s
 Plug 'jparise/vim-graphql' " GraphQL syntax
 
 " Markup
+Plug 'cespare/vim-toml' " TOML syntax
 Plug 'mattn/emmet-vim' " HTML text expander
 Plug 'othree/html5.vim' " HTML5 syntax
 Plug 'plasticboy/vim-markdown' " Markdown syntax and config
