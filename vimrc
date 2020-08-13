@@ -195,7 +195,7 @@ let g:ale_linters = {
   \ 'crystal': ['ameba'],
   \ 'javascript': ['eslint'],
   \ 'markdown': ['languagetool', 'write-good'],
-  \ 'ruby': ['ruby', 'standardrb', 'reek'],
+  \ 'ruby': ['ruby', 'standardrb', 'reek', 'sorbet'],
   \ 'typescript': ['eslint', 'tslint'],
   \ 'vim': ['vint'],
   \ 'vue': ['eslint'],
