@@ -31,7 +31,7 @@ set list listchars=tab:»·,trail:·,nbsp:·
 set wildmode=list:longest,full
 
 " Reload vimrc
-nmap <Leader>rr :source ~/.vimrc<cr>
+nnoremap <Leader>rr :source ~/.vimrc<cr>
 
 " VIM SETTINGS =================================================================
 
@@ -54,20 +54,20 @@ set foldlevelstart=99 " prevent collapse on initial fold
 let g:ruby_fold = 1
 
 " Diffing
-nmap <Leader>dd :term git diff<cr>i
-nmap <Leader>dh :term git diff HEAD<cr>i
-nmap <Leader>ds :term git diff --staged --ignore-all-space<cr>i
+nnoremap <Leader>dd :term git diff<cr>i
+nnoremap <Leader>dh :term git diff HEAD<cr>i
+nnoremap <Leader>ds :term git diff --staged --ignore-all-space<cr>i
 
 " File Navigation
 let g:NERDTreeWinSize = 45
-map <C-n> :NERDTreeToggle<CR>
-map <Leader>n :NERDTreeFind<CR>
+noremap <C-n> :NERDTreeToggle<CR>
+noremap <Leader>n :NERDTreeFind<CR>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 " Edit another file in the same directory as the current file
-nmap <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
-nmap <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
-nmap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+nnoremap <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+nnoremap <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+nnoremap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 " Indention
 set tabstop=2    " indent 2 spaces
@@ -89,16 +89,16 @@ set breakindentopt=shift:2 " indent wrapped line
 " Movements
 "
 " Jump to beginning of line after whitespace
-nmap 0 g^
-nmap $ g$
+nnoremap 0 g^
+nnoremap $ g$
 " Move between panels
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " Move vertically through wrapped text
-nmap j gj
-nmap k gk
+nnoremap j gj
+nnoremap k gk
 
 " Search /
 set ignorecase       " case-insensitive when lowercase
@@ -111,10 +111,10 @@ nnoremap <silent> <Leader>/
 
 " Tab Navigation
 nnoremap T :tabnew<CR>
-nmap <silent> [t :tabprevious<CR>
-nmap <silent> ]t :tabnext<CR>
-nmap <silent> [T :tabrewind<CR>
-nmap <silent> ]T :tablast<CR>
+nnoremap <silent> [t :tabprevious<CR>
+nnoremap <silent> ]t :tabnext<CR>
+nnoremap <silent> [T :tabrewind<CR>
+nnoremap <silent> ]T :tablast<CR>
 
 " THEME ========================================================================
 set termguicolors
@@ -206,7 +206,7 @@ let g:ale_cpp_cpplint_options = '--linelength=120' .
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_languagetool_options = '--language en-US --disable ARROWS,EN_QUOTES'
 
-nmap <Leader>f :ALEFix<CR>
+nnoremap <Leader>f :ALEFix<CR>
 nnoremap <silent> K :ALEHover<CR>
 nnoremap <silent> gd :ALEGoToDefinition<CR>
 
@@ -230,7 +230,7 @@ let g:clap_selected_sign = { 'text': '=>' }
 let g:clap_current_selection_sign = { 'text': '->' }
 
 " leader variants for filtering by glob
-nmap <Leader>; :Clap buffers<CR>
+nnoremap <Leader>; :Clap buffers<CR>
 nnoremap <C-p> :Clap files<CR>
 nnoremap <Leader>p :Clap files<Space>
 nnoremap <bar> :Clap grep ++query=<cword><CR>
@@ -308,17 +308,17 @@ let g:splitjoin_ruby_curly_braces = 0
 let g:splitjoin_ruby_hanging_args = 0
 
 " Tagbar
-nmap <C-t> :TagbarToggle<CR>
+nnoremap <C-t> :TagbarToggle<CR>
 
 " Vim Test
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
+nnoremap <silent> <leader>t :TestNearest<CR>
+nnoremap <silent> <leader>T :TestFile<CR>
+nnoremap <silent> <leader>a :TestSuite<CR>
+nnoremap <silent> <leader>l :TestLast<CR>
+nnoremap <silent> <leader>g :TestVisit<CR>
 let g:test#strategy = 'neovim'
 " Use ctr-o to leave test output on screen
-tmap <C-o> <C-\><C-n>
+tnoremap <C-o> <C-\><C-n>
 
 augroup vimrcEx
   autocmd!
