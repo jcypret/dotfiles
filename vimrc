@@ -31,7 +31,7 @@ set list listchars=tab:»·,trail:·,nbsp:·
 set wildmode=list:longest,full
 
 " Reload vimrc
-nnoremap <Leader>rr :source ~/.vimrc<cr>
+nnoremap <leader>rr :source ~/.vimrc<cr>
 
 " VIM SETTINGS =================================================================
 
@@ -45,8 +45,8 @@ nnoremap <leader>bd :bp <bar> bd! #<cr>
 nnoremap <leader>bD :bufdo bd!<cr>
 
 " Clipboard
-vnoremap <C-c> "+y
-inoremap <C-v> <ESC>"+pa
+vnoremap <c-c> "+y
+inoremap <c-v> <esc>"+pa
 
 " Code Folding
 set foldmethod=syntax
@@ -54,20 +54,20 @@ set foldlevelstart=99 " prevent collapse on initial fold
 let g:ruby_fold = 1
 
 " Diffing
-nnoremap <Leader>dd :term git diff<cr>i
-nnoremap <Leader>dh :term git diff HEAD<cr>i
-nnoremap <Leader>ds :term git diff --staged --ignore-all-space<cr>i
+nnoremap <leader>dd :term git diff<cr>i
+nnoremap <leader>dh :term git diff HEAD<cr>i
+nnoremap <leader>ds :term git diff --staged --ignore-all-space<cr>i
 
 " File Navigation
 let g:NERDTreeWinSize = 45
-noremap <C-n> :NERDTreeToggle<CR>
-noremap <Leader>n :NERDTreeFind<CR>
+noremap <c-n> :NERDTreeToggle<cr>
+noremap <leader>n :NERDTreeFind<cr>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 " Edit another file in the same directory as the current file
-nnoremap <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
-nnoremap <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
-nnoremap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+nnoremap <leader>e :e <c-r>=escape(expand("%:p:h"),' ') . '/'<cr>
+nnoremap <leader>s :split <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nnoremap <leader>v :vnew <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
 " Indention
 set tabstop=2    " indent 2 spaces
@@ -92,10 +92,10 @@ set breakindentopt=shift:2 " indent wrapped line
 nnoremap 0 g^
 nnoremap $ g$
 " Move between panels
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 " Move vertically through wrapped text
 nnoremap j gj
 nnoremap k gk
@@ -106,15 +106,15 @@ set smartcase        " case-sensitive when uppercase
 set inccommand=split " live preview for find/replace
 
 " Clear highlight from search results
-nnoremap <silent> <Leader>/
-  \ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+nnoremap <silent> <leader>/
+  \ :nohlsearch<c-r>=has('diff')?'<bar>diffupdate':''<cr><cr><c-l>
 
 " Tab Navigation
-nnoremap T :tabnew<CR>
-nnoremap <silent> [t :tabprevious<CR>
-nnoremap <silent> ]t :tabnext<CR>
-nnoremap <silent> [T :tabrewind<CR>
-nnoremap <silent> ]T :tablast<CR>
+nnoremap T :tabnew<cr>
+nnoremap <silent> [t :tabprevious<cr>
+nnoremap <silent> ]t :tabnext<cr>
+nnoremap <silent> [T :tabrewind<cr>
+nnoremap <silent> ]T :tablast<cr>
 
 " THEME ========================================================================
 set termguicolors
@@ -143,7 +143,7 @@ function! ThemeToggle()
   endif
 endfunction
 
-nnoremap <silent> <leader>w :call ThemeToggle()<CR>
+nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 
 " LANGUAGE SETTINGS ============================================================
 
@@ -206,9 +206,9 @@ let g:ale_cpp_cpplint_options = '--linelength=120' .
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_languagetool_options = '--language en-US --disable ARROWS,EN_QUOTES'
 
-nnoremap <Leader>f :ALEFix<CR>
-nnoremap <silent> K :ALEHover<CR>
-nnoremap <silent> gd :ALEGoToDefinition<CR>
+nnoremap <leader>f :ALEFix<cr>
+nnoremap <silent> K :ALEHover<cr>
+nnoremap <silent> gd :ALEGoToDefinition<cr>
 
 function! SetAleRubyBufferLinters()
   if filereadable('.rubocop.yml')
@@ -230,13 +230,13 @@ let g:clap_selected_sign = { 'text': '=>' }
 let g:clap_current_selection_sign = { 'text': '->' }
 
 " leader variants for filtering by glob
-nnoremap <Leader>; :Clap buffers<CR>
-nnoremap <C-p> :Clap files<CR>
-nnoremap <Leader>p :Clap files<Space>
-nnoremap <bar> :Clap grep ++query=<cword><CR>
-nnoremap <Leader><bar> :Clap grep ++query=<cword><Space>
-nnoremap \ :Clap grep<CR>
-nnoremap <Leader>\ :Clap grep<Space>
+nnoremap <leader>; :Clap buffers<cr>
+nnoremap <c-p> :Clap files<cr>
+nnoremap <leader>p :Clap files<space>
+nnoremap <bar> :Clap grep ++query=<cword><cr>
+nnoremap <leader><bar> :Clap grep ++query=<cword><space>
+nnoremap \ :Clap grep<cr>
+nnoremap <leader>\ :Clap grep<space>
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -282,8 +282,8 @@ let g:LanguageClient_serverCommands = {
 function! s:language_client_config()
   if has_key(g:LanguageClient_serverCommands, &filetype)
     nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
-    nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
-    nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+    nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<cr>
+    nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<cr>
   endif
 endfunction
 
@@ -308,17 +308,17 @@ let g:splitjoin_ruby_curly_braces = 0
 let g:splitjoin_ruby_hanging_args = 0
 
 " Tagbar
-nnoremap <C-t> :TagbarToggle<CR>
+nnoremap <c-t> :TagbarToggle<cr>
 
 " Vim Test
-nnoremap <silent> <leader>t :TestNearest<CR>
-nnoremap <silent> <leader>T :TestFile<CR>
-nnoremap <silent> <leader>a :TestSuite<CR>
-nnoremap <silent> <leader>l :TestLast<CR>
-nnoremap <silent> <leader>g :TestVisit<CR>
+nnoremap <silent> <leader>t :TestNearest<cr>
+nnoremap <silent> <leader>T :TestFile<cr>
+nnoremap <silent> <leader>a :TestSuite<cr>
+nnoremap <silent> <leader>l :TestLast<cr>
+nnoremap <silent> <leader>g :TestVisit<cr>
 let g:test#strategy = 'neovim'
 " Use ctr-o to leave test output on screen
-tnoremap <C-o> <C-\><C-n>
+tnoremap <c-o> <c-\><c-n>
 
 augroup vimrcEx
   autocmd!
