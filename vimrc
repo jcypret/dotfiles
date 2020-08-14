@@ -279,7 +279,7 @@ let g:LanguageClient_serverCommands = {
   \ 'vue': ['vls'],
   \ }
 
-function! s:language_client_config()
+function! ConfigureLanguageClient()
   if has_key(g:LanguageClient_serverCommands, &filetype)
     nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
     nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<cr>
@@ -320,7 +320,7 @@ let g:test#strategy = 'neovim'
 " Use ctr-o to leave test output on screen
 tnoremap <c-o> <c-\><c-n>
 
-augroup vimrcEx
+augroup vimrc
   autocmd!
 
   " When editing a file, always jump to the last known cursor position.
@@ -339,7 +339,7 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
 
   " Set file-type specific settings
-  autocmd FileType * call s:language_client_config() " set LanguageClient config for enabled filetypes
+  autocmd FileType * call ConfigureLanguageClient() " set LanguageClient config for enabled filetypes
   autocmd FileType cpp,vue setlocal commentstring=//\ %s " Set comment style to // for cpp and vue
   autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
   autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
