@@ -104,7 +104,7 @@ Plug 'exu/pgsql.vim' " PostgreSQL syntax
 
 " Themes and UI
 Plug 'Yggdroot/indentLine' " show indention levels
-Plug 'arcticicestudio/nord-vim' " dark theme
+Plug 'jcypret/nord-midnight-vim' " dark theme
 Plug 'luochen1990/rainbow' " colored matched parens for Lisp sanity
 Plug 'mhinz/vim-startify' " fancy start screen
 Plug 'reedes/vim-colors-pencil' " writing theme
