@@ -65,9 +65,9 @@ noremap <leader>n :NERDTreeFind<cr>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 " Edit another file in the same directory as the current file
-nnoremap <leader>e :e <c-r>=escape(expand("%:p:h"),' ') . '/'<cr>
-nnoremap <leader>s :split <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
-nnoremap <leader>v :vnew <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nnoremap <leader>e :e <c-r>=escape(expand('%:p:h'),' ') . '/'<cr>
+nnoremap <leader>s :split <c-r>=escape(expand('%:p:h'), ' ') . '/'<cr>
+nnoremap <leader>v :vnew <c-r>=escape(expand('%:p:h'), ' ') . '/'<cr>
 
 " Indention
 set tabstop=2    " indent 2 spaces
