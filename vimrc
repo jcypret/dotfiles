@@ -154,10 +154,10 @@ let g:html_indent_tags = 'li\|p'
 let g:ruby_indent_block_style = 'do'
 let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_heredoc_syntax_filetypes = {
-  \ 'pgsql' : { 'start' : 'SQL' },
-  \ 'ruby' : { 'start' : 'RUBY' },
-  \ 'xml' : { 'start' : 'XML' },
-  \ 'yaml' : { 'start' : 'YAML' },
+  \ 'pgsql': {'start': 'SQL'},
+  \ 'ruby': {'start': 'RUBY'},
+  \ 'xml': {'start': 'XML'},
+  \ 'yaml': {'start': 'YAML'},
   \ }
 
 " PLUGIN SETTINGS ==============================================================
@@ -216,8 +216,8 @@ function! SetAleRubyBufferLinters()
     call filter(ruby_linters, {idx, val -> val != 'standardrb'})
     call add(ruby_linters, 'rubocop')
 
-    let b:ale_linters = { 'ruby': ruby_linters }
-    let b:ale_fixers = { 'ruby': ['rubocop'] }
+    let b:ale_linters = {'ruby': ruby_linters}
+    let b:ale_fixers = {'ruby': ['rubocop']}
   endif
 endfunction
 
@@ -226,8 +226,8 @@ let g:AutoPairsMultilineClose = 0
 
 " Clap
 let g:clap_search_box_border_style = 'nil' " disable rounded edges
-let g:clap_selected_sign = { 'text': '=>' }
-let g:clap_current_selection_sign = { 'text': '->' }
+let g:clap_selected_sign = {'text': '=>'}
+let g:clap_current_selection_sign = {'text': '->'}
 
 " leader variants for filtering by glob
 nnoremap <leader>; :Clap buffers<cr>
