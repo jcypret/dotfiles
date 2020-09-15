@@ -26,7 +26,7 @@ Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
 Plug 'octol/vim-cpp-enhanced-highlight' " C++ syntax
 
 " Crystal
-Plug 'rhysd/vim-crystal'
+Plug 'rhysd/vim-crystal' " Crystal syntax
 
 " CSS
 Plug 'cakebaker/scss-syntax.vim' " Sassy CSS syntax (sass/scss)
@@ -40,7 +40,7 @@ Plug 'majutsushi/tagbar' " ctag browser
 Plug 'airblade/vim-gitgutter' " git diff in the sign column
 Plug 'junegunn/gv.vim' " git commit browser
 Plug 'tpope/vim-fugitive' " Git wrapper
-Plug 'tommcdo/vim-fubitive', { 'commit': 'a4ec11e' } " :Gbrowse BitBucket support
+Plug 'tommcdo/vim-fubitive' " :Gbrowse BitBucket support
 
 " Elixir
 Plug 'elixir-lang/vim-elixir' " Elixir syntax
@@ -108,9 +108,7 @@ Plug 'jcypret/nord-midnight-vim' " dark theme
 Plug 'luochen1990/rainbow' " colored matched parens for Lisp sanity
 Plug 'mhinz/vim-startify' " fancy start screen
 Plug 'reedes/vim-colors-pencil' " writing theme
-Plug 'reedes/vim-thematic' " theme switcher
 Plug 'vim-airline/vim-airline' " improved status and tablines
-
 " DevIcons must load last...
 Plug 'ryanoasis/vim-devicons' " Nerd Font support (file type icons)
 
