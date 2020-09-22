@@ -3,6 +3,7 @@
 # Oh My Zsh!
 ohmyzsh/ohmyzsh path:plugins/bundler
 ohmyzsh/ohmyzsh path:plugins/fzf
+ohmyzsh/ohmyzsh path:plugins/gcloud
 ohmyzsh/ohmyzsh path:plugins/z
 
 # Plugins
