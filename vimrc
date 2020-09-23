@@ -123,7 +123,6 @@ set termguicolors
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
-let g:nord_uniform_diff_background = 1
 colorscheme nord
 
 " Pencil Theme (writing)
@@ -245,6 +244,12 @@ let g:deoplete#enable_at_startup = 1
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+" Fugitive
+nnoremap <silent> <leader>gs :Git<cr>
+nnoremap <silent> <leader>gc :Git commit<cr>
+nnoremap <silent> <leader>gp :Git push<cr>
+nnoremap <silent> <leader>gl :GV<cr>
+
 " Gitgutter
 set updatetime=100
 let g:gitgutter_grep = 'rg --color=never'
@@ -315,7 +320,7 @@ nnoremap <silent> <leader>t :TestNearest<cr>
 nnoremap <silent> <leader>T :TestFile<cr>
 nnoremap <silent> <leader>a :TestSuite<cr>
 nnoremap <silent> <leader>l :TestLast<cr>
-nnoremap <silent> <leader>g :TestVisit<cr>
+nnoremap <silent> <leader>L :TestVisit<cr>
 let g:test#strategy = 'neovim'
 " Use ctr-o to leave test output on screen
 tnoremap <c-o> <c-\><c-n>
