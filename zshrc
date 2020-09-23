@@ -11,11 +11,6 @@ setopt share_history
 # vi mode
 bindkey -v
 
-# completions
-setopt autocd
-autoload -Uz compinit
-compinit
-
 export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=nvim
 export PGDATA=/usr/local/var/postgres
@@ -26,7 +21,7 @@ eval "$(direnv hook zsh)" # Load direnv
 ssh-add -A 2>/dev/null; # Load in SSH keys
 
 # asdf
-source "$(brew --prefix asdf)/asdf.sh"
+source /usr/local/opt/asdf/asdf.sh
 
 # crystal
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
