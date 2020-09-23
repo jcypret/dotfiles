@@ -24,9 +24,9 @@ brew "zsh"
 
 # Better Unix
 brew "bat" # cat
+brew "bottom" # top
 brew "exa" # ls
 brew "fd" # find
-brew "htop" # top
 brew "ncdu" # du
 brew "prettyping" # ping
 brew "ripgrep" # grep

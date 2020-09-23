@@ -8,7 +8,7 @@ alias cat="bat"
 alias du="ncdu --color dark -x --exclude .git"
 alias lg="lazygit"
 alias ping="prettyping --nolegend"
-alias top="htop"
+alias top="btm --basic --fahrenheit"
 
 # Better ls
 alias ls="exa --group-directories-first --classify --git-ignore"
