@@ -35,7 +35,7 @@ brew "tldr" # man pages
 # Git
 brew "git"
 brew "git-extras"
-brew "delta"
+brew "git-delta"
 brew "hub"
 brew "lazygit"
 
