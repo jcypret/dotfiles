@@ -102,6 +102,9 @@ Plug 'stefandtw/quickfix-reflector.vim' " change code in the quickfix window
 " SQL
 Plug 'exu/pgsql.vim' " PostgreSQL syntax
 
+" Writing
+Plug 'reedes/vim-pencil' " improved wrapped prose editing
+
 " Themes and UI
 Plug 'Yggdroot/indentLine' " show indention levels
 Plug 'jcypret/nord-midnight-vim' " dark theme

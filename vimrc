@@ -193,7 +193,7 @@ let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
   \ 'crystal': ['ameba'],
   \ 'javascript': ['eslint'],
-  \ 'markdown': ['languagetool', 'write-good'],
+  \ 'markdown': ['write-good'],
   \ 'ruby': ['ruby', 'standardrb', 'reek', 'sorbet'],
   \ 'typescript': ['eslint', 'tslint'],
   \ 'vim': ['vint'],
@@ -348,9 +348,9 @@ augroup vimrc
   autocmd FileType cpp,vue setlocal commentstring=//\ %s " Set comment style to // for cpp and vue
   autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
   autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
-  autocmd FileType gitcommit setlocal nonumber norelativenumber
+  autocmd FileType gitcommit call pencil#init({'wrap': 'hard', 'textwidth': 72}) | setlocal nonumber norelativenumber spell
   autocmd FileType lisp,clojure,scheme RainbowToggleOn " Use rainbow parens for lisp-based languages
-  autocmd FileType markdown setlocal nobreakindent spell ts=4 sw=4 tw=0 | let b:tagbar_ignore = 1
+  autocmd FileType markdown let b:tagbar_ignore = 1 | call pencil#init() | setlocal nobreakindent spell
   autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
   autocmd FileType ruby call SetAleRubyBufferLinters() " set ruby linters based on project config
   autocmd FileType yaml,eruby.yaml setlocal foldmethod=expr
