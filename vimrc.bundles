@@ -9,7 +9,6 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'janko-m/vim-test' " polyglot test runner
 Plug 'rizzatti/dash.vim' " open documentation in Dash
-Plug 'tpope/vim-dispatch' " async command runner
 Plug 'tpope/vim-repeat' " repeating for supported plugins with `.`
 Plug 'tpope/vim-unimpaired' " pairs of handy bracket mappings
 Plug 'wakatime/vim-wakatime' " automatic time tracking

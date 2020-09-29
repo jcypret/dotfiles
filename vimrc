@@ -245,7 +245,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Fugitive
-nnoremap <silent> <leader>gs :Git<cr>
+nnoremap <silent> <leader>gs :Git<cr>:20wincmd_<cr>
 nnoremap <silent> <leader>gc :Git commit<cr>
 nnoremap <silent> <leader>gp :Git push<cr>
 nnoremap <silent> <leader>gl :GV<cr>
