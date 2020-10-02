@@ -224,14 +224,12 @@ endfunction
 let g:AutoPairsMultilineClose = 0
 
 " Clap
-let g:clap_search_box_border_style = 'nil' " disable rounded edges
-let g:clap_selected_sign = {'text': '=>'}
-let g:clap_current_selection_sign = {'text': '->'}
-
-" leader variants for filtering by glob
 nnoremap <leader>; :Clap buffers<cr>
 nnoremap <c-p> :Clap files<cr>
 nnoremap <leader>p :Clap files<space>
+let g:clap_current_selection_sign = {'text': '->'}
+let g:clap_search_box_border_style = 'nil' " disable rounded edges
+let g:clap_selected_sign = {'text': '=>'}
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
