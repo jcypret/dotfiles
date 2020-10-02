@@ -97,6 +97,7 @@ Plug 'vim-ruby/vim-ruby' " Ruby syntax
 " Search and Replace
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' } " an interactive finder
 Plug 'stefandtw/quickfix-reflector.vim' " change code in the quickfix window
+Plug 'mhinz/vim-grepper' " better grepping + motions (gf)
 
 " SQL
 Plug 'exu/pgsql.vim' " PostgreSQL syntax

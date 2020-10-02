@@ -232,23 +232,30 @@ let g:clap_current_selection_sign = {'text': '->'}
 nnoremap <leader>; :Clap buffers<cr>
 nnoremap <c-p> :Clap files<cr>
 nnoremap <leader>p :Clap files<space>
-nnoremap <bar> :Clap grep ++query=<cword><cr>
-nnoremap <leader><bar> :Clap grep ++query=<cword><space>
-nnoremap \ :Clap grep<cr>
-nnoremap <leader>\ :Clap grep<space>
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
 " EasyAlign
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
+xmap ga <plug>(EasyAlign)
+nmap ga <plug>(EasyAlign)
 
 " Fugitive
 nnoremap <silent> <leader>gs :Git<cr>:20wincmd_<cr>
 nnoremap <silent> <leader>gc :Git commit<cr>
 nnoremap <silent> <leader>gp :Git push<cr>
 nnoremap <silent> <leader>gl :GV<cr>
+
+" Grepper
+nnoremap \ :Grepper<cr>
+nnoremap <bar> :Grepper -cword -noprompt<cr>
+nmap gf <plug>(GrepperOperator)
+xmap gf <plug>(GrepperOperator)
+runtime plugin/grepper.vim " load default values
+let g:grepper.highlight = 1
+let g:grepper.prompt_quote = 1
+let g:grepper.prompt_text = '$t> '
+let g:grepper.tools = ['rg', 'git', 'grep']
 
 " Gitgutter
 set updatetime=100
