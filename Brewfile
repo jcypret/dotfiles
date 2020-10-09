@@ -9,6 +9,7 @@ tap "thoughtbot/formulae"
 tap "universal-ctags/universal-ctags"
 
 # Unix
+brew "ansifilter" # filter out escape codes from tmux capture
 brew "cmake"
 brew "direnv"
 brew "openssl"
