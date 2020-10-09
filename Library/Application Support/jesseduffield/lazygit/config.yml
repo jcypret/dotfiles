@@ -1,0 +1,11 @@
+reporting: "on"
+startuppopupversion: 1
+gui:
+  mouseEvents: false
+git:
+  paging:
+    colorArg: always
+    useConfig: false
+keybinding:
+  universal:
+    nextBlock: <tab>
