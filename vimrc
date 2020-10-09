@@ -13,8 +13,9 @@ set cmdheight=2    " extra room at bottom for messages
 set cursorline     " highlight the current line
 set hidden         " allow hiding unsaved buffers
 set linebreak      " prevent soft-wrapping inside of word
-set nojoinspaces   " when joining lines, collaps to a single space
+set nojoinspaces   " when joining lines, collapse to a single space
 set noshowcmd      " don't show partial commands in status bar
+set noshowmode     " redundant to status line mode
 set regexpengine=1 " use legacy syntax parsing for ruby
 set signcolumn=yes " always show signcolumns
 set splitbelow     " open new horizontal splits below
