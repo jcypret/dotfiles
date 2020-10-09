@@ -17,6 +17,7 @@ set nojoinspaces   " when joining lines, collapse to a single space
 set noshowcmd      " don't show partial commands in status bar
 set noshowmode     " redundant to status line mode
 set regexpengine=1 " use legacy syntax parsing for ruby
+set shortmess+=c   " hide completion menu messages
 set signcolumn=yes " always show signcolumns
 set splitbelow     " open new horizontal splits below
 set splitright     " open new vertical splits to the right
