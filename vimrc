@@ -164,11 +164,20 @@ let g:ruby_heredoc_syntax_filetypes = {
 " PLUGIN SETTINGS ==============================================================
 
 " Airline
-let g:airline#extensions#branch#displayed_head_limit = 25
-let g:airline#extensions#gutentags#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tagbar#enabled = 0
+let g:airline#extensions#branch#displayed_head_limit = 25 " truncate branch name
+let g:airline#extensions#branch#vcs_checks = [] " hide dirty/untracked symbol
+let g:airline#extensions#gutentags#enabled = 0 " hide async status
+let g:airline#extensions#hunks#enabled = 0 " hide +/- git change counts
+let g:airline#extensions#tabline#enabled = 1 " enable buffer tabline
+let g:airline#extensions#tagbar#enabled = 0 " disable slow extension
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]' " hide encoding for utf-8
 let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
+
+" simplify page location to `l:c`
+call airline#parts#define_raw('linenr', '%l')
+call airline#parts#define_accent('linenr', 'bold')
+let g:airline_section_z = airline#section#create(['linenr', ':%c'])
 
 " Ale
 let g:ale_lint_on_enter = 0
@@ -287,7 +296,6 @@ let g:LanguageClient_serverCommands = {
   \ 'crystal': ['scry'],
   \ 'javascript': ['typescript-language-server', '--stdio'],
   \ 'typescript': ['typescript-language-server', '--stdio'],
-  \ 'ruby': ['solargraph', 'stdio'],
   \ 'vue': ['vls'],
   \ }
 
