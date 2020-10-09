@@ -86,9 +86,9 @@ Plug 'simeji/winresizer' " vim motion moving and resizing of windows
 Plug 'tpope/vim-eunuch' " helpers for UNIX (:Delete, :Move, :Rename)
 
 " Ruby
-Plug 'joker1007/vim-ruby-heredoc-syntax' " heredoc syntax highlighting (like SQL)
-Plug 'kana/vim-textobj-user' " required for vim-textobj-rubyblock
-Plug 'nelstrom/vim-textobj-rubyblock' " motion for Ruby blocks
+Plug 'joker1007/vim-ruby-heredoc-syntax', {'for': ['ruby']} " heredoc syntax highlighting (like SQL)
+Plug 'kana/vim-textobj-user', {'for': ['ruby']} " required for vim-textobj-rubyblock
+Plug 'nelstrom/vim-textobj-rubyblock', {'for': ['ruby']} " motion for Ruby blocks
 Plug 'tpope/vim-bundler' " Bundler wrapper (:Bundle) and Gemfile syntax
 Plug 'tpope/vim-rails' " Rails wrapper (gf, projectionist def, enhanced syntax)
 Plug 'tpope/vim-rake' " Rake wrapper (:Rake, projectionist def)
