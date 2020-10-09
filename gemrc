@@ -1,9 +1,9 @@
 ---
-:backtrace: false
-:bulk_threshold: 1000
-:sources:
-- https://rubygems.org/
-:update_sources: true
-:verbose: true
-:concurrent_downloads: 8
+backtrace: false
+bulk_threshold: 1000
+concurrent_downloads: 8
 gem: "--document=yri"
+sources:
+- https://rubygems.org/
+update_sources: true
+verbose: true
