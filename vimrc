@@ -180,6 +180,7 @@ call airline#parts#define_accent('linenr', 'bold')
 let g:airline_section_z = airline#section#create(['linenr', ':%c'])
 
 " Ale
+let g:ale_disable_lsp = 1
 let g:ale_lint_on_enter = 0
 let g:ale_linters_explicit = 1
 let g:ale_sign_error = ''
@@ -285,6 +286,7 @@ let g:vim_jsx_pretty_disable_tsx = 1 " handled by peitalin/vim-jsx-typescript
 " LanguageClient
 let g:LanguageClient_settingsPath = expand('~/.vim/settings.json')
 let g:LanguageClient_useVirtualText = 'No'
+let g:LanguageClient_echoProjectRoot = 0
 let g:LanguageClient_diagnosticsDisplay = {
   \ 1: {'name': 'Error', 'texthl': 'ALEError', 'signText': '', 'signTexthl': 'ALEErrorSign', 'virtualTexthl': 'Error'},
   \ 2: {'name': 'Warning', 'texthl': 'ALEWarning', 'signText': '', 'signTexthl': 'ALEWarningSign', 'virtualTexthl': 'Todo'},
