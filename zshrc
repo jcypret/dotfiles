@@ -1,6 +1,7 @@
 # zsh history
 HISTSIZE=50000
 SAVEHIST=10000
+setopt autocd
 setopt extended_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
