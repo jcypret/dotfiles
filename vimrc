@@ -61,9 +61,6 @@ nnoremap <leader>dh :term git diff HEAD<cr>i
 nnoremap <leader>ds :term git diff --staged --ignore-all-space<cr>i
 
 " File Navigation
-let g:NERDTreeWinSize = 45
-noremap <c-n> :NERDTreeToggle<cr>
-noremap <leader>n :NERDTreeFind<cr>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 " Edit another file in the same directory as the current file
@@ -318,6 +315,8 @@ let g:vim_markdown_override_foldtext = 0
 
 " NERDTree
 let g:NERDTreeUpdateOnCursorHold = 0
+noremap <c-n> :NERDTreeToggle<cr>
+noremap <leader>n :NERDTreeFind<cr>
 
 " Rainbow Parentheses Improved
 let g:rainbow_active = 0
