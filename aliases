@@ -19,9 +19,17 @@ alias lt="ls --tree --level=2"
 alias zbundle="antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh"
 
 # Git
+function git_main_branch() {
+  if [[ -n "$(git branch --list main)" ]]; then
+    echo main
+  else
+    echo master
+  fi
+}
+
 alias g="git"
 alias gcd="git checkout develop"
-alias gcm="git checkout master"
+alias gcm='git checkout $(git_main_branch)'
 alias gco="git checkout"
 alias gd="git diff"
 alias gds="git diff --staged"
