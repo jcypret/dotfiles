@@ -194,7 +194,7 @@ let g:ale_fixers = {
   \ 'ruby': ['standardrb'],
   \ 'rust': ['rustfmt'],
   \ 'scss': ['prettier'],
-  \ 'typescript': ['prettier', 'eslint', 'tslint'],
+  \ 'typescript': ['prettier', 'eslint'],
   \ 'vue': ['prettier', 'eslint'],
   \ 'yaml': ['prettier']
   \ }
@@ -204,7 +204,7 @@ let g:ale_linters = {
   \ 'javascript': ['eslint'],
   \ 'markdown': ['write-good'],
   \ 'ruby': ['ruby', 'standardrb', 'reek', 'sorbet'],
-  \ 'typescript': ['eslint', 'tslint'],
+  \ 'typescript': ['eslint'],
   \ 'vim': ['vint'],
   \ 'vue': ['eslint'],
   \ }
@@ -212,11 +212,7 @@ let g:ale_c_clangformat_options = '-style=google'
 let g:ale_cpp_cpplint_options = '--linelength=120' .
   \ '--filter=-runtime/references,-legal/copyright,-build/namespaces'
 let g:ale_ruby_rubocop_executable = 'bundle'
-let g:ale_languagetool_options = '--language en-US --disable ARROWS,EN_QUOTES'
-
 nnoremap <leader>f :ALEFix<cr>
-nnoremap <silent> K :ALEHover<cr>
-nnoremap <silent> gd :ALEGoToDefinition<cr>
 
 function! SetAleRubyBufferLinters()
   if filereadable('.rubocop.yml')
@@ -334,7 +330,7 @@ nnoremap <c-t> :TagbarToggle<cr>
 " Vim Test
 nnoremap <silent> <leader>t :TestNearest<cr>
 nnoremap <silent> <leader>T :TestFile<cr>
-nnoremap <silent> <leader>a :TestSuite<cr>
+nnoremap <silent> <leader>S :TestSuite<cr>
 nnoremap <silent> <leader>l :TestLast<cr>
 nnoremap <silent> <leader>L :TestVisit<cr>
 let g:test#strategy = 'neovim'
