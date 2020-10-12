@@ -236,8 +236,38 @@ let g:clap_current_selection_sign = {'text': '->'}
 let g:clap_search_box_border_style = 'nil' " disable rounded edges
 let g:clap_selected_sign = {'text': '=>'}
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
+" COC
+let g:ale_disable_lsp = 1
+let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-python',
+  \ 'coc-solargraph',
+  \ 'coc-tailwindcss',
+  \ 'coc-tsserver',
+  \ 'coc-vetur',
+  \ 'coc-vimlsp',
+  \ 'coc-yaml',
+  \ ]
+nnoremap <silent> K :call CocAction('doHover')<CR>
+nmap <silent> gd <plug>(coc-definition)
+nmap <silent> gy <plug>(coc-type-definition)
+nmap <silent> gi <plug>(coc-implementation)
+nmap <silent> gr <plug>(coc-references)
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <plug>(coc-diagnostic-prev)
+nmap <silent> ]g <plug>(coc-diagnostic-next)
+" Show all diagnostics.
+nnoremap <silent> <leader>d :<C-u>CocList diagnostics<cr>
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a <plug>(coc-codeaction-selected)
+nmap <leader>a <plug>(coc-codeaction-selected)
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac <plug>(coc-codeaction)
+" Symbol renaming.
+nmap <leader>rn <plug>(coc-rename)
 
 " EasyAlign
 xmap ga <plug>(EasyAlign)
@@ -275,32 +305,6 @@ let g:vim_json_syntax_conceal = 0
 
 " Vim JSX Pretty
 let g:vim_jsx_pretty_disable_tsx = 1 " handled by peitalin/vim-jsx-typescript
-
-" LanguageClient
-let g:LanguageClient_settingsPath = expand('~/.vim/settings.json')
-let g:LanguageClient_useVirtualText = 'No'
-let g:LanguageClient_echoProjectRoot = 0
-let g:LanguageClient_diagnosticsDisplay = {
-  \ 1: {'name': 'Error', 'texthl': 'ALEError', 'signText': '', 'signTexthl': 'ALEErrorSign', 'virtualTexthl': 'Error'},
-  \ 2: {'name': 'Warning', 'texthl': 'ALEWarning', 'signText': '', 'signTexthl': 'ALEWarningSign', 'virtualTexthl': 'Todo'},
-  \ 3: {'name': 'Information', 'texthl': 'ALEInfo', 'signText': '', 'signTexthl': 'ALEInfoSign', 'virtualTexthl': 'Todo'},
-  \ 4: {'name': 'Hint', 'texthl': 'ALEInfo', 'signText': '', 'signTexthl': 'ALEInfoSign', 'virtualTexthl': 'Todo'},
-  \ }
-let g:LanguageClient_serverCommands = {
-  \ 'cpp': ['cquery'],
-  \ 'crystal': ['scry'],
-  \ 'javascript': ['typescript-language-server', '--stdio'],
-  \ 'typescript': ['typescript-language-server', '--stdio'],
-  \ 'vue': ['vls'],
-  \ }
-
-function! ConfigureLanguageClient()
-  if has_key(g:LanguageClient_serverCommands, &filetype)
-    nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
-    nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<cr>
-    nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<cr>
-  endif
-endfunction
 
 " Vim Markdown
 let g:vim_markdown_conceal = 0
@@ -356,7 +360,6 @@ augroup vimrc
   autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
 
   " Set file-type specific settings
-  autocmd FileType * call ConfigureLanguageClient() " set LanguageClient config for enabled filetypes
   autocmd FileType cpp,vue setlocal commentstring=//\ %s " Set comment style to // for cpp and vue
   autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
   autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
