@@ -50,3 +50,7 @@ export PATH=".git/safe/../../bin:$PATH"
 
 source ~/.zsh_plugins.sh
 source ~/.aliases
+
+# completions
+autoload -U compinit && compinit
+zstyle ':completion:*' menu select
