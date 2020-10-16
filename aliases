@@ -49,6 +49,7 @@ alias rr="rake routes"
 alias rs="rails server"
 
 # Tmux
+alias t="tat"
 alias tml="tmux list-sessions"
 alias tma="tmux -2 attach -t $1"
 alias tmk="tmux kill-session -t $1"
