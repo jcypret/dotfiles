@@ -268,6 +268,9 @@ nmap <leader>a <plug>(coc-codeaction-selected)
 nmap <leader>ac <plug>(coc-codeaction)
 " Symbol renaming.
 nmap <leader>rn <plug>(coc-rename)
+" Select completion using <cr>
+let g:endwise_no_mappings = 1 " prevent endwise mapping <cr>
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " EasyAlign
 xmap ga <plug>(EasyAlign)
