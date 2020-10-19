@@ -1,18 +1,29 @@
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_ignore_dups
-setopt hist_ignore_space
-setopt inc_append_history
-setopt share_history
-setopt autocd
+setopt always_to_end # move cursor to end if word had one match
+setopt auto_cd # omit `cd` when navigating directories
+setopt auto_list # automatically list choices on ambiguous completion
+setopt auto_menu # automatically use menu completion
+setopt auto_param_slash # add trailing slash for directory completion
+setopt extended_history # store timestamps for history entries
+setopt hist_expire_dups_first # keeps unique events in history for longer
+setopt hist_ignore_dups # do not record subsequent event matching previous
+setopt hist_ignore_space # space prefix for intentionally omitting a history entry
+setopt inc_append_history # save history entries as soon as they are entered
+setopt share_history # share history between different instances
 
+# vim
 bindkey -v # vi mode
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+HISTSIZE=50000
+SAVEHIST=10000
 
 export EDITOR=nvim
-export HISTSIZE=50000
 export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
 export PGDATA=/usr/local/var/postgres
-export SAVEHIST=10000
 export TIME_STYLE="long-iso" # iso timestamps for `ls -l`
 
 # asdf
@@ -20,6 +31,7 @@ source /usr/local/opt/asdf/asdf.sh
 
 # completion
 zstyle ':completion:*' menu select
+zstyle ':completion:*' group-name '' # group results by category
 
 # crystal
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
