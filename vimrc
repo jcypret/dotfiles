@@ -285,8 +285,8 @@ nnoremap <silent> <leader>gl :GV<cr>
 " Grepper
 nnoremap \ :Grepper<cr>
 nnoremap <bar> :Grepper -cword -noprompt<cr>
-nmap gf <plug>(GrepperOperator)
-xmap gf <plug>(GrepperOperator)
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
 runtime plugin/grepper.vim " load default values
 let g:grepper.highlight = 1
 let g:grepper.prompt_quote = 1
