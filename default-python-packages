@@ -1,4 +1,8 @@
 Pygments
 cpplint
+flake8
 neovim
+pipenv
+pylint
 vint
+yapf

@@ -84,6 +84,11 @@ Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']} " file sy
 Plug 'simeji/winresizer' " vim motion moving and resizing of windows
 Plug 'tpope/vim-eunuch' " helpers for UNIX (:Delete, :Move, :Rename)
 
+" Python
+Plug 'vim-python/python-syntax' " Python syntax
+Plug 'Vimjas/vim-python-pep8-indent' " improved indention
+Plug 'tmhedberg/SimpylFold' " improved folding
+
 " Ruby
 Plug 'joker1007/vim-ruby-heredoc-syntax', {'for': ['ruby']} " heredoc syntax highlighting (like SQL)
 Plug 'kana/vim-textobj-user', {'for': ['ruby']} " required for vim-textobj-rubyblock

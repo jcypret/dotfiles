@@ -2,5 +2,7 @@
   "coc.preferences.extensionUpdateCheck": "daily",
   "diagnostic.displayByAle": true,
   "javascript.showUnused": false,
-  "javascript.suggestionActions.enabled": false
+  "javascript.suggestionActions.enabled": false,
+  "python.jediEnabled": false,
+  "python.linting.enabled": false
 }

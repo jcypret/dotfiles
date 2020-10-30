@@ -148,6 +148,9 @@ nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 " HTML
 let g:html_indent_tags = 'li\|p'
 
+" Python
+let g:python_highlight_all = 1
+
 " Ruby
 let g:ruby_indent_block_style = 'do'
 let g:ruby_indent_assignment_style = 'variable'
@@ -191,6 +194,7 @@ let g:ale_fixers = {
   \ 'javascript': ['prettier', 'eslint'],
   \ 'json': ['prettier'],
   \ 'markdown': ['prettier'],
+  \ 'python': ['yapf'],
   \ 'ruby': ['standardrb'],
   \ 'rust': ['rustfmt'],
   \ 'scss': ['prettier'],
@@ -203,6 +207,7 @@ let g:ale_linters = {
   \ 'crystal': ['ameba'],
   \ 'javascript': ['eslint'],
   \ 'markdown': ['write-good'],
+  \ 'python': ['flake8', 'pylint'],
   \ 'ruby': ['ruby', 'standardrb', 'reek', 'sorbet'],
   \ 'typescript': ['eslint'],
   \ 'vim': ['vint'],

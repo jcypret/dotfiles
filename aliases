@@ -42,6 +42,12 @@ alias gst="git status"
 # Kitty
 alias kd="kitty +kitten diff"
 
+# Python
+alias pi="pipenv install"
+alias pu="pipenv uninstall"
+alias psh="pipenv shell"
+alias prun="pipenv run"
+
 # Rails
 alias -g RET="RAILS_ENV=test"
 alias rc="rails console"
