@@ -15,10 +15,9 @@
   pf = push --force-with-lease
   recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
   st = status
-  undo = reset --soft HEAD@{1}
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   sl = log --oneline --decorate -20
   sla = log --oneline --decorate --graph --all -20
+  slp = log --oneline --decorate
   slap = log --oneline --decorate --graph --all
 [core]
   excludesfile = ~/.gitignore
@@ -38,12 +37,10 @@
   prune = true
 [rebase]
   autosquash = true
-[diff]
-  algorithm = patience
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
 [pull]
-  rebase = true
+  ff = only
