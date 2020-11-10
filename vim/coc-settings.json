@@ -1,8 +1,11 @@
 {
   "coc.preferences.extensionUpdateCheck": "daily",
   "diagnostic.displayByAle": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "javascript.showUnused": false,
   "javascript.suggestionActions.enabled": false,
+  "typescript.suggestionActions.enabled": false,
   "python.jediEnabled": false,
   "python.linting.enabled": false
 }
