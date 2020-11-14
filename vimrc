@@ -238,6 +238,7 @@ nnoremap <leader>; :Clap buffers<cr>
 nnoremap <c-p> :Clap files<cr>
 nnoremap <leader>p :Clap files<space>
 let g:clap_current_selection_sign = {'text': '->'}
+let g:clap_enable_background_shadow = 0
 let g:clap_search_box_border_style = 'nil' " disable rounded edges
 let g:clap_selected_sign = {'text': '=>'}
 
