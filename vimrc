@@ -266,13 +266,15 @@ nmap <silent> [g <plug>(coc-diagnostic-prev)
 nmap <silent> ]g <plug>(coc-diagnostic-next)
 " Show all diagnostics.
 nnoremap <silent> <leader>d :<C-u>CocList diagnostics<cr>
+" Show all commands
+nnoremap <silent> <leader>c :<C-u>CocList commands<cr>
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a <plug>(coc-codeaction-selected)
-nmap <leader>a <plug>(coc-codeaction-selected)
+xmap <silent> <leader>a <plug>(coc-codeaction-selected)
+nmap <silent> <leader>a <plug>(coc-codeaction-selected)
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac <plug>(coc-codeaction)
-" Symbol renaming.
+nmap <silent> <leader>ac <plug>(coc-codeaction)
+" Sym<silent> bol renaming.
 nmap <leader>rn <plug>(coc-rename)
 " Select completion using <cr>
 let g:endwise_no_mappings = 1 " prevent endwise mapping <cr>
