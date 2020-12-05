@@ -2,7 +2,7 @@ set encoding=utf-8
 scriptencoding utf-8
 
 " Load plugins
-source ~/.vimrc.bundles
+source ~/.config/nvim/vimrc.bundles
 runtime! macros/matchit.vim
 
 " Leader
