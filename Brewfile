@@ -3,7 +3,6 @@ cask_args appdir: "/Applications"
 tap "cjbassi/gotop"
 tap "clementtsang/bottom"
 tap "heroku/brew"
-tap "homebrew/cask"
 tap "homebrew/services"
 tap "thoughtbot/formulae"
 tap "universal-ctags/universal-ctags"
@@ -18,7 +17,7 @@ brew "rcm"
 brew "reattach-to-user-namespace"
 
 # ZSH
-brew "antigen"
+brew "antibody"
 brew "fzf"
 brew "pv"
 brew "z"
@@ -64,7 +63,7 @@ brew "guetzli"
 brew "clang-format"
 brew "cppcheck"
 brew "cquery"
-brew "llvm", args: ["with-toolchain"]
+brew "llvm", args: ["with-clang"]
 
 # Applications
 cask "1password"
@@ -91,4 +90,6 @@ cask "spotify"
 cask "vlc"
 
 brew "mas"
+mas "Ka-Block!", id: 1335413823
+mas "Next Meeting", id: 1017470484
 mas "Todoist", id: 585829637
