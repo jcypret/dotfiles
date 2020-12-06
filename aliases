@@ -38,6 +38,7 @@ alias gm="git merge"
 alias gp="git push"
 alias gss="git status -s"
 alias gst="git status"
+alias prco="gh pr checkout"
 
 # Kitty
 alias kd="kitty +kitten diff"
