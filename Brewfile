@@ -15,6 +15,7 @@ brew "openssl"
 brew "p7zip"
 brew "rcm"
 brew "reattach-to-user-namespace"
+brew "rename"
 
 # ZSH
 brew "antibody"
@@ -86,6 +87,7 @@ cask "postico"
 cask "qbserve"
 cask "rectangle"
 cask "screenflow"
+cask "slack"
 cask "spotify"
 cask "vlc"
 
