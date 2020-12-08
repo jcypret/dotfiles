@@ -189,29 +189,18 @@ let g:ale_echo_msg_format = '[%linter%] %s'
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
   \ 'cpp': ['clang-format'],
-  \ 'css': ['prettier'],
   \ 'elixir': ['mix_format'],
-  \ 'javascript': ['prettier', 'eslint'],
-  \ 'json': ['prettier'],
-  \ 'markdown': ['prettier'],
   \ 'python': ['yapf'],
   \ 'ruby': ['standardrb'],
   \ 'rust': ['rustfmt'],
-  \ 'scss': ['prettier'],
-  \ 'typescript': ['prettier', 'eslint'],
-  \ 'vue': ['prettier', 'eslint'],
-  \ 'yaml': ['prettier']
   \ }
 let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
   \ 'crystal': ['ameba'],
-  \ 'javascript': ['eslint'],
   \ 'markdown': ['write-good'],
   \ 'python': ['flake8', 'pylint'],
   \ 'ruby': ['ruby', 'standardrb', 'reek', 'sorbet'],
-  \ 'typescript': ['eslint'],
   \ 'vim': ['vint'],
-  \ 'vue': ['eslint'],
   \ }
 let g:ale_c_clangformat_options = '-style=google'
 let g:ale_cpp_cpplint_options = '--linelength=120' .
@@ -243,11 +232,12 @@ let g:clap_search_box_border_style = 'nil' " disable rounded edges
 let g:clap_selected_sign = {'text': '=>'}
 
 " COC
-let g:ale_disable_lsp = 1
 let g:coc_global_extensions = [
   \ 'coc-css',
+  \ 'coc-eslint',
   \ 'coc-html',
   \ 'coc-json',
+  \ 'coc-prettier',
   \ 'coc-python',
   \ 'coc-solargraph',
   \ 'coc-tailwindcss',
@@ -364,7 +354,7 @@ augroup vimrc
     \ endif
 
   " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile *.tsx,*.jsx set filetype=typescript.tsx
+  autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
   autocmd BufRead,BufNewFile .env.* set filetype=sh
   autocmd BufRead,BufNewFile .{babel,eslint,jscs,jshint}rc set filetype=json
   autocmd BufRead,BufNewFile Procfile* set filetype=yaml
@@ -375,8 +365,10 @@ augroup vimrc
   autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
   autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
   autocmd FileType gitcommit call pencil#init({'wrap': 'hard', 'textwidth': 72}) | setlocal nonumber norelativenumber spell
+  autocmd FileType javascript,typescript,typescriptreact,vue nnoremap <buffer> <silent> <leader>f :CocCommand eslint.executeAutofix<cr>
   autocmd FileType lisp,clojure,scheme RainbowToggleOn " Use rainbow parens for lisp-based languages
   autocmd FileType markdown let b:tagbar_ignore = 1 | call pencil#init() | setlocal nobreakindent spell
+  autocmd FileType css,scss,markdown,json,yaml nnoremap <buffer> <silent> <leader>f :CocCommand prettier.formatFile<cr>
   autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
   autocmd FileType ruby call SetAleRubyBufferLinters() " set ruby linters based on project config
   autocmd FileType yaml,eruby.yaml setlocal foldmethod=expr

@@ -1,11 +1,21 @@
 {
   "coc.preferences.extensionUpdateCheck": "daily",
-  "diagnostic.displayByAle": true,
+  "diagnostic.errorSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.warningSign": "",
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "javascript.showUnused": false,
   "javascript.suggestionActions.enabled": false,
   "typescript.suggestionActions.enabled": false,
   "python.jediEnabled": false,
-  "python.linting.enabled": false
+  "python.linting.enabled": false,
+  "vetur.experimental.templateInterpolationService": true
 }
