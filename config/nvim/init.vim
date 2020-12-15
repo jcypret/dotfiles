@@ -190,7 +190,6 @@ let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
   \ 'cpp': ['clang-format'],
   \ 'elixir': ['mix_format'],
-  \ 'python': ['yapf'],
   \ 'ruby': ['standardrb'],
   \ 'rust': ['rustfmt'],
   \ }
@@ -198,7 +197,6 @@ let g:ale_linters = {
   \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
   \ 'crystal': ['ameba'],
   \ 'markdown': ['write-good'],
-  \ 'python': ['flake8', 'pylint'],
   \ 'ruby': ['ruby', 'standardrb', 'reek', 'sorbet'],
   \ 'vim': ['vint'],
   \ }
@@ -264,6 +262,8 @@ xmap <silent> <leader>a <plug>(coc-codeaction-selected)
 nmap <silent> <leader>a <plug>(coc-codeaction-selected)
 " Remap keys for applying codeAction to the current buffer.
 nmap <silent> <leader>ac <plug>(coc-codeaction)
+" Format selection
+xmap <leader>f <Plug>(coc-format-selected)
 " Sym<silent> bol renaming.
 nmap <leader>rn <plug>(coc-rename)
 " Select completion using <cr>
@@ -364,12 +364,13 @@ augroup vimrc
   autocmd FileType cpp,vue setlocal commentstring=//\ %s " Set comment style to // for cpp and vue
   autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
   autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
+  autocmd FileType css,scss,markdown,json,yaml nnoremap <buffer> <silent> <leader>f :CocCommand prettier.formatFile<cr>
   autocmd FileType gitcommit call pencil#init({'wrap': 'hard', 'textwidth': 72}) | setlocal nonumber norelativenumber spell
   autocmd FileType javascript,typescript,typescriptreact,vue nnoremap <buffer> <silent> <leader>f :CocCommand eslint.executeAutofix<cr>
   autocmd FileType lisp,clojure,scheme RainbowToggleOn " Use rainbow parens for lisp-based languages
   autocmd FileType markdown let b:tagbar_ignore = 1 | call pencil#init() | setlocal nobreakindent spell
-  autocmd FileType css,scss,markdown,json,yaml nnoremap <buffer> <silent> <leader>f :CocCommand prettier.formatFile<cr>
   autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
+  autocmd FileType python nnoremap <buffer> <silent> <leader>f :call CocAction('format')<cr>
   autocmd FileType ruby call SetAleRubyBufferLinters() " set ruby linters based on project config
   autocmd FileType yaml,eruby.yaml setlocal foldmethod=expr
   autocmd TermOpen * setlocal nonumber norelativenumber " turn off line numbers for terminal

@@ -15,7 +15,7 @@
   "javascript.showUnused": false,
   "javascript.suggestionActions.enabled": false,
   "typescript.suggestionActions.enabled": false,
+  "python.formatting.provider": "yapf",
   "python.jediEnabled": false,
-  "python.linting.enabled": false,
   "vetur.experimental.templateInterpolationService": true
 }
