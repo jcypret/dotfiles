@@ -14,6 +14,8 @@ brew bundle --global
 # install dotfiles
 sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 env RCRC=$HOME/Code/dotfiles/rcrc rcup
+zbundle
+compaudit | xargs chmod g-w
 
 # install tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
