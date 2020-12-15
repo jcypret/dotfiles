@@ -90,6 +90,7 @@ cask "screenflow"
 cask "slack"
 cask "spotify"
 cask "vlc"
+cask "zoom"
 
 brew "mas"
 mas "Ka-Block!", id: 1335413823
