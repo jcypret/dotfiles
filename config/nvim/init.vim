@@ -240,7 +240,7 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-json',
   \ 'coc-prettier',
-  \ 'coc-python',
+  \ 'coc-pyright',
   \ 'coc-solargraph',
   \ 'coc-tailwindcss',
   \ 'coc-tsserver',
