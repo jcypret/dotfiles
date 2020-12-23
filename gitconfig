@@ -1,10 +1,6 @@
 [user]
   name = Justin Cypret
   email = jcypret@gmail.com
-[push]
-  default = current
-[color]
-  ui = auto
 [alias]
   aa = add --all
   ap = add --patch
@@ -23,26 +19,30 @@
   excludesfile = ~/.gitignore
   autocrlf = input
   pager = delta
-[interactive]
-  diffFilter = delta --color-only
+[color]
+  ui = auto
 [delta]
   syntax-theme = Nord
-[merge]
-  ff = only
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[interactive]
+  diffFilter = delta --color-only
 [commit]
   template = ~/.gitmessage
   gpgsign = true
   verbose = true
 [fetch]
   prune = true
-[rebase]
-  autosquash = true
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
+[merge]
+  ff = only
 [pull]
   ff = only
+[push]
+  default = current
+[rebase]
+  autosquash = true
 [include]
   path = ~/.gitconfig.local
