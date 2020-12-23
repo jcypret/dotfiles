@@ -6,6 +6,7 @@ ohmyzsh/ohmyzsh path:plugins/fzf
 ohmyzsh/ohmyzsh path:plugins/z
 
 # Plugins
+MichaelAquilina/zsh-autoswitch-virtualenv
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 zsh-users/zsh-syntax-highlighting
