@@ -4,5 +4,6 @@ flake8
 neovim
 pipenv
 pylint
+pynvim
 vint
 yapf
