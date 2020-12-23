@@ -33,7 +33,7 @@ set list listchars=tab:»·,trail:·,nbsp:·
 set wildmode=list:longest,full
 
 " Reload vimrc
-nnoremap <leader>rr :source ~/.vimrc<cr>
+nnoremap <leader>rr :source ~/.config/nvim/init.vim<cr>
 
 " VIM SETTINGS =================================================================
 
