@@ -19,6 +19,7 @@ Plug 'dense-analysis/ale' " async linter and fixer
 Plug 'jiangmiao/auto-pairs' " inserts/deletes brackets, parens, quotes in pair
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 
 " C++
 Plug 'octol/vim-cpp-enhanced-highlight' " C++ syntax
@@ -29,6 +30,8 @@ Plug 'rhysd/vim-crystal' " Crystal syntax
 " CSS
 Plug 'cakebaker/scss-syntax.vim' " Sassy CSS syntax (sass/scss)
 Plug 'hail2u/vim-css3-syntax' " CSS3 syntax
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
 " CTags
 Plug 'ludovicchabant/vim-gutentags' " automatic ctag generation
@@ -51,9 +54,13 @@ Plug 'Konfekt/FastFold' " only update folds when necessary
 Plug 'pangloss/vim-javascript' " JavaScript/ES6 syntax
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'elzr/vim-json' " JSON syntax and config
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 " Vue
 Plug 'posva/vim-vue' " Vue SFC syntax
 Plug 'mustache/vim-mustache-handlebars' " handlebars syntax
+Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
 " React
 Plug 'maxmellon/vim-jsx-pretty' " React JSX syntax
 Plug 'peitalin/vim-jsx-typescript' " TypeScript JSX syntax
@@ -65,6 +72,7 @@ Plug 'cespare/vim-toml' " TOML syntax
 Plug 'mattn/emmet-vim' " HTML text expander
 Plug 'othree/html5.vim' " HTML5 syntax
 Plug 'plasticboy/vim-markdown' " Markdown syntax and config
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 
 " Motions
 Plug 'AndrewRadev/splitjoin.vim' " go join (gj) and go split (gs)
@@ -88,6 +96,7 @@ Plug 'tpope/vim-eunuch' " helpers for UNIX (:Delete, :Move, :Rename)
 Plug 'vim-python/python-syntax' " Python syntax
 Plug 'Vimjas/vim-python-pep8-indent' " improved indention
 Plug 'tmhedberg/SimpylFold' " improved folding
+Plug 'fannheyward/coc-pyright', {'do': 'yarn install --frozen-lockfile'}
 
 " Ruby
 Plug 'joker1007/vim-ruby-heredoc-syntax', {'for': ['ruby']} " heredoc syntax highlighting (like SQL)
@@ -97,6 +106,7 @@ Plug 'tpope/vim-bundler' " Bundler wrapper (:Bundle) and Gemfile syntax
 Plug 'tpope/vim-rails' " Rails wrapper (gf, projectionist def, enhanced syntax)
 Plug 'tpope/vim-rake' " Rake wrapper (:Rake, projectionist def)
 Plug 'vim-ruby/vim-ruby' " Ruby syntax
+Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
 
 " Search and Replace
 Plug 'liuchengxu/vim-clap', { 'do': { -> clap#installer#force_download() } } " an interactive finder
@@ -105,6 +115,12 @@ Plug 'mhinz/vim-grepper' " better grepping + motions (gf)
 
 " SQL
 Plug 'exu/pgsql.vim' " PostgreSQL syntax
+
+" Vim
+Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
+
+" YAML
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 
 " Writing
 Plug 'reedes/vim-pencil' " improved wrapped prose editing

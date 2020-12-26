@@ -234,20 +234,6 @@ let g:clap_search_box_border_style = 'nil' " disable rounded edges
 let g:clap_selected_sign = {'text': '=>'}
 
 " COC
-let g:coc_global_extensions = [
-  \ 'coc-css',
-  \ 'coc-eslint',
-  \ 'coc-html',
-  \ 'coc-json',
-  \ 'coc-prettier',
-  \ 'coc-pyright',
-  \ 'coc-solargraph',
-  \ 'coc-tailwindcss',
-  \ 'coc-tsserver',
-  \ 'coc-vetur',
-  \ 'coc-vimlsp',
-  \ 'coc-yaml',
-  \ ]
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nmap <silent> gd <plug>(coc-definition)
 nmap <silent> gy <plug>(coc-type-definition)
