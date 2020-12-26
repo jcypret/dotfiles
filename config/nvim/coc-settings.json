@@ -1,7 +1,8 @@
 {
   "coc.preferences.extensionUpdateCheck": "daily",
   "diagnostic.errorSign": "",
-  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
+  "diagnostic.infoSign": "",
   "diagnostic.warningSign": "",
   "eslint.filetypes": [
     "javascript",
