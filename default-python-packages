@@ -1,9 +1,8 @@
 Pygments
+black
 cpplint
 flake8
 neovim
 pipenv
-pylint
 pynvim
 vint
-yapf

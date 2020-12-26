@@ -9,6 +9,8 @@
 .envrc
 .solargraph.*
 .tern-port
+.venv
+.vim
 db/*.sqlite3
 log/*.log
 node_modules/
