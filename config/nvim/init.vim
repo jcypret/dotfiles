@@ -315,17 +315,19 @@ augroup vimrc
 
   " Set file-type specific settings
   autocmd FileType cpp,vue setlocal commentstring=//\ %s " Set comment style to // for cpp and vue
-  autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
   autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
-  autocmd FileType css,scss,markdown,json,yaml nnoremap <buffer> <silent> <leader>f :CocCommand prettier.formatFile<cr>
   autocmd FileType gitcommit call pencil#init({'wrap': 'hard', 'textwidth': 72}) | setlocal nonumber norelativenumber spell
-  autocmd FileType javascript,typescript,typescriptreact,vue nnoremap <buffer> <silent> <leader>f :CocCommand eslint.executeAutofix<cr>
   autocmd FileType lisp,clojure,scheme RainbowToggleOn " Use rainbow parens for lisp-based languages
   autocmd FileType markdown let b:tagbar_ignore = 1 | call pencil#init() | setlocal nobreakindent spell
   autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
-  autocmd FileType python nnoremap <buffer> <silent> <leader>f :call CocAction('format')<cr>
   autocmd FileType yaml,eruby.yaml setlocal foldmethod=expr
   autocmd TermOpen * setlocal nonumber norelativenumber " turn off line numbers for terminal
+
+  " formatters
+  autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
+  autocmd FileType css,scss,markdown,json,yaml nnoremap <buffer> <silent> <leader>f :CocCommand prettier.formatFile<cr>
+  autocmd FileType javascript,typescript,typescriptreact,vue nnoremap <buffer> <silent> <leader>f :CocCommand eslint.executeAutofix<cr>
+  autocmd FileType python nnoremap <buffer> <silent> <leader>f :call CocAction('format')<cr>
 
   " fix weird highlighting for mixed syntax
   autocmd BufEnter *.{js,jsx,ts,tsx,vue} :syntax sync fromstart
