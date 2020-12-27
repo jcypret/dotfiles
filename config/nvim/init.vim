@@ -195,33 +195,6 @@ let g:clap_enable_background_shadow = 0
 let g:clap_search_box_border_style = 'nil' " disable rounded edges
 let g:clap_selected_sign = {'text': '=>'}
 
-" COC
-nnoremap <silent> K :call CocAction('doHover')<CR>
-nmap <silent> gd <plug>(coc-definition)
-nmap <silent> gy <plug>(coc-type-definition)
-nmap <silent> gi <plug>(coc-implementation)
-nmap <silent> gr <plug>(coc-references)
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <plug>(coc-diagnostic-prev)
-nmap <silent> ]g <plug>(coc-diagnostic-next)
-" Show all diagnostics.
-nnoremap <silent> <leader>d :<C-u>CocList diagnostics<cr>
-" Show all commands
-nnoremap <silent> <leader>c :<C-u>CocList commands<cr>
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <silent> <leader>a <plug>(coc-codeaction-selected)
-nmap <silent> <leader>a <plug>(coc-codeaction-selected)
-" Remap keys for applying codeAction to the current buffer.
-nmap <silent> <leader>ac <plug>(coc-codeaction)
-" Format selection
-xmap <leader>f <Plug>(coc-format-selected)
-" Sym<silent> bol renaming.
-nmap <leader>rn <plug>(coc-rename)
-" Select completion using <cr>
-let g:endwise_no_mappings = 1 " prevent endwise mapping <cr>
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 " EasyAlign
 xmap ga <plug>(EasyAlign)
 nmap ga <plug>(EasyAlign)
@@ -325,9 +298,6 @@ augroup vimrc
 
   " formatters
   autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
-  autocmd FileType css,scss,markdown,json,yaml nnoremap <buffer> <silent> <leader>f :CocCommand prettier.formatFile<cr>
-  autocmd FileType javascript,typescript,typescriptreact,vue nnoremap <buffer> <silent> <leader>f :CocCommand eslint.executeAutofix<cr>
-  autocmd FileType python nnoremap <buffer> <silent> <leader>f :call CocAction('format')<cr>
 
   " fix weird highlighting for mixed syntax
   autocmd BufEnter *.{js,jsx,ts,tsx,vue} :syntax sync fromstart
