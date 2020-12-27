@@ -1,9 +1,14 @@
 {
-  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.extensionUpdateCheck": "never",
   "diagnostic.errorSign": "",
   "diagnostic.hintSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.warningSign": "",
+  "diagnostic-languageserver.filetypes": {
+    "markdown": ["write-good"],
+    "vim": "vint"
+  },
+  "diagnostic-languageserver.formatFiletypes": {},
   "eslint.filetypes": [
     "javascript",
     "javascriptreact",
@@ -15,7 +20,7 @@
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "javascript.showUnused": false,
   "javascript.suggestionActions.enabled": false,
-  "tailwindCSS.includeLanguages": {"eruby": "html"},
+  "tailwindCSS.includeLanguages": { "eruby": "html" },
   "typescript.suggestionActions.enabled": false,
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,

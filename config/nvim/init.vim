@@ -183,44 +183,6 @@ call airline#parts#define_raw('linenr', '%l')
 call airline#parts#define_accent('linenr', 'bold')
 let g:airline_section_z = airline#section#create(['linenr', ':%c'])
 
-" Ale
-let g:ale_disable_lsp = 1
-let g:ale_lint_on_enter = 0
-let g:ale_linters_explicit = 1
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
-let g:ale_echo_msg_format = '[%linter%] %s'
-let g:ale_fixers = {
-  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \ 'cpp': ['clang-format'],
-  \ 'elixir': ['mix_format'],
-  \ 'ruby': ['standardrb'],
-  \ 'rust': ['rustfmt'],
-  \ }
-let g:ale_linters = {
-  \ 'cpp': ['gcc', 'clang-format', 'cppcheck', 'cpplint'],
-  \ 'crystal': ['ameba'],
-  \ 'markdown': ['write-good'],
-  \ 'ruby': ['ruby', 'standardrb', 'reek', 'sorbet'],
-  \ 'vim': ['vint'],
-  \ }
-let g:ale_c_clangformat_options = '-style=google'
-let g:ale_cpp_cpplint_options = '--linelength=120' .
-  \ '--filter=-runtime/references,-legal/copyright,-build/namespaces'
-let g:ale_ruby_rubocop_executable = 'bundle'
-nnoremap <leader>f :ALEFix<cr>
-
-function! SetAleRubyBufferLinters()
-  if filereadable('.rubocop.yml')
-    let ruby_linters = g:ale_linters['ruby']
-    call filter(ruby_linters, {idx, val -> val != 'standardrb'})
-    call add(ruby_linters, 'rubocop')
-
-    let b:ale_linters = {'ruby': ruby_linters}
-    let b:ale_fixers = {'ruby': ['rubocop']}
-  endif
-endfunction
-
 " Auto Pairs
 let g:AutoPairsMultilineClose = 0
 
@@ -362,7 +324,6 @@ augroup vimrc
   autocmd FileType markdown let b:tagbar_ignore = 1 | call pencil#init() | setlocal nobreakindent spell
   autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
   autocmd FileType python nnoremap <buffer> <silent> <leader>f :call CocAction('format')<cr>
-  autocmd FileType ruby call SetAleRubyBufferLinters() " set ruby linters based on project config
   autocmd FileType yaml,eruby.yaml setlocal foldmethod=expr
   autocmd TermOpen * setlocal nonumber norelativenumber " turn off line numbers for terminal
 

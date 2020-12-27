@@ -15,10 +15,10 @@ Plug 'wakatime/vim-wakatime' " automatic time tracking
 
 " Autocomplete, linting, and fixing
 Plug 'ajh17/VimCompletesMe' " tab completion
-Plug 'dense-analysis/ale' " async linter and fixer
 Plug 'jiangmiao/auto-pairs' " inserts/deletes brackets, parens, quotes in pair
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
+Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 
 " C++

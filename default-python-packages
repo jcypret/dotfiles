@@ -5,4 +5,4 @@ flake8
 neovim
 pipenv
 pynvim
-vint
+vim-vint
