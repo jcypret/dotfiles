@@ -168,7 +168,8 @@ nnoremap <silent> gy <cmd>lua vim.lsp.buf.type_definition()<cr>
 nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<cr>
 nnoremap <leader>f <cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<cr>
 
-nnoremap <silent> <leader>d <cmd>lua vim.lsp.diagnostic.set_loclist()<cr>
+nnoremap <silent> <leader>d <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>
+nnoremap <silent> <leader>D <cmd>lua vim.lsp.diagnostic.set_loclist()<cr>
 nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
 nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 
@@ -187,6 +188,26 @@ highlight LspDiagnosticsUnderlineError gui=undercurl guisp=#BF616A
 highlight LspDiagnosticsUnderlineWarning gui=undercurl guisp=#EBCB8B
 highlight LspDiagnosticsUnderlineInformation gui=undercurl guisp=#88C0D0
 highlight LspDiagnosticsUnderlineHint gui=undercurl guisp=#5E81AC
+
+" COMPLETION====================================================================
+lua << LUA
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  highlight = { enable = true },
+}
+LUA
+
+set completeopt=menuone,noinsert,noselect
+
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+let g:completion_auto_change_source = 1
+let g:completion_chain_complete_list = [
+  \ {'complete_items': ['lsp', 'snippet']},
+  \ {'complete_items': ['ts']},
+  \ {'mode': '<c-p>'},
+  \ {'mode': '<c-n>'}]
 
 " LANGUAGE SETTINGS ============================================================
 
@@ -318,8 +339,8 @@ augroup vimrc
     \   exe "normal g`\"" |
     \ endif
 
-  " LSP diagnostics on hover
-  autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+  " Use LSP complation for all buffers except clap
+  autocmd BufEnter * lua if vim.bo.filetype ~= "clap_input" then require'completion'.on_attach() end
 
   " Set syntax highlighting for specific file types
   autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
