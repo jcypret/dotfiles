@@ -25,6 +25,7 @@ set shortmess+=c   " hide completion menu messages
 set signcolumn=yes " always show signcolumns
 set splitbelow     " open new horizontal splits below
 set splitright     " open new vertical splits to the right
+set updatetime=300 " gitgutter and cursorhold delay
 set wildmenu       " enable tab-completions for vim commands
 
 " turn off automatic hard-wrapping
@@ -147,6 +148,46 @@ endfunction
 
 nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 
+" LSP ==========================================================================
+lua << LUA
+require'lspconfig'.efm.setup{} -- linting and formatting
+require'lspconfig'.pyright.setup{} -- python
+require'lspconfig'.solargraph.setup{} -- ruby
+require'lspconfig'.tsserver.setup{} -- javascript and typescript
+require'lspconfig'.vimls.setup{} -- vim
+require'lspconfig'.vuels.setup{} -- vue
+LUA
+
+nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<cr>
+nnoremap <silent> a  <cmd>lua vim.lsp.buf.code_action()<cr>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<cr>
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<cr>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<cr>
+nnoremap <silent> gy <cmd>lua vim.lsp.buf.type_definition()<cr>
+
+nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<cr>
+nnoremap <leader>f <cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<cr>
+
+nnoremap <silent> <leader>d <cmd>lua vim.lsp.diagnostic.set_loclist()<cr>
+nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
+nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
+
+sign define LspDiagnosticsSignError text=
+sign define LspDiagnosticsSignWarning text=
+sign define LspDiagnosticsSignInformation text=
+sign define LspDiagnosticsSignHint text=
+
+" highlights
+" TODO: move to Nord Midnight
+highlight LspDiagnosticsDefaultError guifg=#BF616A
+highlight LspDiagnosticsDefaultWarning guifg=#EBCB8B
+highlight LspDiagnosticsDefaultInformation guifg=#88C0D0
+highlight LspDiagnosticsDefaultHint guifg=#5E81AC
+highlight LspDiagnosticsUnderlineError gui=undercurl guisp=#BF616A
+highlight LspDiagnosticsUnderlineWarning gui=undercurl guisp=#EBCB8B
+highlight LspDiagnosticsUnderlineInformation gui=undercurl guisp=#88C0D0
+highlight LspDiagnosticsUnderlineHint gui=undercurl guisp=#5E81AC
+
 " LANGUAGE SETTINGS ============================================================
 
 " HTML
@@ -217,7 +258,6 @@ let g:grepper.prompt_text = '$t> '
 let g:grepper.tools = ['rg', 'git', 'grep']
 
 " Gitgutter
-set updatetime=100
 let g:gitgutter_grep = 'rg --color=never'
 
 " Indent Line
@@ -278,6 +318,9 @@ augroup vimrc
     \   exe "normal g`\"" |
     \ endif
 
+  " LSP diagnostics on hover
+  autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+
   " Set syntax highlighting for specific file types
   autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
   autocmd BufRead,BufNewFile *gitconfig* set filetype=gitconfig
@@ -288,6 +331,7 @@ augroup vimrc
 
   " Set file-type specific settings
   autocmd FileType cpp,vue setlocal commentstring=//\ %s " Set comment style to // for cpp and vue
+  autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
   autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
   autocmd FileType gitcommit call pencil#init({'wrap': 'hard', 'textwidth': 72}) | setlocal nonumber norelativenumber spell
   autocmd FileType lisp,clojure,scheme RainbowToggleOn " Use rainbow parens for lisp-based languages
@@ -295,9 +339,6 @@ augroup vimrc
   autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
   autocmd FileType yaml,eruby.yaml setlocal foldmethod=expr
   autocmd TermOpen * setlocal nonumber norelativenumber " turn off line numbers for terminal
-
-  " formatters
-  autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
 
   " fix weird highlighting for mixed syntax
   autocmd BufEnter *.{js,jsx,ts,tsx,vue} :syntax sync fromstart

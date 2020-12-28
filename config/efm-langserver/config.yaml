@@ -1,0 +1,61 @@
+version: 2
+
+tools:
+  javascript-eslint: &javascript-eslint
+    lint-command: "npx eslint -f unix --stdin --stdin-filename ${INPUT}"
+    lint-ignore-exit-code: true
+    lint-stdin: true
+
+  json-jq: &json-jq
+    lint-command: "jq ."
+    lint-stdin: true
+    lint-formats:
+      - "%m at line %l, column %c"
+
+  prettier: &prettier
+    format-command: "prettier --stdin-filepath ${INPUT}"
+    format-stdin: true
+
+  python-black: &python-black
+    format-command: "black -"
+    format-stdin: true
+
+  python-flake8: &python-flake8
+    lint-command: "flake8 --stdin-display-name ${INPUT} -"
+    lint-stdin: true
+    lint-formats:
+      - "%f:%l:%c: %m"
+
+  vim-vint: &vim-vint
+    lint-command: "vint -"
+    lint-stdin: true
+    lint-formats:
+      - "%f:%l:%c: %m"
+
+languages:
+  css:
+    - <<: *prettier
+
+  html:
+    - <<: *prettier
+
+  javascript: &javascript
+    - <<: *javascript-eslint
+    - <<: *prettier
+  typescript: *javascript
+  typescriptreact: *javascript
+  vue: *javascript
+
+  json:
+    - <<: *json-jq
+    - <<: *prettier
+
+  python:
+    - <<: *python-black
+    - <<: *python-flake8
+
+  yaml:
+    - <<: *prettier
+
+  vim:
+    - <<: *vim-vint
