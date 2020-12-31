@@ -178,17 +178,6 @@ sign define LspDiagnosticsSignWarning text=
 sign define LspDiagnosticsSignInformation text=
 sign define LspDiagnosticsSignHint text=
 
-" highlights
-" TODO: move to Nord Midnight
-highlight LspDiagnosticsDefaultError guifg=#BF616A
-highlight LspDiagnosticsDefaultWarning guifg=#EBCB8B
-highlight LspDiagnosticsDefaultInformation guifg=#88C0D0
-highlight LspDiagnosticsDefaultHint guifg=#5E81AC
-highlight LspDiagnosticsUnderlineError gui=undercurl guisp=#BF616A
-highlight LspDiagnosticsUnderlineWarning gui=undercurl guisp=#EBCB8B
-highlight LspDiagnosticsUnderlineInformation gui=undercurl guisp=#88C0D0
-highlight LspDiagnosticsUnderlineHint gui=undercurl guisp=#5E81AC
-
 " COMPLETION====================================================================
 lua << LUA
 require'nvim-treesitter.configs'.setup {
