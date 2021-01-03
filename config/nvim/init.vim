@@ -204,6 +204,7 @@ let g:completion_chain_complete_list = [
 let g:html_indent_tags = 'li\|p'
 
 " Python
+let g:python_highlight_space_errors = 0
 let g:python_highlight_all = 1
 
 " Ruby
