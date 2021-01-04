@@ -22,7 +22,6 @@ HISTSIZE=50000
 SAVEHIST=10000
 
 export EDITOR=nvim
-export PATH=$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
 export PGDATA=/usr/local/var/postgres
 export TIME_STYLE="long-iso" # iso timestamps for `ls -l`
 
@@ -60,17 +59,17 @@ export FZF_DEFAULT_OPTS='
   --color fg:#D8DEE9,bg:#242933,hl:#A3BE8C,fg+:#D8DEE9,bg+:#3B4252,hl+:#A3BE8C
   --color pointer:#BF616A,info:#434C5E,spinner:#434C5E,header:#434C5E,prompt:#81A1C1,marker:#EBCB8B'
 
-# rust
-export PATH=$PATH:$HOME/.cargo/bin
-
 # ssh
 ssh-add -A 2>/dev/null; # Load in SSH keys
 
-# `git trust-bin` to trust repo and prepend binaries to path
-export PATH=".git/safe/../../bin:$PATH"
-
 source ~/.zsh_plugins.sh
 source ~/.aliases
+
+# path
+path+=("$HOME/.cargo/bin") # rust
+path=("$HOME/.bin" $path) # dotfiles
+path=(".git/safe/../../bin" $path) # `git trust-bin`
+export -U PATH
 
 # load completions if not already loaded
 if ! (( $+functions[compdef] )) ; then
