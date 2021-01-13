@@ -182,7 +182,7 @@ sign define LspDiagnosticsSignHint text=
 lua << LUA
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
-  highlight = { enable = true },
+  highlight = { enable = false },
 }
 LUA
 
@@ -275,7 +275,7 @@ let g:gitgutter_grep = 'rg --color=never'
 let g:indentLine_char = '▏'
 let g:indentLine_concealcursor = 0
 let g:indentLine_defaultGroup = 'Whitespace'
-let g:indentLine_fileTypeExclude = ['startify', 'help']
+let g:indentLine_fileTypeExclude = ['startify', 'help', 'tagbar']
 
 " Vim JSON
 let g:vim_json_syntax_conceal = 0
@@ -306,7 +306,12 @@ let g:splitjoin_ruby_curly_braces = 0
 let g:splitjoin_ruby_hanging_args = 0
 
 " Tagbar
+let g:tagbar_iconchars = ['▸', '▾']
+let g:tagbar_sort = 0
 nnoremap <c-t> :TagbarToggle<cr>
+highlight TagbarAccessPublic guifg=#A3BE8C
+highlight TagbarAccessProtected guifg=#EBCB8B
+highlight TagbarAccessPrivate guifg=#BF616A
 
 " Vim Test
 nnoremap <silent> <leader>t :TestNearest<cr>
