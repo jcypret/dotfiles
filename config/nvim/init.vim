@@ -56,9 +56,9 @@ vnoremap <c-c> "+y
 inoremap <c-v> <esc>"+pa
 
 " Code Folding
-set foldmethod=syntax
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set foldlevelstart=99 " prevent collapse on initial fold
-let g:ruby_fold = 1
 
 " Diffing
 nnoremap <leader>dd :term git diff<cr>i
@@ -353,7 +353,6 @@ augroup vimrc
   autocmd FileType lisp,clojure,scheme RainbowToggleOn " Use rainbow parens for lisp-based languages
   autocmd FileType markdown let b:tagbar_ignore = 1 | call pencil#init() | setlocal nobreakindent spell
   autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
-  autocmd FileType yaml,eruby.yaml setlocal foldmethod=expr
   autocmd TermOpen * setlocal nonumber norelativenumber " turn off line numbers for terminal
 
   " fix weird highlighting for mixed syntax
