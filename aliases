@@ -31,6 +31,7 @@ alias g="git"
 alias gcd="git checkout develop"
 alias gcm='git checkout $(git_main_branch)'
 alias gco="git checkout"
+alias gcs="git checkout stage"
 alias gd="git diff"
 alias gds="git diff --staged"
 alias gl="git pull"
