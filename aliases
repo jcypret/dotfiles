@@ -92,6 +92,9 @@ alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print \$2}'"
 # Development
 alias barn="bundle && yarn"
 
+# Find Folders - useful for finding node modules, ex: `fifo node_modules`
+fifo() { find . -type d -name $1 -maxdepth 2 }
+
 # Useful when Rails doesn't give the port back.
 # => killport 3000
 killport() { lsof -ti:$1 | xargs kill -9 }
