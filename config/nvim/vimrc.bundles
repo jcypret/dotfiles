@@ -59,7 +59,7 @@ Plug 'jparise/vim-graphql' " GraphQL syntax
 
 " Markup
 Plug 'cespare/vim-toml' " TOML syntax
-Plug 'mattn/emmet-vim' " HTML text expander
+Plug 'mattn/emmet-vim', {'on': ['Emmet', 'EmmetInstall']} " HTML text expander
 Plug 'othree/html5.vim' " HTML5 syntax
 Plug 'plasticboy/vim-markdown' " Markdown syntax and config
 

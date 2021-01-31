@@ -251,6 +251,9 @@ let g:clap_selected_sign = {'text': '=>'}
 xmap ga <plug>(EasyAlign)
 nmap ga <plug>(EasyAlign)
 
+" Vim-Emmet
+let g:user_emmet_install_global = 0 " don't enable for all buffers
+
 " Fugitive
 nnoremap <silent> <leader>gs :Git<cr>:20wincmd_<cr>
 nnoremap <silent> <leader>gc :Git commit<cr>
@@ -350,6 +353,7 @@ augroup vimrc
   autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
   autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
   autocmd FileType gitcommit call pencil#init({'wrap': 'hard', 'textwidth': 72}) | setlocal nonumber norelativenumber spell
+  autocmd FileType html,eruby EmmetInstall
   autocmd FileType lisp,clojure,scheme RainbowToggleOn " Use rainbow parens for lisp-based languages
   autocmd FileType markdown let b:tagbar_ignore = 1 | call pencil#init() | setlocal nobreakindent spell
   autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
