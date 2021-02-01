@@ -26,6 +26,10 @@ tools:
     lint-formats:
       - "%f:%l:%c: %m"
 
+  python-isort: &python-isort
+    format-command: "isort --quiet --settings-file=$HOME/.isort.cfg -"
+    format-stdin: true
+
   vim-vint: &vim-vint
     lint-command: "vint -"
     lint-stdin: true
@@ -53,6 +57,7 @@ languages:
   python:
     - <<: *python-black
     - <<: *python-flake8
+    - <<: *python-isort
 
   yaml:
     - <<: *prettier
