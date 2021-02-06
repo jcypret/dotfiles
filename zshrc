@@ -21,19 +21,23 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 HISTSIZE=50000
 SAVEHIST=10000
 
+# homebrew
+eval $(/opt/homebrew/bin/brew shellenv)
+
 export EDITOR=nvim
-export PGDATA=/usr/local/var/postgres
+export PGDATA="$HOMEBREW_PREFIX/var/postgres"
+export SHELL="$HOMEBREW_PREFIX/bin/zsh"
 export TIME_STYLE="long-iso" # iso timestamps for `ls -l`
 
 # asdf
-source /usr/local/opt/asdf/asdf.sh
+source "$HOMEBREW_PREFIX/opt/asdf/asdf.sh"
 
 # completion
 zstyle ':completion:*' menu select
 zstyle ':completion:*' group-name '' # group results by category
 
 # crystal
-export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
+export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/openssl/lib/pkgconfig"
 
 # direnv
 eval "$(direnv hook zsh)" # Load direnv
@@ -43,7 +47,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # gcloud
-CLOUDSDK_HOME=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
+CLOUDSDK_HOME="$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
 if [ -d "$CLOUDSDK_HOME" ]; then
   source "$CLOUDSDK_HOME/path.zsh.inc"
   source "$CLOUDSDK_HOME/completion.zsh.inc"
