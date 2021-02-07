@@ -238,15 +238,6 @@ let g:airline_section_z = airline#section#create(['linenr', ':%c'])
 " Auto Pairs
 let g:AutoPairsMultilineClose = 0
 
-" Clap
-nnoremap <leader>; :Clap buffers<cr>
-nnoremap <c-p> :Clap files<cr>
-nnoremap <leader>p :Clap files<space>
-let g:clap_current_selection_sign = {'text': '->'}
-let g:clap_enable_background_shadow = 0
-let g:clap_search_box_border_style = 'nil' " disable rounded edges
-let g:clap_selected_sign = {'text': '=>'}
-
 " EasyAlign
 xmap ga <plug>(EasyAlign)
 nmap ga <plug>(EasyAlign)
@@ -316,6 +307,11 @@ highlight TagbarAccessPublic guifg=#A3BE8C
 highlight TagbarAccessProtected guifg=#EBCB8B
 highlight TagbarAccessPrivate guifg=#BF616A
 
+" Telescope
+nnoremap <leader>; <cmd>Telescope buffers<cr>
+nnoremap <c-p> <cmd>Telescope find_files<cr>
+highlight link TelescopeMatching Keyword
+
 " Vim Test
 nnoremap <silent> <leader>t :TestNearest<cr>
 nnoremap <silent> <leader>T :TestFile<cr>
@@ -329,6 +325,9 @@ tnoremap <c-o> <c-\><c-n>
 augroup vimrc
   autocmd!
 
+  " Use completion-nvim in every buffer
+  autocmd BufEnter * lua require'completion'.on_attach()
+
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
@@ -336,9 +335,6 @@ augroup vimrc
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-
-  " Use LSP complation for all buffers except clap
-  autocmd BufEnter * lua if vim.bo.filetype ~= "clap_input" then require'completion'.on_attach() end
 
   " Set syntax highlighting for specific file types
   autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact

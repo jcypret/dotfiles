@@ -22,6 +22,10 @@ Plug 'nvim-lua/completion-nvim' " neovim built-in completion
 Plug 'nvim-treesitter/completion-treesitter' " tree sitter completion source
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " improved file parsing
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
+" Telescope
+Plug 'nvim-lua/popup.nvim' " telescope dependency
+Plug 'nvim-lua/plenary.nvim' " telescope dependency
+Plug 'nvim-telescope/telescope.nvim' " fuzzy file browser
 
 " C++
 Plug 'octol/vim-cpp-enhanced-highlight' " C++ syntax
@@ -97,7 +101,6 @@ Plug 'tpope/vim-rake' " Rake wrapper (:Rake, projectionist def)
 Plug 'vim-ruby/vim-ruby' " Ruby syntax
 
 " Search and Replace
-Plug 'liuchengxu/vim-clap', { 'do': { -> clap#installer#force_download() } } " an interactive finder
 Plug 'stefandtw/quickfix-reflector.vim' " change code in the quickfix window
 Plug 'mhinz/vim-grepper' " better grepping + motions (gf)
 
