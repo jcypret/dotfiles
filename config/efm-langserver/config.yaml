@@ -22,16 +22,18 @@ tools:
 
   python-flake8: &python-flake8
     lint-command: "flake8 --stdin-display-name ${INPUT} -"
+    lint-ignore-exit-code: true
     lint-stdin: true
     lint-formats:
       - "%f:%l:%c: %m"
 
   python-isort: &python-isort
-    format-command: "isort --quiet --settings-file=$HOME/.isort.cfg -"
+    format-command: "isort --quiet --settings=$HOME/.isort.cfg -"
     format-stdin: true
 
   python-pylint: &python-pylint
     lint-command: "pylint --from-stdin ${INPUT}"
+    lint-ignore-exit-code: true
     lint-stdin: true
     lint-formats:
       - "%f:%l: %m"
@@ -61,10 +63,10 @@ languages:
     - <<: *prettier
 
   python:
-    - <<: *python-black
+    - <<: *python-pylint
     - <<: *python-flake8
     - <<: *python-isort
-    - <<: *python-pylint
+    - <<: *python-black
 
   yaml:
     - <<: *prettier
