@@ -22,7 +22,11 @@ HISTSIZE=50000
 SAVEHIST=10000
 
 # homebrew
-eval $(/opt/homebrew/bin/brew shellenv)
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval $(/opt/homebrew/bin/brew shellenv)
+elif [[ -x /usr/local/Homebrew/bin ]]; then
+  eval $(/usr/local/Homebrew/bin/brew shellenv)
+fi
 
 export EDITOR=nvim
 export PGDATA="$HOMEBREW_PREFIX/var/postgres"
