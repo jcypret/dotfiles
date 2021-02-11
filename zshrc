@@ -68,6 +68,9 @@ export FZF_DEFAULT_OPTS='
   --color fg:#D8DEE9,bg:#242933,hl:#A3BE8C,fg+:#D8DEE9,bg+:#3B4252,hl+:#A3BE8C
   --color pointer:#BF616A,info:#434C5E,spinner:#434C5E,header:#434C5E,prompt:#81A1C1,marker:#EBCB8B'
 
+# pipx
+eval "$(register-python-argcomplete pipx)" # load completions
+
 # ssh
 ssh-add -A 2>/dev/null; # Load in SSH keys
 
@@ -77,6 +80,7 @@ source ~/.aliases
 # path
 path+=("$HOME/.cargo/bin") # rust
 path=("$HOME/.bin" $path) # dotfiles
+path=("$HOME/.local/bin" $path) # pipx
 path=(".git/safe/../../bin" $path) # `git trust-bin`
 export -U PATH
 

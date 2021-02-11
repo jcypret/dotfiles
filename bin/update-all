@@ -8,7 +8,7 @@ echo "Updating all dependencies..."
 brew upgrade --fetch-HEAD
 echo "✅ Homebrew Formulae and Casks"
 
-cat .default-gems | xargs gem install --silent
+cat .default-gems | xargs gem install
 echo "✅ Ruby Gems"
 
 cat .default-golang-pkgs | xargs go get -u
@@ -17,7 +17,8 @@ echo "✅ Golang Packages"
 cat .default-npm-packages | xargs npm update -g
 echo "✅ NPM Packages"
 
-cat .default-python-packages | xargs pip install --upgrade --quiet
+cat .default-pipx-packages | xargs -n1 pipx install
+pipx upgrade-all
 echo "✅ Python Packages"
 
 echo "👍 Done"

@@ -67,6 +67,9 @@ brew "clang-format"
 brew "cppcheck"
 brew "llvm"
 
+# Python
+brew "pipx"
+
 # Applications
 cask "1password-beta"
 cask "alfred"

@@ -49,6 +49,7 @@ alias pi="pipenv install"
 alias pu="pipenv uninstall"
 alias psh="pipenv shell"
 alias prun="pipenv run"
+alias pip-rm-global="pip freeze --exclude-editable | xargs pip uninstall -y"
 
 # Rails
 alias -g RET="RAILS_ENV=test"
