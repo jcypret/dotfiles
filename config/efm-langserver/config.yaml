@@ -19,6 +19,8 @@ tools:
   python-black: &python-black
     format-command: "black -"
     format-stdin: true
+    root-markers:
+      - pyproject.toml
 
   python-flake8: &python-flake8
     lint-command: "flake8 --stdin-display-name ${INPUT} -"
@@ -26,10 +28,17 @@ tools:
     lint-stdin: true
     lint-formats:
       - "%f:%l:%c: %m"
+    root-markers:
+      - .flake8
+      - setup.cfg
 
   python-isort: &python-isort
-    format-command: "isort --quiet --settings=$HOME/.isort.cfg -"
+    format-command: "isort --quiet -"
     format-stdin: true
+    root-markers:
+      - .isort.cfg
+      - pyproject.toml
+      - setup.cfg
 
   python-pylint: &python-pylint
     lint-command: "pylint --from-stdin ${INPUT}"
@@ -37,6 +46,9 @@ tools:
     lint-stdin: true
     lint-formats:
       - "%f:%l: %m"
+    root-markers:
+      - pylintrc
+      - .pylintrc
 
   vim-vint: &vim-vint
     lint-command: "vint -"
