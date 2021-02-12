@@ -41,11 +41,11 @@ tools:
       - setup.cfg
 
   python-pylint: &python-pylint
-    lint-command: "pylint --from-stdin ${INPUT}"
+    lint-command: "pylint --output-format=text --reports=no --score=no --from-stdin ${INPUT}"
     lint-ignore-exit-code: true
     lint-stdin: true
     lint-formats:
-      - "%f:%l: %m"
+      - "%f:%l:%c: %t%n: %m"
     root-markers:
       - pylintrc
       - .pylintrc
