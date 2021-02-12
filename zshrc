@@ -68,9 +68,6 @@ export FZF_DEFAULT_OPTS='
   --color fg:#D8DEE9,bg:#242933,hl:#A3BE8C,fg+:#D8DEE9,bg+:#3B4252,hl+:#A3BE8C
   --color pointer:#BF616A,info:#434C5E,spinner:#434C5E,header:#434C5E,prompt:#81A1C1,marker:#EBCB8B'
 
-# pipx
-eval "$(register-python-argcomplete pipx)" # load completions
-
 # ssh
 ssh-add -A 2>/dev/null; # Load in SSH keys
 
@@ -87,4 +84,9 @@ export -U PATH
 # load completions if not already loaded
 if ! (( $+functions[compdef] )) ; then
   autoload -Uz compinit && compinit
+fi
+
+if ! (( $+functions[complete] )) ; then
+  autoload -Uz bashcompinit && bashcompinit
+  eval "$(register-python-argcomplete pipx)"
 fi
