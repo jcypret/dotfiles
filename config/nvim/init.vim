@@ -34,6 +34,9 @@ set formatoptions-=t
 " Display whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
+" Highlight embedded Lua scripts
+let g:vimsyn_embed= 'l'
+
 " Match longest first, then next full match
 set wildmode=list:longest,full
 
@@ -150,12 +153,14 @@ nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 
 " LSP ==========================================================================
 lua << LUA
-require'lspconfig'.efm.setup{} -- linting and formatting
-require'lspconfig'.pyright.setup{} -- python
-require'lspconfig'.solargraph.setup{} -- ruby
-require'lspconfig'.tsserver.setup{} -- javascript and typescript
-require'lspconfig'.vimls.setup{} -- vim
-require'lspconfig'.vuels.setup{} -- vue
+local lspconfig = require('lspconfig')
+
+lspconfig.efm.setup({}) -- linting and formatting
+lspconfig.pyright.setup({}) -- python
+lspconfig.solargraph.setup({}) -- ruby
+lspconfig.tsserver.setup({}) -- javascript and typescript
+lspconfig.vimls.setup({}) -- vim
+lspconfig.vuels.setup({}) -- vue
 LUA
 
 nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<cr>
@@ -180,10 +185,10 @@ sign define LspDiagnosticsSignHint text=
 
 " COMPLETION====================================================================
 lua << LUA
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup({
   ensure_installed = "maintained",
   highlight = { enable = false },
-}
+})
 LUA
 
 set completeopt=menuone,noinsert,noselect
