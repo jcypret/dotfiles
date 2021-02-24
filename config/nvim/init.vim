@@ -302,8 +302,10 @@ let g:rainbow_active = 0
 let g:startify_change_to_vcs_root = 1
 
 " Splitjoin
+let g:splitjoin_python_brackets_on_separate_lines = 1
 let g:splitjoin_ruby_curly_braces = 0
 let g:splitjoin_ruby_hanging_args = 0
+let g:splitjoin_trailing_comma = 1
 
 " Tagbar
 let g:tagbar_iconchars = ['▸', '▾']
