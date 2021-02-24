@@ -271,11 +271,11 @@ let g:grepper.tools = ['rg', 'git', 'grep']
 " Gitgutter
 let g:gitgutter_grep = 'rg --color=never'
 
-" Indent Line
-let g:indentLine_char = '▏'
-let g:indentLine_concealcursor = 0
-let g:indentLine_defaultGroup = 'Whitespace'
-let g:indentLine_fileTypeExclude = ['startify', 'help', 'tagbar']
+" Indent Blankline
+let g:indent_blankline_char = '▏'
+let g:indent_blankline_char_highlight = 'Whitespace'
+let g:indent_blankline_filetype_exclude = ['', 'nerdtree', 'startify', 'tagbar']
+let g:indent_blankline_buftype_exclude = ['help']
 
 " Vim JSON
 let g:vim_json_syntax_conceal = 0

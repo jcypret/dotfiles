@@ -111,7 +111,6 @@ Plug 'exu/pgsql.vim' " PostgreSQL syntax
 Plug 'reedes/vim-pencil' " improved wrapped prose editing
 
 " Themes and UI
-Plug 'Yggdroot/indentLine' " show indention levels
 Plug 'jcypret/nord-midnight-vim' " dark theme
 Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}  " indentLine extension: blank lines
 Plug 'luochen1990/rainbow' " colored matched parens for Lisp sanity
