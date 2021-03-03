@@ -273,7 +273,6 @@ let g:gitgutter_grep = 'rg --color=never'
 
 " Indent Blankline
 let g:indent_blankline_char = '▏'
-let g:indent_blankline_char_highlight = 'Whitespace'
 let g:indent_blankline_filetype_exclude = ['', 'nerdtree', 'startify', 'tagbar']
 let g:indent_blankline_buftype_exclude = ['help']
 
