@@ -316,7 +316,7 @@ highlight TagbarAccessPrivate guifg=#BF616A
 
 " Telescope
 nnoremap <leader>; <cmd>Telescope buffers<cr>
-nnoremap <c-p> <cmd>Telescope find_files<cr>
+nnoremap <c-p> <cmd>Telescope find_files hidden=true<cr>
 highlight link TelescopeMatching Keyword
 
 " Vim Test
