@@ -71,6 +71,10 @@ brew "llvm"
 # Python
 brew "pipx"
 
+# Shell
+brew "shellcheck"
+brew "shfmt"
+
 # Applications
 cask "1password-beta"
 cask "alfred"

@@ -155,6 +155,7 @@ nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 lua << LUA
 local lspconfig = require('lspconfig')
 
+lspconfig.bashls.setup({}) -- bash
 lspconfig.efm.setup({}) -- linting and formatting
 lspconfig.pyright.setup({}) -- python
 lspconfig.solargraph.setup({}) -- ruby

@@ -50,6 +50,18 @@ tools:
       - pylintrc
       - .pylintrc
 
+  sh-shfmt: &sh-shfmt
+    format-command: "shfmt -ci -s -bn"
+    format-stdin: true
+
+  sh-shellcheck: &sh-shellcheck
+    lint-command: "shellcheck -f gcc -x"
+    lint-source: "shellcheck"
+    lint-formats:
+      - "%f:%l:%c: %trror: %m"
+      - "%f:%l:%c: %tarning: %m"
+      - "%f:%l:%c: %tote: %m"
+
   vim-vint: &vim-vint
     lint-command: "vint -"
     lint-stdin: true
@@ -79,6 +91,10 @@ languages:
     - <<: *python-flake8
     - <<: *python-isort
     - <<: *python-black
+
+  sh:
+    - <<: *sh-shellcheck
+    - <<: *sh-shfmt
 
   yaml:
     - <<: *prettier
