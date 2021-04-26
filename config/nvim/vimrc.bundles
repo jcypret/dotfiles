@@ -24,7 +24,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " improved file pars
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
 " Telescope
 Plug 'nvim-lua/popup.nvim' " telescope dependency
-Plug 'nvim-lua/plenary.nvim' " telescope dependency
+Plug 'nvim-lua/plenary.nvim' " telescope and gitsigns dependency
 Plug 'nvim-telescope/telescope.nvim' " fuzzy file browser
 
 " C++
@@ -42,10 +42,11 @@ Plug 'ludovicchabant/vim-gutentags' " automatic ctag generation
 Plug 'majutsushi/tagbar' " ctag browser
 
 " Git
-Plug 'airblade/vim-gitgutter' " git diff in the sign column
 Plug 'junegunn/gv.vim' " git commit browser
-Plug 'tpope/vim-fugitive' " Git wrapper
+Plug 'lewis6991/gitsigns.nvim' " git diff in the sign column
+Plug 'shumphrey/fugitive-gitlab.vim' " :Gbrowse GitLab support
 Plug 'tommcdo/vim-fubitive' " :Gbrowse BitBucket support
+Plug 'tpope/vim-fugitive' " Git wrapper
 
 " Elixir
 Plug 'elixir-lang/vim-elixir' " Elixir syntax

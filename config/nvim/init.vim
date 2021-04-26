@@ -25,7 +25,6 @@ set shortmess+=c   " hide completion menu messages
 set signcolumn=yes " always show signcolumns
 set splitbelow     " open new horizontal splits below
 set splitright     " open new vertical splits to the right
-set updatetime=300 " gitgutter and cursorhold delay
 set wildmenu       " enable tab-completions for vim commands
 
 " turn off automatic hard-wrapping
@@ -258,6 +257,9 @@ nnoremap <silent> <leader>gc :Git commit<cr>
 nnoremap <silent> <leader>gp :Git push<cr>
 nnoremap <silent> <leader>gl :GV<cr>
 
+" Gitsigns
+lua require('gitsigns').setup()
+
 " Grepper
 nnoremap \ :Grepper<cr>
 nnoremap <bar> :Grepper -cword -noprompt<cr>
@@ -268,9 +270,6 @@ let g:grepper.highlight = 1
 let g:grepper.prompt_quote = 1
 let g:grepper.prompt_text = '$t> '
 let g:grepper.tools = ['rg', 'git', 'grep']
-
-" Gitgutter
-let g:gitgutter_grep = 'rg --color=never'
 
 " Indent Blankline
 let g:indent_blankline_char = '▏'
