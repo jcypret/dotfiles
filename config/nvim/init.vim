@@ -291,7 +291,7 @@ let g:vim_markdown_override_foldtext = 0
 
 " NERDTree
 let g:NERDTreeUpdateOnCursorHold = 0
-let g:NERDTreeIgnore = ['__pycache__']
+let g:NERDTreeIgnore = ['__pycache__', '\.egg-info$[[dir]]']
 noremap <c-n> :NERDTreeToggle<cr>
 noremap <leader>n :NERDTreeFind<cr>
 
