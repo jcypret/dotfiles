@@ -10,7 +10,7 @@ alias ping="prettyping --nolegend"
 alias top="btm --basic --fahrenheit"
 
 # Better ls
-alias ls="exa --group-directories-first --classify --git-ignore"
+alias ls="exa --group-directories-first --classify"
 alias l="ls --long"
 alias la="l --all"
 alias lt="ls --tree --level=2"
