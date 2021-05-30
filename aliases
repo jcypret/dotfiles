@@ -80,6 +80,11 @@ alias j="z -I" # match autojump habit
 alias zz="z -c" # restrict matches to subdirs of $PWD
 alias zb="z -b" # quickly cd to the parent directory
 
+# up up and away
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
 # Flash the local DNS cache
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder;"
 
