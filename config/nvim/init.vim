@@ -191,17 +191,18 @@ require('nvim-treesitter.configs').setup({
 })
 LUA
 
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noselect
+
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.source = {
+  \ 'path': v:true,
+  \ 'buffer': v:true,
+  \ 'nvim_lsp': v:true,
+  \ }
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-let g:completion_auto_change_source = 1
-let g:completion_chain_complete_list = [
-  \ {'complete_items': ['lsp', 'snippet']},
-  \ {'complete_items': ['ts']},
-  \ {'mode': '<c-p>'},
-  \ {'mode': '<c-n>'}]
 
 " LANGUAGE SETTINGS ============================================================
 
@@ -332,9 +333,6 @@ tnoremap <c-o> <c-\><c-n>
 
 augroup vimrc
   autocmd!
-
-  " Use completion-nvim in every buffer
-  autocmd BufEnter * lua require'completion'.on_attach()
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
