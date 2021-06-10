@@ -70,6 +70,7 @@ brew "llvm"
 
 # Python
 brew "pipx"
+brew "poetry"
 
 # Shell
 brew "shellcheck"
