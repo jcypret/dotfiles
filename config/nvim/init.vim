@@ -152,15 +152,24 @@ nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 
 " LSP ==========================================================================
 lua << LUA
-local lspconfig = require('lspconfig')
+local nvim_lsp = require('lspconfig')
 
-lspconfig.bashls.setup({}) -- bash
-lspconfig.efm.setup({}) -- linting and formatting
-lspconfig.pyright.setup({}) -- python
-lspconfig.solargraph.setup({}) -- ruby
-lspconfig.tsserver.setup({}) -- javascript and typescript
-lspconfig.vimls.setup({}) -- vim
-lspconfig.vuels.setup({}) -- vue
+local on_attach = function(client, bufnr)
+  require('lsp_signature').on_attach()
+end
+
+local servers = {
+  'bashls', -- bash
+  'efm', -- linting and formatting
+  'pyright', -- python
+  'solargraph', -- ruby
+  'tsserver', -- javascript and typescript
+  'vimls', -- vim
+  'vuels', -- vue
+}
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup { on_attach = on_attach }
+end
 LUA
 
 nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<cr>
