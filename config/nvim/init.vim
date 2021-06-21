@@ -163,13 +163,20 @@ local servers = {
   'efm', -- linting and formatting
   'pyright', -- python
   'solargraph', -- ruby
-  'tsserver', -- javascript and typescript
   'vimls', -- vim
   'vuels', -- vue
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
+
+-- javascript and typescript
+nvim_lsp.tsserver.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+    on_attach(client, bufnr)
+  end
+})
 LUA
 
 nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<cr>
