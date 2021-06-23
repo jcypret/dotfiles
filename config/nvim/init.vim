@@ -208,10 +208,22 @@ let g:compe.source = {
   \ 'path': v:true,
   \ 'buffer': v:true,
   \ 'nvim_lsp': v:true,
+  \ 'vsnip': v:true,
   \ }
 
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" tab completion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <silent><expr> <C-e> compe#close('<C-e>')
+
+" fix conflict between compe and endwise
+let g:endwise_no_mappings = 1
+imap <silent><expr> <CR> compe#confirm('<CR>') . "\<Plug>DiscretionaryEnd"
+
+" snippet movements
+imap <C-j> <Plug>(vsnip-jump-next)
+smap <C-j> <Plug>(vsnip-jump-next)
+imap <C-k> <Plug>(vsnip-jump-prev)
+smap <C-k> <Plug>(vsnip-jump-prev)
 
 " LANGUAGE SETTINGS ============================================================
 
