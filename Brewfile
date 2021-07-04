@@ -48,7 +48,7 @@ brew "cloc"
 brew "efm-langserver"
 brew "httpie"
 brew "jq"
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 brew "overmind"
 brew "tmux"
 brew "universal-ctags", args: ["HEAD"]
