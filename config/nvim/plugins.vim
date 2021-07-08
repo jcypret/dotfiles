@@ -116,7 +116,7 @@ Plug 'reedes/vim-pencil' " improved wrapped prose editing
 
 " Themes and UI
 Plug 'jcypret/nord-midnight-vim' " dark theme
-Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}  " indentLine extension: blank lines
+Plug 'lukas-reineke/indent-blankline.nvim' " shows lines for indention levels
 Plug 'luochen1990/rainbow' " colored matched parens for Lisp sanity
 Plug 'mhinz/vim-startify' " fancy start screen
 Plug 'reedes/vim-colors-pencil' " writing theme
