@@ -203,7 +203,7 @@ sign define LspDiagnosticsSignHint text=
 lua << LUA
 require('nvim-treesitter.configs').setup({
   ensure_installed = "maintained",
-  highlight = { enable = false },
+  highlight = { enable = true },
 })
 LUA
 
