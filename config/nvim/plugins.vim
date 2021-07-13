@@ -8,7 +8,6 @@ endif
 call plug#begin('~/.config/nvim/bundle')
 
 Plug 'janko-m/vim-test' " polyglot test runner
-Plug 'rizzatti/dash.vim' " open documentation in Dash
 Plug 'rizzatti/dash.vim', { 'on': ['Dash', 'Dash!'] } " open documentation in Dash
 Plug 'tpope/vim-repeat' " repeating for supported plugins with `.`
 Plug 'tpope/vim-unimpaired' " pairs of handy bracket mappings
