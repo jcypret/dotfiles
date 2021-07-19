@@ -6,7 +6,6 @@ tap "heroku/brew"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "thoughtbot/formulae"
-tap "universal-ctags/universal-ctags"
 
 # Unix
 brew "ansifilter" # filter out escape codes from tmux capture
@@ -51,7 +50,7 @@ brew "jq"
 brew "neovim"
 brew "overmind"
 brew "tmux"
-brew "universal-ctags", args: ["HEAD"]
+brew "universal-ctags"
 
 # Heroku
 brew "heroku-node" # heroku and parity dependency
