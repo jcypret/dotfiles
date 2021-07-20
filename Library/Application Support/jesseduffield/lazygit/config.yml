@@ -3,6 +3,8 @@ startuppopupversion: 1
 gui:
   mouseEvents: false
 git:
+  merging:
+    args: --no-ff
   paging:
     colorArg: always
     pager: delta --dark --paging=never
