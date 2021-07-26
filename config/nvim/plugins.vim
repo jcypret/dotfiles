@@ -8,7 +8,7 @@ endif
 call plug#begin('~/.config/nvim/bundle')
 
 Plug 'janko-m/vim-test' " polyglot test runner
-Plug 'rizzatti/dash.vim', { 'on': ['Dash', 'Dash!'] } " open documentation in Dash
+Plug 'rizzatti/dash.vim', {'on': ['Dash', 'Dash!']} " open documentation in Dash
 Plug 'tpope/vim-repeat' " repeating for supported plugins with `.`
 Plug 'tpope/vim-unimpaired' " pairs of handy bracket mappings
 Plug 'tweekmonster/startuptime.vim', {'on': 'StartupTime'} " profile vim startup time
@@ -20,7 +20,7 @@ Plug 'hrsh7th/nvim-compe' " completion
 Plug 'hrsh7th/vim-vsnip' " snippet framework
 Plug 'jiangmiao/auto-pairs' " inserts/deletes brackets, parens, quotes in pair
 Plug 'neovim/nvim-lspconfig' " configs for neovim built-in lsp
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " improved file parsing
+Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat', 'do': ':TSUpdate'} " improved file parsing
 Plug 'rafamadriz/friendly-snippets' " snippet collectoin
 Plug 'ray-x/lsp_signature.nvim' " function signature hints
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
@@ -63,7 +63,7 @@ Plug 'mustache/vim-mustache-handlebars' " handlebars syntax
 " React
 Plug 'maxmellon/vim-jsx-pretty' " React JSX syntax
 Plug 'peitalin/vim-jsx-typescript' " TypeScript JSX syntax
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Emotion syntax
+Plug 'styled-components/vim-styled-components', {'branch': 'main'} " Emotion syntax
 Plug 'jparise/vim-graphql' " GraphQL syntax
 
 " Markup
