@@ -260,6 +260,7 @@ let g:airline#extensions#branch#vcs_checks = [] " hide dirty/untracked symbol
 let g:airline#extensions#gutentags#enabled = 0 " hide async status
 let g:airline#extensions#hunks#enabled = 0 " hide +/- git change counts
 let g:airline#extensions#tabline#enabled = 1 " enable buffer tabline
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved' " disambiguate file names
 let g:airline#extensions#tagbar#enabled = 0 " disable slow extension
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]' " hide encoding for utf-8
 let g:airline_powerline_fonts = 1
