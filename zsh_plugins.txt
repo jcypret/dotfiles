@@ -12,4 +12,4 @@ zsh-users/zsh-syntax-highlighting
 
 # Pure Theme
 mafredri/zsh-async
-sindresorhus/pure
+sindresorhus/pure branch:main
