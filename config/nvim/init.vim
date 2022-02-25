@@ -187,12 +187,12 @@ nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<cr>
 nnoremap <silent> gy <cmd>lua vim.lsp.buf.type_definition()<cr>
 
 nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<cr>
-nnoremap <leader>f <cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<cr>
+nnoremap <leader>f <cmd>lua vim.lsp.buf.formatting_sync(nil, 5000)<cr>
 
-nnoremap <silent> <leader>d <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>
-nnoremap <silent> <leader>D <cmd>lua vim.lsp.diagnostic.set_loclist()<cr>
-nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
-nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
+nnoremap <silent> <leader>d <cmd>lua vim.diagnostic.open_float()<cr>
+nnoremap <silent> <leader>D <cmd>lua vim.diagnostic.setloclist()<cr>
+nnoremap <silent> [g <cmd>lua vim.diagnostic.goto_prev()<cr>
+nnoremap <silent> ]g <cmd>lua vim.diagnostic.goto_next()<cr>
 
 sign define LspDiagnosticsSignError text=
 sign define LspDiagnosticsSignWarning text=
