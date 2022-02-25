@@ -10,6 +10,7 @@
   fix = !git diff --name-only --relative -z --diff-filter=U | xargs -0 ${EDITOR}
   pf = push --force-with-lease
   recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+  reorg = reset --hard @{u}
   st = status
   sl = log --oneline --decorate -20
   sla = log --oneline --decorate --graph --all -20
