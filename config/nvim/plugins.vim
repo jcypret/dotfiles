@@ -20,7 +20,7 @@ Plug 'hrsh7th/nvim-compe' " completion
 Plug 'hrsh7th/vim-vsnip' " snippet framework
 Plug 'jiangmiao/auto-pairs' " inserts/deletes brackets, parens, quotes in pair
 Plug 'neovim/nvim-lspconfig' " configs for neovim built-in lsp
-Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat', 'do': ':TSUpdate'} " improved file parsing
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " improved file parsing
 Plug 'rafamadriz/friendly-snippets' " snippet collectoin
 Plug 'ray-x/lsp_signature.nvim' " function signature hints
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
