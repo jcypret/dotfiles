@@ -305,6 +305,8 @@ let g:grepper.tools = ['git', 'rg', 'grep']
 let g:indent_blankline_char = '▏'
 let g:indent_blankline_filetype_exclude = ['', 'nerdtree', 'startify', 'tagbar']
 let g:indent_blankline_buftype_exclude = ['help']
+let g:indent_blankline_show_current_context = v:true
+let g:indent_blankline_use_treesitter = v:true
 
 " Vim JSON
 let g:vim_json_syntax_conceal = 0
