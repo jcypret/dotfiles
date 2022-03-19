@@ -153,30 +153,48 @@ nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 " LSP ==========================================================================
 lua << LUA
 local nvim_lsp = require('lspconfig')
-
-local on_attach = function(client, bufnr)
-  require('lsp_signature').on_attach()
-end
+local lsp_installer = require('nvim-lsp-installer')
 
 local servers = {
   'bashls', -- bash
   'efm', -- linting and formatting
   'pyright', -- python
   'solargraph', -- ruby
+  'tsserver', -- javascript and typescript
   'vimls', -- vim
   'vuels', -- vue
+  'yamlls', -- yaml
 }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach }
+for _, name in ipairs(servers) do
+  -- install any missing language servers
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found and not server:is_installed() then
+    print('Installing ' .. name)
+    server:install()
+  end
 end
 
--- javascript and typescript
-nvim_lsp.tsserver.setup({
-  on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-    on_attach(client, bufnr)
+-- attach lsp plugins
+local common_on_attach = function(client, bufnr)
+  require('lsp_signature').on_attach()
+end
+
+-- start lsp server when ready
+lsp_installer.on_server_ready(function(server)
+  -- default options
+  local opts = { on_attach = common_on_attach }
+
+  -- override: javascript and typescript
+  if server.name == 'tsserver' then
+    opts.on_attach = function (client, bufnr)
+      client.resolved_capabilities.document_formatting = false
+      on_attach(client, bufnr)
+    end
   end
-})
+
+  -- setup lsp
+  server:setup(opts)
+end)
 LUA
 
 nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<cr>

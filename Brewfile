@@ -44,7 +44,6 @@ brew "lazygit"
 # Programming
 brew "asdf"
 brew "cloc"
-brew "efm-langserver"
 brew "httpie"
 brew "jq"
 brew "neovim"

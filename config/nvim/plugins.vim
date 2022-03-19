@@ -24,6 +24,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " improved file pars
 Plug 'rafamadriz/friendly-snippets' " snippet collectoin
 Plug 'ray-x/lsp_signature.nvim' " function signature hints
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
+Plug 'williamboman/nvim-lsp-installer' " manage lsp servers
 " Telescope
 Plug 'nvim-lua/popup.nvim' " telescope dependency
 Plug 'nvim-lua/plenary.nvim' " telescope and gitsigns dependency
