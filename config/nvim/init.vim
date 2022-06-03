@@ -220,7 +220,35 @@ sign define LspDiagnosticsSignHint text=
 " COMPLETION====================================================================
 lua << LUA
 require('nvim-treesitter.configs').setup({
-  ensure_installed = "maintained",
+  ensure_installed = {
+    'bash',
+    'c', 'cpp',
+    'comment',
+    'commonlisp',
+    'css', 'scss',
+    'dockerfile',
+    'elixir', 'eex',  'heex', 'erlang',
+    'elm',
+    'go',
+    'graphql',
+    'haskell',
+    'html',
+    'http',
+    'javascript', 'typescript', 'tsx',
+    'json', 'jsonc',
+    'lua',
+    'make',
+    'markdown',
+    'python',
+    'regex',
+    'ruby',
+    'rust',
+    'svelte',
+    'toml',
+    'vim',
+    'vue',
+    'yaml',
+  },
   highlight = { enable = true },
 })
 LUA

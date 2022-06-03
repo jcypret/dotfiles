@@ -76,7 +76,7 @@ Plug 'jparise/vim-graphql' " GraphQL syntax
 Plug 'cespare/vim-toml' " TOML syntax
 Plug 'mattn/emmet-vim', {'on': ['Emmet', 'EmmetInstall']} " HTML text expander
 Plug 'othree/html5.vim' " HTML5 syntax
-Plug 'plasticboy/vim-markdown' " Markdown syntax and config
+Plug 'preservim/vim-markdown' " Markdown syntax and config
 
 " Motions
 Plug 'AndrewRadev/splitjoin.vim' " go join (gj) and go split (gs)
