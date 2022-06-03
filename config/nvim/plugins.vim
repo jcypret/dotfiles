@@ -15,6 +15,11 @@ Plug 'tweekmonster/startuptime.vim', {'on': 'StartupTime'} " profile vim startup
 Plug 'wakatime/vim-wakatime' " automatic time tracking
 Plug 'freitass/todo.txt-vim'
 
+" PlantUML
+Plug 'aklt/plantuml-syntax'
+Plug 'tyru/open-browser.vim'
+Plug 'weirongxu/plantuml-previewer.vim'
+
 " Autocomplete, linting, and fixing
 Plug 'hrsh7th/nvim-compe' " completion
 Plug 'hrsh7th/vim-vsnip' " snippet framework
