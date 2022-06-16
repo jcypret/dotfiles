@@ -56,6 +56,8 @@ nnoremap <leader>bD :bufdo bd!<cr>
 " Clipboard
 vnoremap <c-c> "+y
 inoremap <c-v> <esc>"+pa
+" put same yank repeatedly
+vnoremap P "0p
 
 " Code Folding
 set foldmethod=expr
