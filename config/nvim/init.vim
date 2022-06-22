@@ -156,9 +156,11 @@ nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 lua << LUA
 local nvim_lsp = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
+local List = require('plenary.collections.py_list')
 
 local servers = {
   'bashls', -- bash
+  'jsonls', -- json
   'efm', -- linting and formatting
   'pyright', -- python
   'solargraph', -- ruby
@@ -186,11 +188,11 @@ lsp_installer.on_server_ready(function(server)
   -- default options
   local opts = { on_attach = common_on_attach }
 
-  -- override: javascript and typescript
-  if server.name == 'tsserver' then
+  -- override: disable formatting
+  if List{'tsserver', 'jsonls'}:contains(server.name) then
     opts.on_attach = function (client, bufnr)
       client.resolved_capabilities.document_formatting = false
-      on_attach(client, bufnr)
+      common_on_attach(client, bufnr)
     end
   end
 
