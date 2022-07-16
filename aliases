@@ -55,6 +55,7 @@ alias pu="pipenv uninstall"
 alias psh="pipenv shell"
 alias prun="pipenv run"
 alias pip-rm-global="pip freeze --exclude-editable | xargs pip uninstall -y"
+alias dj="python manage.py"
 
 # Rails
 alias -g RET="RAILS_ENV=test"
