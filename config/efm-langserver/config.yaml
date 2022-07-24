@@ -96,6 +96,9 @@ languages:
     - <<: *sh-shellcheck
     - <<: *sh-shfmt
 
+  toml:
+    - <<: *prettier
+
   yaml:
     - <<: *prettier
 

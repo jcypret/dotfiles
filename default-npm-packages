@@ -1,4 +1,5 @@
 prettier
+prettier-plugin-toml
 pure-prompt
 typescript
 write-good
