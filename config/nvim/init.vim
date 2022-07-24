@@ -189,7 +189,7 @@ lsp_installer.on_server_ready(function(server)
   local opts = { on_attach = common_on_attach }
 
   -- override: disable formatting
-  if List{'tsserver', 'jsonls'}:contains(server.name) then
+  if List{'jsonls', 'solargraph', 'tsserver'}:contains(server.name) then
     opts.on_attach = function (client, bufnr)
       client.resolved_capabilities.document_formatting = false
       common_on_attach(client, bufnr)
