@@ -15,7 +15,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle --file ~/Code/dotfiles/Brewfile
 
 # install dotfiles
-sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
+sudo dscl . -create "/Users/$USER" UserShell "$HOMEBREW_PREFIX/bin/zsh"
 env RCRC=$HOME/Code/dotfiles/rcrc rcup
 zbundle
 compaudit | xargs chmod g-w
