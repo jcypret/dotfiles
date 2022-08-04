@@ -12,7 +12,7 @@ git clone https://github.com/jcypret/dotfiles.git
 
 # install Brewfile
 eval "$(/opt/homebrew/bin/brew shellenv)"
-brew bundle --file dotfiles/Brewfile
+brew bundle --file ~/Code/dotfiles/Brewfile
 
 # install dotfiles
 sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
