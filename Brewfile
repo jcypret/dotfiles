@@ -1,10 +1,7 @@
 cask_args appdir: "/Applications"
 
-tap "cjbassi/gotop"
 tap "clementtsang/bottom"
 tap "heroku/brew"
-tap "homebrew/cask-versions"
-tap "homebrew/services"
 tap "thoughtbot/formulae"
 
 # Unix
@@ -52,7 +49,6 @@ brew "tmux"
 brew "universal-ctags"
 
 # Heroku
-brew "heroku-node" # heroku and parity dependency
 brew "heroku"
 brew "parity"
 
@@ -75,7 +71,7 @@ brew "shellcheck"
 brew "shfmt"
 
 # Applications
-cask "1password-beta"
+cask "1password"
 cask "alfred"
 cask "appcleaner"
 cask "bartender"
@@ -89,20 +85,20 @@ cask "handbrake"
 cask "imagealpha"
 cask "imageoptim"
 cask "keepingyouawake"
-# cask "kitty"
+cask "kitty"
+cask "mimestream"
 cask "ngrok"
 cask "paw"
 cask "postgres"
 cask "postico"
 cask "qbserve"
 cask "rectangle"
-# cask "screenflow"
 cask "slack"
 cask "spotify"
 cask "vlc"
 cask "zoom"
 
+# App Store
 brew "mas"
-mas "Ka-Block!", id: 1335413823
 mas "Next Meeting", id: 1017470484
 mas "Todoist", id: 585829637
