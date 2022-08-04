@@ -2,6 +2,7 @@ cask_args appdir: "/Applications"
 
 tap "clementtsang/bottom"
 tap "heroku/brew"
+tap "homebrew/cask-versions"
 tap "thoughtbot/formulae"
 
 # Unix
@@ -79,7 +80,6 @@ cask "dash"
 cask "fantastical"
 cask "firefox-developer-edition"
 cask "google-chrome"
-cask "gpg-suite-no-mail"
 cask "hammerspoon"
 cask "handbrake"
 cask "imagealpha"
