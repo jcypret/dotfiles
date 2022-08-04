@@ -24,5 +24,25 @@ compaudit | xargs chmod g-w
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # setup SSH key
-https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 ```
+
+## Setup SSH
+
+Symlink for more idiomatic SSH agent:
+
+```sh
+mkdir -p ~/.1password && ln -s ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
+```
+
+Add the following to `~/.ssh/config`:
+
+```
+Host *
+  IdentityAgent "~/.1password/agent.sock"
+```
+
+## Configure MacOS
+
+- Keyboard Settings: Caps Lock -> Control
+- Install coding font
+- Set Alfred preferences folder
