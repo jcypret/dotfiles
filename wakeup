@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+/opt/homebrew/bin/blueutil --connect f4-4e-fd-aa-db-fd

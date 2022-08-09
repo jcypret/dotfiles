@@ -14,6 +14,7 @@ brew "p7zip"
 brew "rcm"
 brew "reattach-to-user-namespace"
 brew "rename"
+brew "sleepwatcher"
 
 # ZSH
 brew "antibody"
