@@ -154,51 +154,7 @@ nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 
 " LSP ==========================================================================
 lua << LUA
-local nvim_lsp = require('lspconfig')
-local lsp_installer = require('nvim-lsp-installer')
-local List = require('plenary.collections.py_list')
-
-local servers = {
-  'bashls', -- bash
-  'jsonls', -- json
-  'efm', -- linting and formatting
-  'pyright', -- python
-  'solargraph', -- ruby
-  'tsserver', -- javascript and typescript
-  'vimls', -- vim
-  'vuels', -- vue
-  'yamlls', -- yaml
-}
-for _, name in ipairs(servers) do
-  -- install any missing language servers
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found and not server:is_installed() then
-    print('Installing ' .. name)
-    server:install()
-  end
-end
-
--- attach lsp plugins
-local common_on_attach = function(client, bufnr)
-  require('lsp_signature').on_attach()
-end
-
--- start lsp server when ready
-lsp_installer.on_server_ready(function(server)
-  -- default options
-  local opts = { on_attach = common_on_attach }
-
-  -- override: disable formatting
-  if List{'jsonls', 'solargraph', 'tsserver'}:contains(server.name) then
-    opts.on_attach = function (client, bufnr)
-      client.resolved_capabilities.document_formatting = false
-      common_on_attach(client, bufnr)
-    end
-  end
-
-  -- setup lsp
-  server:setup(opts)
-end)
+require("lsp")
 LUA
 
 nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<cr>
