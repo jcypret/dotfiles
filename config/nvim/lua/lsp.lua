@@ -82,7 +82,6 @@ local isort = require("efm/isort")
 local jq = require("efm/jq")
 local prettier = require("efm/prettier")
 local pylint = require("efm/pylint")
-local shellcheck = require("efm/shellcheck")
 local shfmt = require("efm/shfmt")
 local stylua = require("efm/stylua")
 local vint = require("efm/vint")
@@ -103,7 +102,7 @@ lspconfig.efm.setup({
       json = { jq, prettier },
       lua = { stylua },
       python = { pylint, flake8, isort, black },
-      sh = { shellcheck, shfmt },
+      sh = { shfmt },
       toml = { prettier },
       typescript = js_defaults,
       typescriptreact = js_defaults,
