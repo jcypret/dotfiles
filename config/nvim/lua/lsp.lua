@@ -67,6 +67,7 @@ lspconfig.sumneko_lua.setup({
 lspconfig.pyright.setup({})
 
 -- ruby
+-- TODO
 lspconfig.solargraph.setup({
   formatting = false,
 })
@@ -75,7 +76,15 @@ lspconfig.solargraph.setup({
 lspconfig.vimls.setup({})
 
 -- vue
-lspconfig.vuels.setup({})
+lspconfig.vuels.setup({
+  settings = {
+    vetur = {
+      experimental = {
+        templateInterpolationService = true,
+      },
+    },
+  },
+})
 
 -- yaml
 lspconfig.yamlls.setup({})
