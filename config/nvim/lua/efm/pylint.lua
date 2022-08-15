@@ -9,7 +9,7 @@ return {
     --output-format=text
     --reports=no
     --score=no
-    --from-stdin ${INPUT}"
+    --from-stdin "${INPUT}"
   ]],
   lintIgnoreExitCode = true,
   lintStdin = true,

@@ -1,6 +1,6 @@
 return {
   lintSource = "eslint",
-  lintCommand = "npx eslint -f unix --stdin --stdin-filename ${INPUT}",
+  lintCommand = 'npx eslint -f unix --stdin --stdin-filename "${INPUT}"',
   lintIgnoreExitCode = true,
   lintStdin = true,
   lintFormats = {
