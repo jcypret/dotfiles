@@ -67,9 +67,11 @@ lspconfig.sumneko_lua.setup({
 lspconfig.pyright.setup({})
 
 -- ruby
--- TODO
 lspconfig.solargraph.setup({
-  formatting = false,
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+    on_attach(client, bufnr)
+  end,
 })
 
 -- vim
