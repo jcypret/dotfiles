@@ -1,74 +1,115 @@
-local lsp_installer = require('nvim-lsp-installer')
-local lspconfig = require('lspconfig')
+local lsp_installer = require("nvim-lsp-installer")
+local lspconfig = require("lspconfig")
 
-lsp_installer.setup {
-  automatic_installation = true
-}
+-- ensure installed
+lsp_installer.setup({
+  automatic_installation = true,
+})
 
+-- common on-attach
 local on_attach = function(client, bufnr)
-  require('lsp_signature').on_attach()
+  require("lsp_signature").on_attach({})
 end
 
+-- override: default config
+lspconfig.util.default_config = vim.tbl_extend(
+  "force",
+  lspconfig.util.default_config,
+  { on_attach = on_attach }
+)
+
+-------------------------------------------------------------------------------
+--> CONFIG
+-------------------------------------------------------------------------------
+
 -- bash
-lspconfig.bashls.setup {
-  on_attach = on_attach,
-}
+lspconfig.bashls.setup({})
 
 -- javascript + typescript
-lspconfig.tsserver.setup {
+lspconfig.tsserver.setup({
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
     on_attach(client, bufnr)
-  end
-}
+  end,
+})
 
 -- json
-lspconfig.jsonls.setup {
-  on_attach = on_attach,
+lspconfig.jsonls.setup({
   provideFormatter = false,
-}
+})
 
--- linting + formatting
-lspconfig.efm.setup {
-  on_attach = on_attach,
-}
-
--- lua
-lspconfig.sumneko_lua.setup {
-  on_attach = on_attach,
+-- lua (neovim)
+lspconfig.sumneko_lua.setup({
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+    on_attach(client, bufnr)
+  end,
   settings = {
     Lua = {
       runtime = { version = "LuaJIT" },
-      diagnostics = { globals = { 'vim' } },
       workspace = { library = vim.api.nvim_get_runtime_file("", true) },
       telemetry = { enable = false },
+      diagnostics = { globals = { "vim" } },
     },
-  }
-}
+  },
+})
 
 -- python
-lspconfig.pyright.setup {
-  on_attach = on_attach,
-}
+lspconfig.pyright.setup({})
 
 -- ruby
-lspconfig.solargraph.setup {
-  on_attach = on_attach,
+lspconfig.solargraph.setup({
   formatting = false,
-}
+})
 
 -- vim
-lspconfig.vimls.setup {
-  on_attach = on_attach,
-}
+lspconfig.vimls.setup({})
 
 -- vue
-lspconfig.vuels.setup {
-  on_attach = on_attach,
-}
+lspconfig.vuels.setup({})
 
 -- yaml
-lspconfig.yamlls.setup {
-  on_attach = on_attach,
-}
+lspconfig.yamlls.setup({})
+
+-------------------------------------------------------------------------------
+--> LINTING + FORMATTING (EFM)
+-------------------------------------------------------------------------------
+
+local black = require("efm/black")
+local eslint = require("efm/eslint")
+local flake8 = require("efm/flake8")
+local isort = require("efm/isort")
+local jq = require("efm/jq")
+local prettier = require("efm/prettier")
+local pylint = require("efm/pylint")
+local shellcheck = require("efm/shellcheck")
+local shfmt = require("efm/shfmt")
+local stylua = require("efm/stylua")
+local vint = require("efm/vint")
+
+local js_defaults = { eslint, prettier }
+
+lspconfig.efm.setup({
+  init_options = {
+    documentFormatting = true,
+  },
+  settings = {
+    rootMarkers = { ".git/" },
+    languages = {
+      css = { prettier },
+      html = { prettier },
+      javascript = js_defaults,
+      javascriptreact = js_defaults,
+      json = { jq, prettier },
+      lua = { stylua },
+      python = { pylint, flake8, isort, black },
+      sh = { shellcheck, shfmt },
+      toml = { prettier },
+      typescript = js_defaults,
+      typescriptreact = js_defaults,
+      vim = { vint },
+      vue = js_defaults,
+      yaml = { prettier },
+    },
+  },
+})

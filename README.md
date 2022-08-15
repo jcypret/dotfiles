@@ -2,7 +2,7 @@
 
 ## Installation
 
-```zsh
+```bash
 # clone dotfiles
 mkdir ~/Code && cd ~/Code
 git clone https://github.com/jcypret/dotfiles.git
@@ -22,23 +22,37 @@ compaudit | xargs chmod g-w
 
 # install tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# setup SSH key
 ```
 
 ## Setup SSH
 
 Symlink for more idiomatic SSH agent:
 
-```sh
+```bash
 mkdir -p ~/.1password && ln -s ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
 ```
 
 Add the following to `~/.ssh/config`:
 
-```
+```bash
 Host *
   IdentityAgent "~/.1password/agent.sock"
+```
+
+## Install Languages
+
+```bash
+# install latest version of each language
+for lang in golang lua nodejs python ruby rust
+do
+  echo "Installing: $lang"
+  asdf plugin add "$lang"
+  asdf install "$lang" latest
+  asdf global "$lang" latest
+done
+
+# re-shim installed defaults
+asdf reshim
 ```
 
 ## Configure MacOS
