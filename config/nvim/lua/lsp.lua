@@ -35,7 +35,16 @@ lspconfig.tsserver.setup({
 
 -- json
 lspconfig.jsonls.setup({
-  provideFormatter = false,
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+    on_attach(client, bufnr)
+  end,
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas(),
+      validate = { enable = true },
+    },
+  },
 })
 
 -- lua (neovim)
@@ -79,7 +88,6 @@ local black = require("efm/black")
 local eslint = require("efm/eslint")
 local flake8 = require("efm/flake8")
 local isort = require("efm/isort")
-local jq = require("efm/jq")
 local prettier = require("efm/prettier")
 local pylint = require("efm/pylint")
 local shfmt = require("efm/shfmt")
@@ -99,7 +107,7 @@ lspconfig.efm.setup({
       html = { prettier },
       javascript = js_defaults,
       javascriptreact = js_defaults,
-      json = { jq, prettier },
+      json = { prettier },
       lua = { stylua },
       python = { pylint, flake8, isort, black },
       sh = { shfmt },
