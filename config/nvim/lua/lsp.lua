@@ -92,7 +92,6 @@ local prettier = require("efm/prettier")
 local pylint = require("efm/pylint")
 local shfmt = require("efm/shfmt")
 local stylua = require("efm/stylua")
-local vint = require("efm/vint")
 
 local js_defaults = { eslint, prettier }
 
@@ -114,7 +113,6 @@ lspconfig.efm.setup({
       toml = { prettier },
       typescript = js_defaults,
       typescriptreact = js_defaults,
-      vim = { vint },
       vue = js_defaults,
       yaml = { prettier },
     },
