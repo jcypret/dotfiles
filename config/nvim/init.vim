@@ -152,17 +152,9 @@ endfunction
 
 nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 
-" LSP ==========================================================================
+" LSP + COMPLETION =============================================================
 
 lua require("lsp")
-
-sign define LspDiagnosticsSignError text=
-sign define LspDiagnosticsSignWarning text=
-sign define LspDiagnosticsSignInformation text=
-sign define LspDiagnosticsSignHint text=
-
-" COMPLETION====================================================================
-
 lua require("treesitter")
 lua require("completion")
 
