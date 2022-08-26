@@ -156,21 +156,6 @@ nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 
 lua require("lsp")
 
-nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<cr>
-nnoremap <silent> a  <cmd>lua vim.lsp.buf.code_action()<cr>
-nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<cr>
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<cr>
-nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<cr>
-nnoremap <silent> gy <cmd>lua vim.lsp.buf.type_definition()<cr>
-
-nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<cr>
-nnoremap <leader>f <cmd>lua vim.lsp.buf.formatting_sync(nil, 5000)<cr>
-
-nnoremap <silent> <leader>d <cmd>lua vim.diagnostic.open_float()<cr>
-nnoremap <silent> <leader>D <cmd>lua vim.diagnostic.setloclist()<cr>
-nnoremap <silent> [g <cmd>lua vim.diagnostic.goto_prev()<cr>
-nnoremap <silent> ]g <cmd>lua vim.diagnostic.goto_next()<cr>
-
 sign define LspDiagnosticsSignError text=
 sign define LspDiagnosticsSignWarning text=
 sign define LspDiagnosticsSignInformation text=
