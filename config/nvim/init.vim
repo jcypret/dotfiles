@@ -153,9 +153,8 @@ endfunction
 nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 
 " LSP ==========================================================================
-lua << LUA
-require("lsp")
-LUA
+
+lua require("lsp")
 
 nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<cr>
 nnoremap <silent> a  <cmd>lua vim.lsp.buf.code_action()<cr>
@@ -178,40 +177,8 @@ sign define LspDiagnosticsSignInformation text=
 sign define LspDiagnosticsSignHint text=
 
 " COMPLETION====================================================================
-lua << LUA
-require('nvim-treesitter.configs').setup({
-  ensure_installed = {
-    'bash',
-    'c', 'cpp',
-    'comment',
-    'commonlisp',
-    'css', 'scss',
-    'dockerfile',
-    'elixir', 'eex',  'heex', 'erlang',
-    'elm',
-    'go',
-    'graphql',
-    'haskell',
-    'html',
-    'http',
-    'javascript', 'typescript', 'tsx',
-    'json', 'jsonc',
-    'lua',
-    'make',
-    'markdown',
-    'python',
-    'regex',
-    'ruby',
-    'rust',
-    'svelte',
-    'toml',
-    'vim',
-    'vue',
-    'yaml',
-  },
-  highlight = { enable = true },
-})
-LUA
+
+lua require("treesitter")
 
 set completeopt=menuone,noselect
 
