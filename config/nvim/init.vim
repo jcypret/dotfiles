@@ -179,31 +179,7 @@ sign define LspDiagnosticsSignHint text=
 " COMPLETION====================================================================
 
 lua require("treesitter")
-
-set completeopt=menuone,noselect
-
-let g:compe = {}
-let g:compe.enabled = v:true
-let g:compe.source = {
-  \ 'path': v:true,
-  \ 'buffer': v:true,
-  \ 'nvim_lsp': v:true,
-  \ 'vsnip': v:true,
-  \ }
-
-" tab completion
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <silent><expr> <C-e> compe#close('<C-e>')
-
-" fix conflict between compe and endwise
-let g:endwise_no_mappings = 1
-imap <silent><expr> <CR> compe#confirm('<CR>') . "\<Plug>DiscretionaryEnd"
-
-" snippet movements
-imap <C-j> <Plug>(vsnip-jump-next)
-smap <C-j> <Plug>(vsnip-jump-next)
-imap <C-k> <Plug>(vsnip-jump-prev)
-smap <C-k> <Plug>(vsnip-jump-prev)
+lua require("completion")
 
 " LANGUAGE SETTINGS ============================================================
 

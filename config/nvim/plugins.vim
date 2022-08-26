@@ -21,8 +21,6 @@ Plug 'tyru/open-browser.vim'
 Plug 'weirongxu/plantuml-previewer.vim'
 
 " Autocomplete, linting, and fixing
-Plug 'hrsh7th/nvim-compe' " completion
-Plug 'hrsh7th/vim-vsnip' " snippet framework
 Plug 'jiangmiao/auto-pairs' " inserts/deletes brackets, parens, quotes in pair
 Plug 'neovim/nvim-lspconfig' " configs for neovim built-in lsp
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " improved file parsing
@@ -30,6 +28,13 @@ Plug 'rafamadriz/friendly-snippets' " snippet collectoin
 Plug 'ray-x/lsp_signature.nvim' " function signature hints
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
 Plug 'williamboman/nvim-lsp-installer' " manage lsp servers
+" Cmp
+Plug 'hrsh7th/nvim-cmp' " completion framework
+Plug 'hrsh7th/vim-vsnip' " snippets framework
+Plug 'hrsh7th/cmp-buffer' " source: buffer
+Plug 'hrsh7th/cmp-nvim-lsp' " source: lsp
+Plug 'hrsh7th/cmp-vsnip' " source: snippets (vsnip)
+Plug 'onsails/lspkind.nvim' " lsp menu icons
 " Telescope
 Plug 'nvim-lua/popup.nvim' " telescope dependency
 Plug 'nvim-lua/plenary.nvim' " telescope and gitsigns dependency

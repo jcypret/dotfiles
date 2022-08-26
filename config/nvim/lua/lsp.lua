@@ -11,12 +11,16 @@ local on_attach = function(client, bufnr)
   require("lsp_signature").on_attach({})
 end
 
--- override: default config
-lspconfig.util.default_config = vim.tbl_extend(
-  "force",
-  lspconfig.util.default_config,
-  { on_attach = on_attach }
+local capabilities = require("cmp_nvim_lsp").update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
 )
+
+-- override: default config
+lspconfig.util.default_config =
+  vim.tbl_extend("force", lspconfig.util.default_config, {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  })
 
 -------------------------------------------------------------------------------
 --> CONFIG
