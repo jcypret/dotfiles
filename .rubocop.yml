@@ -1,4 +1,2 @@
-inherit_from:
-  - rubocop.yml
 Style/NumericLiterals:
   Exclude: ["Brewfile"]

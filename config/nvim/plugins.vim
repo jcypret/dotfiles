@@ -22,6 +22,7 @@ Plug 'weirongxu/plantuml-previewer.vim'
 
 " Autocomplete, linting, and fixing
 Plug 'jiangmiao/auto-pairs' " inserts/deletes brackets, parens, quotes in pair
+Plug 'jose-elias-alvarez/null-ls.nvim' " lsp diagnostics
 Plug 'neovim/nvim-lspconfig' " configs for neovim built-in lsp
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " improved file parsing
 Plug 'rafamadriz/friendly-snippets' " snippet collectoin

@@ -131,37 +131,38 @@ lspconfig.yamlls.setup({})
 --> LINTING + FORMATTING (EFM)
 -------------------------------------------------------------------------------
 
-local black = require("efm/black")
-local eslint = require("efm/eslint")
-local flake8 = require("efm/flake8")
-local isort = require("efm/isort")
-local prettier = require("efm/prettier")
-local pylint = require("efm/pylint")
-local shfmt = require("efm/shfmt")
-local stylua = require("efm/stylua")
+local null_ls = require("null-ls")
 
-local js_defaults = { eslint, prettier }
+local code_actions = null_ls.builtins.code_actions
+local diagnostics = null_ls.builtins.diagnostics
+local formatting = null_ls.builtins.formatting
 
-lspconfig.efm.setup({
-  init_options = {
-    documentFormatting = true,
-  },
-  settings = {
-    rootMarkers = { ".git/" },
-    languages = {
-      css = { prettier },
-      html = { prettier },
-      javascript = js_defaults,
-      javascriptreact = js_defaults,
-      json = { prettier },
-      lua = { stylua },
-      python = { pylint, flake8, isort, black },
-      sh = { shfmt },
-      toml = { prettier },
-      typescript = js_defaults,
-      typescriptreact = js_defaults,
-      vue = js_defaults,
-      yaml = { prettier },
-    },
+local uses_rubocop = function(utils)
+  return utils.root_has_file({ "rubocop.yaml" })
+end
+local uses_standardrb = function(utils)
+  return not uses_rubocop(utils)
+end
+
+null_ls.setup({
+  sources = {
+    code_actions.eslint,
+    code_actions.gitsigns,
+    code_actions.shellcheck,
+    diagnostics.eslint,
+    diagnostics.flake8,
+    diagnostics.rubocop.with({ condition = uses_rubocop }),
+    diagnostics.shellcheck,
+    diagnostics.standardrb.with({ condition = uses_standardrb }),
+    diagnostics.vint,
+    formatting.black,
+    formatting.erb_lint,
+    formatting.eslint,
+    formatting.isort,
+    formatting.prettier,
+    formatting.rubocop.with({ condition = uses_rubocop }),
+    formatting.shfmt,
+    formatting.standardrb.with({ condition = uses_standardrb }),
+    formatting.stylua,
   },
 })
