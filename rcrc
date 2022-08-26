@@ -1,2 +1,3 @@
 DOTFILES_DIRS="$HOME/Code/dotfiles"
+SYMLINK_DIRS="config/nvim/lua"
 UNDOTTED="Library"
