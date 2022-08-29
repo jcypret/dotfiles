@@ -2,7 +2,9 @@ reporting: "on"
 startuppopupversion: 1
 gui:
   mouseEvents: false
+  showFileTree: false
 git:
+  autoFetch: false
   merging:
     args: --no-ff
   paging:
