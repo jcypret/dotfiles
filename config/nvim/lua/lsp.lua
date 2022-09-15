@@ -137,13 +137,6 @@ local code_actions = null_ls.builtins.code_actions
 local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
 
-local uses_rubocop = function(utils)
-  return utils.root_has_file({ "rubocop.yaml" })
-end
-local uses_standardrb = function(utils)
-  return not uses_rubocop(utils)
-end
-
 null_ls.setup({
   sources = {
     code_actions.eslint,
@@ -151,18 +144,18 @@ null_ls.setup({
     code_actions.shellcheck,
     diagnostics.eslint,
     diagnostics.flake8,
-    diagnostics.rubocop.with({ condition = uses_rubocop }),
+    diagnostics.rubocop,
     diagnostics.shellcheck,
-    diagnostics.standardrb.with({ condition = uses_standardrb }),
     diagnostics.vint,
     formatting.black,
     formatting.erb_lint,
     formatting.eslint,
     formatting.isort,
-    formatting.prettier,
-    formatting.rubocop.with({ condition = uses_rubocop }),
+    formatting.prettier.with({
+      extra_filetypes = { "ruby" },
+    }),
+    formatting.rubocop,
     formatting.shfmt,
-    formatting.standardrb.with({ condition = uses_standardrb }),
     formatting.stylua,
   },
 })
