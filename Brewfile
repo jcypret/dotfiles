@@ -15,6 +15,7 @@ brew "rcm"
 brew "reattach-to-user-namespace"
 brew "rename"
 brew "sleepwatcher"
+brew "watchman"
 
 # ZSH
 brew "antibody"
