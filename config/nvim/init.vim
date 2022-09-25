@@ -305,6 +305,7 @@ augroup vimrc
   autocmd BufRead,BufNewFile .env.* set filetype=sh
   autocmd BufRead,BufNewFile .{babel,eslint,jscs,jshint}rc set filetype=json
   autocmd BufRead,BufNewFile Procfile* set filetype=yaml
+  autocmd BufRead,BufNewFile devcontainer.json set filetype=jsonc
   autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
 
   " Set file-type specific settings
