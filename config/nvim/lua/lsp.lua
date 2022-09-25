@@ -61,6 +61,9 @@ lspconfig.util.default_config =
 -- bash
 lspconfig.bashls.setup({})
 
+-- docker
+lspconfig.dockerls.setup({})
+
 -- javascript + typescript
 lspconfig.tsserver.setup({
   on_attach = function(client, bufnr)
@@ -104,6 +107,9 @@ lspconfig.pyright.setup({})
 
 -- ruby
 lspconfig.sorbet.setup({})
+
+-- tailwindcss
+lspconfig.tailwindcss.setup({})
 
 -- vim
 lspconfig.vimls.setup({})
