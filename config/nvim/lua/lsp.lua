@@ -139,6 +139,7 @@ local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
+  diagnostics_format = "#{s}: #{m}",
   sources = {
     code_actions.eslint,
     code_actions.gitsigns,
