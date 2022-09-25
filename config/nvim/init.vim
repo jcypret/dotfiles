@@ -154,9 +154,9 @@ nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 
 " LSP + COMPLETION =============================================================
 
-lua require("lsp")
-lua require("treesitter")
-lua require("completion")
+lua require("config.lsp")
+lua require("config.treesitter")
+lua require("config.completion")
 
 " LANGUAGE SETTINGS ============================================================
 
@@ -274,6 +274,7 @@ highlight TagbarAccessProtected guifg=#EBCB8B
 highlight TagbarAccessPrivate guifg=#BF616A
 
 " Telescope
+lua require("config.telescope")
 nnoremap <leader>; <cmd>Telescope buffers<cr>
 nnoremap <c-p> <cmd>Telescope find_files hidden=true<cr>
 highlight link TelescopeMatching Keyword
