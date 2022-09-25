@@ -141,23 +141,27 @@ local formatting = null_ls.builtins.formatting
 null_ls.setup({
   diagnostics_format = "#{s}: #{m}",
   sources = {
+    -- javascript
     code_actions.eslint,
-    code_actions.gitsigns,
-    code_actions.shellcheck,
     diagnostics.eslint,
-    diagnostics.flake8,
-    diagnostics.rubocop,
-    diagnostics.shellcheck,
-    diagnostics.vint,
-    formatting.black,
-    formatting.erb_lint,
     formatting.eslint,
-    formatting.isort,
-    formatting.prettier.with({
-      extra_filetypes = { "ruby" },
-    }),
-    formatting.rubocop,
-    formatting.shfmt,
+    -- lua
     formatting.stylua,
+    -- python
+    diagnostics.flake8,
+    formatting.isort,
+    formatting.black,
+    -- ruby
+    diagnostics.rubocop,
+    formatting.rubocop,
+    formatting.erb_lint,
+    -- shell
+    code_actions.shellcheck,
+    diagnostics.shellcheck,
+    formatting.shfmt,
+    -- vim
+    diagnostics.vint,
+    -- all
+    formatting.prettier.with({ extra_filetypes = { "ruby" } }),
   },
 })
