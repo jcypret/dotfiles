@@ -153,6 +153,7 @@ null_ls.setup({
     formatting.black,
     -- ruby
     diagnostics.rubocop,
+    diagnostics.erb_lint,
     formatting.rubocop,
     formatting.erb_lint,
     -- shell
