@@ -38,8 +38,9 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gD", vim.lsp.buf.implementation, bufopts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-
-  vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set("n", "<leader>f", function()
+    vim.lsp.buf.format({ async = true })
+  end, bufopts)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 end
 
@@ -67,7 +68,7 @@ lspconfig.dockerls.setup({})
 -- javascript + typescript
 lspconfig.tsserver.setup({
   on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
     on_attach(client, bufnr)
   end,
 })
@@ -75,7 +76,7 @@ lspconfig.tsserver.setup({
 -- json
 lspconfig.jsonls.setup({
   on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
     on_attach(client, bufnr)
   end,
   settings = {
@@ -89,7 +90,7 @@ lspconfig.jsonls.setup({
 -- lua (neovim)
 lspconfig.sumneko_lua.setup({
   on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
     on_attach(client, bufnr)
   end,
   settings = {
