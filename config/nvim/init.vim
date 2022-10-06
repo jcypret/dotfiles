@@ -152,6 +152,9 @@ endfunction
 
 nnoremap <silent> <leader>w :call ThemeToggle()<cr>
 
+" highlight hex colors
+lua require("colorizer").setup()
+
 " LSP + COMPLETION =============================================================
 
 lua require("config.lsp")

@@ -58,8 +58,6 @@ Plug 'majutsushi/tagbar' " ctag browser
 " Git
 Plug 'junegunn/gv.vim' " git commit browser
 Plug 'lewis6991/gitsigns.nvim' " git diff in the sign column
-Plug 'shumphrey/fugitive-gitlab.vim' " :Gbrowse GitLab support
-Plug 'tommcdo/vim-fubitive' " :Gbrowse BitBucket support
 Plug 'tpope/vim-fugitive' " Git wrapper
 
 " Elixir
@@ -131,6 +129,7 @@ Plug 'jcypret/nord-midnight-vim' " dark theme
 Plug 'lukas-reineke/indent-blankline.nvim' " shows lines for indention levels
 Plug 'luochen1990/rainbow' " colored matched parens for Lisp sanity
 Plug 'mhinz/vim-startify' " fancy start screen
+Plug 'norcalli/nvim-colorizer.lua' " highlight hex colors
 Plug 'reedes/vim-colors-pencil' " writing theme
 Plug 'vim-airline/vim-airline' " improved status and tablines
 
