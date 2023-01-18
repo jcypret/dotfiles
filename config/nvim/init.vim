@@ -228,7 +228,7 @@ runtime plugin/grepper.vim " load default values
 let g:grepper.highlight = 1
 let g:grepper.prompt_quote = 1
 let g:grepper.prompt_text = '$t> '
-let g:grepper.tools = ['git', 'rg', 'grep']
+let g:grepper.tools = ['rg', 'git', 'grep']
 
 " Indent Blankline
 let g:indent_blankline_char = '▏'
