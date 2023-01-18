@@ -68,6 +68,7 @@ Plug 'pangloss/vim-javascript' " JavaScript/ES6 syntax
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'elzr/vim-json' " JSON syntax and config
 Plug 'b0o/schemastore.nvim' " json schemas
+Plug 'pantharshit00/vim-prisma' " Prisma syntax
 " Vue
 Plug 'posva/vim-vue' " Vue SFC syntax
 Plug 'mustache/vim-mustache-handlebars' " handlebars syntax
