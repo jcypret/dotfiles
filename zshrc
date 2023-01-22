@@ -34,7 +34,7 @@ export SHELL="$HOMEBREW_PREFIX/bin/zsh"
 export TIME_STYLE="long-iso" # iso timestamps for `ls -l`
 
 # asdf
-source "$HOMEBREW_PREFIX/opt/asdf/asdf.sh"
+source "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
 
 # completion
 zstyle ':completion:*' menu select
