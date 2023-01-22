@@ -63,6 +63,9 @@ lspconfig.bashls.setup({})
 -- docker
 lspconfig.dockerls.setup({})
 
+-- graphql
+lspconfig.graphql.setup({})
+
 -- javascript + typescript
 lspconfig.tsserver.setup({
   on_attach = function(client, bufnr)
@@ -100,6 +103,9 @@ lspconfig.sumneko_lua.setup({
     },
   },
 })
+
+-- primsa
+lspconfig.prismals.setup({})
 
 -- python
 lspconfig.pyright.setup({})
