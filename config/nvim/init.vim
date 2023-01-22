@@ -306,6 +306,7 @@ augroup vimrc
   " Set syntax highlighting for specific file types
   autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
   autocmd BufRead,BufNewFile *gitconfig* set filetype=gitconfig
+  autocmd BufRead,BufNewFile .env* lua vim.diagnostic.disable()
   autocmd BufRead,BufNewFile .env.* set filetype=sh
   autocmd BufRead,BufNewFile .{babel,eslint,jscs,jshint}rc set filetype=json
   autocmd BufRead,BufNewFile Procfile* set filetype=yaml
