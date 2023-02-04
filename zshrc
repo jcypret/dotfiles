@@ -30,6 +30,7 @@ fi
 
 export EDITOR=nvim
 export PGDATA="$HOMEBREW_PREFIX/var/postgres"
+export PURE_GIT_PULL=0 # disable auto git fetch
 export SHELL="$HOMEBREW_PREFIX/bin/zsh"
 export TIME_STYLE="long-iso" # iso timestamps for `ls -l`
 
