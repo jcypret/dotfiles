@@ -114,7 +114,18 @@ lspconfig.pyright.setup({})
 lspconfig.sorbet.setup({})
 
 -- tailwindcss
-lspconfig.tailwindcss.setup({})
+lspconfig.tailwindcss.setup({
+  settings = {
+    tailwindCSS = {
+      experimental = {
+        classRegex = {
+          "cva\\(([^)]*)\\)",
+          "[\"'`]([^\"'`]*).*?[\"'`]",
+        },
+      },
+    },
+  },
+})
 
 -- vim
 lspconfig.vimls.setup({})
