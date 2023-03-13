@@ -1,10 +1,7 @@
-local lsp_installer = require("nvim-lsp-installer")
-local lspconfig = require("lspconfig")
-
--- ensure installed
-lsp_installer.setup({
-  automatic_installation = true,
-})
+-- mason
+require("mason").setup()
+-- ensure LSPs installed
+require("mason-lspconfig").setup({ automatic_installation = true })
 
 -- diagnostic mappings
 local opts = { noremap = true, silent = true }
@@ -44,6 +41,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 end
 
+local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- override: default config
@@ -89,7 +87,7 @@ lspconfig.jsonls.setup({
 })
 
 -- lua (neovim)
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
   on_attach = function(client, bufnr)
     client.server_capabilities.document_formatting = false
     on_attach(client, bufnr)

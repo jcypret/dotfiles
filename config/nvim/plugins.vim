@@ -28,7 +28,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " improved file pars
 Plug 'rafamadriz/friendly-snippets' " snippet collectoin
 Plug 'ray-x/lsp_signature.nvim' " function signature hints
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
-Plug 'williamboman/nvim-lsp-installer' " manage lsp servers
+Plug 'williamboman/mason.nvim' " install lsp servers
+Plug 'williamboman/mason-lspconfig.nvim' " mason lsp-config plugin
 " Cmp
 Plug 'hrsh7th/nvim-cmp' " completion framework
 Plug 'hrsh7th/vim-vsnip' " snippets framework
