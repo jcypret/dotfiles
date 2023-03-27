@@ -29,6 +29,7 @@ Plug 'rafamadriz/friendly-snippets' " snippet collectoin
 Plug 'ray-x/lsp_signature.nvim' " function signature hints
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
 Plug 'williamboman/mason.nvim' " install lsp servers
+Plug 'jay-babu/mason-null-ls.nvim' " mason null-ls plugin
 Plug 'williamboman/mason-lspconfig.nvim' " mason lsp-config plugin
 " Cmp
 Plug 'hrsh7th/nvim-cmp' " completion framework

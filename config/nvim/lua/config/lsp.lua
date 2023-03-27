@@ -1,7 +1,9 @@
 -- mason
 require("mason").setup()
 -- ensure LSPs installed
-require("mason-lspconfig").setup({ automatic_installation = true })
+require("mason-lspconfig").setup({
+  automatic_installation = true,
+})
 
 -- diagnostic mappings
 local opts = { noremap = true, silent = true }
@@ -179,4 +181,9 @@ null_ls.setup({
     -- all
     formatting.prettier.with({ extra_filetypes = { "ruby" } }),
   },
+})
+
+require("mason-null-ls").setup({
+  automatic_installation = true,
+  automatic_setup = false,
 })
