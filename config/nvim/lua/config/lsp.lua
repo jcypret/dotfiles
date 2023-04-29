@@ -142,7 +142,13 @@ lspconfig.vuels.setup({
 })
 
 -- yaml
-lspconfig.yamlls.setup({})
+lspconfig.yamlls.setup({
+  settings = {
+    yaml = {
+      keyOrdering = false,
+    },
+  },
+})
 
 -------------------------------------------------------------------------------
 --> LINTING + FORMATTING (EFM)
@@ -178,6 +184,8 @@ null_ls.setup({
     formatting.shfmt,
     -- vim
     diagnostics.vint,
+    -- yaml
+    diagnostics.actionlint,
     -- all
     formatting.prettier.with({ extra_filetypes = { "ruby" } }),
   },
