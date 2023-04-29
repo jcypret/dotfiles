@@ -91,3 +91,8 @@ if ! (( $+functions[complete] )) ; then
   autoload -Uz bashcompinit && bashcompinit
   eval "$(register-python-argcomplete pipx)"
 fi
+
+# pnpm
+export PNPM_HOME="/Users/jcypret/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

@@ -285,7 +285,8 @@ highlight link TelescopeMatching Keyword
 " Vim Test
 let g:root_markers = ['package.json', '.git/']
 let g:test#strategy = 'neovim'
-let test#javascript#jest#executable = 'pnpm jest'
+let g:test#javascript#runner = 'jest'
+let test#javascript#jest#executable = 'pnpm test -- '
 
 function! s:RunVimTest(cmd)
   for marker in g:root_markers
