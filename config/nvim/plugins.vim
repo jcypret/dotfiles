@@ -7,13 +7,13 @@ endif
 
 call plug#begin('~/.config/nvim/bundle')
 
+Plug 'RRethy/vim-illuminate' " cursor symbol highlight
 Plug 'janko-m/vim-test' " polyglot test runner
 Plug 'rizzatti/dash.vim', {'on': ['Dash', 'Dash!']} " open documentation in Dash
 Plug 'tpope/vim-repeat' " repeating for supported plugins with `.`
 Plug 'tpope/vim-unimpaired' " pairs of handy bracket mappings
 Plug 'tweekmonster/startuptime.vim', {'on': 'StartupTime'} " profile vim startup time
 Plug 'wakatime/vim-wakatime' " automatic time tracking
-Plug 'freitass/todo.txt-vim'
 
 " PlantUML
 Plug 'aklt/plantuml-syntax'
