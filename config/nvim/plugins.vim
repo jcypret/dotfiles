@@ -21,6 +21,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'weirongxu/plantuml-previewer.vim'
 
 " Autocomplete, linting, and fixing
+Plug 'github/copilot.vim' " code completion
 Plug 'jiangmiao/auto-pairs' " inserts/deletes brackets, parens, quotes in pair
 Plug 'jose-elias-alvarez/null-ls.nvim' " lsp diagnostics
 Plug 'neovim/nvim-lspconfig' " configs for neovim built-in lsp
@@ -70,7 +71,7 @@ Plug 'pangloss/vim-javascript' " JavaScript/ES6 syntax
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'elzr/vim-json' " JSON syntax and config
 Plug 'b0o/schemastore.nvim' " json schemas
-Plug 'pantharshit00/vim-prisma' " Prisma syntax
+Plug 'prisma/vim-prisma' " Prisma syntax
 " Vue
 Plug 'posva/vim-vue' " Vue SFC syntax
 Plug 'mustache/vim-mustache-handlebars' " handlebars syntax

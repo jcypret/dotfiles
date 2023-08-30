@@ -161,6 +161,11 @@ lua require("config.lsp")
 lua require("config.treesitter")
 lua require("config.completion")
 
+" Copilot
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+highlight CopilotSuggestion guifg=#4C566A
+
 " LANGUAGE SETTINGS ============================================================
 
 " HTML
