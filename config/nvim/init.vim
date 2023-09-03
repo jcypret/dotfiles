@@ -293,6 +293,9 @@ let g:test#strategy = 'neovim'
 let g:test#javascript#runner = 'jest'
 let test#javascript#jest#executable = 'pnpm test -- '
 
+" WTF
+lua require("wtf").setup()
+
 function! s:RunVimTest(cmd)
   for marker in g:root_markers
     let marker_file = findfile(marker, expand('%:p:h') . ';')

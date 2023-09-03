@@ -15,6 +15,10 @@ Plug 'tpope/vim-unimpaired' " pairs of handy bracket mappings
 Plug 'tweekmonster/startuptime.vim', {'on': 'StartupTime'} " profile vim startup time
 Plug 'wakatime/vim-wakatime' " automatic time tracking
 
+" AI
+Plug 'MunifTanjim/nui.nvim' " required by wtf.nvim
+Plug 'piersolenski/wtf.nvim' " AI-powered diagnostics
+
 " PlantUML
 Plug 'aklt/plantuml-syntax'
 Plug 'tyru/open-browser.vim'

@@ -96,3 +96,5 @@ fi
 export PNPM_HOME="/Users/jcypret/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
