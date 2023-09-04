@@ -7,6 +7,7 @@ tap "thoughtbot/formulae"
 
 # Unix
 brew "ansifilter" # filter out escape codes from tmux capture
+brew "blueutil" # control bluetooth devices
 brew "cmake"
 brew "direnv"
 brew "openssl"
