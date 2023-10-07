@@ -26,7 +26,7 @@ Plug 'weirongxu/plantuml-previewer.vim'
 
 " Autocomplete, linting, and fixing
 Plug 'github/copilot.vim' " code completion
-Plug 'jiangmiao/auto-pairs' " inserts/deletes brackets, parens, quotes in pair
+Plug 'jay-babu/mason-null-ls.nvim' " mason null-ls plugin
 Plug 'jose-elias-alvarez/null-ls.nvim' " lsp diagnostics
 Plug 'neovim/nvim-lspconfig' " configs for neovim built-in lsp
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " improved file parsing
@@ -34,8 +34,8 @@ Plug 'rafamadriz/friendly-snippets' " snippet collectoin
 Plug 'ray-x/lsp_signature.nvim' " function signature hints
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
 Plug 'williamboman/mason.nvim' " install lsp servers
-Plug 'jay-babu/mason-null-ls.nvim' " mason null-ls plugin
 Plug 'williamboman/mason-lspconfig.nvim' " mason lsp-config plugin
+Plug 'windwp/nvim-autopairs' " inserts/deletes brackets, parens, quotes in pair
 " Cmp
 Plug 'hrsh7th/nvim-cmp' " completion framework
 Plug 'hrsh7th/vim-vsnip' " snippets framework
