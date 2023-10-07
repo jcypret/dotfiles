@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export TZ="$1"
+date +"%I:%M %p"
