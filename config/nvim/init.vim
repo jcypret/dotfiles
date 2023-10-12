@@ -206,7 +206,7 @@ call airline#parts#define_accent('linenr', 'bold')
 let g:airline_section_z = airline#section#create(['linenr', ':%c'])
 
 " Auto Pairs
-lua require("nvim-autopairs").setup()
+lua require('mini.pairs').setup()
 
 " EasyAlign
 xmap ga <plug>(EasyAlign)
