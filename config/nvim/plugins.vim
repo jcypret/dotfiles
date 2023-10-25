@@ -67,6 +67,7 @@ Plug 'majutsushi/tagbar' " ctag browser
 Plug 'junegunn/gv.vim' " git commit browser
 Plug 'lewis6991/gitsigns.nvim' " git diff in the sign column
 Plug 'tpope/vim-fugitive' " Git wrapper
+Plug 'tpope/vim-rhubarb' " gbrowse for GitHub
 
 " Elixir
 Plug 'elixir-lang/vim-elixir' " Elixir syntax
