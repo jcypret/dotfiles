@@ -89,6 +89,7 @@ Plug 'jparise/vim-graphql' " GraphQL syntax
 
 " Markup
 Plug 'cespare/vim-toml' " TOML syntax
+Plug 'jxnblk/vim-mdx-js' " MDX syntax
 Plug 'mattn/emmet-vim', {'on': ['Emmet', 'EmmetInstall']} " HTML text expander
 Plug 'othree/html5.vim' " HTML5 syntax
 Plug 'preservim/vim-markdown' " Markdown syntax and config
@@ -131,16 +132,12 @@ Plug 'mhinz/vim-grepper' " better grepping + motions (gf)
 " SQL
 Plug 'exu/pgsql.vim' " PostgreSQL syntax
 
-" Writing
-Plug 'reedes/vim-pencil' " improved wrapped prose editing
-
 " Themes and UI
 Plug 'jcypret/nord-midnight-vim' " dark theme
 Plug 'lukas-reineke/indent-blankline.nvim' " shows lines for indention levels
 Plug 'luochen1990/rainbow' " colored matched parens for Lisp sanity
 Plug 'mhinz/vim-startify' " fancy start screen
 Plug 'norcalli/nvim-colorizer.lua' " highlight hex colors
-Plug 'reedes/vim-colors-pencil' " writing theme
 Plug 'vim-airline/vim-airline' " improved status and tablines
 
 " DevIcons must load last...

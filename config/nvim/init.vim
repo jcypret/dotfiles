@@ -133,25 +133,6 @@ let g:nord_italic_comments = 1
 let g:nord_underline = 1
 colorscheme nord
 
-" Pencil Theme (writing)
-" colorscheme pencil
-" set background=light
-
-let s:currentTheme = 'nord'
-function! ThemeToggle()
-  if (s:currentTheme ==? 'nord')
-    let s:currentTheme = 'pencil'
-    set background=light
-    colorscheme pencil
-  else
-    let s:currentTheme = 'nord'
-    set background=dark
-    colorscheme nord
-  endif
-endfunction
-
-nnoremap <silent> <leader>w :call ThemeToggle()<cr>
-
 " highlight hex colors
 lua require("colorizer").setup()
 
@@ -345,16 +326,15 @@ augroup vimrc
   autocmd FileType cpp,vue setlocal commentstring=//\ %s " Set comment style to // for cpp and vue
   autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
   autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
-  autocmd FileType gitcommit call pencil#init({'wrap': 'hard', 'textwidth': 72}) | setlocal nonumber norelativenumber spell
   autocmd FileType html,eruby EmmetInstall
   autocmd FileType lisp,clojure,scheme RainbowToggleOn " Use rainbow parens for lisp-based languages
-  autocmd FileType markdown let b:tagbar_ignore = 1 | call pencil#init() | setlocal nobreakindent spell
   autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
   autocmd TermOpen * setlocal nonumber norelativenumber " turn off line numbers for terminal
 
   " fix weird highlighting for mixed syntax
   autocmd BufEnter *.{js,jsx,ts,tsx,vue} :syntax sync fromstart
   autocmd BufLeave *.{js,jsx,ts,tsx,vue} :syntax sync clear
+  autocmd BufEnter *.{md,mdx} :set shiftwidth=2
 augroup END
 
 " Local config
