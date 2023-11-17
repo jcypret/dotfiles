@@ -217,11 +217,7 @@ let g:grepper.prompt_text = '$t> '
 let g:grepper.tools = ['rg', 'git', 'grep']
 
 " Indent Blankline
-let g:indent_blankline_char = '▏'
-let g:indent_blankline_filetype_exclude = ['', 'nerdtree', 'startify', 'tagbar']
-let g:indent_blankline_buftype_exclude = ['help']
-let g:indent_blankline_show_current_context = v:true
-let g:indent_blankline_use_treesitter = v:true
+lua require("config.indent_blankline")
 
 " Vim JSON
 let g:vim_json_syntax_conceal = 0
