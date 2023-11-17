@@ -39,7 +39,10 @@
 [fetch]
   prune = true
 [merge]
+  conflictstyle = diff3
   ff = only
+[diff]
+  colorMoved = default
 [pull]
   ff = only
 [push]
