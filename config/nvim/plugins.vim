@@ -33,6 +33,7 @@ Plug 'neovim/nvim-lspconfig' " configs for neovim built-in lsp
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " improved file parsing
 Plug 'rafamadriz/friendly-snippets' " snippet collectoin
 Plug 'ray-x/lsp_signature.nvim' " function signature hints
+Plug 'stevearc/conform.nvim' " code formatting
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
 " Mason
 Plug 'williamboman/mason.nvim' " install lsp servers
@@ -114,7 +115,7 @@ Plug 'tpope/vim-eunuch' " helpers for UNIX (:Delete, :Move, :Rename)
 
 " Python
 Plug 'vim-python/python-syntax' " Python syntax
-Plug 'Vimjas/vim-python-pep8-indent' " improved indention
+Plug 'Vimjas/vim-python-pep8-indent' " improved indentation
 
 " Ruby
 Plug 'joker1007/vim-ruby-heredoc-syntax', {'for': ['ruby']} " heredoc syntax highlighting (like SQL)
@@ -134,7 +135,7 @@ Plug 'exu/pgsql.vim' " PostgreSQL syntax
 
 " Themes and UI
 Plug 'jcypret/nord-midnight-vim' " dark theme
-Plug 'lukas-reineke/indent-blankline.nvim' " shows lines for indention levels
+Plug 'lukas-reineke/indent-blankline.nvim' " shows lines for indentation levels
 Plug 'luochen1990/rainbow' " colored matched parens for Lisp sanity
 Plug 'mhinz/vim-startify' " fancy start screen
 Plug 'norcalli/nvim-colorizer.lua' " highlight hex colors

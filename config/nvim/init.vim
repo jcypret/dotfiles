@@ -77,7 +77,7 @@ nnoremap <leader>e :e <c-r>=escape(expand('%:p:h'),' ') . '/'<cr>
 nnoremap <leader>s :split <c-r>=escape(expand('%:p:h'), ' ') . '/'<cr>
 nnoremap <leader>v :vnew <c-r>=escape(expand('%:p:h'), ' ') . '/'<cr>
 
-" Indention
+" Indentation
 set tabstop=2    " indent 2 spaces
 set shiftwidth=2 " indent 2 spaces when using >>
 set shiftround   " snap to increments of 2

@@ -37,9 +37,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gD", vim.lsp.buf.implementation, bufopts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-  vim.keymap.set("n", "<leader>f", function()
-    vim.lsp.buf.format({ async = true })
-  end, bufopts)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 end
 
@@ -67,19 +64,10 @@ lspconfig.dockerls.setup({})
 lspconfig.graphql.setup({})
 
 -- javascript + typescript
-lspconfig.tsserver.setup({
-  on_attach = function(client, bufnr)
-    client.server_capabilities.document_formatting = false
-    on_attach(client, bufnr)
-  end,
-})
+lspconfig.tsserver.setup({})
 
 -- json
 lspconfig.jsonls.setup({
-  on_attach = function(client, bufnr)
-    client.server_capabilities.document_formatting = false
-    on_attach(client, bufnr)
-  end,
   settings = {
     json = {
       schemas = require("schemastore").json.schemas(),
@@ -90,10 +78,6 @@ lspconfig.jsonls.setup({
 
 -- lua (neovim)
 lspconfig.lua_ls.setup({
-  on_attach = function(client, bufnr)
-    client.server_capabilities.document_formatting = false
-    on_attach(client, bufnr)
-  end,
   settings = {
     Lua = {
       runtime = { version = "LuaJIT" },
@@ -158,7 +142,6 @@ local null_ls = require("null-ls")
 
 local code_actions = null_ls.builtins.code_actions
 local diagnostics = null_ls.builtins.diagnostics
-local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
   diagnostics_format = "#{s}: #{m}",
@@ -166,32 +149,60 @@ null_ls.setup({
     -- javascript
     code_actions.eslint,
     diagnostics.eslint,
-    formatting.eslint,
-    -- lua
-    formatting.stylua,
     -- python
     diagnostics.flake8,
-    formatting.isort,
-    formatting.black,
     -- ruby
     diagnostics.rubocop,
     diagnostics.erb_lint,
-    formatting.rubocop,
-    formatting.erb_lint,
     -- shell
     code_actions.shellcheck,
     diagnostics.shellcheck,
-    formatting.shfmt,
     -- vim
     diagnostics.vint,
     -- yaml
     diagnostics.actionlint,
-    -- all
-    formatting.prettier.with({ extra_filetypes = { "ruby" } }),
   },
 })
 
 require("mason-null-ls").setup({
+  ensure_installed = {},
   automatic_installation = true,
   automatic_setup = false,
 })
+
+local prettier = { "prettierd", "prettier" }
+local javascript = { "injected", "eslint_d", prettier }
+
+require("conform").setup({
+  formatters_by_ft = {
+    ["*"] = { "trim_whitespace", "codespell" },
+    javascript = javascript,
+    javascriptreact = javascript,
+    json = { prettier },
+    lua = { "stylua" },
+    markdown = { prettier },
+    python = { "isort", "black" },
+    ruby = { "rubocop", "erb_format" },
+    sh = { "shfmt" },
+    toml = { prettier },
+    typescript = javascript,
+    typescriptreact = javascript,
+  },
+})
+
+-- :Format
+vim.api.nvim_create_user_command("Format", function(args)
+  local range = nil
+  if args.count ~= -1 then
+    local end_line =
+      vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+    range = {
+      start = { args.line1, 0 },
+      ["end"] = { args.line2, end_line:len() },
+    }
+  end
+  require("conform").format({ async = true, range = range })
+end, { range = true })
+
+-- <leader>f
+vim.keymap.set("n", "<leader>f", ":Format<CR>")

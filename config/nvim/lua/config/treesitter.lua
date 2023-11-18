@@ -4,7 +4,7 @@ require("nvim-treesitter.configs").setup({
     disable = { "markdown" },
   },
   indent = {
-    enable = true
+    enable = true,
   },
   ensure_installed = {
     "bash",
