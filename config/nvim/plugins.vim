@@ -27,13 +27,12 @@ Plug 'weirongxu/plantuml-previewer.vim'
 " Autocomplete, linting, and fixing
 Plug 'echasnovski/mini.pairs', { 'branch': 'stable' } " auto close brackets
 Plug 'github/copilot.vim' " code completion
-Plug 'jay-babu/mason-null-ls.nvim' " mason null-ls plugin
-Plug 'jose-elias-alvarez/null-ls.nvim' " lsp diagnostics
+Plug 'mfussenegger/nvim-lint' " linting
 Plug 'neovim/nvim-lspconfig' " configs for neovim built-in lsp
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " improved file parsing
 Plug 'rafamadriz/friendly-snippets' " snippet collectoin
 Plug 'ray-x/lsp_signature.nvim' " function signature hints
-Plug 'stevearc/conform.nvim' " code formatting
+Plug 'stevearc/conform.nvim' " formatting
 Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
 " Mason
 Plug 'williamboman/mason.nvim' " install lsp servers

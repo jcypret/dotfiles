@@ -138,37 +138,25 @@ lspconfig.yamlls.setup({
 })
 
 -------------------------------------------------------------------------------
---> LINTING + FORMATTING (EFM)
+--> LINTING
 -------------------------------------------------------------------------------
 
-local null_ls = require("null-ls")
+require("lint").linters_by_ft = {
+  python = { "flake8" },
+  ruby = { "standardrb", "erb_lint" },
+  vim = { "vint" },
+  yaml = { "actionlint" },
+}
 
-local code_actions = null_ls.builtins.code_actions
-local diagnostics = null_ls.builtins.diagnostics
-
-null_ls.setup({
-  diagnostics_format = "#{s}: #{m}",
-  sources = {
-    -- python
-    diagnostics.flake8,
-    -- ruby
-    diagnostics.rubocop,
-    diagnostics.erb_lint,
-    -- shell
-    code_actions.shellcheck,
-    diagnostics.shellcheck,
-    -- vim
-    diagnostics.vint,
-    -- yaml
-    diagnostics.actionlint,
-  },
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
 })
 
-require("mason-null-ls").setup({
-  ensure_installed = {},
-  automatic_installation = true,
-  automatic_setup = false,
-})
+-------------------------------------------------------------------------------
+--> FORMATTING
+-------------------------------------------------------------------------------
 
 local prettier = { "prettierd", "prettier" }
 local javascript = { "injected", "eslint_d", prettier }
@@ -182,7 +170,7 @@ require("conform").setup({
     lua = { "stylua" },
     markdown = { prettier },
     python = { "isort", "black" },
-    ruby = { "rubocop", "erb_format" },
+    ruby = { prettier, "erb_format" },
     sh = { "shfmt" },
     toml = { prettier },
     typescript = javascript,
