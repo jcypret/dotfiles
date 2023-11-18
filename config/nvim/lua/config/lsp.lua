@@ -60,6 +60,9 @@ lspconfig.bashls.setup({})
 -- docker
 lspconfig.dockerls.setup({})
 
+-- eslint
+lspconfig.eslint.setup({})
+
 -- graphql
 lspconfig.graphql.setup({})
 
@@ -146,9 +149,6 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
   diagnostics_format = "#{s}: #{m}",
   sources = {
-    -- javascript
-    code_actions.eslint,
-    diagnostics.eslint,
     -- python
     diagnostics.flake8,
     -- ruby
