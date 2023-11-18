@@ -37,6 +37,7 @@ Plug 'tpope/vim-endwise' " wisely adds `end` in ruby
 " Mason
 Plug 'williamboman/mason.nvim' " install lsp servers
 Plug 'williamboman/mason-lspconfig.nvim' " mason lsp-config plugin
+Plug 'WhoIsSethDaniel/mason-tool-installer.nvim' " install linters and formatters
 " Cmp
 Plug 'hrsh7th/nvim-cmp' " completion framework
 Plug 'hrsh7th/vim-vsnip' " snippets framework

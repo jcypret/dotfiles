@@ -61,18 +61,12 @@ brew "imagemagick"
 brew "guetzli"
 
 # C++
-brew "ccls"
-brew "clang-format"
 brew "cppcheck"
 brew "llvm"
 
 # Python
 brew "pipx"
 brew "poetry"
-
-# Shell
-brew "shellcheck"
-brew "shfmt"
 
 # Applications
 cask "1password"

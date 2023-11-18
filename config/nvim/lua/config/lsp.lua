@@ -4,6 +4,19 @@ require("mason").setup()
 require("mason-lspconfig").setup({
   automatic_installation = true,
 })
+require("mason-tool-installer").setup({
+  ensure_installed = {
+    "actionlint",
+    "clang-format",
+    "codespell",
+    "cpplint",
+    "erb-lint",
+    "shellcheck",
+    "shfmt",
+    "stylua",
+    "vint",
+  },
+})
 
 -- diagnostic mappings
 local opts = { noremap = true, silent = true }
@@ -56,6 +69,9 @@ lspconfig.util.default_config =
 
 -- bash
 lspconfig.bashls.setup({})
+
+-- c++
+lspconfig.ccls.setup({})
 
 -- docker
 lspconfig.dockerls.setup({})
@@ -142,6 +158,7 @@ lspconfig.yamlls.setup({
 -------------------------------------------------------------------------------
 
 require("lint").linters_by_ft = {
+  cpp = { "cpplint", "cppcheck" },
   python = { "flake8" },
   ruby = { "standardrb", "erb_lint" },
   vim = { "vint" },
@@ -164,13 +181,14 @@ local javascript = { "injected", "eslint_d", prettier }
 require("conform").setup({
   formatters_by_ft = {
     ["*"] = { "trim_whitespace", "codespell" },
+    cpp = { "clang_format" },
     javascript = javascript,
     javascriptreact = javascript,
     json = { prettier },
     lua = { "stylua" },
     markdown = { prettier },
     python = { "isort", "black" },
-    ruby = { prettier, "erb_format" },
+    ruby = { prettier },
     sh = { "shfmt" },
     toml = { prettier },
     typescript = javascript,
