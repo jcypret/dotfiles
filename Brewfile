@@ -51,6 +51,7 @@ brew "neovim"
 brew "overmind"
 brew "tmux"
 brew "universal-ctags"
+brew "vale"
 
 # Heroku
 brew "heroku"

@@ -1,5 +1,6 @@
-eslint_d
 @fsouza/prettierd
+eslint_d
+neovim
 prettier-plugin-toml
 pure-prompt
 typescript

@@ -130,6 +130,11 @@ lspconfig.tailwindcss.setup({
   },
 })
 
+-- vale
+lspconfig.vale_ls.setup({
+  filetypes = { "markdown", "markdown.mdx", "text" },
+})
+
 -- vim
 lspconfig.vimls.setup({})
 
@@ -165,9 +170,12 @@ require("lint").linters_by_ft = {
   yaml = { "actionlint" },
 }
 
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
   callback = function()
-    require("lint").try_lint()
+    local lint_status, lint = pcall(require, "lint")
+    if lint_status then
+      lint.try_lint()
+    end
   end,
 })
 
@@ -193,6 +201,7 @@ require("conform").setup({
     toml = { prettier },
     typescript = javascript,
     typescriptreact = javascript,
+    yaml = { prettier },
   },
 })
 
