@@ -56,47 +56,45 @@ end
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- override: default config
-lspconfig.util.default_config =
-  vim.tbl_extend("force", lspconfig.util.default_config, {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  })
+local default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
 
 -------------------------------------------------------------------------------
 --> CONFIG
 -------------------------------------------------------------------------------
 
 -- bash
-lspconfig.bashls.setup({})
+lspconfig.bashls.setup(default_config)
 
 -- c++
-lspconfig.ccls.setup({})
+lspconfig.ccls.setup(default_config)
 
 -- docker
-lspconfig.dockerls.setup({})
+lspconfig.dockerls.setup(default_config)
 
 -- eslint
-lspconfig.eslint.setup({})
+lspconfig.eslint.setup(default_config)
 
 -- graphql
-lspconfig.graphql.setup({})
+lspconfig.graphql.setup(default_config)
 
 -- javascript + typescript
-lspconfig.tsserver.setup({})
+lspconfig.tsserver.setup(default_config)
 
 -- json
-lspconfig.jsonls.setup({
+lspconfig.jsonls.setup(vim.tbl_extend("force", default_config, {
   settings = {
     json = {
       schemas = require("schemastore").json.schemas(),
       validate = { enable = true },
     },
   },
-})
+}))
 
 -- lua (neovim)
-lspconfig.lua_ls.setup({
+lspconfig.lua_ls.setup(vim.tbl_extend("force", default_config, {
   settings = {
     Lua = {
       runtime = { version = "LuaJIT" },
@@ -105,19 +103,19 @@ lspconfig.lua_ls.setup({
       diagnostics = { globals = { "vim" } },
     },
   },
-})
+}))
 
 -- primsa
-lspconfig.prismals.setup({})
+lspconfig.prismals.setup(default_config)
 
 -- python
-lspconfig.pyright.setup({})
+lspconfig.pyright.setup(default_config)
 
 -- ruby
-lspconfig.sorbet.setup({})
+lspconfig.sorbet.setup(default_config)
 
 -- tailwindcss
-lspconfig.tailwindcss.setup({
+lspconfig.tailwindcss.setup(vim.tbl_extend("force", default_config, {
   settings = {
     tailwindCSS = {
       experimental = {
@@ -128,18 +126,18 @@ lspconfig.tailwindcss.setup({
       },
     },
   },
-})
+}))
 
 -- vale
-lspconfig.vale_ls.setup({
+lspconfig.vale_ls.setup(vim.tbl_extend("force", default_config, {
   filetypes = { "markdown", "markdown.mdx", "text" },
-})
+}))
 
 -- vim
-lspconfig.vimls.setup({})
+lspconfig.vimls.setup(default_config)
 
 -- vue
-lspconfig.vuels.setup({
+lspconfig.vuels.setup(vim.tbl_extend("force", default_config, {
   settings = {
     vetur = {
       experimental = {
@@ -147,16 +145,16 @@ lspconfig.vuels.setup({
       },
     },
   },
-})
+}))
 
 -- yaml
-lspconfig.yamlls.setup({
+lspconfig.yamlls.setup(vim.tbl_extend("force", default_config, {
   settings = {
     yaml = {
       keyOrdering = false,
     },
   },
-})
+}))
 
 -------------------------------------------------------------------------------
 --> LINTING
