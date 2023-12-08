@@ -1,104 +1,21 @@
-require("config.options")
+-- load plugins
+vim.cmd([[
+source ~/.config/nvim/plugins.vim
+runtime! macros/matchit.vim
+]])
 
-vim.g.mapleader = " "
+require("config.keymaps")
+require("config.options")
+require("config.theme")
+
+require("config.completion")
+require("config.lsp")
+require("config.treesitter")
 
 vim.g.python_host_prog = "$HOME/.asdf/shims/python2"
 vim.g.python3_host_prog = "$HOME/.asdf/shims/python3"
 
 vim.cmd([[
-
-" Load plugins
-source ~/.config/nvim/plugins.vim
-runtime! macros/matchit.vim
-
-" Highlight embedded Lua scripts
-let g:vimsyn_embed= 'l'
-
-" Reload vimrc
-nnoremap <leader>rr :source ~/.config/nvim/init.vim<cr>
-
-" VIM SETTINGS =================================================================
-
-" Buffers
-"
-" create a new buffer (save it with :w ./path/to/FILENAME)
-nnoremap <leader>bn :enew<cr>
-" close current buffer
-nnoremap <leader>bd :bp <bar> bd! #<cr>
-" close all open buffers
-nnoremap <leader>bD :bufdo bd!<cr>
-
-" Clipboard
-vnoremap <c-c> "+y
-inoremap <c-v> <esc>"+pa
-" put same yank repeatedly
-vnoremap P "0p
-
-" Diffing
-nnoremap <leader>dd :term git diff<cr>i
-nnoremap <leader>dh :term git diff HEAD<cr>i
-nnoremap <leader>ds :term git diff --staged --ignore-all-space<cr>i
-
-" File Navigation
-" Switch between the last two files
-nnoremap <leader><leader> <c-^>
-" Edit another file in the same directory as the current file
-nnoremap <leader>e :e <c-r>=escape(expand('%:p:h'),' ') . '/'<cr>
-nnoremap <leader>s :split <c-r>=escape(expand('%:p:h'), ' ') . '/'<cr>
-nnoremap <leader>v :vnew <c-r>=escape(expand('%:p:h'), ' ') . '/'<cr>
-
-" Movements
-"
-" Jump to beginning of line after whitespace
-nnoremap 0 g^
-nnoremap $ g$
-" Move between panels
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-" Move vertically through wrapped text
-nnoremap j gj
-nnoremap k gk
-
-" Search /
-set ignorecase       " case-insensitive when lowercase
-set smartcase        " case-sensitive when uppercase
-set inccommand=split " live preview for find/replace
-
-" Clear highlight from search results
-nnoremap <silent> <leader>/
-  \ :nohlsearch<c-r>=has('diff')?'<bar>diffupdate':''<cr><cr><c-l>
-
-" Tab Navigation
-nnoremap T :tabnew<cr>
-nnoremap <silent> [t :tabprevious<cr>
-nnoremap <silent> ]t :tabnext<cr>
-nnoremap <silent> [T :tabrewind<cr>
-nnoremap <silent> ]T :tablast<cr>
-
-" THEME ========================================================================
-set termguicolors
-
-" Nord Theme (dark)
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-let g:nord_underline = 1
-colorscheme nord
-
-" highlight hex colors
-lua require("colorizer").setup()
-
-" LSP + COMPLETION =============================================================
-
-lua require("config.lsp")
-lua require("config.treesitter")
-lua require("config.completion")
-
-" Copilot
-imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
-highlight CopilotSuggestion guifg=#4C566A
 
 " LANGUAGE SETTINGS ============================================================
 
@@ -284,10 +201,5 @@ augroup vimrc
   autocmd BufLeave *.{js,jsx,ts,tsx,vue} :syntax sync clear
   autocmd BufEnter *.{md,mdx} :set shiftwidth=2
 augroup END
-
-" Local config
-if filereadable($HOME . '/.vimrc.local')
-  source ~/.vimrc.local
-endif
 
 ]])

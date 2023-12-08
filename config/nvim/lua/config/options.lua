@@ -30,3 +30,8 @@ opt.textwidth = 80 -- Set column width
 opt.colorcolumn = "+1" -- highlight 81st column
 opt.breakindent = true -- wrap lines in editor if too wide for screen
 opt.breakindentopt = "shift:2" -- indent wrapped line
+
+-- search
+opt.ignorecase = true -- case-insensitive when lowercase
+opt.smartcase = true -- case-sensitive when uppercase
+opt.inccommand = "split" -- live preview for find/replace
