@@ -1,42 +1,18 @@
-vim.cmd([[
+require("config.options")
 
-" Python hosts
-let g:python_host_prog = '$HOME/.asdf/shims/python2'
-let g:python3_host_prog = '$HOME/.asdf/shims/python3'
+vim.g.mapleader = " "
+
+vim.g.python_host_prog = "$HOME/.asdf/shims/python2"
+vim.g.python3_host_prog = "$HOME/.asdf/shims/python3"
+
+vim.cmd([[
 
 " Load plugins
 source ~/.config/nvim/plugins.vim
 runtime! macros/matchit.vim
 
-" Leader
-let g:mapleader = ' '
-
-set autowrite      " save before running commands (useful for TDD)
-set cmdheight=2    " extra room at bottom for messages
-set cursorline     " highlight the current line
-set hidden         " allow hiding unsaved buffers
-set linebreak      " prevent soft-wrapping inside of word
-set nojoinspaces   " when joining lines, collapse to a single space
-set noshowcmd      " don't show partial commands in status bar
-set noshowmode     " redundant to status line mode
-set regexpengine=1 " use legacy syntax parsing for ruby
-set shortmess+=c   " hide completion menu messages
-set signcolumn=yes " always show signcolumns
-set splitbelow     " open new horizontal splits below
-set splitright     " open new vertical splits to the right
-set wildmenu       " enable tab-completions for vim commands
-
-" turn off automatic hard-wrapping
-set formatoptions-=t
-
-" Display whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
-
 " Highlight embedded Lua scripts
 let g:vimsyn_embed= 'l'
-
-" Match longest first, then next full match
-set wildmode=list:longest,full
 
 " Reload vimrc
 nnoremap <leader>rr :source ~/.config/nvim/init.vim<cr>
@@ -58,11 +34,6 @@ inoremap <c-v> <esc>"+pa
 " put same yank repeatedly
 vnoremap P "0p
 
-" Code Folding
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set foldlevelstart=99 " prevent collapse on initial fold
-
 " Diffing
 nnoremap <leader>dd :term git diff<cr>i
 nnoremap <leader>dh :term git diff HEAD<cr>i
@@ -75,23 +46,6 @@ nnoremap <leader><leader> <c-^>
 nnoremap <leader>e :e <c-r>=escape(expand('%:p:h'),' ') . '/'<cr>
 nnoremap <leader>s :split <c-r>=escape(expand('%:p:h'), ' ') . '/'<cr>
 nnoremap <leader>v :vnew <c-r>=escape(expand('%:p:h'), ' ') . '/'<cr>
-
-" Indentation
-set tabstop=2    " indent 2 spaces
-set shiftwidth=2 " indent 2 spaces when using >>
-set shiftround   " snap to increments of 2
-set expandtab    " use soft tabs
-
-" Line Numbers
-set relativenumber
-set number
-set numberwidth=5
-
-" Line Width
-set textwidth=80           " Set column width
-set colorcolumn=+1         " highlight 81st column
-set breakindent            " wrap lines in editor if too wide for screen
-set breakindentopt=shift:2 " indent wrapped line
 
 " Movements
 "
