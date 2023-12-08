@@ -1,10 +1,10 @@
 -- load plugins
 vim.cmd([[
 source ~/.config/nvim/plugins.vim
-runtime! macros/matchit.vim
 ]])
 
 require("config.keymaps")
+require("config.languages")
 require("config.options")
 require("config.theme")
 
@@ -12,29 +12,7 @@ require("config.completion")
 require("config.lsp")
 require("config.treesitter")
 
-vim.g.python_host_prog = "$HOME/.asdf/shims/python2"
-vim.g.python3_host_prog = "$HOME/.asdf/shims/python3"
-
 vim.cmd([[
-
-" LANGUAGE SETTINGS ============================================================
-
-" HTML
-let g:html_indent_tags = 'li\|p'
-
-" Python
-let g:python_highlight_space_errors = 0
-let g:python_highlight_all = 1
-
-" Ruby
-let g:ruby_indent_block_style = 'do'
-let g:ruby_indent_assignment_style = 'variable'
-let g:ruby_heredoc_syntax_filetypes = {
-  \ 'pgsql': {'start': 'SQL'},
-  \ 'ruby': {'start': 'RUBY'},
-  \ 'xml': {'start': 'XML'},
-  \ 'yaml': {'start': 'YAML'},
-  \ }
 
 " PLUGIN SETTINGS ==============================================================
 
