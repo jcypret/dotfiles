@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Check if at least one argument (the file name) is provided
+if [ "$#" -lt 1 ]; then
+	echo "Usage: daff-diff <file> [daff options]"
+	exit 1
+fi
+
+# Extract the file name and shift the arguments so only daff options remain
+file="$1"
+shift
+
+# Create a temporary file for the previous version in the current directory
+temp_dir=$(mktemp -d)
+prev_file="$temp_dir/prev_$(basename "$file")"
+
+# Fetch the file from the previous commit
+git show "main:$file" >"$prev_file" 2>/dev/null
+if [ $? -ne 0 ]; then
+	echo "Error: Unable to fetch the previous version of the file."
+	rm -rf "$temp_dir"
+	exit 1
+fi
+
+# Run daff with the passed options
+daff "$@" "$prev_file" "$file"
+
+# Cleanup: Remove the temporary directory
+rm -rf "$temp_dir"
