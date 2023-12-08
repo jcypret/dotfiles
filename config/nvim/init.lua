@@ -1,5 +1,4 @@
-set encoding=utf-8
-scriptencoding utf-8
+vim.cmd([[
 
 " Python hosts
 let g:python_host_prog = '$HOME/.asdf/shims/python2'
@@ -234,7 +233,6 @@ let g:vim_markdown_override_foldtext = 0
 
 " NERDTree
 let g:NERDTreeUpdateOnCursorHold = 0
-let g:NERDTreeIgnore = ['__pycache__', '\.egg-info$[[dir]]']
 noremap <c-n> :NERDTreeToggle<cr>
 noremap <leader>n :NERDTreeFind<cr>
 
@@ -337,3 +335,5 @@ augroup END
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
+
+]])
