@@ -10,6 +10,7 @@ brew "ansifilter" # filter out escape codes from tmux capture
 brew "blueutil" # control bluetooth devices
 brew "cmake"
 brew "direnv"
+brew "gnu-sed"
 brew "openssl"
 brew "p7zip"
 brew "rcm"

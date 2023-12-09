@@ -1,3 +1,7 @@
+-- python host
+vim.g.python3_host_prog = "$HOME/.asdf/shims/python3"
+vim.g.python_host_prog = "$HOME/.asdf/shims/python2"
+
 local opt = vim.opt
 
 opt.autowrite = true -- save before running commands (useful for TDD)
@@ -13,6 +17,7 @@ opt.signcolumn = "yes" -- always show signcolumns
 opt.splitbelow = true -- open new horizontal splits below
 opt.splitright = true -- open new vertical splits to the right
 opt.wildmode = { "list:longest", "full" } -- match longest first, then full list
+opt.termguicolors = true -- enable 24-bit RGB colors
 
 -- indentation
 opt.tabstop = 2 -- indent 2 spaces

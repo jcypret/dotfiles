@@ -1,39 +1,100 @@
 local autocmd = vim.api.nvim_create_autocmd
 
-vim.cmd([[
-augroup vimrc
-  autocmd!
+-- When editing a file, always jump to the last known cursor position
+autocmd("BufReadPost", {
+  pattern = "*",
+  callback = function()
+    if
+      vim.bo.filetype ~= "gitcommit"
+      and vim.fn.line("'\"") > 0
+      and vim.fn.line("'\"") <= vim.fn.line("$")
+    then
+      vim.api.nvim_exec('normal g`"', false)
+    end
+  end,
+})
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it for commit messages, when the position is invalid, or when
-  " inside an event handler (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+-- Set syntax highlighting for specific file types
+autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = { "*.tsx", "*.jsx" },
+  command = "set filetype=typescriptreact",
+})
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*gitconfig*",
+  command = "set filetype=gitconfig",
+})
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = ".env*",
+  callback = vim.diagnostic.disable,
+})
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = ".env.*",
+  command = "set filetype=sh",
+})
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = ".{babel,eslint,jscs,jshint}rc",
+  command = "set filetype=json",
+})
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "Procfile*",
+  command = "set filetype=yaml",
+})
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "devcontainer.json",
+  command = "set filetype=jsonc",
+})
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "{Appraisals,*Brewfile}",
+  command = "set filetype=ruby",
+})
 
-  " Set syntax highlighting for specific file types
-  autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
-  autocmd BufRead,BufNewFile *gitconfig* set filetype=gitconfig
-  autocmd BufRead,BufNewFile .env* lua vim.diagnostic.disable()
-  autocmd BufRead,BufNewFile .env.* set filetype=sh
-  autocmd BufRead,BufNewFile .{babel,eslint,jscs,jshint}rc set filetype=json
-  autocmd BufRead,BufNewFile Procfile* set filetype=yaml
-  autocmd BufRead,BufNewFile devcontainer.json set filetype=jsonc
-  autocmd BufRead,BufNewFile {Appraisals,*Brewfile} set filetype=ruby
+-- Set file-type specific settings
+autocmd("FileType", {
+  pattern = "cpp,vue",
+  callback = function()
+    vim.bo.commentstring = "// %s" -- Set comment style to // for cpp and vue
+  end,
+})
+autocmd("FileType", {
+  pattern = "css,scss",
+  callback = function()
+    vim.bo.iskeyword = vim.bo.iskeyword .. ",-"
+  end,
+})
+autocmd("FileType", {
+  pattern = "html,eruby",
+  command = "EmmetInstall",
+})
+autocmd("FileType", {
+  pattern = "lisp,clojure,scheme",
+  command = "RainbowToggleOn",
+})
+autocmd("FileType", {
+  pattern = "nerdtree",
+  callback = function()
+    vim.wo.list = false
+  end,
+})
+autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    vim.wo.number = false
+    vim.wo.relativenumber = false
+  end,
+})
 
-  " Set file-type specific settings
-  autocmd FileType cpp,vue setlocal commentstring=//\ %s " Set comment style to // for cpp and vue
-  autocmd FileType crystal nnoremap <buffer> <silent> <leader>f :CrystalFormat<cr>
-  autocmd FileType css,scss setlocal iskeyword+=- " Fix CSS highlighting for keywords
-  autocmd FileType html,eruby EmmetInstall
-  autocmd FileType lisp,clojure,scheme RainbowToggleOn " Use rainbow parens for lisp-based languages
-  autocmd FileType nerdtree setlocal nolist " hide invisible chars in nerdtree panel
-  autocmd TermOpen * setlocal nonumber norelativenumber " turn off line numbers for terminal
-
-  " fix weird highlighting for mixed syntax
-  autocmd BufEnter *.{js,jsx,ts,tsx,vue} :syntax sync fromstart
-  autocmd BufLeave *.{js,jsx,ts,tsx,vue} :syntax sync clear
-  autocmd BufEnter *.{md,mdx} :set shiftwidth=2
-augroup END
-]])
+-- Fix weird highlighting for mixed syntax
+autocmd("BufEnter", {
+  pattern = "*.{js,jsx,ts,tsx,vue}",
+  command = "syntax sync fromstart",
+})
+autocmd("BufLeave", {
+  pattern = "*.{js,jsx,ts,tsx,vue}",
+  command = "syntax sync clear",
+})
+autocmd("BufEnter", {
+  pattern = "*.{md,mdx}",
+  callback = function()
+    vim.bo.shiftwidth = 2
+  end,
+})

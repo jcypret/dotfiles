@@ -1,77 +1,85 @@
 local g = vim.g
 local map = vim.api.nvim_set_keymap
 
-local function noremap(mode, lhs, rhs)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
-end
-
 g.mapleader = " "
 
 -- BUFFERS
 -- create a new buffer (save it with :w ./path/to/FILENAME)
-noremap("n", "<leader>bn", ":enew<cr>")
+map("n", "<leader>bn", ":enew<cr>", { noremap = true })
 -- close current buffer
-noremap("n", "<leader>bd", ":bp <bar> bd! #<cr>") -- close all open buffers
-noremap("n", "<leader>bD", ":bufdo bd!<cr>")
+map("n", "<leader>bd", ":bp <bar> bd! #<cr>", { noremap = true })
+-- close all open buffers
+map("n", "<leader>bD", ":bufdo bd!<cr>", { noremap = true })
 
 -- CLIPBOARD
 -- copy to clipboard in visual mode
-noremap("v", "<C-c>", '"+y')
+map("v", "<C-c>", '"+y', { noremap = true })
 -- paste from clipboard in insert mode
-noremap("i", "<C-v>", '<esc>"+pa')
+map("i", "<C-v>", '<esc>"+pa', { noremap = true })
 -- put same yank repeatedly
-noremap("v", "P", '"0p')
+map("v", "P", '"0p', { noremap = true })
 
 -- DIFFING
 -- diff against last commit
-noremap("n", "<leader>dd", ":term git diff<cr>i")
+map("n", "<leader>dd", ":term git diff<cr>i", { noremap = true })
 -- diff against HEAD
-noremap("n", "<leader>dh", ":term git diff HEAD<cr>i")
+map("n", "<leader>dh", ":term git diff HEAD<cr>i", { noremap = true })
 -- diff staged changes, ignoring all spaces
-noremap("n", "<leader>ds", ":term git diff --staged --ignore-all-space<cr>i")
+map(
+  "n",
+  "<leader>ds",
+  ":term git diff --staged --ignore-all-space<cr>i",
+  { noremap = true }
+)
 
 -- FILE NAVIGATION
 -- Switch between the last two files
-noremap("n", "<leader><leader>", "<C-^>")
+map("n", "<leader><leader>", "<C-^>", { noremap = true })
 -- Edit another file in the same directory as the current file
-noremap("n", "<leader>e", ":e <C-r>=escape(expand('%:p:h'), ' ') . '/'<cr>")
-noremap("n", "<leader>s", ":split <C-r>=escape(expand('%:p:h'), ' ') . '/'<cr>")
-noremap("n", "<leader>v", ":vnew <C-r>=escape(expand('%:p:h'), ' ') . '/'<cr>")
+map(
+  "n",
+  "<leader>e",
+  ":e <C-r>=escape(expand('%:p:h'), ' ') . '/'<cr>",
+  { noremap = true }
+)
+map(
+  "n",
+  "<leader>s",
+  ":split <C-r>=escape(expand('%:p:h'), ' ') . '/'<cr>",
+  { noremap = true }
+)
+map(
+  "n",
+  "<leader>v",
+  ":vnew <C-r>=escape(expand('%:p:h'), ' ') . '/'<cr>",
+  { noremap = true }
+)
 
 -- MOVEMENTS
 -- Jump to beginning of line after whitespace
-noremap("n", "0", "g^")
-noremap("n", "$", "g$")
+map("n", "0", "g^", { noremap = true })
+map("n", "$", "g$", { noremap = true })
 -- Move between panels
-noremap("n", "<C-h>", "<C-w>h")
-noremap("n", "<C-j>", "<C-w>j")
-noremap("n", "<C-k>", "<C-w>k")
-noremap("n", "<C-l>", "<C-w>l")
+map("n", "<C-h>", "<C-w>h", { noremap = true })
+map("n", "<C-j>", "<C-w>j", { noremap = true })
+map("n", "<C-k>", "<C-w>k", { noremap = true })
+map("n", "<C-l>", "<C-w>l", { noremap = true })
 -- Move vertically through wrapped text
-noremap("n", "j", "gj")
-noremap("n", "k", "gk")
+map("n", "j", "gj", { noremap = true })
+map("n", "k", "gk", { noremap = true })
 
 -- SEARCH
 -- Clear highlight from search results
-noremap(
+map(
   "n",
   "<leader>/",
-  ":nohlsearch<c-r>=has('diff')?'<bar>diffupdate':''<cr><cr><C-l>"
+  ":nohlsearch<c-r>=has('diff')?'<bar>diffupdate':''<cr><cr><C-l>",
+  { noremap = true, silent = true }
 )
 
--- TAB NAVIGATION
-noremap("n", "T", ":tabnew<cr>")
-noremap("n", "[t", ":tabprevious<cr>")
-noremap("n", "]t", ":tabnext<cr>")
-noremap("n", "[T", ":tabrewind<cr>")
-noremap("n", "]T", ":tablast<cr>")
-
--- COPILOT
-g.copilot_no_tab_map = true
-map(
-  "i",
-  "<c-j>",
-  'copilot#Accept("<cr>")',
-  { noremap = true, silent = true, expr = true, script = true }
-)
-vim.cmd("highlight CopilotSuggestion guifg=#4C566A")
+-- TABS
+map("n", "T", ":tabnew<cr>", { noremap = true, silent = true })
+map("n", "[t", ":tabprevious<cr>", { noremap = true, silent = true })
+map("n", "]t", ":tabnext<cr>", { noremap = true, silent = true })
+map("n", "[T", ":tabrewind<cr>", { noremap = true, silent = true })
+map("n", "]T", ":tablast<cr>", { noremap = true, silent = true })
