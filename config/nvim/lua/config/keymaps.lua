@@ -42,18 +42,6 @@ map(
   ":e <C-r>=escape(expand('%:p:h'), ' ') . '/'<cr>",
   { noremap = true }
 )
-map(
-  "n",
-  "<leader>s",
-  ":split <C-r>=escape(expand('%:p:h'), ' ') . '/'<cr>",
-  { noremap = true }
-)
-map(
-  "n",
-  "<leader>v",
-  ":vnew <C-r>=escape(expand('%:p:h'), ' ') . '/'<cr>",
-  { noremap = true }
-)
 
 -- MOVEMENTS
 -- Jump to beginning of line after whitespace

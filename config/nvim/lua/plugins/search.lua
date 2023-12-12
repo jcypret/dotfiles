@@ -6,9 +6,12 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    opts = {
+      is_insert_mode = true,
+    },
     keys = {
       {
-        "\\",
+        "<leader>s",
         '<cmd>lua require("spectre").toggle()<CR>',
         { desc = "Toggle Spectre" },
       },
