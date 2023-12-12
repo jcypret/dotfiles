@@ -2,6 +2,7 @@ return {
   {
     -- Git wrapper
     "tpope/vim-fugitive",
+    cmd = { "Git", "Gstatus", "Gcommit", "Gpush", "Gwrite", "Gdelete" },
     keys = {
       { "<leader>gs", ":Git<cr>:20wincmd_<cr>" },
       { "<leader>gc", ":Git commit<cr>" },
