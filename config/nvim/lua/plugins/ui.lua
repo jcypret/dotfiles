@@ -18,12 +18,7 @@ return {
   {
     -- shows lines for indentation levels
     "lukas-reineke/indent-blankline.nvim",
-    init = function()
-      vim.api.nvim_set_hl(0, "IblScope", { fg = "#5E81AC" })
-    end,
-    config = function(_, opts)
-      require("ibl").setup(opts)
-    end,
+    main = "ibl",
     opts = {
       indent = {
         char = "▏",
@@ -31,6 +26,7 @@ return {
       scope = {
         show_start = false,
         show_end = false,
+        highlight = { "DiagnosticHint" }, -- nord 10
       },
       exclude = {
         filetypes = { "nerdtree", "startify", "tagbar" },
