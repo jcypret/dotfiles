@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+export LC_ALL=C
+
+# Create an associative array
+typeset -A line_count
+
+# Loop through all tracked files
+git ls-tree -r HEAD --name-only | while read file; do
+  # Check if the file is recognized as binary by git
+  if ! git grep -Iq . -- "$file"; then
+    # Skipping binary file
+    :
+  else
+    # Use git blame to count lines per author for the file
+    git blame --line-porcelain "$file" 2>/dev/null |
+    grep '^author ' |
+    cut -d ' ' -f 2- |
+    while read author; do
+      (( line_count[$author]++ ))
+    done
+  fi
+done
+
+# Display the line count for each author, sorted by count
+for author in "${(@k)line_count}"; do
+  echo "$author: ${line_count[$author]}"
+done | sort -t: -k2 -nr
