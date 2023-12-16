@@ -7,6 +7,7 @@ return {
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     opts = {
+      format_on_save = true,
       formatters_by_ft = {
         ["*"] = { "trim_whitespace", "codespell" },
         cpp = { "clang_format" },
