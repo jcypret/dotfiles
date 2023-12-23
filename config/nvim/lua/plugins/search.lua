@@ -6,9 +6,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    opts = {
-      is_insert_mode = true,
-    },
     keys = {
       {
         "<leader>s",
