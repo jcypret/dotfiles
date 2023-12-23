@@ -1,7 +1,6 @@
 -- diagnostic mappings
 local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<leader>D", vim.diagnostic.setloclist, opts)
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+vim.keymap.set("n", "D", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
