@@ -1,5 +1,4 @@
-local prettier = { "prettierd", "prettier" }
-local javascript = { "injected", "eslint_d", prettier }
+local javascript = { "injected", "eslint", "prettier" }
 
 return {
   {
@@ -9,20 +8,20 @@ return {
     opts = {
       format_on_save = true,
       formatters_by_ft = {
-        ["*"] = { "trim_whitespace", "codespell" },
+        ["*"] = { "trim_whitespace" },
         cpp = { "clang_format" },
         javascript = javascript,
         javascriptreact = javascript,
-        json = { prettier },
+        json = { "prettier" },
         lua = { "stylua" },
-        markdown = { prettier },
+        markdown = { "prettier" },
         python = { "isort", "black" },
-        ruby = { prettier },
+        ruby = { "prettier" },
         sh = { "shfmt" },
-        toml = { prettier },
+        toml = { "prettier" },
         typescript = javascript,
         typescriptreact = javascript,
-        yaml = { prettier },
+        yaml = { "prettier" },
       },
     },
     keys = {
