@@ -70,6 +70,17 @@ return {
     "nvim-tree/nvim-web-devicons",
     lazy = true,
   },
+  {
+    -- better vim.ui
+    "stevearc/dressing.nvim",
+    config = {
+      input = {
+        win_options = {
+          winhighlight = "NormalFloat:",
+        },
+      },
+    },
+  },
   "RRethy/vim-illuminate", -- cursor symbol highlight
   "norcalli/nvim-colorizer.lua", -- highlight hex colors
 }
