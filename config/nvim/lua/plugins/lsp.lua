@@ -25,6 +25,12 @@ return {
       local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+      -- enable code folding
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
+
       local default_config =
         vim.tbl_extend("force", lspconfig.util.default_config, {
           capabilities = capabilities,
