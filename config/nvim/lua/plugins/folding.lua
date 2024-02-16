@@ -26,6 +26,18 @@ return {
           require("ufo").closeAllFolds()
         end,
       },
+      {
+        "zr",
+        function()
+          require("ufo").openFoldsExceptKinds()
+        end,
+      },
+      {
+        "zm",
+        function()
+          require("ufo").closeFoldsWith()
+        end,
+      },
     },
   },
 }
