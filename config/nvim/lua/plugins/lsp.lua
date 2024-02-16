@@ -53,7 +53,7 @@ return {
       lspconfig.graphql.setup(default_config)
 
       -- javascript + typescript
-      lspconfig.tsserver.setup(default_config)
+      require("typescript-tools").setup(default_config)
 
       -- json
       lspconfig.jsonls.setup(vim.tbl_extend("force", default_config, {
@@ -128,5 +128,9 @@ return {
         },
       }))
     end,
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   },
 }
