@@ -7,7 +7,8 @@ return {
       { "<leader>gs", ":Git<cr>:20wincmd_<cr>" },
       { "<leader>gc", ":Git commit<cr>" },
       { "<leader>gp", ":Git push<cr>" },
-    }
+      { "<leader>gb", ":Git blame<cr>" },
+    },
   },
   {
     -- git diff in the sign column
