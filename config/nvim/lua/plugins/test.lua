@@ -4,10 +4,7 @@ return {
     "janko-m/vim-test",
     init = function()
       vim.g.root_markers = { "package.json", ".git/" }
-
       vim.g["test#strategy"] = "neovim"
-      vim.g["test#javascript#runner"] = "jest"
-      vim.g["test#javascript#jest#executable"] = "pnpm test -- "
 
       vim.cmd([[
         function! s:RunVimTest(cmd)
