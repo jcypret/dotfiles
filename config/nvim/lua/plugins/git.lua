@@ -8,6 +8,7 @@ return {
       { "<leader>gc", ":Git commit<cr>" },
       { "<leader>gp", ":Git push<cr>" },
       { "<leader>gb", ":Git blame<cr>" },
+      { "<leader>gh", ":GBrowse<cr>", mode = { "n", "v" } },
     },
   },
   {
@@ -23,6 +24,9 @@ return {
     cmd = "GV",
     keys = {
       { "<leader>gv", ":GV<cr>" },
+    },
+    dependencies = {
+      "tpope/vim-fugitive",
     },
   },
   "tpope/vim-rhubarb", -- gbrowse for GitHub
