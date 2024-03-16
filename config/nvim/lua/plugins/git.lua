@@ -18,16 +18,5 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
-  {
-    -- git commit browser
-    "junegunn/gv.vim",
-    cmd = "GV",
-    keys = {
-      { "<leader>gv", ":GV<cr>" },
-    },
-    dependencies = {
-      "tpope/vim-fugitive",
-    },
-  },
   "tpope/vim-rhubarb", -- gbrowse for GitHub
 }

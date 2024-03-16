@@ -32,7 +32,7 @@ return {
       },
     },
   },
-  "arp242/jumpy.vim", -- filetype-specific mappings for [[ and ]]
+  { "echasnovski/mini.bracketed", version = "*", config = true }, -- square bracket navigation
   "christoomey/vim-tmux-navigator", -- seamless navigation between tmux panes and vim splits
   "gioele/vim-autoswap", -- stop the swap file messages and just switch to correct window
   "pbrisbin/vim-mkdir", -- auto create any non-existent directories before writing buffer

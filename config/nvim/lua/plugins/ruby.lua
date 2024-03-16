@@ -20,16 +20,8 @@ return {
       }
     end,
   },
-  {
-    -- required for vim-textobj-rubyblock
-    "kana/vim-textobj-user",
-    ft = "ruby",
-  },
-  {
-    -- motion for Ruby blocks
-    "nelstrom/vim-textobj-rubyblock",
-    ft = "ruby",
-  },
+  { "kana/vim-textobj-user", ft = "ruby" }, -- required for vim-textobj-rubyblock
+  { "nelstrom/vim-textobj-rubyblock", ft = "ruby" }, -- motion for Ruby blocks
   { "tpope/vim-bundler" }, -- Bundler wrapper (:Bundle) and Gemfile syntax
   { "tpope/vim-rails" }, -- Rails wrapper (gf, projectionist def, enhanced syntax)
   { "tpope/vim-rake" }, -- Rake wrapper (:Rake, projectionist def)

@@ -15,10 +15,11 @@ return {
   },
   "pangloss/vim-javascript", -- JavaScript/ES6 syntax
   "leafgarland/typescript-vim", -- TypeScript syntax
-  "prisma/vim-prisma", -- Prisma syntax
-  "posva/vim-vue", -- Vue SFC syntax
+
+  "jparise/vim-graphql", -- GraphQL syntax
   "mustache/vim-mustache-handlebars", -- handlebars syntax
   "peitalin/vim-jsx-typescript", -- TypeScript JSX syntax
+  "posva/vim-vue", -- Vue SFC syntax
+  "prisma/vim-prisma", -- Prisma syntax
   "styled-components/vim-styled-components", -- Emotion syntax
-  "jparise/vim-graphql", -- GraphQL syntax
 }

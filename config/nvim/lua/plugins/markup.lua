@@ -1,13 +1,5 @@
 return {
   {
-    -- HTML text expander
-    "mattn/emmet-vim",
-    cmd = { "Emmet", "EmmetInstall" },
-    init = function()
-      vim.g.user_emmet_install_global = 0
-    end,
-  },
-  {
     -- Markdown syntax and config
     "preservim/vim-markdown",
     init = function()
