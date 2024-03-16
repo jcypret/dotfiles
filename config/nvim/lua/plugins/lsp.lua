@@ -10,7 +10,7 @@ return {
     config = function()
       -- common on-attach
       local on_attach = function(_, bufnr)
-        require("lsp_signature").on_attach({})
+        require("lsp_signature").on_attach({}, bufnr)
 
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
