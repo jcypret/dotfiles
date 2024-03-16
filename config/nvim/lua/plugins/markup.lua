@@ -18,6 +18,26 @@ return {
       vim.g.vim_markdown_override_foldtext = 0
     end,
   },
+  {
+    "lukas-reineke/headlines.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = {
+      markdown = {
+        bullets = {},
+        codeblock_highlight = "CodeBlock",
+        dash_highlight = "Dash",
+        quote_highlight = "Quote",
+        headline_highlights = {
+          "Headline1",
+          "Headline2",
+          "Headline3",
+          "Headline4",
+          "Headline5",
+          "Headline6",
+        },
+      },
+    },
+  },
   "cespare/vim-toml", -- TOML syntax
   "jxnblk/vim-mdx-js", -- MDX syntax
   "othree/html5.vim", -- HTML5 syntax
