@@ -111,6 +111,15 @@ return {
       },
     },
   },
+  -- toast notifications
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      render = "compact",
+      timeout = 5000,
+      stages = "fade",
+    },
+  },
   {
     -- better message and command line ui
     "folke/noice.nvim",
