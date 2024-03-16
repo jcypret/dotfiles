@@ -17,8 +17,5 @@ return {
       { "<c-p>", "<cmd>Telescope find_files hidden=true<cr>" },
       { "<leader>;", "<cmd>Telescope buffers<cr>" },
     },
-    init = function()
-      vim.api.nvim_set_hl(0, "TelescopeMatching", { link = "Keyword" })
-    end,
   },
 }

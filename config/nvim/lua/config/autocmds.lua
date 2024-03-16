@@ -100,3 +100,11 @@ autocmd("BufEnter", {
     vim.bo.shiftwidth = 2
   end,
 })
+
+-- Disable semantic tokens (for now)
+autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+})

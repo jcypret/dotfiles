@@ -1,18 +1,28 @@
 return {
   {
-    -- dark theme
-    "jcypret/nord-midnight-vim",
+    "jcypret/nord.nvim",
     lazy = false,
     priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
+    init = function()
+      local nord = require("nord.colors")
+
       -- highlight embedded languages
       vim.g.vimsyn_embed = "l"
 
-      vim.g.nord_italic = 1
-      vim.g.nord_italic_comments = 1
-      vim.g.nord_underline = 1
+      -- theme config
+      vim.g.nord_bold = false
+      vim.g.nord_borders = true
+      vim.g.nord_italic = false
 
+      -- apply theme
       vim.cmd([[colorscheme nord]])
+
+      -- italicize comments
+      local hl = vim.api.nvim_get_hl_by_name("Comment", true)
+      vim.api.nvim_set_hl(0, "@comment", { fg = hl.foreground, italic = true })
+
+      -- darken line numbers
+      vim.api.nvim_set_hl(0, "LineNr", { fg = nord.nord2_gui })
     end,
   },
   {
@@ -35,20 +45,40 @@ return {
     },
   },
   {
-    -- improved status and tablines
-    "vim-airline/vim-airline",
-    init = function()
-      vim.g.airline_powerline_fonts = 1
-      vim.g.airline_skip_empty_sections = 1
-      vim.g["airline#extensions#branch#displayed_head_limit"] = 25 -- truncate branch name
-      vim.g["airline#extensions#branch#format"] = 1 -- only show last branch segment (/)
-      vim.g["airline#extensions#branch#vcs_checks"] = {} -- hide dirty/untracked symbol
-      vim.g["airline#extensions#gutentags#enabled"] = 0 -- hide async status
-      vim.g["airline#extensions#hunks#enabled"] = 0 -- hide +/- git change counts
-      vim.g["airline#extensions#tabline#enabled"] = 1 -- enable buffer tabline
-      vim.g["airline#extensions#tabline#formatter"] = "unique_tail_improved" -- disambiguate file names
-      vim.g["airline#extensions#tagbar#enabled"] = 0 -- disable slow extension
-      vim.g["airline#parts#ffenc#skip_expected_string"] = "utf-8[unix]" -- hide encoding for utf-8
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      theme = "nord",
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { { "filename", path = 1 } },
+        lualine_x = { "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
+      },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { { "filename", path = 1 } },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+      },
+    },
+  },
+  {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    opts = function()
+      return {
+        highlights = require("nord").bufferline.highlights(),
+        options = {
+          separator_style = "slope",
+          show_buffer_close_icons = false,
+        },
+      }
     end,
   },
   {
