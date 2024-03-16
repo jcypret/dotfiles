@@ -111,6 +111,61 @@ return {
       },
     },
   },
+  {
+    -- better message and command line ui
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+      "hrsh7th/nvim-cmp",
+    },
+    opts = {
+      cmdline = {
+        view = "cmdline", -- traditional bottom-left command line
+      },
+      presets = {
+        bottom_search = true, -- traditional bottom-left search
+        lsp_doc_border = true,
+      },
+      lsp = {
+        hover = {
+          silent = true, -- set to true to not show a message if hover is not available
+        },
+        override = {
+          -- override the default lsp markdown formatter with Noice
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          -- override the lsp markdown formatter with Noice
+          ["vim.lsp.util.stylize_markdown"] = true,
+          -- override cmpdocumentation with Noice (needs the other options to work)
+          ["cmp.entry.get_documentation"] = true,
+        },
+        signature = {
+          enabled = false,
+        },
+      },
+    },
+    keys = {
+      {
+        "<c-f>",
+        function()
+          if not require("noice.lsp").scroll(4) then
+            return "<c-f>"
+          end
+        end,
+        mode = { "n", "i", "s" },
+      },
+      {
+        "<c-b>",
+        function()
+          if not require("noice.lsp").scroll(-4) then
+            return "<c-b>"
+          end
+        end,
+        mode = { "n", "i", "s" },
+      },
+    },
+  },
   "RRethy/vim-illuminate", -- cursor symbol highlight
   "norcalli/nvim-colorizer.lua", -- highlight hex colors
 }
