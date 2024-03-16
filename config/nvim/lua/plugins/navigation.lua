@@ -20,6 +20,16 @@ return {
           hide_dotfiles = false,
         },
       },
+      default_component_configs = {
+        indent = {
+          highlight = "LineNr",
+        },
+      },
+      renderers = {
+        message = {
+          { "name", highlight = "@comment" },
+        },
+      },
     },
   },
   "arp242/jumpy.vim", -- filetype-specific mappings for [[ and ]]

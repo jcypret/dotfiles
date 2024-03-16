@@ -18,7 +18,7 @@ return {
       vim.cmd([[colorscheme nord]])
 
       -- italicize comments
-      local hl = vim.api.nvim_get_hl_by_name("Comment", true)
+      local hl = vim.api.nvim_get_hl_by_name("@comment", true)
       vim.api.nvim_set_hl(0, "@comment", { fg = hl.foreground, italic = true })
 
       -- darken line numbers
