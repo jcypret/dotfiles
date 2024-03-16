@@ -5,10 +5,14 @@ return {
     cmd = { "Trouble", "TroubleClose", "TroubleToggle" },
     keys = {
       {
-        "D",
+        "<leader>x",
         function()
           require("trouble").toggle("workspace_diagnostics")
         end,
+      },
+      {
+        "gR",
+        "<cmd>Trouble lsp_references<cr>",
       },
     },
   },
