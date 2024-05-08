@@ -18,7 +18,7 @@ return {
   },
   "christoomey/vim-sort-motion", -- go sort (gs)
   "christoomey/vim-titlecase", -- go titleize (gt)
+  "tpope/vim-surround", -- go surround (ys)
   { "echasnovski/mini.ai", version = "*", config = true }, -- additional text objects
   { "echasnovski/mini.comment", version = "*", config = true }, -- go comment (gc)
-  { "echasnovski/mini.surround", version = "*", config = true }, -- quote/paren motions (sa, sr, sd)
 }
