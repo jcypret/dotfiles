@@ -5,6 +5,7 @@ ohmyzsh/ohmyzsh path:plugins/bundler
 ohmyzsh/ohmyzsh path:plugins/z
 
 # Plugins
+azu/ni.zsh # one command for all node package managers
 MichaelAquilina/zsh-autoswitch-virtualenv
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions

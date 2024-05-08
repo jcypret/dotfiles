@@ -72,6 +72,9 @@ export FZF_DEFAULT_OPTS='
 # ssh
 ssh-add -A 2>/dev/null; # Load in SSH keys
 
+# autocomplete
+autoload -U compinit; compinit
+
 source ~/.zsh_plugins.sh
 source ~/.aliases
 
@@ -81,11 +84,6 @@ path=("$HOME/.bin" $path) # dotfiles
 path=("$HOME/.local/bin" $path) # pipx
 path=(".git/safe/../../bin" $path) # `git trust-bin`
 export -U PATH
-
-# load completions if not already loaded
-if ! (( $+functions[compdef] )) ; then
-  autoload -Uz compinit && compinit
-fi
 
 if ! (( $+functions[complete] )) ; then
   autoload -Uz bashcompinit && bashcompinit
