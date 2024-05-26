@@ -18,5 +18,11 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
+  {
+    -- git merge conflicts
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    config = true,
+  },
   "tpope/vim-rhubarb", -- gbrowse for GitHub
 }
