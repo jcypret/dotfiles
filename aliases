@@ -2,6 +2,7 @@
 alias ln="ln -v" # use verbose when linking files
 alias mkdir="mkdir -p" # create nested directories that don't already exist
 alias path='echo $PATH | tr -s ":" "\n"' # pretty print path
+alias j="z" # match autojump habit
 
 # Better unix
 alias cat="bat"
@@ -10,13 +11,10 @@ alias ping="prettyping --nolegend"
 alias top="btm --basic --fahrenheit"
 
 # Better ls
-alias ls="exa --group-directories-first --classify"
+alias ls="eza --group-directories-first --classify"
 alias l="ls --long"
 alias la="l --all"
 alias lt="ls --tree --level=2"
-
-# Antibody
-alias zbundle="antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh"
 
 # Git
 function git_main_branch() {
@@ -81,11 +79,6 @@ alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias :q="exit"
-
-# z
-alias j="z -I" # match autojump habit
-alias zz="z -c" # restrict matches to subdirs of $PWD
-alias zb="z -b" # quickly cd to the parent directory
 
 # up up and away
 alias ..="cd .."

@@ -1,7 +1,3 @@
--- python host
-vim.g.python3_host_prog = "$HOME/.asdf/shims/python3"
-vim.g.python_host_prog = "$HOME/.asdf/shims/python2"
-
 local opt = vim.opt
 
 opt.autowrite = true -- save before running commands (useful for TDD)

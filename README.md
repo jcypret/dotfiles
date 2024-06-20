@@ -22,6 +22,8 @@ compaudit | xargs chmod g-w
 
 # install tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux
+prefix + I # install tmux plugins
 ```
 
 ## Setup SSH
@@ -46,17 +48,16 @@ Host *
 for lang in golang lua nodejs python ruby rust
 do
   echo "Installing: $lang"
-  asdf plugin add "$lang"
-  asdf install "$lang" latest
-  asdf global "$lang" latest
+  mise use -g "$lang"
 done
 
-# re-shim installed defaults
-asdf reshim
+# add pipx completions
+pipx install argcomplete
 ```
 
 ## Configure MacOS
 
 - Keyboard Settings: Caps Lock -> Control
-- Install coding font
-- Set Alfred preferences folder
+- Install [coding font](https://github.com/jcypret/operator-mono)
+- Install [symbol font](https://www.nerdfonts.com/font-downloads)
+  - Download "Symbols Nerd Font" (symbols only)

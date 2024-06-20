@@ -2,13 +2,13 @@ cask_args appdir: "/Applications"
 
 tap "clementtsang/bottom"
 tap "heroku/brew"
-tap "homebrew/cask-versions"
 tap "thoughtbot/formulae"
 
 # Unix
 brew "ansifilter" # filter out escape codes from tmux capture
 brew "blueutil" # control bluetooth devices
 brew "cmake"
+brew "coreutils" # gdircolors
 brew "direnv"
 brew "gnu-sed"
 brew "openssl"
@@ -20,16 +20,16 @@ brew "sleepwatcher"
 brew "watchman"
 
 # ZSH
-brew "antibody"
+brew "antidote"
 brew "fzf"
 brew "pv"
-brew "z"
+brew "zoxide" # smarter cd (z command)
 brew "zsh"
 
 # Better Unix
 brew "bat" # cat
 brew "bottom" # top
-brew "exa" # ls
+brew "eza" # ls
 brew "fd" # find
 brew "prettyping" # ping
 brew "ripgrep" # grep
@@ -44,19 +44,15 @@ brew "gh"
 brew "lazygit"
 
 # Programming
-brew "asdf"
 brew "cloc"
 brew "httpie"
 brew "jq"
+brew "mise"
 brew "neovim"
 brew "overmind"
 brew "tmux"
 brew "universal-ctags"
 brew "vale"
-
-# Heroku
-brew "heroku"
-brew "parity"
 
 # Image manipulation
 brew "imagemagick"
@@ -72,12 +68,9 @@ brew "poetry"
 
 # Applications
 cask "1password"
-cask "alfred"
 cask "appcleaner"
-cask "bartender"
-cask "dash"
 cask "fantastical"
-cask "firefox-developer-edition"
+cask "firefox@developer-edition"
 cask "google-chrome"
 cask "gpg-suite-no-mail"
 cask "hammerspoon"
@@ -88,17 +81,11 @@ cask "keepingyouawake"
 cask "kitty"
 cask "mimestream"
 cask "ngrok"
-cask "paw"
-cask "postgres-unofficial"
 cask "postico"
 cask "qbserve"
+cask "raycast"
 cask "rectangle"
 cask "slack"
 cask "spotify"
 cask "vlc"
 cask "zoom"
-
-# App Store
-brew "mas"
-mas "Next Meeting", id: 1017470484
-mas "Todoist", id: 585829637

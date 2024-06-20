@@ -2,7 +2,6 @@
 
 # Oh My Zsh!
 ohmyzsh/ohmyzsh path:plugins/bundler
-ohmyzsh/ohmyzsh path:plugins/z
 
 # Plugins
 azu/ni.zsh # one command for all node package managers

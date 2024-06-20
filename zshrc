@@ -34,9 +34,6 @@ export PURE_GIT_PULL=0 # disable auto git fetch
 export SHELL="$HOMEBREW_PREFIX/bin/zsh"
 export TIME_STYLE="long-iso" # iso timestamps for `ls -l`
 
-# asdf
-source "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
-
 # completion
 zstyle ':completion:*' menu select
 zstyle ':completion:*' group-name '' # group results by category
@@ -75,8 +72,11 @@ ssh-add -A 2>/dev/null; # Load in SSH keys
 # autocomplete
 autoload -U compinit; compinit
 
-source ~/.zsh_plugins.sh
-source ~/.aliases
+# mise
+eval "$(mise activate zsh)"
+
+# z command
+eval "$(zoxide init zsh)"
 
 # path
 path+=("$HOME/.cargo/bin") # rust
@@ -91,8 +91,14 @@ if ! (( $+functions[complete] )) ; then
 fi
 
 # pnpm
-export PNPM_HOME="/Users/jcypret/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
+# antidote
+source "$HOMEBREW_PREFIX/opt/antidote/share/antidote/antidote.zsh"
+antidote load
+
+# other zsh files
+source ~/.aliases
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
