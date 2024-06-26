@@ -1,5 +1,3 @@
-# antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
-
 # Oh My Zsh!
 ohmyzsh/ohmyzsh path:plugins/bundler
 
