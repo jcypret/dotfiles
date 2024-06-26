@@ -2358,6 +2358,15 @@
             "appdir": "/Applications"
           }
         }
+      },
+      "linear-linear": {
+        "version": "1.26.0,240614qxzhackvb",
+        "options": {
+          "full_name": "linear-linear",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
       }
     }
   },
