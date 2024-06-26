@@ -56,9 +56,6 @@ if [ -d "$CLOUDSDK_HOME" ]; then
   source "$CLOUDSDK_HOME/completion.zsh.inc"
 fi
 
-# gpg
-export GPG_TTY=$(tty)
-
 # nord
 eval $(gdircolors ~/.dir_colors)
 # source: https://github.com/junegunn/fzf/wiki/Color-schemes#nord
@@ -68,6 +65,7 @@ export FZF_DEFAULT_OPTS='
 
 # ssh
 ssh-add -A 2>/dev/null; # Load in SSH keys
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 # autocomplete
 autoload -U compinit; compinit
