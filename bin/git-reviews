@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+gh pr list --search 'is:pr is:open draft:false sort:created-asc review-requested:@me'
