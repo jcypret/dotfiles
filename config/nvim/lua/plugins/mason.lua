@@ -30,6 +30,7 @@ return {
         "dockerfile-language-server",
         "erb-lint",
         "eslint-lsp",
+        "json-lsp",
         "lua-language-server",
         "prisma-language-server",
         "pyright",
