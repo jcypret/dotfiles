@@ -64,6 +64,12 @@ autocmd("FileType", {
   end,
 })
 autocmd("FileType", {
+  pattern = "csv",
+  callback = function()
+    vim.opt_local.wrap = false
+  end,
+})
+autocmd("FileType", {
   pattern = "html,eruby",
   command = "EmmetInstall",
 })
