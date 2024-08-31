@@ -2,20 +2,34 @@ return {
   "stefandtw/quickfix-reflector.vim", -- change code in the quickfix window
   {
     -- search and replace
-    "nvim-pack/nvim-spectre",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
+    "MagicDuck/grug-far.nvim",
+    config = true,
     keys = {
       {
         "\\",
-        '<cmd>lua require("spectre").toggle()<CR>',
-        { desc = "Toggle Spectre" },
+        function()
+          require("grug-far").open({ staticTitle = "Find and replace" })
+          vim.defer_fn(function()
+            vim.wo.colorcolumn = ""
+            vim.wo.cursorline = false
+          end, 10)
+        end,
+        desc = "Search and replace",
       },
       {
         "<bar>",
-        '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
-        { desc = "Search current word" },
+        function()
+          require("grug-far").open({
+            prefills = { search = vim.fn.expand("<cword>") },
+            staticTitle = "Find: " .. vim.fn.expand("<cword>"),
+          })
+          vim.defer_fn(function()
+            vim.cmd("stopinsert")
+            vim.wo.colorcolumn = ""
+            vim.wo.cursorline = false
+          end, 10)
+        end,
+        desc = "Search current word",
       },
     },
   },
