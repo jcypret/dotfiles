@@ -9,10 +9,6 @@ return {
         "\\",
         function()
           require("grug-far").open({ staticTitle = "Find and replace" })
-          vim.defer_fn(function()
-            vim.wo.colorcolumn = ""
-            vim.wo.cursorline = false
-          end, 10)
         end,
         desc = "Search and replace",
       },
@@ -25,8 +21,6 @@ return {
           })
           vim.defer_fn(function()
             vim.cmd("stopinsert")
-            vim.wo.colorcolumn = ""
-            vim.wo.cursorline = false
           end, 10)
         end,
         desc = "Search current word",

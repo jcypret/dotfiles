@@ -1,15 +1,25 @@
 local autocmd = vim.api.nvim_create_autocmd
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
 
 -- When editing a file, always jump to the last known cursor position
-autocmd("BufReadPost", {
-  pattern = "*",
-  callback = function()
+vim.api.nvim_create_autocmd("BufReadPost", {
+  group = augroup("last_loc"),
+  callback = function(event)
+    local exclude = { "gitcommit" }
+    local buf = event.buf
     if
-      vim.bo.filetype ~= "gitcommit"
-      and vim.fn.line("'\"") > 0
-      and vim.fn.line("'\"") <= vim.fn.line("$")
+      vim.tbl_contains(exclude, vim.bo[buf].filetype)
+      or vim.b[buf].lazyvim_last_loc
     then
-      vim.api.nvim_exec('normal g`"', false)
+      return
+    end
+    vim.b[buf].lazyvim_last_loc = true
+    local mark = vim.api.nvim_buf_get_mark(buf, '"')
+    local lcount = vim.api.nvim_buf_line_count(buf)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
   end,
 })
@@ -70,6 +80,15 @@ autocmd("FileType", {
   end,
 })
 autocmd("FileType", {
+  pattern = "grug-far",
+  callback = function()
+    vim.defer_fn(function()
+      vim.wo.colorcolumn = ""
+      vim.wo.cursorline = false
+    end, 10) -- 10ms delay
+  end,
+})
+autocmd("FileType", {
   pattern = "html,eruby",
   command = "EmmetInstall",
 })
@@ -81,6 +100,14 @@ autocmd("FileType", {
   pattern = "nerdtree",
   callback = function()
     vim.wo.list = false
+  end,
+})
+autocmd("FileType", {
+  group = augroup("wrap_spell"),
+  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
   end,
 })
 autocmd("TermOpen", {
@@ -111,6 +138,17 @@ autocmd("BufEnter", {
 autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then
+      return
+    end
     client.server_capabilities.semanticTokensProvider = nil
+  end,
+})
+
+-- Highlight yanked text
+autocmd("TextYankPost", {
+  group = augroup("highlight_yank"),
+  callback = function()
+    vim.highlight.on_yank({ timeout = 300 })
   end,
 })
