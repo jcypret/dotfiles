@@ -11,9 +11,7 @@ return {
     },
   },
   {
-    -- AI-powered diagnostics
-    "piersolenski/wtf.nvim",
-    dependencies = { "MunifTanjim/nui.nvim" },
-    cmd = { "Wtf" },
+    "CopilotC-Nvim/CopilotChat.nvim",
+    config = true,
   },
 }

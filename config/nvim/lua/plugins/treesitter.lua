@@ -23,6 +23,7 @@ return {
         "commonlisp",
         "css",
         "scss",
+        "diff",
         "dockerfile",
         "elixir",
         "eex",
