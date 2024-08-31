@@ -1,6 +1,6 @@
 return {
+  -- file system explorer
   {
-    -- file system explorer
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
@@ -55,6 +55,22 @@ return {
       { "<c-down>", "<cmd>TmuxNavigateDown<cr>" },
       { "<c-up>", "<cmd>TmuxNavigateUp<cr>" },
       { "<c-right>", "<cmd>TmuxNavigateRight<cr>" },
+    },
+  },
+  -- code label navigation
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
     },
   },
   { "echasnovski/mini.bracketed", version = "*", config = true }, -- square bracket navigation
