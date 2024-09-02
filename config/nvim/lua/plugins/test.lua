@@ -1,9 +1,9 @@
 return {
   {
     -- polyglot test runner
-    "janko-m/vim-test",
+    "vim-test/vim-test",
     init = function()
-      vim.g.root_markers = { "package.json", ".git/" }
+      vim.g.root_markers = { "package.json", "mix.exs", ".git/" }
       vim.g["test#strategy"] = "neovim"
 
       vim.cmd([[

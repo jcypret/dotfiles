@@ -3,6 +3,7 @@ return {
   config = function()
     require("lint").linters_by_ft = {
       cpp = { "cpplint", "cppcheck" },
+      elixir = { "credo" },
       python = { "flake8" },
       ruby = { "standardrb", "erb_lint" },
       vim = { "vint" },
