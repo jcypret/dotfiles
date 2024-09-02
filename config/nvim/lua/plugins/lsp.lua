@@ -50,7 +50,14 @@ return {
       lspconfig.eslint.setup(default_config)
 
       -- elixir
-      lspconfig.elixir_ls.setup(default_config)
+      lspconfig.elixirls.setup(vim.tbl_extend("force", default_config, {
+        cmd = {
+          vim.fn.resolve(
+            vim.fn.stdpath("data")
+              .. "/mason/packages/elixir-ls/language_server.sh"
+          ),
+        },
+      }))
 
       -- graphql
       lspconfig.graphql.setup(default_config)
