@@ -80,6 +80,14 @@ alias vi="nvim"
 alias vim="nvim"
 alias :q="exit"
 
+# clear screen
+clear-scrollback-and-screen () {
+  zle clear-screen
+  tmux clear-history
+}
+zle -N clear-scrollback-and-screen
+bindkey -v '^L' clear-scrollback-and-screen
+
 # up up and away
 alias ..="cd .."
 alias ...="cd ../.."
