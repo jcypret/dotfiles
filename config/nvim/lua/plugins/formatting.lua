@@ -12,6 +12,8 @@ return {
       formatters_by_ft = {
         ["*"] = { "trim_whitespace" },
         cpp = { "clang_format" },
+        elixir = { "mix" },
+        heex = { "mix" },
         javascript = javascript,
         javascriptreact = javascript,
         json = { "prettier" },
