@@ -49,6 +49,9 @@ return {
       -- eslint
       lspconfig.eslint.setup(default_config)
 
+      -- elixir
+      lspconfig.elixir_ls.setup(default_config)
+
       -- graphql
       lspconfig.graphql.setup(default_config)
 
