@@ -10,7 +10,7 @@ return {
       vim.g.vimsyn_embed = "l"
 
       -- theme config
-      vim.g.nord_bold = false
+      vim.g.nord_bold = true
       vim.g.nord_borders = true
       vim.g.nord_italic = false
 
