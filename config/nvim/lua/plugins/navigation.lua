@@ -32,31 +32,6 @@ return {
       },
     },
   },
-  -- seamless navigation between tmux panes and vim splits
-  {
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-    cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNavigateDown",
-      "TmuxNavigateUp",
-      "TmuxNavigateRight",
-      "TmuxNavigatePrevious",
-    },
-    keys = {
-      -- hjkl mappings
-      { "<c-h>", "<cmd>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
-      -- arrow mappings
-      { "<c-left>", "<cmd>TmuxNavigateLeft<cr>" },
-      { "<c-down>", "<cmd>TmuxNavigateDown<cr>" },
-      { "<c-up>", "<cmd>TmuxNavigateUp<cr>" },
-      { "<c-right>", "<cmd>TmuxNavigateRight<cr>" },
-    },
-  },
   -- code label navigation
   {
     "folke/flash.nvim",
@@ -74,6 +49,7 @@ return {
     },
   },
   { "echasnovski/mini.bracketed", version = "*", config = true }, -- square bracket navigation
+  "christoomey/vim-tmux-navigator", -- seamless navigation between tmux panes and vim splits
   "gioele/vim-autoswap", -- stop the swap file messages and just switch to correct window
   "pbrisbin/vim-mkdir", -- auto create any non-existent directories before writing buffer
   "simeji/winresizer", -- vim motion moving and resizing of windows
