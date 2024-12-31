@@ -1,0 +1,28 @@
+font-family = Operator Mono SSm Lig Medium
+font-family-bold = Operator Mono SSm Lig Bold
+
+font-size = 13
+font-synthetic-style = false
+
+# nord midnight
+palette = 0=#2E3440
+palette = 1=#BF616A
+palette = 2=#A3BE8C
+palette = 3=#EBCB8B
+palette = 4=#81A1C1
+palette = 5=#B48EAD
+palette = 6=#88C0D0
+palette = 7=#E5E9F0
+palette = 8=#434C5E
+palette = 9=#BF616A
+palette = 10=#A3BE8C
+palette = 11=#EBCB8B
+palette = 12=#81A1C1
+palette = 13=#B48EAD
+palette = 14=#8FBCBB
+palette = 15=#ECEFF4
+background = #242933
+foreground = #D8DEE9
+cursor-color = #ECEFF4
+selection-background = #ECEFF4
+selection-foreground = #434C5E
