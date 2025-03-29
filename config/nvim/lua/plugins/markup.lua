@@ -1,34 +1,15 @@
 return {
   {
-    -- Markdown syntax and config
-    "preservim/vim-markdown",
-    init = function()
-      vim.g.vim_markdown_conceal = 0
-      vim.g.vim_markdown_conceal_code_blocks = 0
-      vim.g.vim_markdown_folding_disabled = 1
-      vim.g.vim_markdown_frontmatter = 1
-      vim.g.vim_markdown_override_foldtext = 0
-    end,
-  },
-  {
-    "lukas-reineke/headlines.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = {
-      markdown = {
-        bullets = {},
-        codeblock_highlight = "CodeBlock",
-        dash_highlight = "Dash",
-        quote_highlight = "Quote",
-        headline_highlights = {
-          "Headline1",
-          "Headline2",
-          "Headline3",
-          "Headline4",
-          "Headline5",
-          "Headline6",
-        },
-      },
-    },
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "echasnovski/mini.nvim",
+    }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
   },
   "cespare/vim-toml", -- TOML syntax
   "jxnblk/vim-mdx-js", -- MDX syntax

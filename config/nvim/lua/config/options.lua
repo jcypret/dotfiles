@@ -4,6 +4,7 @@ opt.autowrite = true -- save before running commands (useful for TDD)
 opt.cmdheight = 2 -- extra room at bottom for messages
 opt.cursorline = true -- highlight the current line
 opt.formatoptions:remove("t") -- turn off auto hard-wrapping
+opt.laststatus = 3
 opt.linebreak = true -- prevent soft-wrapping inside of word
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" } -- whitespace characters
 opt.shortmess:append("c") -- hide completion menu messages
