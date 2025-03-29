@@ -36,7 +36,7 @@ autocmd({ "BufRead", "BufNewFile" }, {
 autocmd({ "BufRead", "BufNewFile" }, {
   pattern = ".env*",
   callback = function()
-    vim.diagnostic.disable(0)
+    vim.diagnostic.enable(false)
   end,
 })
 autocmd({ "BufRead", "BufNewFile" }, {

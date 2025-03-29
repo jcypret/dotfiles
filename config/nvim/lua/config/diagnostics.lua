@@ -1,7 +1,7 @@
 -- diagnostic config
 vim.diagnostic.config({
   float = {
-    source = "always",
+    source = true,
     border = "rounded",
   },
 })
