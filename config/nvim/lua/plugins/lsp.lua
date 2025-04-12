@@ -20,13 +20,15 @@ return {
       end
 
       local lspconfig = require("lspconfig")
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-      -- enable code folding
-      capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true,
-      }
+      local capabilities = require("blink.cmp").get_lsp_capabilities({
+        textDocument = {
+          -- enable code folding
+          foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
+          },
+        },
+      })
 
       local default_config =
         vim.tbl_extend("force", lspconfig.util.default_config, {
