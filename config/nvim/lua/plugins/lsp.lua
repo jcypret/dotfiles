@@ -4,14 +4,11 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "b0o/SchemaStore.nvim", -- json schemas
-      "hrsh7th/cmp-nvim-lsp",
-      "ray-x/lsp_signature.nvim", -- function signature hints
+      "saghen/blink.cmp", -- completion
     },
     config = function()
       -- common on-attach
       local on_attach = function(_, bufnr)
-        require("lsp_signature").on_attach({}, bufnr)
-
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
         vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
@@ -23,7 +20,7 @@ return {
       end
 
       local lspconfig = require("lspconfig")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       -- enable code folding
       capabilities.textDocument.foldingRange = {
@@ -63,7 +60,16 @@ return {
       lspconfig.graphql.setup(default_config)
 
       -- javascript + typescript
-      require("typescript-tools").setup(default_config)
+      require("typescript-tools").setup(
+        vim.tbl_extend("force", default_config, {
+          settings = {
+            jsx_close_tag = {
+              enable = true,
+              filetypes = { "javascriptreact", "typescriptreact" },
+            },
+          },
+        })
+      )
 
       -- json
       lspconfig.jsonls.setup(vim.tbl_extend("force", default_config, {
