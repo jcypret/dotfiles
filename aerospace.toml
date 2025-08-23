@@ -128,12 +128,21 @@ automatically-unhide-macos-hidden-apps = false
     alt-f = 'exec-and-forget open -n -a "Finder"'
     alt-p = 'exec-and-forget open -a "1Password"'
     alt-s = '''exec-and-forget osascript -e '
-    tell application "Safari"
+      tell application "Safari"
         make new document at end of documents
         activate
-    end tell'
+      end tell'
     '''
-    alt-t = 'exec-and-forget open -n -a "Ghostty"'
+    alt-t = '''exec-and-forget osascript -e '
+      tell application "Ghostty"
+        if it is running then
+          activate
+          tell application "System Events" to keystroke "n" using {command down}
+        else
+          activate
+        end if
+      end tell'
+    '''
 
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
