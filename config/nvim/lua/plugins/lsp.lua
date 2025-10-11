@@ -7,19 +7,22 @@ return {
       "saghen/blink.cmp", -- completion
     },
     config = function()
-      -- common on-attach
-      local on_attach = function(_, bufnr)
-        local bufopts = { noremap = true, silent = true, buffer = bufnr }
+      -- Set up keymaps when LSP attaches (replaces on_attach)
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+          local bufnr = args.buf
+          local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-        vim.keymap.set("n", "a", vim.lsp.buf.code_action, bufopts)
-        vim.keymap.set("n", "gD", vim.lsp.buf.implementation, bufopts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-      end
+          vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+          vim.keymap.set("n", "a", vim.lsp.buf.code_action, bufopts)
+          vim.keymap.set("n", "gD", vim.lsp.buf.implementation, bufopts)
+          vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+          vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
+        end,
+      })
 
-      local lspconfig = require("lspconfig")
+      -- Set default capabilities for all LSP servers
       local capabilities = require("blink.cmp").get_lsp_capabilities({
         textDocument = {
           -- enable code folding
@@ -30,61 +33,51 @@ return {
         },
       })
 
-      local default_config =
-        vim.tbl_extend("force", lspconfig.util.default_config, {
-          capabilities = capabilities,
-          on_attach = on_attach,
-        })
+      vim.lsp.config("*", {
+        capabilities = capabilities,
+      })
 
-      -- bash
-      lspconfig.bashls.setup(default_config)
-
-      -- c++
-      lspconfig.ccls.setup(default_config)
-
-      -- docker
-      lspconfig.dockerls.setup(default_config)
-
-      -- eslint
-      lspconfig.eslint.setup(default_config)
+      vim.lsp.enable({
+        "bashls", -- bash
+        "ccls", -- c++
+        "dockerls", -- docker
+        "elixirls", -- elixir
+        "eslint", -- eslint
+        "graphql", -- graphql
+        "jsonls", -- json
+        "lua_ls", -- lua (neovim)
+        "prismals", -- prisma
+        "pyright", -- python
+        "sorbet", -- ruby
+        "tailwindcss", -- tailwindcss
+        "vale_ls", -- vale
+        "vimls", -- vim
+        "vuels", -- vue
+        "yamlls", -- yaml
+      })
 
       -- elixir
-      lspconfig.elixirls.setup(vim.tbl_extend("force", default_config, {
+      vim.lsp.config("elixirls", {
         cmd = {
           vim.fn.resolve(
             vim.fn.stdpath("data")
               .. "/mason/packages/elixir-ls/language_server.sh"
           ),
         },
-      }))
-
-      -- graphql
-      lspconfig.graphql.setup(default_config)
-
-      -- javascript + typescript
-      require("typescript-tools").setup(
-        vim.tbl_extend("force", default_config, {
-          settings = {
-            jsx_close_tag = {
-              enable = true,
-              filetypes = { "javascriptreact", "typescriptreact" },
-            },
-          },
-        })
-      )
+      })
 
       -- json
-      lspconfig.jsonls.setup(vim.tbl_extend("force", default_config, {
+      vim.lsp.config("jsonls", {
         settings = {
           json = {
             schemas = require("schemastore").json.schemas(),
             validate = { enable = true },
           },
         },
-      }))
+      })
 
       -- lua (neovim)
-      lspconfig.lua_ls.setup(vim.tbl_extend("force", default_config, {
+      vim.lsp.config("lua_ls", {
         settings = {
           Lua = {
             runtime = { version = "LuaJIT" },
@@ -93,19 +86,10 @@ return {
             diagnostics = { globals = { "vim" } },
           },
         },
-      }))
-
-      -- primsa
-      lspconfig.prismals.setup(default_config)
-
-      -- python
-      lspconfig.pyright.setup(default_config)
-
-      -- ruby
-      lspconfig.sorbet.setup(default_config)
+      })
 
       -- tailwindcss
-      lspconfig.tailwindcss.setup(vim.tbl_extend("force", default_config, {
+      vim.lsp.config("tailwindcss", {
         settings = {
           tailwindCSS = {
             experimental = {
@@ -116,18 +100,15 @@ return {
             },
           },
         },
-      }))
+      })
 
       -- vale
-      lspconfig.vale_ls.setup(vim.tbl_extend("force", default_config, {
+      vim.lsp.config("vale_ls", {
         filetypes = { "markdown", "markdown.mdx", "text" },
-      }))
-
-      -- vim
-      lspconfig.vimls.setup(default_config)
+      })
 
       -- vue
-      lspconfig.vuels.setup(vim.tbl_extend("force", default_config, {
+      vim.lsp.config("vuels", {
         settings = {
           vetur = {
             experimental = {
@@ -135,16 +116,27 @@ return {
             },
           },
         },
-      }))
+      })
 
       -- yaml
-      lspconfig.yamlls.setup(vim.tbl_extend("force", default_config, {
+      vim.lsp.config("yamlls", {
         settings = {
           yaml = {
             keyOrdering = false,
           },
         },
-      }))
+      })
+
+      -- javascript + typescript (still uses typescript-tools)
+      require("typescript-tools").setup({
+        capabilities = capabilities,
+        settings = {
+          jsx_close_tag = {
+            enable = true,
+            filetypes = { "javascriptreact", "typescriptreact" },
+          },
+        },
+      })
     end,
   },
   {
