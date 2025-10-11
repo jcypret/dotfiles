@@ -41,7 +41,7 @@ return {
         "bashls", -- bash
         "ccls", -- c++
         "dockerls", -- docker
-        "elixirls", -- elixir
+        "expert", -- elixir
         "eslint", -- eslint
         "graphql", -- graphql
         "jsonls", -- json
@@ -54,16 +54,6 @@ return {
         "vimls", -- vim
         "vuels", -- vue
         "yamlls", -- yaml
-      })
-
-      -- elixir
-      vim.lsp.config("elixirls", {
-        cmd = {
-          vim.fn.resolve(
-            vim.fn.stdpath("data")
-              .. "/mason/packages/elixir-ls/language_server.sh"
-          ),
-        },
       })
 
       -- json
