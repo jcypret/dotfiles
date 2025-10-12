@@ -7,7 +7,24 @@ return {
       "neovim/nvim-lspconfig",
     },
     opts = {
-      automatic_installation = true,
+      ensure_installed = {
+        "bashls", -- bash
+        "ccls", -- c++
+        "dockerls", -- docker
+        "expert", -- elixir
+        "eslint", -- eslint
+        "graphql", -- graphql
+        "jsonls", -- json
+        "lua_ls", -- lua (neovim)
+        "prismals", -- prisma
+        "pyright", -- python
+        "sorbet", -- ruby
+        "tailwindcss", -- tailwindcss
+        "vale_ls", -- vale
+        "vimls", -- vim
+        "vuels", -- vue
+        "yamlls", -- yaml
+      },
     },
     config = function(_, opts)
       require("mason").setup()
