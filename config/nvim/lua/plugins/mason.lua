@@ -9,7 +9,6 @@ return {
     opts = {
       ensure_installed = {
         "bashls", -- bash
-        "ccls", -- c++
         "dockerls", -- docker
         "expert", -- elixir
         "eslint", -- eslint

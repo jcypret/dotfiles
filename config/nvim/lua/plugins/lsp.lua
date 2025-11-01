@@ -39,7 +39,6 @@ return {
 
       vim.lsp.enable({
         "bashls", -- bash
-        "ccls", -- c++
         "dockerls", -- docker
         "expert", -- elixir
         "eslint", -- eslint
