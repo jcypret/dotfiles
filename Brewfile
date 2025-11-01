@@ -69,6 +69,8 @@ brew "poetry"
 # Applications
 cask "1password"
 cask "appcleaner"
+cask "claude"
+cask "claude-code"
 cask "docker"
 cask "fantastical"
 cask "firefox@developer-edition"
