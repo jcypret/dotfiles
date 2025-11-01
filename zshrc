@@ -100,3 +100,6 @@ antidote load
 # other zsh files
 source ~/.aliases
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# bun completions
+[ -s "/Users/jcypret/.bun/_bun" ] && source "/Users/jcypret/.bun/_bun"
