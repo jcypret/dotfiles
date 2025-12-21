@@ -1,0 +1,9 @@
+[tools]
+go = "latest"
+lua = "latest"
+node = "latest"
+python = "latest"
+ruby = "latest"
+rust = "latest"
+elixir = "latest"
+erlang = "latest"
