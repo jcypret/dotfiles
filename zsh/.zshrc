@@ -78,8 +78,7 @@ eval "$(zoxide init zsh)"
 
 # path
 path+=("$HOME/.cargo/bin") # rust
-path=("$HOME/.bin" $path) # dotfiles
-path=("$HOME/.local/bin" $path) # pipx
+path=("$HOME/.local/bin" $path) # dotfiles scripts, pipx
 path=(".git/safe/../../bin" $path) # `git trust-bin`
 export -U PATH
 

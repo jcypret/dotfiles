@@ -2,7 +2,6 @@ cask_args appdir: "/Applications"
 
 tap "clementtsang/bottom"
 tap "heroku/brew"
-tap "thoughtbot/formulae"
 
 # Unix
 brew "ansifilter" # filter out escape codes from tmux capture
@@ -13,7 +12,7 @@ brew "direnv"
 brew "gnu-sed"
 brew "openssl"
 brew "p7zip"
-brew "rcm"
+brew "stow"
 brew "reattach-to-user-namespace"
 brew "rename"
 brew "sleepwatcher"
