@@ -1,10 +1,12 @@
 # Justin's Dotfiles
 
-## Installation
+Dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
+
+## Fresh Install (New Machine)
 
 ```bash
 # clone dotfiles
-mkdir ~/Code && cd ~/Code
+mkdir -p ~/Code && cd ~/Code
 git clone https://github.com/jcypret/dotfiles.git
 
 # install homebrew
@@ -12,18 +14,48 @@ git clone https://github.com/jcypret/dotfiles.git
 
 # install Brewfile
 eval "$(/opt/homebrew/bin/brew shellenv)"
-brew bundle --file ~/Code/dotfiles/Brewfile
+brew bundle --file ~/Code/dotfiles/brew/.Brewfile
 
-# install dotfiles
+# stow dotfiles
+cd ~/Code/dotfiles && stow --dotfiles -t ~ */
+
+# set zsh as default shell
 sudo dscl . -create "/Users/$USER" UserShell "$HOMEBREW_PREFIX/bin/zsh"
-env RCRC=$HOME/Code/dotfiles/rcrc rcup
-zbundle
+
+# setup zsh plugins and fix permissions
+zsh -c 'source ~/.zshrc'
 compaudit | xargs chmod g-w
 
 # install tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-tmux
-prefix + I # install tmux plugins
+# then in tmux: prefix + I to install plugins
+```
+
+## Migrate from RCM to Stow (Existing Machine)
+
+If you're currently using RCM and want to switch to Stow:
+
+```bash
+# pull latest dotfiles (with new Stow structure)
+cd ~/Code/dotfiles && git pull
+
+# remove all RCM symlinks
+rcdn -v
+
+# install stow (rcm will be removed on next brew bundle)
+brew install stow
+
+# stow all packages
+cd ~/Code/dotfiles && stow --dotfiles -t ~ */
+
+# clean up old bin directory
+rm -rf ~/.bin
+
+# update Brewfile (removes rcm, uses stow)
+brew bundle --file ~/Code/dotfiles/brew/.Brewfile
+
+# verify shell still works
+zsh -c 'source ~/.zshrc && echo "Success!"'
 ```
 
 ## Setup SSH
