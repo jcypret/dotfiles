@@ -3,7 +3,6 @@
     "frontend-design-pro@frontend-design-pro": true,
     "typescript-lsp@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": true,
   "permissions": {
     "defaultMode": "plan"
   },
