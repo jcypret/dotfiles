@@ -30,8 +30,6 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-[interactive]
-  diffFilter = delta --color-only
 [commit]
   template = ~/.gitmessage
   gpgsign = true
@@ -43,6 +41,7 @@
   ff = only
 [diff]
   colorMoved = default
+  external = ~/.local/bin/git-external-diff.sh
 [pull]
   ff = only
 [push]
@@ -55,7 +54,12 @@
 [init]
   defaultBranch = main
 [gpg]
-	format = openpgp
+  format = openpgp
 [gpg "ssh"]
   program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
   defaultKeyCommand = ssh-add -L
+[merge "daff-csv"]
+  name = daff tabular csv merge
+  driver = daff merge --output %A %O %A %B
+[pager]
+  diff = ~/.local/bin/smart-pager.sh
