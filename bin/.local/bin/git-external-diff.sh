@@ -12,7 +12,7 @@ new_file="$5"
 # Check if it's a CSV file
 if [[ "$path" =~ \.csv$ ]]; then
     # Use daff for CSV files
-    daff diff --color "$old_file" "$new_file"
+    daff diff --color --context 1 --padding sparse "$old_file" "$new_file"
 else
     # Use diff piped through delta for non-CSV files
     diff -u "$old_file" "$new_file" | delta --dark --paging=never --width="${COLUMNS:-80}"
