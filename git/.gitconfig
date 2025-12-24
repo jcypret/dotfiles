@@ -54,7 +54,7 @@
 [init]
   defaultBranch = main
 [gpg]
-  format = openpgp
+  format = ssh
 [gpg "ssh"]
   program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
   defaultKeyCommand = ssh-add -L
